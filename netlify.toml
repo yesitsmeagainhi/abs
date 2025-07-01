@@ -3,10 +3,14 @@
   command = "npm run build"
   publish = ".next"          # .next is correct for the Next.js plugin
 
+[functions]
+  node_bundler = "esbuild"
+
+# Next.js plugin for Netlify
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
-# ► NEW – Netlify Sitemap plugin (auto-generates /sitemap.xml)
+# Auto-generates /sitemap.xml
 [[plugins]]
   package = "netlify-plugin-sitemap"
 
