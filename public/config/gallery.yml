@@ -1,0 +1,42 @@
+settings:
+  autoScroll:
+    enabled: true
+    interval: 2000
+    distance: 200
+  seo:
+    siteName: "ABS Educational Solution"
+    baseUrl: "https://yourwebsite.com"
+    description: "Leading educational institution providing quality healthcare and paramedical education"
+
+# College Gallery - Add your first few images here
+college:
+  - src: "/uploads/college/campus-main.jpg"
+    title: "Main Campus Building"
+    description: "Our state-of-the-art main campus building featuring modern architecture and sustainable design."
+    category: "Infrastructure"
+
+  - src: "/uploads/college/library.jpg"
+    title: "Central Library"
+    description: "Our comprehensive library houses extensive resources for student research."
+    category: "Academic Facilities"
+
+# Lecture Gallery
+lecture:
+  - src: "/uploads/lectures/auditorium.jpg"
+    title: "Main Auditorium"
+    description: "500-seat auditorium equipped with cutting-edge presentation technology."
+    category: "Lecture Facilities"
+
+# Activity Gallery
+activity:
+  - src: "/uploads/activities/sports-day.jpg"
+    title: "Annual Sports Day"
+    description: "Our yearly athletic celebration showcasing student talent."
+    category: "Sports Events"
+
+# Certificates Gallery
+certificates:
+  - src: "/uploads/certificates/graduation.jpg"
+    title: "Graduation Ceremony"
+    description: "Annual commencement celebrating student achievements."
+    category: "Graduation"

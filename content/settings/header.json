@@ -1,0 +1,34 @@
+{
+  "logo": "/uploads/abs-logo.png",
+  "announcement": "🎓 Enrollments Open – Limited Seats!",
+  "nav": [
+    {
+      "label": "Home",
+      "url": "/",
+      "subitems": [
+        {
+          "label": "Call",
+          "url": "tel:8600574836"
+        }
+      ]
+    },
+    {
+      "label": "Courses",
+      "url": "/courses",
+      "subitems": []
+    },
+    {
+      "label": "About",
+      "url": "/about-us"
+    },
+    {
+      "label": "Blogs",
+      "url": "/blog"
+    }
+  ],
+  "cta": {
+    "label": "Apply Now",
+    "url": "/apply"
+  },
+  "footer": " "
+}

@@ -1,0 +1,729 @@
+##########################################################################
+#  Netlify CMS – ABS Educational Solution  (full master config)
+##########################################################################
+
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true      # enables `npx netlify-cms-proxy-server`
+
+media_folder:  "public/uploads"
+public_folder: "/uploads"
+
+plugins:
+  - name: netlify-cms-plugin-conditionals
+
+##########################################################################
+#  COLLECTIONS
+##########################################################################
+
+
+collections:
+  ##########################################################################
+  #  1 ▸ PAGES  (visual-builder OR raw-code)
+  ##########################################################################
+  - name: "pages"
+    label: "Pages"
+    folder: "content/pages"
+    create: true
+    slug: "{{fields.slug}}"
+    fields:
+      - { label: "Title", name: title, widget: string }
+      - { label: "Slug",  name: slug,  widget: string }
+      - label: "Page Type"
+        name:  ptype
+        widget: select
+        options:
+          - { label: "Visual Builder", value: builder }
+          - { label: "Raw Code",       value: code }
+        default: builder
+
+      # ---------------- Visual-builder blocks ----------------
+      - label: "Blocks"
+        name:  blocks
+        widget: list
+        required: false
+        summary: "{{fields.name}}"
+        hint: "Add and reorder content blocks"
+        condition: { field: ptype, equals: builder }  # 👈 FIXED: use 'condition' instead of 'conditional'
+        types:
+          - label: "Hero Section"
+            name:  hero
+            widget: object
+            fields:
+              - { label: Headline,  name: headline, widget: string }
+              - { label: Sub-text,  name: subText,  widget: text }
+              - { label: Image,     name: image,    widget: image }
+              - { label: Alt-text,  name: imageAlt, widget: string, required: false }
+              - { label: CTA Label, name: ctaLabel, widget: string, required: false }
+              - { label: CTA Link,  name: ctaLink,  widget: string, required: false }
+              - { label: Align,     name: align, widget: select, options: [left, center, right], default: center }
+
+          - label: "Course Stats"
+            name: "courseStats"
+            widget: "object"
+            fields:
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Subtext", name: "subtext", widget: "text" }
+              - label: "Stats"
+                name: "stats"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Value", name: "value", widget: "string" }
+
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Quote", name: "quote", widget: "text" }
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Avatar", name: "avatar", widget: "image" }
+
+          - label: "Features Grid"
+            name: "featuresGrid"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Icon (emoji/class)", name: "icon", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+
+          - label: "Career Paths"
+            name: "careerPaths"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - label: "Roles"
+                name: "roles"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Icon", name: "icon", widget: "string" }
+
+          - label: "Scholarship Banner"
+            name: "scholarshipBanner"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Subtext", name: "subtext", widget: "text" }
+              - { label: "CTA", name: "cta", widget: "string" }
+
+      # -------------- Raw-code field (IMPROVED) --------------
+      - label: "Raw HTML/CSS/JS Code"
+        name: "body"  # 👈 IMPORTANT: use 'body' so it goes in content, not frontmatter
+        widget: "code"
+        default_language: "html"  # 👈 ADD: set default language
+        allow_language_selection: true  # 👈 ADD: allow HTML/CSS/JS selection
+        keys: { code: "html", lang: "html" }  # 👈 ADD: specify output format
+        output_code_only: true
+        required: false
+        condition: { field: ptype, equals: code }  # 👈 FIXED: use 'condition'
+
+  - name: "gallery"
+    label: "Gallery Management"
+    delete: false
+    extension: "yml"
+    files:
+      - file: "config/gallery.yml"
+        label: "Gallery Settings & Images"
+        name: "gallery_config"
+        fields:
+          # Gallery Settings
+          - label: "Gallery Settings"
+            name: "settings"
+            widget: "object"
+            collapsed: true
+            fields:
+              - label: "Auto Scroll"
+                name: "autoScroll"
+                widget: "object"
+                fields:
+                  - { label: "Enabled", name: "enabled", widget: "boolean", default: true }
+                  - { label: "Interval (ms)", name: "interval", widget: "number", default: 2000, hint: "Time between scrolls in milliseconds" }
+                  - { label: "Distance (px)", name: "distance", widget: "number", default: 200, hint: "Pixels to scroll each time" }
+              
+              - label: "SEO Settings"
+                name: "seo"
+                widget: "object"
+                fields:
+                  - { label: "Site Name", name: "siteName", widget: "string", default: "ABS Educational Solution" }
+                  - { label: "Base URL", name: "baseUrl", widget: "string", default: "https://yourwebsite.com" }
+                  - { label: "Description", name: "description", widget: "text", default: "Leading educational institution providing quality education" }
+
+          # College Gallery - Image is now optional
+          - label: "College Gallery"
+            name: "college"
+            widget: "list"
+            summary: "{{fields.title}} - {{fields.category}}"
+            required: false
+            fields:
+              - label: "Image"
+                name: "src"
+                widget: "image"
+                required: false
+                hint: "Upload an image or leave empty to add later"
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text", required: false }
+              - label: "Category"
+                name: "category"
+                widget: "select"
+                options:
+                  - "Infrastructure"
+                  - "Academic Facilities"
+                  - "Campus Life"
+                  - "Campus Architecture"
+                  - "Interior Spaces"
+                  - "Student Services"
+                default: "Infrastructure"
+              - label: "Alternative Image URL"
+                name: "imageUrl"
+                widget: "string"
+                required: false
+                hint: "Or paste an image URL (like Unsplash) instead of uploading"
+
+          # Lecture Gallery - Image is now optional
+          - label: "Lecture Gallery"
+            name: "lecture"
+            widget: "list"
+            summary: "{{fields.title}} - {{fields.category}}"
+            required: false
+            fields:
+              - label: "Image"
+                name: "src"
+                widget: "image"
+                required: false
+                hint: "Upload an image or leave empty to add later"
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text", required: false }
+              - label: "Category"
+                name: "category"
+                widget: "select"
+                options:
+                  - "Lecture Facilities"
+                  - "Learning Spaces"
+                  - "Discussion Rooms"
+                  - "Meeting Facilities"
+                  - "Technical Labs"
+                  - "Support Spaces"
+                default: "Learning Spaces"
+              - label: "Alternative Image URL"
+                name: "imageUrl"
+                widget: "string"
+                required: false
+                hint: "Or paste an image URL (like Unsplash) instead of uploading"
+
+          # Activity Gallery - Image is now optional
+          - label: "Activity Gallery"
+            name: "activity"
+            widget: "list"
+            summary: "{{fields.title}} - {{fields.category}}"
+            required: false
+            fields:
+              - label: "Image"
+                name: "src"
+                widget: "image"
+                required: false
+                hint: "Upload an image or leave empty to add later"
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text", required: false }
+              - label: "Category"
+                name: "category"
+                widget: "select"
+                options:
+                  - "Sports Events"
+                  - "Cultural Events"
+                  - "Academic Events"
+                  - "Workshops"
+                  - "Club Activities"
+                  - "Field Studies"
+                default: "Academic Events"
+              - label: "Alternative Image URL"
+                name: "imageUrl"
+                widget: "string"
+                required: false
+                hint: "Or paste an image URL (like Unsplash) instead of uploading"
+
+          # Certificates Gallery - Image is now optional
+          - label: "Certificates Gallery"
+            name: "certificates"
+            widget: "list"
+            summary: "{{fields.title}} - {{fields.category}}"
+            required: false
+            fields:
+              - label: "Image"
+                name: "src"
+                widget: "image"
+                required: false
+                hint: "Upload an image or leave empty to add later"
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text", required: false }
+              - label: "Category"
+                name: "category"
+                widget: "select"
+                options:
+                  - "Academic Recognition"
+                  - "Graduation"
+                  - "Merit Awards"
+                  - "Competition Awards"
+                  - "Professional Development"
+                  - "Honor Awards"
+                default: "Academic Recognition"
+              - label: "Alternative Image URL"
+                name: "imageUrl"
+                widget: "string"
+                required: false
+                hint: "Or paste an image URL (like Unsplash) instead of uploading"
+
+
+  - label: "Site Settings"
+    name: "settings"
+    files:
+      - label: "Analytics Scripts"
+        name: "analytics"
+        file: "content/settings.json"
+        fields:
+          - { label: "Header Scripts", name: "headerScripts", widget: "text", required: false }
+          - { label: "Body Start Scripts", name: "bodyStartScripts", widget: "text", required: false }
+          - { label: "Footer Scripts", name: "footerScripts", widget: "text", required: false }
+
+  ##########################################################################
+  #  2 ▸ BLOG POSTS
+  ##########################################################################
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "content/posts"
+    create: true
+    slug: "{{fields.slug}}"
+    format: frontmatter
+    fields:
+      - { label: Title,   name: title,   widget: string }
+      - { label: Slug,    name: slug,    widget: string }
+      - { label: Date,    name: date,    widget: datetime }
+      - { label: Category,name: category,widget: string, required: false }
+      - { label: Summary, name: summary, widget: text,   required: false }
+      - { label: Hero,    name: hero,    widget: image,  required: false }
+      - { label: Author,  name: author,  widget: string, required: false }
+      - { label: Body,    name: body,    widget: markdown }
+
+  ##########################################################################
+  #  3 ▸ NAVIGATION / HEADER  (announcement • logo • CTA • menu)
+  ##########################################################################
+  - name: "navigation"
+    label: "Navigation & Header"
+    delete: false
+    extension: json
+    files:
+      - file: "content/settings/navigation.json"
+        label: "Header Settings"
+        name:  header_settings
+        fields:
+          - { label: Announcement Text, name: announcement, widget: string, required: false }
+          - { label: Logo Image,        name: logo,         widget: image,  required: false }
+          - label: CTA
+            name:  cta
+            widget: object
+            required: false
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: URL,   name: url,   widget: string }
+
+          # The Menu Links widget is now correctly placed as a field
+          - label: Menu Links
+            name: menu
+            widget: list
+            summary: "{{fields.label}}"
+            fields:
+              - { label: Label, name: label, widget: string }
+              - label: Link Type
+                name: type
+                widget: select
+                options: [custom, page, post]
+                default: custom
+              - { label: Custom URL, name: url, widget: string, required: false }
+              - { label: Page, name: page, widget: relation, collection: pages, search_fields: [title], value_field: "{{slug}}", display_fields: [title], required: false }
+              - { label: Post, name: post, widget: relation, collection: posts, search_fields: [title], value_field: "{{slug}}", display_fields: [title], required: false }
+
+              # Level 2 - Children
+              - label: Children
+                name: children
+                widget: list
+                required: false
+                collapsed: true
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - label: Link Type
+                    name: type
+                    widget: select
+                    options: [custom, page, post]
+                    default: custom
+                  - { label: Custom URL, name: url, widget: string, required: false }
+                  - { label: Page, name: page, widget: relation, collection: pages, search_fields: [title], value_field: "{{slug}}", display_fields: [title], required: false }
+                  - { label: Post, name: post, widget: relation, collection: posts, search_fields: [title], value_field: "{{slug}}", display_fields: [title], required: false }
+
+                  # Level 3 - Grandchildren
+                  - label: Grandchildren
+                    name: grandchildren
+                    widget: list
+                    required: false
+                    collapsed: true
+                    fields:
+                      - { label: Label, name: label, widget: string }
+                      - label: Link Type
+                        name: type
+                        widget: select
+                        options: [custom, page, post]
+                        default: custom
+                      - { label: Custom URL, name: url, widget: string, required: false }
+                      - { label: Page, name: page, widget: relation, collection: pages, search_fields: [title], value_field: "{{slug}}", display_fields: [title], required: false }
+                      - { label: Post, name: post, widget: relation, collection: posts, search_fields: [title], value_field: "{{slug}}", display_fields: [title], required: false }
+
+      - name: "header"
+        label: "Header"
+        file: "content/settings/header.json"
+        fields:
+          - { label: "Logo", name: "logo", widget: "image" }
+          - { label: "Announcement", name: "announcement", widget: "string" }
+          - label: "Navigation"
+            name: "nav"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+              - label: "Subitems"
+                name: "subitems"
+                widget: "list"
+                required: false
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+          - label: "CTA"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+
+  - name: "footer"
+    label: "Footer Section"
+    delete: false
+    extension: "json"
+    files:
+      - file: "content/settings/footer.json"
+        label: "Footer Settings"
+        name:  "footer_settings"
+        fields:
+          - { label: "Banner Heading", name: "banner_heading", widget: "string" }
+          - { label: "Banner Subheading", name: "banner_subheading", widget: "string" }
+          - { label: "Button Text", name: "button_text", widget: "string" }
+          - { label: "WhatsApp Link", name: "whatsapp_link", widget: "string" }
+          - { label: "Phone Link", name: "phone_link", widget: "string" }
+          - { label: "Phone Display", name: "phone_display", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - label: "Quick Links"
+            name: "quick_links"
+            widget: "list"
+            fields:
+              - { label: "Text", name: "text", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+          - label: "Resources"
+            name: "resources"
+            widget: "list"
+            fields:
+              - { label: "Text", name: "text", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" } 
+          - label: "Logo"
+            name: "logo"
+            widget: "image"
+            default: "/uploads/logo.svg"
+
+          - label: "About Text"
+            name: "about_text"
+            widget: "text"
+            default: "ABS is India’s top institute for healthcare and paramedical education."
+       
+
+
+ 
+  - name: "courses"
+    label: "Courses"
+    folder: "content/courses"
+    create: true
+    extension: "mdx"
+    slug: "{{fields.slug}}"   # ✅ This is the key fix
+    preview_path: "courses/{{fields.slug}}"
+    format: frontmatter
+    fields:
+      - { label: Course Title, name: title, widget: string }
+      - { label: Slug, name: slug, widget: string, hint: "lower-case-dashes" }
+
+      # ── Hero basics ───────────────────────────────
+      - { label: Tagline,       name: tagline,      widget: string }
+      - { label: Domain,        name: domain,       widget: string }
+      - { label: Eligibility,   name: eligibility,  widget: string }
+      - { label: Starting Salary, name: salary,     widget: string }
+      - { label: Hero Image,    name: heroImage,    widget: image }
+      - { label: Hero Alt-text, name: heroAlt,      widget: string, required: false }
+      - { label: CTA Label,     name: ctaLabel,     widget: string, default: "Apply Now" }
+      - { label: CTA Link,      name: ctaLink,      widget: string, default: "/contact" }
+      - { label: Brochure (URL), name: brochureLink, widget: string, required: false }
+
+      # ── Toggle sections ─────────────────────────────────────────
+      - label: Show / Hide Sections
+        name:  sections
+        widget: object
+        collapsed: true
+        fields:
+          - { label: Hero,               name: hero,         widget: boolean, default: true }
+          - { label: Placement slider,   name: placement,    widget: boolean, default: true }
+          - { label: Overview table,     name: overview,     widget: boolean, default: true }
+          - { label: Enquiry CTA,        name: enquiryCta,   widget: boolean, default: true }
+          - { label: Career grid,        name: career,       widget: boolean, default: true }
+          - { label: Scholarship banner, name: scholarship,  widget: boolean, default: true }
+          - { label: Rich-text body,     name: body,         widget: boolean, default: true }
+          - { label: Branches grid,      name: branches,     widget: boolean, default: true }
+          - { label: Footer CTA,         name: footerCta,    widget: boolean, default: true }
+          - { label: Frequently Asked Questions,         name: faqs,    widget: boolean, default: true }
+
+      # ── Overview table ──────────────────────────────────────────
+      - label: Course Overview Table
+        name:  overview
+        widget: list
+        fields:
+          - { label: Row Label,  name: label, widget: string }
+          - { label: Row Value,  name: value, widget: string }
+
+      # ── Career roles ────────────────────────────────────────────
+      - { label: Roles Section Heading, name: rolesHeading, widget: string, default: "Common Job Roles" }
+      - label: Career Roles
+        name:  roles
+        widget: list
+        fields:
+          - { label: Role Name, name: name, widget: string }
+          - { label: Blog URL (optional), name: href, widget: string, required: false }
+
+      # ── Branches ────────────────────────────────────────────────
+      - label: Branches
+        name:  branches
+        widget: list
+        fields:
+          - { label: Branch Name, name: name,     widget: string }
+          - { label: Location,    name: location, widget: string }
+          - { label: Google Maps, name: map,      widget: string }
+          - { label: Phone,       name: phone,    widget: string }
+          - { label: WhatsApp,    name: whatsapp, widget: string }
+
+      - label: "Frequently Asked Questions"
+        name: "faqs"
+        widget: "list"
+        collapsed: false
+        summary: "{{fields.question}}"
+        fields:
+          - label: "Question"
+            name: "question"
+            widget: "string"
+            hint: "Enter the FAQ question"
+          - label: "Answer"
+            name: "answer"
+            widget: "text"
+            hint: "Provide a detailed answer (supports basic HTML)"
+
+      # ── Detail Accordions ───────────────────────────────────────
+      - label: Detail Accordions
+        name:  detailAccordions
+        widget: list
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Body (Markdown), name: body, widget: markdown }
+
+      # ── Extra Page-blocks (reuse the same builder list) ────────
+      - label: Blocks
+        name:  blocks
+        widget: list
+        summary: "{{fields.name}}"
+        fields:
+          - { label: Block, name: name, widget: select, options: [] }
+          - { label: Props (JSON), name: props, widget: text, required: false }
+
+      # ── Misc meta ───────────────────────────────────────────────
+      - { label: Short Description (meta), name: shortDescription, widget: text, required: false }
+      - { label: Start Date, name: startDate, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, required: false }
+      - { label: End Date,   name: endDate,   widget: datetime, date_format: "YYYY-MM-DD", time_format: false, required: false }
+      - { label: Body,       name: body,      widget: markdown }
+
+types:
+  - label: "Hero Section"
+    name: "hero"
+    widget: "object"
+    fields:
+      - { label: "Headline", name: "headline", widget: "string" }
+      - { label: "Sub-text", name: "subText", widget: "text" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Alt-text", name: "imageAlt", widget: "string", required: false }
+      - { label: "CTA Label", name: "ctaLabel", widget: "string", required: false }
+      - { label: "CTA Link", name: "ctaLink", widget: "string", required: false }
+      - { label: "Align", name: "align", widget: "select", options: ["left", "center", "right"], default: "center" }
+
+  - label: "Course Stats"
+    name: "courseStats"
+    widget: "object"
+    fields:
+      - { label: "Headline", name: "headline", widget: "string" }
+      - { label: "Subtext", name: "subtext", widget: "text" }
+      - label: "Stats"
+        name: "stats"
+        widget: "list"
+        fields:
+          - { label: "Label", name: "label", widget: "string" }
+          - { label: "Value", name: "value", widget: "string" }
+
+  - label: "Testimonials"
+    name: "testimonials"
+    widget: "object"
+    fields:
+      - { label: "Heading", name: "heading", widget: "string" }
+      - label: "Items"
+        name: "items"
+        widget: "list"
+        fields:
+          - { label: "Quote", name: "quote", widget: "text" }
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Avatar", name: "avatar", widget: "image" }
+
+  - label: "Features Grid"
+    name: "featuresGrid"
+    widget: "object"
+    fields:
+      - { label: "Heading", name: "heading", widget: "string" }
+      - label: "Items"
+        name: "items"
+        widget: "list"
+        fields:
+          - { label: "Icon (emoji/class)", name: "icon", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+
+  - label: "Career Paths"
+    name: "careerPaths"
+    widget: "object"
+    fields:
+      - { label: "Heading", name: "heading", widget: "string" }
+      - label: "Roles"
+        name: "roles"
+        widget: "list"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Icon", name: "icon", widget: "string" }
+
+  - label: "Scholarship Banner"
+    name: "scholarshipBanner"
+    widget: "object"
+    fields:
+      - { label: "Heading", name: "heading", widget: "string" }
+      - { label: "Subtext", name: "subtext", widget: "text" }
+      - { label: "CTA", name: "cta", widget: "string" }
+
+  - label: "Course Overview Table"
+    name: courseOverviewTable
+    widget: object
+    fields:
+      - { label: "Heading", name: heading, widget: string, default: "Course overview" }
+
+      - label: "Rows"
+        name: rows
+        widget: list
+        fields:
+          #  ←—— THIS MUST BE `text`
+          - label: "Label (multi-line / basic HTML)"
+            name: label
+            widget: text
+            required: true
+            hint: |
+              Press Enter for a new line or type <br> manually.
+              Allowed tags: <br>, <b>, <strong>, <em>, <i>, <u>, <a> …
+
+          - label: "Value (Markdown / HTML supported)"
+            name: value
+            widget: markdown
+            minimal: true
+            buttons: ["bold", "italic", "link", "bulleted-list", "numbered-list"]
+            editor_components: []
+            hint: "Use Enter for line breaks or HTML tags like <br>"
+
+
+
+
+
+  - label: "Contact Form"
+    name:  contactForm
+    widget: object
+    fields:
+      - { label: Headline, name: headline, widget: string }
+      - label: Fields
+        name:  fields
+        widget: list
+        fields:
+          - { label: Label, name: label, widget: string }
+          - { label: Type,  name: type,  widget: select, options: [text,email,tel] }
+
+  - label: "FAQ Accordion"
+    name:  faqAccordion
+    widget: object
+    fields:
+      - { label: Heading, name: heading, widget: string }
+      - label: Items
+        name:  items
+        widget: list
+        fields:
+          - { label: Question, name: question, widget: string }
+          - { label: Answer,   name: answer,   widget: text }
+
+  - label: "Gallery Carousel"
+    name:  galleryCarousel
+    widget: object
+    fields:
+      - { label: Heading, name: heading, widget: string }
+      - label: Images
+        name:  images
+        widget: list
+        fields:
+          - { label: Image, name: image, widget: image }
+          - { label: Alt,   name: alt,   widget: string }
+
+  - label: "Sticky Buttons"
+    name:  stickyButtons
+    widget: object
+    fields:
+      - label: Buttons
+        name:  buttons
+        widget: list
+        fields:
+          - { label: Type,  name: type,  widget: string }
+          - { label: Icon,  name: icon,  widget: string }
+          - { label: Link,  name: link,  widget: string }
+
+  - label: "Branch Info"
+    name:  branchInfo
+    widget: object
+    fields:
+      - label: Branches
+        name:  branches
+        widget: list
+        fields:
+          - { label: Name,      name: name,      widget: string }
+          - { label: Location,  name: location,  widget: string }
+          - { label: Phone,     name: phone,     widget: string }
+          - { label: Maps URL,  name: maps,      widget: string }  
+
+
+  
