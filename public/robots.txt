@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://abseducationalsolution.com
+
+# Sitemaps
+Sitemap: https://abseducationalsolution.com/sitemap.xml

@@ -1,0 +1,18 @@
+# netlify.toml
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
+  # ---- supported inputs ----
+  [plugins.inputs]
+    baseUrl   = "https://abseducationalsolution.com"
+    filePath  = "sitemap.xml"          # this replaces the unsupported sitemapPath
+    prettyURLs = true                  # optional example

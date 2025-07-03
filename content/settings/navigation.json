@@ -1,0 +1,20 @@
+{
+  "announcement": "Welcome to ABS Education!",
+  "logo": "/uploads/abs-logo.png",
+  "cta": {
+    "label": "Enroll Nowa",
+    "url": "/contact"
+  },
+  "menu": [
+    {
+      "type": "custom",
+      "label": "Courses",
+      "url": "Courses"
+    },
+    {
+      "type": "page",
+      "label": "About",
+      "page": "about-us"
+    }
+  ]
+}

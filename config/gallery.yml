@@ -1,0 +1,27 @@
+settings:
+  autoScroll:
+    enabled: true
+    interval: 10000
+    distance: 10
+  seo:
+    siteName: te
+    baseUrl: ads
+    description: fds
+college:
+  - category: Infrastructure
+    src: /uploads/abs-logo.png
+    title: B
+lecture:
+  - category: Learning Spaces
+    src: /uploads/abs-logo.png
+    title: B
+activity:
+  - category: Academic Events
+    src: /uploads/abs-logo.png
+    title: BSC
+certificates:
+  - category: Academic Recognition
+    src: /uploads/B.Sc Nursing students in clinical training at a top nursing
+      college in Mumbai with hospital facilities.png
+    title: BSC
+    description: BSC

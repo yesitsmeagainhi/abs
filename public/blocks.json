@@ -1,0 +1,44 @@
+[
+  {
+    "name": "BranchInfo"
+  },
+  {
+    "name": "CallToActionBanner"
+  },
+  {
+    "name": "CareerPaths"
+  },
+  {
+    "name": "ContactForm"
+  },
+  {
+    "name": "CourseOverviewTable"
+  },
+  {
+    "name": "CourseStats"
+  },
+  {
+    "name": "FaqAccordion"
+  },
+  {
+    "name": "FeaturesGrid"
+  },
+  {
+    "name": "GalleryCarousel"
+  },
+  {
+    "name": "Hero"
+  },
+  {
+    "name": "ScholarshipBanner"
+  },
+  {
+    "name": "StickyButtons"
+  },
+  {
+    "name": "Testimonials"
+  },
+  {
+    "name": "VideoBlock"
+  }
+]

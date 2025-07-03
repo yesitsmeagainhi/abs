@@ -1,0 +1,35 @@
+{
+  "resources": [
+    {
+      "text": "Privacy Policy",
+      "url": "/privacy"
+    },
+    {
+      "text": "Terms & Conditions",
+      "url": "/terms"
+    }
+  ],
+  "whatsapp_link": "https://wa.me/919702836946",
+  "quick_links": [
+    {
+      "text": "Home",
+      "url": "/"
+    },
+    {
+      "text": "Courses",
+      "url": "/courses"
+    },
+    {
+      "text": "About",
+      "url": "/about"
+    }
+  ],
+  "phone_link": "tel:+919702836946",
+  "logo": "/uploads/abs-logo.png",
+  "banner_heading": "Still confused about your career?",
+  "phone_display": "+91 9702836946",
+  "banner_subheading": "Get expert guidance from our counselors.",
+  "button_text": "Talk to a counselor →",
+  "email": "info@abseducationalsolution.com",
+  "about_text": "ABS is India’s top institute for healthcare and paramedical "
+}

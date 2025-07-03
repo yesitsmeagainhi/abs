@@ -1,0 +1,55 @@
+/* styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional: Add prose customization */
+.prose h1 {
+  @apply text-3xl font-bold;
+}
+.prose ul {
+  @apply list-disc list-inside;
+}
+
+/* Add only these essential lines to your globals.css */
+
+/* Prevent horizontal scroll on all devices */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* Ensure box-sizing for all elements */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Prevent zoom on iOS form inputs */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select, textarea, input[type="text"], input[type="password"],
+  input[type="datetime"], input[type="datetime-local"],
+  input[type="date"], input[type="month"], input[type="time"],
+  input[type="week"], input[type="number"], input[type="email"],
+  input[type="url"], input[type="search"], input[type="tel"],
+  input[type="color"] {
+    font-size: 16px !important;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove tap highlight on touch devices */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Ensure proper text rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
