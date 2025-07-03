@@ -1,27 +1,33 @@
 // next.config.js
-const isProd = process.env.NODE_ENV === 'production';
+const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
   async headers() {
-    // Only attach CSP in prod
-    if (!isProd) return [];
+    if (!isProd) return []          // no CSP in dev; keeps HMR painless
 
     return [
       {
-        source: '/(.*)',          // apply everywhere
+        source: '/(.*)',
         headers: [
           {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com",
+              // allow GA / GTM inline & eval if you absolutely need them
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com",
               "style-src  'self' 'unsafe-inline'",
-              'img-src    * data:',
-              'connect-src *',
-            ].join('; '),
-          },
-        ],
-      },
-    ];
+              //  ▼▼ added line — allow fonts from same site *and* data: URIs
+              "font-src   'self' data:",
+              "img-src    * data:",
+              "connect-src *",
+            ].join('; ')
+          }
+        ]
+      }
+    ]
   },
-};
+  // if you still see 404s from <Image>, you can disable optimisation
+  images: {
+    unoptimized: true
+  }
+}
