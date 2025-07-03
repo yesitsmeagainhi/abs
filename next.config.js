@@ -13,10 +13,10 @@ module.exports = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              // allow GA / GTM inline & eval if you absolutely need them
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com",
+              // allow GA / GTM inline & eval + Netlify Identity
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://identity.netlify.com",
               "style-src  'self' 'unsafe-inline'",
-              //  ▼▼ added line — allow fonts from same site *and* data: URIs
+              // allow fonts from same site *and* data: URIs
               "font-src   'self' data:",
               "img-src    * data:",
               "connect-src *",
