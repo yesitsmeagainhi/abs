@@ -10,9 +10,7 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
-# Auto-generates /sitemap.xml
-[[plugins]]
-  package = "netlify-plugin-sitemap"
+
 
   [plugins.inputs]
     baseUrl = "https://abseducationalsolution.com"  # ← your canonical domain
