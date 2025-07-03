@@ -6,17 +6,13 @@
 [functions]
   node_bundler = "esbuild"
 
-# ── plugins ──────────────────────────────────────────
-# Next.js adapter (no inputs allowed)
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
-# Sitemap generator  ✅ correct package name
 [[plugins]]
   package = "@netlify/plugin-sitemap"
-
+  # ---- supported inputs ----
   [plugins.inputs]
-    # canonical site URL used in the <loc> tags
     baseUrl   = "https://abseducationalsolution.com"
-    # (optional) where the generated sitemap file goes
-    sitemapPath = "sitemap.xml"     # default
+    filePath  = "sitemap.xml"          # this replaces the unsupported sitemapPath
+    prettyURLs = true                  # optional example
