@@ -1,16 +1,22 @@
 # netlify.toml
 [build]
   command = "npm run build"
-  publish = ".next"          # .next is correct for the Next.js plugin
+  publish = ".next"
 
 [functions]
   node_bundler = "esbuild"
 
-# Next.js plugin for Netlify
+# ── plugins ──────────────────────────────────────────
+# Next.js adapter (no inputs allowed)
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
-
+# Sitemap generator  ✅ correct package name
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
 
   [plugins.inputs]
-    baseUrl = "https://abseducationalsolution.com"  # ← your canonical domain
+    # canonical site URL used in the <loc> tags
+    baseUrl   = "https://abseducationalsolution.com"
+    # (optional) where the generated sitemap file goes
+    sitemapPath = "sitemap.xml"     # default
