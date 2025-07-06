@@ -136,7 +136,7 @@ export default function Goals() {
   return (
     <>
       {/* ---------------  Main Section  --------------- */}
-      <section className="max-w-6xl mx-auto px-4 pt-28 pb-20">
+      <section className="max-w-6xl mx-auto px-4 pt-4 pb-4">
         <h2 className="text-3xl md:text-4xl font-semibold text-center mb-12">
           Need Counselling or Admission Guidance?
         </h2>
