@@ -1,0 +1,5 @@
+{
+  "headerScripts": "\n<!-- Google tag (gtag.js) -->\n<script async src=\"https://www.googletagmanager.com/gtag/js?id=G-KBRZN11JFT\"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n\n  gtag('config', 'G-KBRZN11JFT');\n</script>\nconsole.log('CMS Header Script Working!');",
+  "bodyStartScripts": "<!-- Google Tag Manager (noscript) -->\n<noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-MBS7MSV2\"\nheight=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>\n<!-- End Google Tag Manage (noscript) -->",
+  "footerScripts": "<script>console.log('Footer Script')</script>"
+}
