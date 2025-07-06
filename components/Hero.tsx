@@ -26,7 +26,7 @@ export default function Hero() {
   };
 
   return (
-    <header className="flex flex-col items-center text-center px-4 pt-14">
+    <header className="flex flex-col items-center text-center px-4 pt-4">
       {/* Badge */}
       <span className="inline-flex items-center gap-2 bg-green-100 text-sm font-medium text-green-700 py-1.5 px-4 rounded-full mb-6">
         <Image src="/uploads/abs-logo.png" alt="" width={18} height={18} />
