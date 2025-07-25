@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // components/Layout.tsx
 import SiteHeader from './SiteHeader';
 import Footer from './Footer';
@@ -10,10 +11,15 @@ try {
 } catch (error) {
   console.log('Settings file not found');
 }
+=======
+import SiteHeader from './SiteHeader';
+import Footer from './Footer';
+>>>>>>> 8571d6c2dd6a3183764239a65589ac7c9ed104db
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
+<<<<<<< HEAD
       <Head>
         {/* Inject header scripts from CMS */}
         {settings.headerScripts && (
@@ -49,3 +55,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     </>
   );
 }
+=======
+      <SiteHeader />
+      <main>{children}</main>
+      <Footer />
+    </>
+  );
+}
+>>>>>>> 8571d6c2dd6a3183764239a65589ac7c9ed104db

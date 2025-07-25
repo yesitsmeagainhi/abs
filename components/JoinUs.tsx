@@ -17,7 +17,11 @@ export default function JoinUs() {
   ];
 
   return (
+<<<<<<< HEAD
     <section className="mt-6 mb-6 px-4 bg-gray-50">
+=======
+    <section className="mt-32 mb-28 px-4 bg-gray-50">
+>>>>>>> 8571d6c2dd6a3183764239a65589ac7c9ed104db
       <div className="mx-auto max-w-7xl">
         {/* Main Content Card */}
         <div className="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden">

@@ -66,6 +66,7 @@ export default function AlumniMarquee() {
           object-fit: contain;
           object-position: center;
           
+<<<<<<< HEAD
           /* Styling - removed border-radius and box-shadow that might create white space */
           transition: all 0.3s ease;
           
@@ -85,6 +86,22 @@ export default function AlumniMarquee() {
         /* Hover effects - removed box-shadow to avoid white backgrounds */
         .alumni-image:hover {
           transform: translateY(-5px) scale(1.02);
+=======
+          /* Styling */
+          border-radius: 12px;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+          transition: all 0.3s ease;
+          
+          /* Ensure full image is visible */
+          display: block;
+          background: white;
+        }
+        
+        /* Hover effects */
+        .alumni-image:hover {
+          transform: translateY(-5px) scale(1.02);
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+>>>>>>> 8571d6c2dd6a3183764239a65589ac7c9ed104db
         }
         
         @media (prefers-reduced-motion: no-preference) {

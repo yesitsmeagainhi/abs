@@ -41,7 +41,11 @@ export default function CourseHero({
   const altText = heroAlt ?? 'Course hero image';
 
   return (
+<<<<<<< HEAD
     <section className="bg-white py-6 md:py-20 px-4 md:px-0">
+=======
+    <section className="bg-white py-12 md:py-20 px-4 md:px-0">
+>>>>>>> 8571d6c2dd6a3183764239a65589ac7c9ed104db
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
         {/* ───────── column A ───────── */}
         <div>

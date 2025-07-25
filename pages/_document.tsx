@@ -1,5 +1,6 @@
 // pages/_document.tsx
 import { Html, Head, Main, NextScript } from 'next/document';
+<<<<<<< HEAD
 import { getAnalytics } from '@/lib/settings';   // <-- reads content/settings.json
 
 export default function MyDocument() {
@@ -32,6 +33,21 @@ export default function MyDocument() {
         <NextScript />
 
         {/* ---------- Netlify Identity auto-redirect ---------- */}
+=======
+
+export default function Document() {
+  return (
+    <Html lang="en">
+      <Head>
+        {/* Netlify Identity Widget - handles invite tokens on any page */}
+        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+      </Head>
+      <body>
+        <Main />
+        <NextScript />
+        
+        {/* Auto-redirect to /admin after login */}
+>>>>>>> 8571d6c2dd6a3183764239a65589ac7c9ed104db
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -47,6 +63,7 @@ export default function MyDocument() {
             `,
           }}
         />
+<<<<<<< HEAD
 
         {/* ---------- CMS-managed footer / <body>-end scripts ---------- */}
         {analytics?.footerScripts && (
@@ -58,3 +75,9 @@ export default function MyDocument() {
     </Html>
   );
 }
+=======
+      </body>
+    </Html>
+  );
+}
+>>>>>>> 8571d6c2dd6a3183764239a65589ac7c9ed104db

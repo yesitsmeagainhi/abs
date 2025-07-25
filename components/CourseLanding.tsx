@@ -60,7 +60,10 @@ export type Front = EnhancedFront & {
     scholarship?:    boolean;
     body?:           boolean;
     branches?:       boolean;
+<<<<<<< HEAD
     gallery?:        boolean;  // ← Add this line
+=======
+>>>>>>> 8571d6c2dd6a3183764239a65589ac7c9ed104db
     faq?:            boolean;
     footerCta?:      boolean;
   };
@@ -95,7 +98,10 @@ export default function CourseLanding({ front, Body }: Props) {
     scholarship: true,
     body:        true,
     branches:    true,
+<<<<<<< HEAD
       gallery:     true,  // ← Add this line
+=======
+>>>>>>> 8571d6c2dd6a3183764239a65589ac7c9ed104db
     faq:         true,
     footerCta:   true,
     ...front.sections,
@@ -548,7 +554,11 @@ export default function CourseLanding({ front, Body }: Props) {
         )}
 
         {show.body && (
+<<<<<<< HEAD
           <section className="w-full py-8 sm:py-6 md:py-6">
+=======
+          <section className="w-full py-8 sm:py-12 md:py-16">
+>>>>>>> 8571d6c2dd6a3183764239a65589ac7c9ed104db
             <div className="prose sm:prose-lg max-w-4xl mx-auto px-4 sm:px-6">
               <Body />
             </div>
@@ -561,12 +571,15 @@ export default function CourseLanding({ front, Body }: Props) {
           </div>
         )}
 
+<<<<<<< HEAD
         {show.gallery && (
   <div className="w-full">
     <Gallery />
   </div>
 )}
 
+=======
+>>>>>>> 8571d6c2dd6a3183764239a65589ac7c9ed104db
         {show.faq && front.faqs && (
           <div className="w-full">
             <FAQSection faqs={front.faqs} />
