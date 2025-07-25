@@ -78,11 +78,7 @@ const branches: Branch[] = [
 
 export default function Branches() {
   return (
-<<<<<<< HEAD
-    <section id="branches" className="mt-6 px-4 bg-gray-50">
-=======
-    <section id="branches" className="mt-32 px-4 bg-gray-50">
->>>>>>> 8571d6c2dd6a3183764239a65589ac7c9ed104db
+
       <div className="mx-auto max-w-7xl py-8">
         <h2 className="text-center font-bold text-4xl md:text-5xl mb-12 text-gray-900">
           Our Mumbai Branches
