@@ -273,8 +273,4 @@ export default function Goals() {
       )}
     </>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 8571d6c2dd6a3183764239a65589ac7c9ed104db

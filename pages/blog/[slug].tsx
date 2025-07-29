@@ -56,11 +56,7 @@ function mdToHtml(markdown: string): { html: string; toc: TocItem[] } {
 /* ——— React Page ——— */
 export default function BlogPost({ post }: { post: Post }) {
   return (
-<<<<<<< HEAD
     <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-=======
-    <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
->>>>>>> 8571d6c2dd6a3183764239a65589ac7c9ed104db
       <Head>
         <title>{post.meta.title} | ABS Blog</title>
         {post.meta.summary && <meta name="description" content={post.meta.summary} />}
