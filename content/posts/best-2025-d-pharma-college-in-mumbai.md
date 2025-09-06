@@ -39,7 +39,7 @@ When selecting a top D.Pharm college in Mumbai, check for:
 
 Based on current data, these colleges stand out:
 
-### 1. MET Institute of Pharmacy, Mumbai
+## 1. MET Institute of Pharmacy, Mumbai
 
 * Private college in Bandra (West).
 * Recognized by DTE and PCI; affiliated to MSBTE for its D.Pharm program. [Shiksha](https://www.shiksha.com/medicine-health-sciences/pharmacy/colleges/diploma-courses-mumbai-all?utm_source=chatgpt.com)[Mumbai Educational Trust](https://www.met.edu/institute/institute_of_pharmacy/DPharm?utm_source=chatgpt.com)
