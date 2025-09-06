@@ -5,7 +5,7 @@ date: 2025-09-06T08:37:56.959Z
 category: D Pharma
 summary: Get the best D.Pharm colleges in Mumbai with PCI approval, modern labs
   & strong placements. Secure your future in pharmacy today!
-hero: /uploads/d-pharma-course-overview.png
+hero: /uploads/d-pharma-college.png
 ---
 <!--StartFragment-->
 
