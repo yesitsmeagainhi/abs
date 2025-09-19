@@ -8,7 +8,7 @@ summary: Learn all about the D.Pharm course (Diploma in Pharmacy) in 2025 –
   salary, and scope in India.
 hero: /uploads/d-pharma-course-overview.png
 ---
-# What Is  D Pharma Course
+# <h1>What Is  D Pharma Course</h1>
 
 <p>Medicines play a big role in keeping people healthy, and we need trained people to handle them. The <strong>D.Pharm course (Diploma in Pharmacy)</strong> helps students after Class 12 quickly enter the pharmacy field, learn basic skills, and work as a pharmacist or even start their own medical store.</p>
 
