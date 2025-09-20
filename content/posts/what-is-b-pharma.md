@@ -45,6 +45,21 @@ Many private colleges offer **B Pharma admission based on Class 12 marks** witho
 | **Higher Studies Options** | M.Pharm, Pharm.D, MBA in Pharma, Ph.D., Certifications (Pharmacovigilance, Clinical Research, Regulatory Affairs)                                                |
 | **Future Scope**           | High demand in pharma industry, research, healthcare, regulatory affairs, and abroad opportunities                                                               |
 
-<!--EndFragment-->
+
+
+## B.Pharmacy Subjects Semester-Wise
+
+<!--StartFragment-->
+
+| Semester         | Main Subjects (Theory + Practical)                                                                                                                                                                                                                                                                                                                       |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1st Semester** | Human Anatomy & Physiology I; Pharmaceutical Analysis I; Pharmaceutics I; Pharmaceutical Inorganic Chemistry; Communication Skills; Remedial Biology / Remedial Mathematics ([Pharmacy Careers 360](https://pharmacy.careers360.com/articles/b-pharmacy-subjects-list?utm_source=chatgpt.com "B.Pharmacy Subjects List; check semester-wise list here")) |
+| **2nd Semester** | Human Anatomy & Physiology II; Pharmaceutical Organic Chemistry I; Biochemistry; Pathophysiology; Computer Applications in Pharmacy; Environmental Sciences ([Pharmacy Careers 360](https://pharmacy.careers360.com/articles/b-pharmacy-subjects-list?utm_source=chatgpt.com "B.Pharmacy Subjects List; check semester-wise list here"))                 |
+| **3rd Semester** | Pharmaceutical Organic Chemistry II; Physical Pharmaceutics I; Pharmaceutical Microbiology; Pharmaceutical Engineering ([Pharmacy Careers 360](https://pharmacy.careers360.com/articles/b-pharmacy-subjects-list?utm_source=chatgpt.com "B.Pharmacy Subjects List; check semester-wise list here"))                                                      |
+| **4th Semester** | Physical Pharmaceutics II; Medicinal Chemistry I; Pharmacology I; Pharmacognosy I; Pharmaceutical Jurisprudence ([Pharmacy Careers 360](https://pharmacy.careers360.com/articles/b-pharmacy-subjects-list?utm_source=chatgpt.com "B.Pharmacy Subjects List; check semester-wise list here"))                                                             |
+| **5th Semester** | Medicinal Chemistry II; Industrial Pharmacy I; Pharmacology II; Pharmacognosy & Phytochemistry II; Pharmaceutical Jurisprudence (if not already) ([Pharmacy Careers 360](https://pharmacy.careers360.com/articles/b-pharmacy-subjects-list?utm_source=chatgpt.com "B.Pharmacy Subjects List; check semester-wise list here"))                            |
+| **6th Semester** | Herbal Drug Technology; Biopharmaceutics and Pharmacokinetics; Pharmaceutical Biotechnology; Further Pharmacology; Advanced Analysis (depending on college) ([Pharmacy Careers 360](https://pharmacy.careers360.com/articles/b-pharmacy-subjects-list?utm_source=chatgpt.com "B.Pharmacy Subjects List; check semester-wise list here"))                 |
+| **7th Semester** | Instrumental Methods of Analysis; Industrial Pharmacy II; Pharmacy Practice; Novel Drug Delivery Systems; Open Electives / Labs ([JNTUH](https://jntuh.ac.in/uploads/academics/R22B.PharmacyCourseStructureandSyllabus.pdf?utm_source=chatgpt.com "R22 B.Pharmacy JNTUH"))                                                                               |
+| **8th Semester** | Biostatistics & Research Methodology; Social & Preventive Pharmacy; Pharmaceutical Regulatory Science / Pharma Marketing Management; Pharmacovigilance; Project Work / Internship; Advanced Electives ([JNTUH](https://jntuh.ac.in/uploads/academics/R22B.PharmacyCourseStructureandSyllabus.pdf?utm_source=chatgpt.com "R22 B.Pharmacy JNTUH"))         |
 
 <!--EndFragment-->
