@@ -6,7 +6,7 @@ category: Pharmacy
 ---
 <!--StartFragment-->
 
-### **What is B Pharma?**
+**What is B Pharma?**
 
 **B Pharma (Bachelor of Pharmacy)** is a **4-year undergraduate course** that focuses on medicines and their safe use. Students learn how drugs are **developed, manufactured, tested, and regulated**, along with their effects on the human body.
 
