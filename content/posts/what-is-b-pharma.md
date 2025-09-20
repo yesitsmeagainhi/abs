@@ -12,6 +12,16 @@ category: Pharmacy
 
 After completing B Pharma, graduates can work in **pharmaceutical companies, hospitals, research labs, or government jobs**, or they can continue with **higher studies** like M.Pharm or Pharm.D.
 
+## B Pharma Admission Without Entrance Exam
+
+<!--StartFragment-->
+
+Many private colleges offer **B Pharma admission based on Class 12 marks** without any entrance test. Students must have passed 10+2 (PCB/PCM) with at least 45–60%.
+
+**ABS Educational Solution** helps you secure admission in **PCI-approved colleges** without exams, making the process simple and stress-free.
+
+<!--EndFragment-->
+
 ## B﻿ Pharma Course Overview
 
 <!--StartFragment-->
