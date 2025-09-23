@@ -101,7 +101,9 @@ Please contact this student within 10 minutes as per our commitment.`
   };
 
   return (
-    <div className="bg-white py-12 px-4">
+    
+
+    <div id="apply-form" className="bg-white py-12 px-4">
       <div className="max-w-2xl mx-auto text-center mb-8">
         <h2 className="text-3xl font-bold text-gray-800 leading-snug">
           No NEET? No CET? No Problem.
@@ -212,6 +214,7 @@ Please contact this student within 10 minutes as per our commitment.`
             </button>
           </div>
         </div>
+
 
         {/* Status Messages */}
         {status.msg && (

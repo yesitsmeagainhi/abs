@@ -5,12 +5,7 @@
     {
       "label": "Home",
       "url": "/",
-      "subitems": [
-        {
-          "label": "Call",
-          "url": "tel:8600574836"
-        }
-      ]
+      "subitems": []
     },
     {
       "label": "Courses",
@@ -28,7 +23,7 @@
   ],
   "cta": {
     "label": "Apply Now",
-    "url": "/apply"
+    "url": "/#apply-form"
   },
   "footer": " "
 }

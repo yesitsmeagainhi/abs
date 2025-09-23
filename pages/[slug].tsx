@@ -79,7 +79,15 @@ export default function Page({ front, mdx, raw }: Props) {
 /* ─────────────  IMPROVED getStaticProps with debugging  ───────────── */
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const slug = params!.slug as string;
-  
+//Part added below
+
+  // 🚫 Prevent favicon.ico from being processed as a page
+  if (slug === "favicon.ico") {
+    return { notFound: true };
+  }
+
+//Added part ends above
+
   try {
     const source = await fs.readFile(
       path.join(process.cwd(), "content/pages", `${slug}.md`),
@@ -129,38 +137,56 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     return { props: { front: { ...front, blocks: front.blocks || null } } };
 
   } catch (error) {
-    console.error(`Error loading page ${slug}:`, error);
+//     console.error(`Error loading page ${slug}:`, error);
     
-    // Return a fallback page with error info
-    return {
-      props: {
-        front: {
-          title: "Error Loading Page",
-          ptype: "code" as const,
-          blocks: null,  // ✅ Add missing properties with null values
-          code: null,    // ✅ Add missing properties with null values
-        },
-        raw: `
-          <div style="padding: 2rem; text-align: center; font-family: Arial, sans-serif;">
-            <h1>Page Load Error</h1>
-            <p>Could not load page: ${slug}</p>
-            <p>Error: ${error instanceof Error ? error.message : 'Unknown error'}</p>
-          </div>
-        `
-      }
-    };
-  }
-};
+//     // Return a fallback page with error info
+//     return {
+//       props: {
+//         front: {
+//           title: "Error Loading Page",
+//           ptype: "code" as const,
+//           blocks: null,  // ✅ Add missing properties with null values
+//           code: null,    // ✅ Add missing properties with null values
+//         },
+//         raw: `
+//           <div style="padding: 2rem; text-align: center; font-family: Arial, sans-serif;">
+//             <h1>Page Load Error</h1>
+//             <p>Could not load page: ${slug}</p>
+//             <p>Error: ${error instanceof Error ? error.message : 'Unknown error'}</p>
+//           </div>
+//         `
+//       }
+//     };
+//   }
+// };
+
+
+
+//Added below started
+  console.error(`Page not found: ${slug}`, error);
+  return { notFound: true }; }}
+//Added above ended
+
+
 
 export const getStaticPaths: GetStaticPaths = async () => {
   try {
     const files = await fs.readdir(path.join(process.cwd(), "content/pages"));
     return {
+  //Below part added/replaced
       paths: files
-        .filter(f => f.endsWith('.md') || f.endsWith('.mdx'))
-        .map((f) => ({
-          params: { slug: path.parse(f).name },
-        })),
+        .filter(f => (f.endsWith('.md') || f.endsWith('.mdx')) && f !== "favicon.ico.md")
+        .map(f => ({ params: { slug: path.parse(f).name } })),
+//Above part added 
+
+
+//Below part commented
+      // paths: files
+      //   .filter(f => f.endsWith('.md') || f.endsWith('.mdx'))
+      //   .map((f) => ({
+      //     params: { slug: path.parse(f).name },
+      //   })),
+
       fallback: "blocking",
     };
   } catch (error) {

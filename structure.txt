@@ -1,0 +1,316 @@
+ User visits: http://localhost:3000/
+        │
+       
+ ▼ pages/index.tsx (Home Page Entry)
+        │
+        ├── 🛠️ getServerSideProps (Backend)
+        │        • Reads content/settings/header.json
+        │        • Loads header/navigation data
+        │        • Passes { headerData } as props
+        │
+        ▼
+ Home Component (Frontend Layout)
+        │
+        ├── <Head> (sets page title = "ABS Edu – Home")
+        │
+        ├── <Hero />            → components/Hero.tsx
+        │        (Top banner, intro text, CTA)
+        │
+        ├── <Goals />           → components/Goals.tsx
+        │        (ABS vision, objectives, targets)
+        │
+        ├── <JoinUs />          → components/JoinUs.tsx
+        │        (Invitation section for students/teachers)
+        │
+        ├── <Gallery />         → components/Gallery.tsx
+        │        (Photos/events showcase)
+        │
+        ├── <Branches />        → components/Branches.tsx
+        │        (List/map of ABS branches)
+        │
+        ├── <WhyChooseABS />    → components/WhyChooseABS.tsx
+        │        (Highlights advantages of ABS)
+        │
+        ├── <AlumniMarquee />   → components/AlumniMarquee.tsx
+        │        (Scrolling alumni achievements/testimonials)
+        │
+        ├── <StickyButton />    → components/StickyButton.tsx
+        │        (Floating "Apply Now"/CTA button)
+        │
+        └── <ContactForm />     → components/ContactForm.tsx
+                 (Form for inquiries/leads)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------
+pages/index.tsx
+ ├── <Hero />            → Hero.tsx
+ ├── <Goals />           → Goals.tsx
+ ├── <JoinUs />          → JoinUs.tsx
+ ├── <Gallery />         → Gallery.tsx
+ ├── <Branches />        → Branches.tsx
+ ├── <WhyChooseABS />    → WhyChooseABS.tsx
+ ├── <AlumniMarquee />   → AlumniMarquee.tsx
+ ├── <StickyButton />    → StickyButton.tsx
+ └── <ContactForm />     → ContactForm.tsx
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Counseling Website - Code Structure & Flow Analysis
+
+\ud83d\udcc1 Project Structure
+counseling-website/
+├── public/
+│   ├── index.html              # Main HTML template
+│   └── ...                     # Other public assets
+├── src/
+│   ├── components/             # Reusable UI components
+│   │   ├── Navigation.tsx      # Header navigation component
+│   │   ├── Navigation.css      # Navigation styles
+│   │   ├── Footer.tsx          # Footer component
+│   │   └── Footer.css          # Footer styles
+│   ├── pages/                  # Page components
+│   │   ├── Home.tsx            # Homepage component
+│   │   ├── Home.css            # Homepage styles
+│   │   ├── About.tsx           # About page component
+│   │   ├── About.css           # About page styles
+│   │   ├── Services.tsx        # Services page component
+│   │   ├── Services.css        # Services page styles
+│   │   ├── Contact.tsx         # Contact page component
+│   │   └── Contact.css         # Contact page styles
+│   ├── App.tsx                 # Main application component
+│   ├── App.css                 # Global styles
+│   └── index.tsx               # Application entry point
+├── package.json                # Dependencies and scripts
+└── todo.md                     # Project checklist
+1. Application Entry Point (`src/index.tsx`)
+
+// React renders App.tsx into the DOM
+ReactDOM.render(<App />, document.getElementById('root'));
+
+
+2. Main Application Component (`src/App.tsx`)
+
+**Purpose**: Central routing and layout management
+**Flow**:
+
+BrowserRouter \u2192 Navigation \u2192 Routes \u2192 Footer
+     \u2193              \u2193          \u2193         \u2193
+  Routing     Header nav   Page     Footer
+  setup        component   content  component
+
+
+**Key Elements**:
+• `BrowserRouter`: Enables client-side routing
+• `Navigation`: Persistent header across all pages
+• `Routes`: Defines URL-to-component mapping
+• `Footer`: Persistent footer across all pages
+
+
+3. Navigation Flow (`src/components/Navigation.tsx`)
+
+**Purpose**: Handles site navigation and routing
+**Flow**:
+
+User Click \u2192 Route Change \u2192 Component Update
+     \u2193            \u2193              \u2193
+  Nav Link    React Router    New Page
+
+
+**Key Features**:
+• Active route highlighting
+• Mobile-responsive hamburger menu
+• Sticky positioning
+
+
+4. Page Component Structure
+
+Home Page (`src/pages/Home.tsx`)
+
+**Flow**: Hero \u2192 Services Preview \u2192 About Preview
+
+Hero Section \u2192 Services Grid \u2192 About Section
+     \u2193             \u2193              \u2193
+  CTA Button    Service      Why Choose
+               Cards         Us
+
+
+About Page (`src/pages/About.tsx`)
+
+**Flow**: Hero \u2192 Mission \u2192 Team \u2192 Approach
+
+Hero Section \u2192 Mission \u2192 Team Grid \u2192 Approach
+     \u2193            \u2193         \u2193          \u2193
+  Practice    Statement   Members   Methods
+  Overview
+
+
+Services Page (`src/pages/Services.tsx`)
+
+**Flow**: Hero \u2192 Services Grid \u2192 Specialties
+
+Hero Section \u2192 Service Cards \u2192 Specialties List
+     \u2193             \u2193               \u2193
+  Overview     6 Services    10 Specialties
+
+
+Contact Page (`src/pages/Contact.tsx`)
+
+**Flow**: Hero \u2192 Contact Info + Form
+
+Hero Section \u2192 Contact Info | Appointment Form
+     \u2193             \u2193               \u2193
+  Get in       Address,       Form with
+  Touch        Phone,         Validation
+               Hours
+
+
+5. Form Handling Flow (`src/pages/Contact.tsx`)
+
+**Purpose**: Appointment booking and contact
+**Flow**:
+
+User Input \u2192 State Update \u2192 Form Validation \u2192 Submission
+     \u2193            \u2193             \u2193               \u2193
+  onChange    setFormData    Required     Success
+                            Fields       Message
+
+
+**State Management**:
+
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+  service: string;
+  preferredDate: string;
+  preferredTime: string;
+  message: string;
+}
+
+
+6. Styling Architecture
+
+CSS Organization
+• **Global Styles**: `App.css` - Typography, utilities, responsive design
+• **Component Styles**: Individual `.css` files for each component
+• **Responsive Design**: Mobile-first approach with media queries
+
+
+Design System
+
+Colors:
+- Primary: #667eea \u2192 #764ba2 (Purple gradient)
+- Secondary: #74b9ff \u2192 #0984e3 (Blue gradient)
+- Accent: #ff6b6b (Coral)
+- Text: #333, #555, #666
+- Background: #fafbfc
+
+Typography:
+- Headings: System font stack
+- Body: 1.6 line height
+- Responsive sizing
+
+
+7. Data Flow Patterns
+
+Props Flow
+
+App.tsx \u2192 Page Components \u2192 Child Components
+   \u2193            \u2193              \u2193
+Routes    Static Data    Presentation
+
+
+State Management
+
+Contact.tsx (Local State Only)
+   \u2193
+useState<FormData> \u2192 Form Handling
+
+
+8. Component Communication
+
+Parent \u2192 Child
+• Route parameters via React Router
+• Props passing (not used in this implementation)
+
+
+Child \u2192 Parent
+• Form submission events
+• Navigation events
+
+
+9. Responsive Design Flow
+
+Desktop (1200px+) \u2192 Tablet (768px+) \u2192 Mobile (<768px)
+     \u2193                    \u2193                 \u2193
+  Multi-column       Stacked layout    Single column
+  Grid layouts       Adjusted grids    Hamburger menu
+
+
+10. User Journey Flow
+
+Entry (/) \u2192 Home Page \u2192 Navigation \u2192 Any Page
+  \u2193           \u2193            \u2193           \u2193
+Landing    Explore    Choose      Interact
+Page       Services   Destination   (Forms/CTA)
+
+
+\ud83d\udd27 Technical Implementation Details
+
+React Router Configuration
+
+<Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/about" element={<About />} />
+  <Route path="/services" element={<Services />} />
+  <Route path="/contact" element={<Contact />} />
+</Routes>
+
+
+TypeScript Interfaces
+• `FormData` interface for contact form
+• `React.FC` typing for functional components
+• Type safety for props and state
+
+
+CSS Methodology
+• BEM-inspired naming convention
+• Component-scoped styles
+• Utility classes for common patterns
+• CSS Grid and Flexbox for layouts
+
+
+This structure provides a clean separation of concerns, maintainable code organization, and scalable architecture for future enhancements.

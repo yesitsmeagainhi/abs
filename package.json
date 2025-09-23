@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
-    "@getbrevo/brevo": "^2.5.0",
+    "@getbrevo/brevo": "^3.0.1",
     "@headlessui/react": "^2.2.4",
     "@heroicons/react": "^2.2.0",
     "gray-matter": "^4.0.3",
