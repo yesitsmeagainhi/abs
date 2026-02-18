@@ -19,7 +19,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {settings.headerScripts && (
           <script
             dangerouslySetInnerHTML={{
-              __html: settings.headerScripts.replace(/<script[^>]*>|<\/script>/g, '')
+              __html: settings.headerScripts
+                .replace(/<!--[\s\S]*?-->/g, '')
+                .replace(/<script[^>]*>|<\/script>/g, '')
             }}
           />
         )}
@@ -43,6 +45,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div
           dangerouslySetInnerHTML={{
             __html: settings.footerScripts
+              .replace(/<!--[\s\S]*?-->/g, '')
           }}
         />
       )}
