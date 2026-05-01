@@ -107,6 +107,32 @@ export default function CoursesPage({ courses }: CoursesProps) {
             </p>
           </header>
 
+          {/* CTA strip */}
+          <div className="mb-12 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-700 text-white p-6 sm:p-8 text-center shadow-lg">
+            <h2 className="text-xl sm:text-2xl font-bold mb-2">
+              Confused which course is right for you?
+            </h2>
+            <p className="text-emerald-50 text-sm sm:text-base mb-5">
+              Talk to an ABS counsellor — free guidance on admissions, fees, scholarships, and career outcomes.
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              <a
+                href="tel:+919702836946"
+                className="inline-flex items-center gap-2 bg-white text-emerald-700 font-semibold px-5 py-2.5 rounded-lg shadow hover:shadow-md transition"
+              >
+                📞 Call +91 97028 36946
+              </a>
+              <a
+                href="https://wa.me/919702836946?text=Hi%20ABS%2C%20I%20want%20guidance%20on%20choosing%20the%20right%20course."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-[#25D366] text-white font-semibold px-5 py-2.5 rounded-lg shadow hover:shadow-md transition"
+              >
+                💬 WhatsApp Us
+              </a>
+            </div>
+          </div>
+
           {courses.length === 0 ? (
             <p className="text-center text-slate-500">
               No courses found. Add a new file in{' '}

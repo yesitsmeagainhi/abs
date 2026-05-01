@@ -2,9 +2,10 @@
  * ============================================================
  * ABS Educational Solution — Google Apps Script
  * ============================================================
- * Handles leads from BOTH:
+ * Handles leads from:
  *   - /find-your-college  (NEET Predictor)
  *   - /counselling        (Career Counselling Tool)
+ *   - /scholarship-tool   (Scholarship Decision Tool)
  *
  * SETUP STEPS (one-time):
  *   1. Go to sheets.google.com → create a new spreadsheet
@@ -36,6 +37,8 @@ function doPost(e) {
     let result;
     if (type === 'counselling') {
       result = handleCounselling(payload);
+    } else if (type === 'scholarship') {
+      result = handleScholarship(payload);
     } else {
       result = handleNEET(payload);
     }
@@ -220,6 +223,73 @@ function handleCounselling(payload) {
 }
 
 // ============================================================
+// SCHOLARSHIP DECISION TOOL LEAD
+// ============================================================
+
+function handleScholarship(payload) {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const SHEET = 'Scholarship';
+
+  let sheet = ss.getSheetByName(SHEET);
+  if (!sheet) {
+    sheet = ss.insertSheet(SHEET);
+    const headers = [
+      'Lead ID', 'Timestamp (IST)', 'Name', 'Phone', 'Email',
+      'Interested Course', 'Scholarship', 'Scheme Reference',
+      'Caste Category', 'Family Income',
+      'Status', 'Notes'
+    ];
+    sheet.appendRow(headers);
+    sheet.setFrozenRows(1);
+    sheet.getRange(1, 1, 1, headers.length)
+      .setFontWeight('bold')
+      .setBackground('#047857')
+      .setFontColor('#ffffff');
+    sheet.setColumnWidth(1, 120);
+    sheet.setColumnWidth(7, 280);
+  }
+
+  const id = 'SCH-' + new Date().getTime().toString().slice(-8);
+
+  sheet.appendRow([
+    id,
+    new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+    payload.name || '',
+    "'" + (payload.phone || ''),
+    payload.email || '',
+    payload.course || '',
+    payload.scheme || '',
+    payload.schemeRef || '',
+    payload.category || '',
+    payload.income || '',
+    'New',
+    ''
+  ]);
+
+  // Email notification to Naresh
+  try {
+    const subject = `🎓 Scholarship Lead [${id}] — ${payload.name} | ${payload.scheme}`;
+    const body = `New Scholarship Decision Tool lead received.\n\n`
+      + `Lead ID: ${id}\n`
+      + `Name: ${payload.name}\n`
+      + `Phone: ${payload.phone}\n`
+      + `Email: ${payload.email || '—'}\n\n`
+      + `Interested Course: ${payload.course}\n`
+      + `Scholarship: ${payload.scheme}\n`
+      + `Scheme Reference: ${payload.schemeRef || '—'}\n`
+      + `Caste Category: ${payload.category || '—'}\n`
+      + `Family Income: ${payload.income || '—'}\n\n`
+      + `View sheet: ${SpreadsheetApp.getActiveSpreadsheet().getUrl()}`;
+
+    MailApp.sendEmail({ to: NOTIFICATION_EMAIL, subject, body });
+  } catch (mailErr) {
+    Logger.log('Mail error: ' + mailErr.toString());
+  }
+
+  return { leadId: id };
+}
+
+// ============================================================
 // TEST — run from Apps Script editor to verify setup
 // ============================================================
 
@@ -266,4 +336,19 @@ function testCounselling() {
     },
   };
   Logger.log(JSON.stringify(handleCounselling(fake)));
+}
+
+function testScholarship() {
+  const fake = {
+    type: 'scholarship',
+    name: 'Test Student',
+    phone: '9876543210',
+    email: 'test@example.com',
+    course: 'B.E. / B.Tech',
+    scheme: 'GOI Post-Matric Scholarship (SC)',
+    schemeRef: 'Chapter 3.2',
+    category: 'SC',
+    income: '≤ ₹1 lakh',
+  };
+  Logger.log(JSON.stringify(handleScholarship(fake)));
 }

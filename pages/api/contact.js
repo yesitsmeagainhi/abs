@@ -50,25 +50,28 @@ export default async function handler(req, res) {
       <h2>Thank you for contacting us!</h2>
       <p>Hi ${name},</p>
       <p>We've received your message and will get back to you as soon as possible.</p>
+      <p>For immediate help, call or WhatsApp us at <strong>+91 97028 36946</strong>.</p>
       <p><strong>Your message:</strong></p>
       <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px;">
         ${message.replace(/\n/g, '<br>')}
       </div>
-      <p>Best regards,<br>Your Team</p>
+      <p>Best regards,<br>ABS Educational Solution</p>
     `;
 
     const userEmailText = `
       Thank you for contacting us!
-      
+
       Hi ${name},
-      
+
       We've received your message and will get back to you as soon as possible.
-      
+
+      For immediate help, call or WhatsApp us at +91 97028 36946.
+
       Your message:
       ${message}
-      
+
       Best regards,
-      Your Team
+      ABS Educational Solution
     `;
 
     // Send email to admin

@@ -55,6 +55,50 @@ export default function NotFound() {
           >
             Return to Home Page
           </Link>
+
+          <p style={{ marginTop: 28, fontSize: 14, color: "#555" }}>
+            Need help finding what you’re looking for?
+          </p>
+          <div
+            style={{
+              display: "flex",
+              gap: 10,
+              justifyContent: "center",
+              flexWrap: "wrap",
+              marginTop: 10,
+            }}
+          >
+            <a
+              href="tel:+919702836946"
+              style={{
+                display: "inline-block",
+                padding: "10px 18px",
+                borderRadius: 10,
+                background: "#059669",
+                color: "#fff",
+                fontWeight: 600,
+                textDecoration: "none",
+              }}
+            >
+              📞 Call +91 97028 36946
+            </a>
+            <a
+              href="https://wa.me/919702836946?text=Hi%20ABS%2C%20I%20landed%20on%20a%20404%20page%20on%20your%20site%20and%20need%20help."
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-block",
+                padding: "10px 18px",
+                borderRadius: 10,
+                background: "#25D366",
+                color: "#fff",
+                fontWeight: 600,
+                textDecoration: "none",
+              }}
+            >
+              💬 WhatsApp Us
+            </a>
+          </div>
         </div>
       </main>
     </>

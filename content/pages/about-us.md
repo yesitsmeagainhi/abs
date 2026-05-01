@@ -25,7 +25,7 @@ blocks:
         maps: http://localhost:3000/
       - name: Thane
         location: http://localhost:3000/
-        phone: "8888888888"
+        phone: "9702836946"
         maps: http://localhost:3000/
 ---
 <!DOCTYPE html>

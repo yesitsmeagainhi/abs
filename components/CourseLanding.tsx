@@ -336,8 +336,11 @@ export default function CourseLanding({ front, Body }: Props) {
               <h3 className="text-lg sm:text-xl font-semibold mb-2 text-green-800 px-2">
                 Thank You!
               </h3>
-              <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 px-2 leading-relaxed">
+              <p className="text-sm sm:text-base text-gray-600 mb-2 sm:mb-3 px-2 leading-relaxed">
                 We've received your interest in {front.title}. Our team will contact you soon to provide detailed information and assistance.
+              </p>
+              <p className="text-sm sm:text-base text-gray-700 mb-4 sm:mb-6 px-2 leading-relaxed">
+                Need help right now? Call or WhatsApp us at <strong>+91 97028 36946</strong>.
               </p>
             </div>
             

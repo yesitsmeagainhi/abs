@@ -158,7 +158,7 @@ export const generateAdvancedJsonLd2025 = (front: EnhancedFront, canonicalUrl: s
       // Enhanced contact information
       contactPoint: [{
         "@type": "ContactPoint",
-        telephone: "+91-9876543210", // Update with real number
+        telephone: "+91-9702836946",
         email: "admissions@abseducationalsolution.com",
         contactType: "Admissions",
         availableLanguage: ["English", "Hindi", "Marathi"],
@@ -327,7 +327,7 @@ export const generateAdvancedJsonLd2025 = (front: EnhancedFront, canonicalUrl: s
     applicationStartDate: `${currentYear}-01-01`,
     applicationContact: {
       "@type": "ContactPoint",
-      telephone: "+91-9876543210",
+      telephone: "+91-9702836946",
       email: "admissions@abseducationalsolution.com",
       url: `${canonicalUrl}#apply`
     }

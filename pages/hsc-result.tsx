@@ -180,12 +180,28 @@ export default function HSCResultPage() {
             Confused about which course or college to choose after 12th? Talk
             to an ABS career counsellor — it's free.
           </p>
-          <a
-            href="/counselling"
-            className="inline-block mt-6 bg-white text-indigo-700 hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg shadow"
-          >
-            Free Career Counselling →
-          </a>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <a
+              href="/counselling"
+              className="inline-block bg-white text-indigo-700 hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg shadow"
+            >
+              Free Career Counselling →
+            </a>
+            <a
+              href="tel:+919702836946"
+              className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-6 py-3 rounded-lg shadow"
+            >
+              📞 Call +91 97028 36946
+            </a>
+            <a
+              href="https://wa.me/919702836946?text=Hi%20ABS%2C%20I%20just%20checked%20my%20HSC%20result%20and%20need%20guidance%20on%20what%20to%20do%20next."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5a] text-white font-semibold px-6 py-3 rounded-lg shadow"
+            >
+              💬 WhatsApp Us
+            </a>
+          </div>
         </div>
       </section>
     </>

@@ -67,4 +67,4 @@ As per the latest PCI regulations (ER-2020), the D.Pharm curriculum is structure
 
 Mumbai offers several excellent D.Pharm colleges. To secure a seat in a top college with low fees and no donation, your academic performance in your 12th-grade exams is a crucial factor.
 
-For personalized guidance and to explore your options for admission to the best D.Pharm colleges in Mumbai with low fees, you can connect with an educational expert on **9720836946**. They can help you navigate the admission process, understand scholarship opportunities, and find the right college that fits your budget and career goals.
+For personalized guidance and to explore your options for admission to the best D.Pharm colleges in Mumbai with low fees, you can connect with an educational expert on **9702836946**. They can help you navigate the admission process, understand scholarship opportunities, and find the right college that fits your budget and career goals.

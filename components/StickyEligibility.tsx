@@ -16,7 +16,7 @@ type Props = {
   tel?: string;               // default number if not provided
 };
 
-export default function StickyEligibility({ courseName, tel = '18005728309' }: Props) {
+export default function StickyEligibility({ courseName, tel = '9702836946' }: Props) {
   const [open, setOpen] = useState(false);
   const [showForm, setShowForm] = useState(false);
 
