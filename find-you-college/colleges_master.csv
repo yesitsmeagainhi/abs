@@ -1,0 +1,62 @@
+college_id,name,course,city,region,type,seats,fee_state,fee_label,affiliated_university
+gmc-grant-mumbai,Grant Govt Medical College & JJ Hospital,MBBS,Mumbai,Konkan,Government,250,129000,₹1.29 L/yr,MUHS Nashik
+gmc-seth-gs-mumbai,Seth GS Medical College & KEM Hospital,MBBS,Mumbai,Konkan,Government,200,129000,₹1.29 L/yr,MUHS Nashik
+gmc-tnmc-mumbai,Topiwala National Medical College (Nair Hospital),MBBS,Mumbai,Konkan,Government,150,129000,₹1.29 L/yr,MUHS Nashik
+gmc-ltmmc-mumbai,Lokmanya Tilak Municipal Medical College (Sion),MBBS,Mumbai,Konkan,Government,200,129000,₹1.29 L/yr,MUHS Nashik
+gmc-cooper-mumbai,HBT (Cooper) Medical College,MBBS,Mumbai,Konkan,Government,150,129000,₹1.29 L/yr,MUHS Nashik
+gmc-alibag,GMC Alibag,MBBS,Alibag,Konkan,Government,100,129000,₹1.29 L/yr,MUHS Nashik
+gmc-ratnagiri,GMC Ratnagiri,MBBS,Ratnagiri,Konkan,Government,100,129000,₹1.29 L/yr,MUHS Nashik
+gmc-sindhudurg,GMC Sindhudurg,MBBS,Oros,Konkan,Government,100,129000,₹1.29 L/yr,MUHS Nashik
+gmc-bjmc-pune,B.J. Govt Medical College Pune,MBBS,Pune,Western Maharashtra,Government,200,129000,₹1.29 L/yr,MUHS Nashik
+gmc-baramati,GMC Baramati,MBBS,Baramati,Western Maharashtra,Government,100,129000,₹1.29 L/yr,MUHS Nashik
+gmc-miraj,GMC Miraj,MBBS,Miraj (Sangli),Western Maharashtra,Government,150,129000,₹1.29 L/yr,MUHS Nashik
+gmc-solapur,Dr V.M. Memorial GMC Solapur,MBBS,Solapur,Western Maharashtra,Government,200,129000,₹1.29 L/yr,MUHS Nashik
+gmc-kolhapur,Rajaram Chhatrapati Shahu GMC Kolhapur,MBBS,Kolhapur,Western Maharashtra,Government,100,129000,₹1.29 L/yr,MUHS Nashik
+gmc-satara,GMC Satara,MBBS,Satara,Western Maharashtra,Government,100,129000,₹1.29 L/yr,MUHS Nashik
+gmc-nashik,GMC Nashik,MBBS,Nashik,North Maharashtra,Government,100,129000,₹1.29 L/yr,MUHS Nashik
+gmc-dhule,Shri Bhausaheb Hire GMC Dhule,MBBS,Dhule,North Maharashtra,Government,150,129000,₹1.29 L/yr,MUHS Nashik
+gmc-jalgaon,GMC Jalgaon,MBBS,Jalgaon,North Maharashtra,Government,100,129000,₹1.29 L/yr,MUHS Nashik
+gmc-nandurbar,GMC Nandurbar,MBBS,Nandurbar,North Maharashtra,Government,100,129000,₹1.29 L/yr,MUHS Nashik
+gmc-aurangabad,GMC Chh. Sambhajinagar (Aurangabad),MBBS,Aurangabad,Marathwada,Government,200,129000,₹1.29 L/yr,MUHS Nashik
+gmc-latur,GMC Latur (Vilasrao Deshmukh),MBBS,Latur,Marathwada,Government,150,129000,₹1.29 L/yr,MUHS Nashik
+gmc-nanded,Dr Shankarrao Chavan GMC Nanded,MBBS,Nanded,Marathwada,Government,150,129000,₹1.29 L/yr,MUHS Nashik
+gmc-osmanabad,GMC Dharashiv (Osmanabad),MBBS,Dharashiv,Marathwada,Government,100,129000,₹1.29 L/yr,MUHS Nashik
+gmc-jalna,GMC Jalna,MBBS,Jalna,Marathwada,Government,100,129000,₹1.29 L/yr,MUHS Nashik
+gmc-parbhani,GMC Parbhani,MBBS,Parbhani,Marathwada,Government,100,129000,₹1.29 L/yr,MUHS Nashik
+gmc-nagpur,Government Medical College Nagpur,MBBS,Nagpur,Vidarbha,Government,250,129000,₹1.29 L/yr,MUHS Nashik
+gmc-igmc-nagpur,Indira Gandhi GMC Nagpur,MBBS,Nagpur,Vidarbha,Government,200,129000,₹1.29 L/yr,MUHS Nashik
+gmc-akola,GMC Akola,MBBS,Akola,Vidarbha,Government,150,129000,₹1.29 L/yr,MUHS Nashik
+gmc-yavatmal,Shri Vasantrao Naik GMC Yavatmal,MBBS,Yavatmal,Vidarbha,Government,150,129000,₹1.29 L/yr,MUHS Nashik
+gmc-chandrapur,GMC Chandrapur,MBBS,Chandrapur,Vidarbha,Government,100,129000,₹1.29 L/yr,MUHS Nashik
+gmc-gondia,GMC Gondia,MBBS,Gondia,Vidarbha,Government,100,129000,₹1.29 L/yr,MUHS Nashik
+aided-mgims-sevagram,MGIMS Sevagram (Govt-aided),MBBS,Sevagram Wardha,Vidarbha,Aided,100,150000,₹1.5 L/yr,MUHS Nashik
+pvt-vims-palghar,Vedantaa Institute of Medical Sciences,MBBS,Palghar,Konkan,Private,150,1557000,₹15.57 L/yr,MUHS Nashik
+pvt-bklw-chiplun,BKL Walawalkar Rural Medical College,MBBS,Chiplun,Konkan,Private,100,1165000,₹11.65 L/yr,MUHS Nashik
+pvt-vikhe-patil,Padmashri Dr Vithalrao Vikhe Patil MC,MBBS,Ahmednagar,North Maharashtra,Private,150,1300000,₹13 L/yr,MUHS Nashik
+pvt-ashwini-solapur,Ashwini Rural Medical College,MBBS,Solapur,Western Maharashtra,Private,100,1033000,₹10.33 L/yr,MUHS Nashik
+pvt-tasgaonkar-karjat,Dr NY Tasgaonkar IMS,MBBS,Karjat,Konkan,Private,100,622000,₹6.22 L/yr,MUHS Nashik
+pvt-acpm-dhule,ACPM Medical College,MBBS,Dhule,North Maharashtra,Private,150,850000,₹8.5 L/yr,MUHS Nashik
+gdc-mumbai,Government Dental College & Hospital Mumbai,BDS,Mumbai,Konkan,Government,100,90000,₹90000/yr,MUHS Nashik
+gdc-aurangabad,Government Dental College & Hospital Aurangabad,BDS,Aurangabad,Marathwada,Government,100,90000,₹90000/yr,MUHS Nashik
+gdc-nagpur,Government Dental College & Hospital Nagpur,BDS,Nagpur,Vidarbha,Government,100,90000,₹90000/yr,MUHS Nashik
+pvt-bds-ymt-navimumbai,YMT Dental College,BDS,Navi Mumbai,Konkan,Private,100,424000,₹4.24 L/yr,MUHS Nashik
+pvt-bds-mgv-nashik,MGV KBH Dental College,BDS,Nashik,North Maharashtra,Private,100,404000,₹4.04 L/yr,MUHS Nashik
+pvt-bds-vasantdada-sangli,Vasantdada Patil Dental College,BDS,Sangli,Western Maharashtra,Private,100,385000,₹3.85 L/yr,MUHS Nashik
+pvt-bds-smbt-sangamner,SMBT Dental College,BDS,Sangamner,North Maharashtra,Private,100,525000,₹5.25 L/yr,MUHS Nashik
+gac-nagpur,Government Ayurved College Nagpur,BAMS,Nagpur,Vidarbha,Government,60,50000,₹50000/yr,MUHS Nashik
+gac-nanded,Government Ayurved College Nanded,BAMS,Nanded,Marathwada,Government,50,50000,₹50000/yr,MUHS Nashik
+gac-osmanabad,Government Ayurved College Dharashiv,BAMS,Dharashiv,Marathwada,Government,60,50000,₹50000/yr,MUHS Nashik
+gac-jalna,Government Ayurved College Jalna,BAMS,Jalna,Marathwada,Government,60,50000,₹50000/yr,MUHS Nashik
+gac-baramati,Government Ayurved College Baramati,BAMS,Baramati,Western Maharashtra,Government,60,50000,₹50000/yr,MUHS Nashik
+aided-tilak-pune,Tilak Maharashtra Vidyapeeth (Aided),BAMS,Pune,Western Maharashtra,Aided,100,80000,₹80000/yr,MUHS Nashik
+pvt-bams-kodoli,Yashwant Ayurved College Kodoli,BAMS,Kodoli,Western Maharashtra,Private,100,250000,₹2.5 L/yr,MUHS Nashik
+pvt-bams-podar-mumbai,RA Podar Ayurved College Mumbai,BAMS,Mumbai,Konkan,Aided,100,65000,₹65000/yr,MUHS Nashik
+ghmc-mumbai,Government Homoeopathic Medical College Mumbai,BHMS,Mumbai,Konkan,Government,50,60000,₹60000/yr,MUHS Nashik
+pvt-bhms-bharati-pune,Bharati Vidyapeeth Homoeopathy College Pune,BHMS,Pune,Western Maharashtra,Private,100,220000,₹2.2 L/yr,MUHS Nashik
+pvt-bhms-foster-aurangabad,Foster Development Homoeopathy College,BHMS,Aurangabad,Marathwada,Private,100,180000,₹1.8 L/yr,MUHS Nashik
+pvt-bhms-jspm-pune,JSPM Homoeopathy College,BHMS,Pune,Western Maharashtra,Private,100,200000,₹2.0 L/yr,MUHS Nashik
+bums-zvm-pune,Z.V.M. Unani Medical College Pune,BUMS,Pune,Western Maharashtra,Aided,60,80000,₹80000/yr,MUHS Nashik
+bums-yb-aurangabad,YB Chavan Unani Medical College,BUMS,Aurangabad,Marathwada,Private,50,150000,₹1.5 L/yr,MUHS Nashik
+bpt-gmch-mumbai,GMCH Mumbai Physiotherapy School,BPT,Mumbai,Konkan,Government,60,50000,₹50000/yr,MUHS Nashik
+bpt-sancheti-pune,Sancheti College of Physiotherapy,BPT,Pune,Western Maharashtra,Private,60,180000,₹1.8 L/yr,MUHS Nashik
+bpt-mgm-navimumbai,MGM Institute of Physiotherapy Navi Mumbai,BPT,Navi Mumbai,Konkan,Private,60,200000,₹2.0 L/yr,MUHS Nashik

@@ -19,6 +19,14 @@
     {
       "label": "Blogs",
       "url": "/blog"
+    },
+    {
+      "label": "Find Your College",
+      "url": "/find-your-college"
+    },
+    {
+      "label": "Career Counselling",
+      "url": "/counselling"
     }
   ],
   "cta": {

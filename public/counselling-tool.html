@@ -1,0 +1,3670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light only">
+  <meta name="supported-color-schemes" content="light">
+  <meta name="description"
+    content="ABS Career Counseling Tool — India's most comprehensive career guidance system for 12th Science students. Get personalized course recommendations with 5-year industry outlook.">
+  <title>ABS Career Counseling Tool 2026 — Find Your Right Course</title>
+
+  <!-- Google Fonts: Fraunces (display) + Manrope (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&family=Inter:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* ============== RESET + BASE ============== */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      color-scheme: light;
+      background-color: #f5f5f4;
+    }
+
+    body {
+      font-family: 'Manrope', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #134e4a;
+      background-color: #f5f5f4;
+      background: var(--cream);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      min-height: 100vh;
+      color-scheme: light;
+    }
+
+    /* Force light mode — override any system/browser dark mode preference */
+    @media (prefers-color-scheme: dark) {
+
+      html,
+      body {
+        background-color: #f5f5f4 !important;
+        color: #134e4a !important;
+        color-scheme: light !important;
+      }
+    }
+
+    /* ============== DESIGN TOKENS ============== */
+    :root {
+      --ink: #134e4a;
+      --ink-soft: #1f2937;
+      --ink-mute: #374151;
+      --ink-fade: #6b7280;
+      --brand: #059669;
+      --brand-deep: #047857;
+      --brand-soft: #d1fae5;
+      --amber: #10b981;
+      --amber-deep: #065f46;
+      --amber-soft: #ecfdf5;
+      --cream: #f5f5f4;
+      --paper: #ffffff;
+      --line: #d1fae5;
+      --line-soft: #ecfdf5;
+      --rose: #c4543c;
+      --leaf: #16a34a;
+      --shadow-sm: 0 2px 8px rgba(6, 95, 70, .06);
+      --shadow-md: 0 8px 24px rgba(6, 95, 70, .08);
+      --shadow-lg: 0 20px 60px rgba(6, 95, 70, .12);
+      --radius: 14px;
+      --radius-lg: 22px;
+    }
+
+    /* ============== TYPOGRAPHY ============== */
+    .serif {
+      font-family: 'Fraunces', Georgia, serif;
+      font-optical-sizing: auto;
+    }
+
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    }
+
+    h3 {
+      font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+    }
+
+    h4 {
+      font-size: 1.15rem;
+    }
+
+    p {
+      color: var(--ink-soft);
+    }
+
+    /* ============== LAYOUT ============== */
+    .app-frame {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px 22px 60px;
+      position: relative;
+    }
+
+    /* Decorative paper grain background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(16, 185, 129, .06) 0, transparent 35%),
+        radial-gradient(circle at 80% 70%, rgba(5, 150, 105, .04) 0, transparent 35%);
+      z-index: 0;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .039 0 0 0 0 .145 0 0 0 0 .25 0 0 0 .03 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    .app-frame>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ============== TOP BAR ============== */
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0 28px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark .logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--ink);
+      color: var(--cream);
+      display: grid;
+      place-items: center;
+      font-family: 'Fraunces', serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-mark .logo::after {
+      content: '';
+      position: absolute;
+      right: -2px;
+      top: -2px;
+      width: 12px;
+      height: 12px;
+      background: var(--amber);
+      border-radius: 50%;
+    }
+
+    .brand-mark .text-block .name {
+      font-family: 'Fraunces', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -.02em;
+    }
+
+    .brand-mark .text-block .tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--ink-fade);
+      font-weight: 600;
+    }
+
+    .topbar .meta {
+      display: flex;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--ink-mute);
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .topbar .meta .pill {
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      border-radius: 100px;
+      background: var(--paper);
+      font-weight: 500;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .topbar .meta .pill.live {
+      background: var(--amber-soft);
+      border-color: var(--amber);
+      color: var(--amber-deep);
+    }
+
+    .topbar .meta .pill.live::before {
+      content: '●';
+      margin-right: 6px;
+      color: var(--leaf);
+    }
+
+    /* ============== SECTIONS (each step) ============== */
+    .scene {
+      display: none;
+      animation: fadeUp .55s cubic-bezier(.22, .61, .36, 1) both;
+    }
+
+    .scene.active {
+      display: block;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ============== WELCOME SCREEN ============== */
+    .welcome-grid {
+      display: grid;
+      grid-template-columns: 1.3fr .9fr;
+      gap: 56px;
+      align-items: center;
+      padding: 30px 0;
+    }
+
+    @media (max-width: 880px) {
+      .welcome-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+    }
+
+    .welcome-left .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: var(--brand);
+      font-weight: 700;
+      margin-bottom: 22px;
+      padding: 8px 14px;
+      background: var(--brand-soft);
+      border-radius: 100px;
+    }
+
+    .welcome-left .eyebrow::before {
+      content: '';
+      width: 22px;
+      height: 1px;
+      background: var(--brand);
+    }
+
+    .welcome-left h1 {
+      margin-bottom: 22px;
+    }
+
+    .welcome-left h1 .accent {
+      font-style: italic;
+      color: var(--amber-deep);
+      font-weight: 500;
+    }
+
+    .welcome-left h1 .underline-flow {
+      display: inline-block;
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .welcome-left h1 .underline-flow::after {
+      content: '';
+      position: absolute;
+      left: -2%;
+      right: -2%;
+      bottom: 4px;
+      height: 12px;
+      background: var(--amber);
+      opacity: .35;
+      border-radius: 4px;
+      z-index: -1;
+    }
+
+    .welcome-left .lede {
+      font-size: 1.15rem;
+      color: var(--ink-mute);
+      line-height: 1.65;
+      max-width: 540px;
+      margin-bottom: 32px;
+    }
+
+    .welcome-left .lede strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 38px;
+    }
+
+    /* ============== BUTTONS ============== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      padding: 16px 28px;
+      border-radius: 12px;
+      transition: all .25s cubic-bezier(.22, .61, .36, 1);
+      text-decoration: none;
+      letter-spacing: -.005em;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: var(--brand);
+      color: white;
+      box-shadow: 0 6px 18px rgba(5, 150, 105, .25);
+    }
+
+    .btn-primary:hover {
+      background: var(--brand-deep);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(5, 150, 105, .35);
+    }
+
+    .btn-primary .arrow {
+      transition: transform .3s;
+    }
+
+    .btn-primary:hover .arrow {
+      transform: translateX(4px);
+    }
+
+    .btn-amber {
+      background: var(--brand-soft);
+      color: var(--brand-deep);
+      border: 1.5px solid var(--line);
+      box-shadow: none;
+    }
+
+    .btn-amber:hover {
+      background: var(--brand);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--brand-deep);
+      border: 1.5px solid var(--brand);
+    }
+
+    .btn-ghost:hover {
+      background: var(--brand);
+      color: white;
+    }
+
+    .btn-soft {
+      background: var(--paper);
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+
+    .btn-soft:hover {
+      border-color: var(--ink);
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: white;
+      box-shadow: 0 6px 18px rgba(37, 211, 102, .35);
+    }
+
+    .btn-whatsapp:hover {
+      background: #1ebe5a;
+      transform: translateY(-2px);
+    }
+
+    /* Trust badges */
+    .trust-row {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      padding-top: 26px;
+      border-top: 1px dashed var(--line);
+    }
+
+    .trust-item .num {
+      font-family: 'Fraunces', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--ink);
+      display: block;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .trust-item .num .small {
+      font-size: 1rem;
+      color: var(--amber-deep);
+    }
+
+    .trust-item .lbl {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--ink-fade);
+      font-weight: 600;
+      margin-top: 6px;
+      display: block;
+    }
+
+    /* Welcome right - Decision card */
+    .welcome-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 34px 30px;
+      position: relative;
+      box-shadow: var(--shadow-md);
+      transform: rotate(.6deg);
+    }
+
+    .welcome-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--ink);
+      transform: rotate(-1.2deg);
+      z-index: -1;
+      opacity: .15;
+    }
+
+    .welcome-card .card-tag {
+      display: inline-block;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      color: var(--amber-deep);
+      font-weight: 700;
+      margin-bottom: 18px;
+      padding: 5px 10px;
+      background: var(--amber-soft);
+      border-radius: 4px;
+    }
+
+    .welcome-card h3 {
+      margin-bottom: 16px;
+      font-size: 1.5rem;
+    }
+
+    .welcome-card .checklist {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .welcome-card .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--line-soft);
+      font-size: 14px;
+      color: var(--ink-mute);
+    }
+
+    .welcome-card .checklist li:last-child {
+      border: none;
+    }
+
+    .welcome-card .checklist .check {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      background: var(--ink);
+      color: var(--cream);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* ============== PROGRESS BAR ============== */
+    .progress-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+      padding: 14px 20px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 100px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .progress-wrap .label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ink-mute);
+      letter-spacing: .04em;
+      white-space: nowrap;
+    }
+
+    .progress-track {
+      flex: 1;
+      height: 6px;
+      background: var(--line-soft);
+      border-radius: 100px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--brand), var(--amber));
+      border-radius: 100px;
+      width: 0;
+      transition: width .5s cubic-bezier(.22, .61, .36, 1);
+    }
+
+    .progress-count {
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    /* ============== QUESTION CARD ============== */
+    .q-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 44px 42px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 600px) {
+      .q-card {
+        padding: 30px 22px;
+      }
+    }
+
+    .q-card .q-num {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 14px;
+      color: var(--amber-deep);
+      font-weight: 600;
+      margin-bottom: 8px;
+      letter-spacing: .04em;
+    }
+
+    .q-card .q-title {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      font-size: clamp(1.4rem, 3vw, 1.85rem);
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 10px;
+      letter-spacing: -.018em;
+      color: var(--ink);
+    }
+
+    .q-card .q-sub {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 14.5px;
+      color: var(--ink-mute);
+      margin-bottom: 30px;
+      line-height: 1.55;
+      font-weight: 500;
+    }
+
+    .q-card .q-sub em {
+      color: var(--amber-deep);
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    .option-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .option-grid.cols-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .option-grid.cols-3 {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    @media (max-width: 500px) {
+      .option-grid.cols-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .option {
+      background: var(--cream);
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      padding: 18px 18px;
+      cursor: pointer;
+      transition: all .2s ease;
+      position: relative;
+      text-align: left;
+      font-family: inherit;
+      font-size: inherit;
+      color: var(--ink);
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .option:hover {
+      border-color: var(--brand);
+      background: var(--paper);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .option.selected {
+      border-color: var(--brand);
+      background: var(--brand);
+      color: white;
+    }
+
+    .option.selected .opt-title {
+      color: white;
+    }
+
+    .option.selected .opt-desc {
+      color: rgba(255, 255, 255, .85);
+    }
+
+    .option.selected .opt-icon {
+      background: rgba(255, 255, 255, .2);
+      color: white;
+    }
+
+    .option .opt-icon {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--brand-soft);
+      color: var(--brand);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 14px;
+      font-family: 'Inter', system-ui, sans-serif;
+      letter-spacing: -.01em;
+      transition: all .2s ease;
+    }
+
+    .option .opt-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .option .opt-title {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 15.5px;
+      line-height: 1.35;
+      margin-bottom: 4px;
+      letter-spacing: -.01em;
+      color: var(--ink);
+    }
+
+    .option .opt-desc {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 13px;
+      color: var(--ink-mute);
+      line-height: 1.45;
+      font-weight: 500;
+    }
+
+    /* Multi-select indicator */
+    .option.multi {
+      padding-right: 44px;
+    }
+
+    .option .multi-check {
+      position: absolute;
+      right: 14px;
+      top: 14px;
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      border: 1.5px solid var(--line);
+      display: grid;
+      place-items: center;
+      background: var(--paper);
+      transition: all .2s ease;
+    }
+
+    .option.selected .multi-check {
+      background: white;
+      border-color: white;
+    }
+
+    .option .multi-check::after {
+      content: '✓';
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--brand);
+      opacity: 0;
+      transition: opacity .2s;
+    }
+
+    .option.selected .multi-check::after {
+      opacity: 1;
+    }
+
+    /* Slider input */
+    .slider-wrap {
+      background: var(--cream);
+      border: 1.5px solid var(--line);
+      border-radius: 14px;
+      padding: 26px 24px;
+      margin-bottom: 32px;
+    }
+
+    .slider-display {
+      font-family: 'Fraunces', serif;
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: var(--ink);
+      text-align: center;
+      margin-bottom: 6px;
+      line-height: 1;
+    }
+
+    .slider-display .unit {
+      font-size: 1.3rem;
+      color: var(--amber-deep);
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .slider-label {
+      text-align: center;
+      font-size: 13px;
+      color: var(--ink-mute);
+      margin-bottom: 22px;
+    }
+
+    .slider-input {
+      width: 100%;
+      height: 6px;
+      border-radius: 100px;
+      background: var(--line);
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .slider-input::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--ink);
+      cursor: pointer;
+      border: 4px solid var(--brand);
+      box-shadow: 0 4px 12px rgba(5, 150, 105, .35);
+    }
+
+    .slider-input::-moz-range-thumb {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--ink);
+      cursor: pointer;
+      border: 4px solid var(--brand);
+    }
+
+    .slider-marks {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 12px;
+      font-size: 11px;
+      color: var(--ink-fade);
+      font-weight: 600;
+      letter-spacing: .04em;
+    }
+
+    /* Q nav */
+    .q-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .q-nav .hint {
+      font-size: 12px;
+      color: var(--ink-fade);
+      font-style: italic;
+      font-family: 'Fraunces', serif;
+    }
+
+    /* ============== LEAD CAPTURE ============== */
+    .lead-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 50px 44px;
+      box-shadow: var(--shadow-lg);
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .lead-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--brand), var(--amber), var(--rose));
+    }
+
+    @media (max-width: 600px) {
+      .lead-card {
+        padding: 36px 24px;
+      }
+    }
+
+    .lead-card .ribbon {
+      display: inline-block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-weight: 700;
+      padding: 7px 14px;
+      background: var(--amber-soft);
+      color: var(--amber-deep);
+      border-radius: 4px;
+      margin-bottom: 18px;
+    }
+
+    .lead-card h2 {
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .lead-card h2 em {
+      color: var(--amber-deep);
+      font-style: italic;
+    }
+
+    .lead-card .sub {
+      color: var(--ink-mute);
+      font-size: 1rem;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    @media (max-width: 600px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-grid .full {
+      grid-column: 1 / -1;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .field label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ink-mute);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .field label .req {
+      color: var(--rose);
+    }
+
+    .field input,
+    .field select {
+      font-family: inherit;
+      font-size: 15px;
+      padding: 14px 16px;
+      border: 1.5px solid var(--line);
+      border-radius: 10px;
+      background: var(--cream);
+      color: var(--ink);
+      transition: all .2s ease;
+      width: 100%;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      outline: none;
+      border-color: var(--ink);
+      background: var(--paper);
+      box-shadow: 0 0 0 3px rgba(5, 150, 105, .15);
+    }
+
+    .field .err {
+      color: var(--rose);
+      font-size: 12px;
+      margin-top: 5px;
+      font-weight: 600;
+      display: none;
+    }
+
+    .field.invalid .err {
+      display: block;
+    }
+
+    .field.invalid input,
+    .field.invalid select {
+      border-color: var(--rose);
+    }
+
+    .privacy-note {
+      font-size: 12px;
+      color: var(--ink-fade);
+      margin-top: 22px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .privacy-note::before {
+      content: '🔒';
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .lead-actions {
+      margin-top: 28px;
+    }
+
+    /* ============== RESULTS ============== */
+    .results-wrap {
+      padding: 0;
+    }
+
+    .result-hero {
+      background: var(--ink);
+      color: var(--cream);
+      border-radius: var(--radius-lg);
+      padding: 44px 40px;
+      margin-bottom: 38px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .result-hero::before {
+      content: '';
+      position: absolute;
+      right: -100px;
+      top: -100px;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212, 162, 86, .25), transparent 70%);
+    }
+
+    .result-hero::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--amber), transparent);
+    }
+
+    @media (max-width: 600px) {
+      .result-hero {
+        padding: 32px 24px;
+      }
+    }
+
+    .result-hero .small-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .25em;
+      color: var(--amber);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .result-hero h1 {
+      color: var(--cream);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 600;
+      margin-bottom: 14px;
+      letter-spacing: -.015em;
+    }
+
+    .result-hero h1 .student-name {
+      font-style: italic;
+      color: var(--amber);
+      font-weight: 500;
+    }
+
+    .result-hero .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(250, 247, 242, .78);
+      max-width: 600px;
+      line-height: 1.6;
+      margin-bottom: 26px;
+    }
+
+    .profile-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .profile-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      padding: 7px 12px;
+      background: rgba(250, 247, 242, .08);
+      border: 1px solid rgba(250, 247, 242, .15);
+      border-radius: 100px;
+      color: var(--cream);
+      font-weight: 600;
+    }
+
+    .result-section {
+      margin-bottom: 44px;
+    }
+
+    .result-section .sec-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 24px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+      flex-wrap: wrap;
+    }
+
+    .result-section .sec-head h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 600;
+    }
+
+    .result-section .sec-head h2 em {
+      color: var(--amber-deep);
+      font-style: italic;
+    }
+
+    .result-section .sec-head .sec-num {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 13px;
+      color: var(--ink-fade);
+      font-weight: 500;
+    }
+
+    /* Recommendation cards */
+    .rec-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 36px 34px;
+      margin-bottom: 22px;
+      position: relative;
+      overflow: hidden;
+      transition: all .25s ease;
+    }
+
+    .rec-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .rec-card.rank-1 {
+      border-color: var(--amber);
+      border-width: 2px;
+    }
+
+    .rec-card.rank-1::before {
+      content: 'TOP MATCH';
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      font-weight: 800;
+      color: var(--amber-deep);
+      background: var(--amber-soft);
+      padding: 6px 11px;
+      border-radius: 4px;
+    }
+
+    .rec-card.rank-2::before {
+      content: 'STRONG FIT';
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      font-weight: 800;
+      color: var(--brand);
+      background: var(--brand-soft);
+      padding: 6px 11px;
+      border-radius: 4px;
+    }
+
+    .rec-card.rank-3::before {
+      content: 'WORTH CONSIDERING';
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      font-weight: 800;
+      color: var(--ink-mute);
+      background: var(--line-soft);
+      padding: 6px 11px;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 600px) {
+      .rec-card {
+        padding: 28px 22px;
+      }
+
+      .rec-card::before {
+        display: none;
+      }
+    }
+
+    .rec-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 22px;
+      padding-bottom: 22px;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .rec-header .rec-rank {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 14px;
+      color: var(--amber-deep);
+      font-weight: 600;
+      letter-spacing: .04em;
+      margin-bottom: 4px;
+    }
+
+    .rec-header h3 {
+      font-size: clamp(1.4rem, 2.8vw, 1.8rem);
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .rec-header .rec-tagline {
+      font-size: 14px;
+      color: var(--ink-mute);
+      font-style: italic;
+      font-family: 'Fraunces', serif;
+    }
+
+    .match-score {
+      flex-shrink: 0;
+      text-align: center;
+      padding: 8px 14px;
+      border-radius: 12px;
+      background: var(--cream);
+      border: 1px solid var(--line);
+      min-width: 80px;
+    }
+
+    .match-score .pct {
+      font-family: 'Fraunces', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1;
+      display: block;
+    }
+
+    .match-score .lbl {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      color: var(--ink-fade);
+      font-weight: 700;
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* Why suits */
+    .why-list {
+      list-style: none;
+      margin-bottom: 22px;
+    }
+
+    .why-list li {
+      padding: 10px 0 10px 30px;
+      position: relative;
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      line-height: 1.55;
+      border-bottom: 1px dashed var(--line-soft);
+    }
+
+    .why-list li:last-child {
+      border: none;
+    }
+
+    .why-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 18px;
+      width: 18px;
+      height: 1.5px;
+      background: var(--amber);
+    }
+
+    /* Course meta grid */
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 14px;
+      margin-bottom: 22px;
+      padding: 18px 0;
+      border-top: 1px dashed var(--line);
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .meta-cell .lbl {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--ink-fade);
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .meta-cell .val {
+      font-family: 'Fraunces', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+
+    .meta-cell .val.amber {
+      color: var(--amber-deep);
+    }
+
+    /* Career paths */
+    .career-block {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 20px 22px;
+      margin-bottom: 18px;
+    }
+
+    .career-block .blk-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .career-block .blk-title::before {
+      content: '';
+      width: 18px;
+      height: 1.5px;
+      background: var(--amber);
+    }
+
+    .career-block ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .career-block ul li {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 7px 13px;
+      border-radius: 100px;
+      font-size: 13px;
+      color: var(--ink-soft);
+      font-weight: 500;
+    }
+
+    /* Outlook block */
+    .outlook {
+      background: linear-gradient(135deg, rgba(26, 86, 219, .04) 0%, rgba(212, 162, 86, .06) 100%);
+      border-left: 3px solid var(--amber);
+      padding: 18px 22px;
+      border-radius: 0 12px 12px 0;
+      margin-bottom: 8px;
+    }
+
+    .outlook .lbl {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-weight: 700;
+      color: var(--amber-deep);
+      margin-bottom: 8px;
+    }
+
+    .outlook .text {
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    /* ABS expertise badge */
+    .abs-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--brand);
+      margin-top: 16px;
+      padding: 7px 12px;
+      background: var(--brand-soft);
+      border-radius: 4px;
+    }
+
+    .abs-badge::before {
+      content: '★';
+      color: var(--amber);
+    }
+
+    /* Industry outlook section */
+    .outlook-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 700px) {
+      .outlook-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .outlook-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 26px 26px;
+    }
+
+    .outlook-card.boom {
+      border-top: 4px solid var(--leaf);
+    }
+
+    .outlook-card.decline {
+      border-top: 4px solid var(--rose);
+    }
+
+    .outlook-card .o-head {
+      font-family: 'Fraunces', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .outlook-card .o-head .icon {
+      font-size: 1.2rem;
+    }
+
+    .outlook-card.boom .o-head {
+      color: var(--leaf);
+    }
+
+    .outlook-card.decline .o-head {
+      color: var(--rose);
+    }
+
+    .outlook-card .o-sub {
+      font-size: 13px;
+      color: var(--ink-fade);
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+
+    .outlook-card ul {
+      list-style: none;
+    }
+
+    .outlook-card ul li {
+      padding: 9px 0;
+      border-bottom: 1px dashed var(--line-soft);
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+
+    .outlook-card ul li:last-child {
+      border: none;
+    }
+
+    .outlook-card ul li strong {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    /* Roadmap */
+    .roadmap {
+      position: relative;
+      padding-left: 32px;
+    }
+
+    .roadmap::before {
+      content: '';
+      position: absolute;
+      left: 11px;
+      top: 16px;
+      bottom: 16px;
+      width: 1.5px;
+      background: linear-gradient(180deg, var(--amber), var(--brand), transparent);
+    }
+
+    .roadmap-item {
+      position: relative;
+      padding-bottom: 26px;
+    }
+
+    .roadmap-item::before {
+      content: '';
+      position: absolute;
+      left: -27px;
+      top: 6px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--paper);
+      border: 2.5px solid var(--ink);
+    }
+
+    .roadmap-item .step-no {
+      position: absolute;
+      left: -23px;
+      top: 8px;
+      font-family: 'Fraunces', serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--ink);
+      width: 14px;
+      height: 14px;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .roadmap-item h4 {
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .roadmap-item .when {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--amber-deep);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .roadmap-item p {
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    /* Mistakes */
+    .mistakes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+
+    .mistake-card {
+      background: var(--paper);
+      border-left: 3px solid var(--rose);
+      border-radius: 0 12px 12px 0;
+      padding: 22px 24px;
+    }
+
+    .mistake-card .num {
+      font-family: 'Fraunces', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--rose);
+      line-height: 1;
+      margin-bottom: 8px;
+      font-style: italic;
+    }
+
+    .mistake-card h4 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .mistake-card p {
+      font-size: 13.5px;
+      color: var(--ink-mute);
+      line-height: 1.5;
+    }
+
+    /* Final CTA */
+    .final-cta {
+      background: var(--ink);
+      color: var(--cream);
+      border-radius: var(--radius-lg);
+      padding: 50px 44px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-top: 40px;
+    }
+
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(212, 162, 86, .12), transparent 60%);
+    }
+
+    .final-cta>* {
+      position: relative;
+    }
+
+    .final-cta .small-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .25em;
+      color: var(--amber);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .final-cta h2 {
+      color: var(--cream);
+      font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .final-cta h2 em {
+      color: var(--amber);
+      font-style: italic;
+    }
+
+    .final-cta p {
+      color: rgba(250, 247, 242, .78);
+      max-width: 540px;
+      margin: 0 auto 30px;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .final-cta .btn-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .final-cta .btn-row .btn-primary {
+      background: var(--amber);
+      color: var(--ink);
+    }
+
+    .final-cta .btn-row .btn-primary:hover {
+      background: var(--cream);
+    }
+
+    .final-cta .btn-row .btn-ghost {
+      color: var(--cream);
+      border-color: rgba(250, 247, 242, .3);
+    }
+
+    .final-cta .btn-row .btn-ghost:hover {
+      background: var(--cream);
+      color: var(--ink);
+    }
+
+    .contact-strip {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      margin-top: 28px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: rgba(250, 247, 242, .65);
+    }
+
+    .contact-strip a {
+      color: var(--amber);
+      text-decoration: none;
+    }
+
+    .contact-strip a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    .app-footer {
+      margin-top: 60px;
+      padding: 30px 0;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      color: var(--ink-fade);
+      font-size: 12.5px;
+    }
+
+    .app-footer .stamp {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+    }
+
+    .app-footer .stamp::before,
+    .app-footer .stamp::after {
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: var(--line);
+    }
+
+    /* Print styles for save-as-PDF */
+    @media print {
+      body {
+        background: white;
+      }
+
+      body::before,
+      body::after {
+        display: none;
+      }
+
+      .topbar,
+      .progress-wrap,
+      .final-cta .btn-row,
+      .lead-actions,
+      .q-nav {
+        display: none !important;
+      }
+
+      .scene {
+        display: block !important;
+        page-break-after: always;
+      }
+
+      .rec-card,
+      .outlook-card,
+      .lead-card,
+      .result-hero,
+      .final-cta {
+        box-shadow: none !important;
+        page-break-inside: avoid;
+      }
+    }
+
+    /* Hidden util */
+    .hidden {
+      display: none !important;
+    }
+
+    /* Restart link */
+    .restart-link {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .restart-link a {
+      font-size: 13px;
+      color: var(--ink-fade);
+      text-decoration: underline;
+      font-style: italic;
+      font-family: 'Fraunces', serif;
+    }
+
+    .restart-link a:hover {
+      color: var(--ink);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="app-frame">
+
+    <!-- TOP BAR (hidden — site header used instead) -->
+
+    <!-- ============ SCENE: WELCOME ============ -->
+    <section class="scene active" id="scene-welcome">
+      <div class="welcome-grid">
+        <div class="welcome-left">
+          <div class="eyebrow">India's Most Detailed Career Counselling Tool</div>
+          <h1>
+            What to do after <span class="underline-flow">12th grade?</span><br>
+            <span style="color: #000; font-size: 45px;">This tool will show you exactly the right path.</span>
+          </h1>
+          <p class="lede">
+            No more guesswork. <strong>10 simple questions</strong>, based on your interests and capabilities,
+            and you'll have a <strong>personalised career roadmap</strong> — top 3 best courses,
+            5-year industry outlook, what to do, what to avoid — everything.
+          </p>
+
+          <div class="cta-row">
+            <button class="btn btn-primary" onclick="App.start()">
+              Build Your Career Roadmap
+              <span class="arrow">→</span>
+            </button>
+            <button class="btn btn-ghost" onclick="App.scrollHow()">How does this work?</button>
+          </div>
+
+          <div class="trust-row">
+            <div class="trust-item">
+              <span class="num">15<span class="small">+</span></span>
+              <span class="lbl">Years Counselling Experience</span>
+            </div>
+            <div class="trust-item">
+              <span class="num">10,000<span class="small">+</span></span>
+              <span class="lbl">Students Guided</span>
+            </div>
+            <div class="trust-item">
+              <span class="num">25<span class="small">+</span></span>
+              <span class="lbl">Course Options Analysed</span>
+            </div>
+            <div class="trust-item">
+              <span class="num">100<span class="small">%</span></span>
+              <span class="lbl">Free · No Hidden Cost</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="welcome-right">
+          <div class="welcome-card">
+            <span class="card-tag">What You'll Get</span>
+            <h3>Your complete career blueprint, in 5 minutes.</h3>
+            <ul class="checklist">
+              <li><span class="check">1</span><span><strong>Top 3 best-fit courses</strong> — with match score, fees &
+                  duration</span></li>
+              <li><span class="check">2</span><span><strong>Career paths & salary range</strong> — what the next 5 and
+                  10 years look like</span></li>
+              <li><span class="check">3</span><span><strong>2026–2031 industry outlook</strong> — what's booming, what's
+                  declining</span></li>
+              <li><span class="check">4</span><span><strong>Step-by-step roadmap</strong> — your path from 12th to your
+                  first job</span></li>
+              <li><span class="check">5</span><span><strong>5 common mistakes</strong> — that most students make</span>
+              </li>
+              <li><span class="check">6</span><span><strong>Save as PDF</strong> — save on your phone, share with your
+                  parents</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Question / Lead / Results scenes will be injected by JS for cleaner code -->
+    <section class="scene" id="scene-questions">
+      <div class="progress-wrap">
+        <span class="label">PROGRESS</span>
+        <div class="progress-track">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <span class="progress-count" id="progress-count">0 / 10</span>
+      </div>
+      <div id="question-container"></div>
+    </section>
+
+    <section class="scene" id="scene-lead">
+      <div class="lead-card">
+        <span class="ribbon">⚡ Almost there</span>
+        <h2>Your <em>personalised career report</em> is ready!</h2>
+        <p class="sub">
+          Just fill in 5 details — so we can send your detailed roadmap PDF and connect you
+          with an expert counsellor for a free personalised session.
+          <strong style="color:var(--ink)">100% free, no charges, no spam.</strong>
+        </p>
+
+        <div class="form-grid">
+          <div class="field">
+            <label>Your Name <span class="req">*</span></label>
+            <input type="text" id="lead-name" placeholder="e.g. Rahul Sharma" autocomplete="name">
+            <span class="err">Name is required</span>
+          </div>
+          <div class="field">
+            <label>WhatsApp Number <span class="req">*</span></label>
+            <input type="tel" id="lead-phone" placeholder="10-digit number" maxlength="10" autocomplete="tel">
+            <span class="err">Enter a valid 10-digit number</span>
+          </div>
+          <div class="field">
+            <label>Email ID <span class="req">*</span></label>
+            <input type="email" id="lead-email" placeholder="[email protected]" autocomplete="email">
+            <span class="err">Enter a valid email address</span>
+          </div>
+          <div class="field">
+            <label>PIN Code <span class="req">*</span></label>
+            <input type="text" id="lead-pin" placeholder="e.g. 401209" maxlength="6">
+            <span class="err">Enter a 6-digit PIN code</span>
+          </div>
+          <div class="field full">
+            <label>Course of Interest (If you know) <span class="req">*</span></label>
+            <select id="lead-course">
+              <option value="">— Please select —</option>
+              <option value="Not Sure - Need Guidance">Not Sure — Need Guidance</option>
+              <option value="D.Pharm">D.Pharm (Diploma in Pharmacy)</option>
+              <option value="B.Pharm">B.Pharm (Bachelor of Pharmacy)</option>
+              <option value="Pharm.D">Pharm.D (Doctor of Pharmacy)</option>
+              <option value="B.Sc Nursing">B.Sc Nursing</option>
+              <option value="GNM Nursing">GNM Nursing</option>
+              <option value="ANM Nursing">ANM Nursing</option>
+              <option value="BPT (Physiotherapy)">BPT (Physiotherapy)</option>
+              <option value="BMLT (Lab Technology)">BMLT (Lab Technology)</option>
+              <option value="B.Sc Radiology">B.Sc Radiology / Imaging</option>
+              <option value="B.Sc Optometry">B.Sc Optometry</option>
+              <option value="OT Technology">B.Sc OT Technology</option>
+              <option value="MBBS">MBBS</option>
+              <option value="BDS">BDS</option>
+              <option value="BAMS">BAMS (Ayurveda)</option>
+              <option value="BHMS">BHMS (Homeopathy)</option>
+              <option value="B.Sc Biotechnology">B.Sc Biotechnology</option>
+              <option value="B.Sc Microbiology">B.Sc Microbiology</option>
+              <option value="B.Sc Forensic">B.Sc Forensic Science</option>
+              <option value="B.Sc Agriculture">B.Sc Agriculture</option>
+              <option value="Veterinary">B.V.Sc (Veterinary)</option>
+              <option value="Engineering CS/AI">Engineering — CS / AI / Data Science</option>
+              <option value="Engineering Other">Engineering — Other Branch</option>
+              <option value="BCA / B.Sc IT">BCA / B.Sc IT</option>
+              <option value="Hotel Mgmt">Hotel Management</option>
+              <option value="Aviation">Aviation / Cabin Crew</option>
+              <option value="Other">Other</option>
+            </select>
+            <span class="err">Please select an option</span>
+          </div>
+        </div>
+
+        <div class="privacy-note">
+          Your details are safe. We will only contact you for career guidance —
+          no spam, no third party sharing.
+        </div>
+
+        <div class="lead-actions">
+          <button class="btn btn-primary" style="width:100%" onclick="App.submitLead()">
+            🎯 Show My Personalised Report
+            <span class="arrow">→</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene" id="scene-results">
+      <div id="results-container"></div>
+    </section>
+
+    <footer class="app-footer">
+      <span class="stamp">Built with care for India's students · ABS Educational Solution · Mumbai</span>
+      <!-- <div style="margin-top:8px">© 2026 ABS Educational Solution · ISO Certified · DPIIT Recognised Startup</div> -->
+    </footer>
+
+  </div>
+
+  <script>
+    /* =====================================================================
+       ABS CAREER COUNSELLING TOOL — Logic Engine
+       Author: Built for Naresh / ABS Educational Solution
+       ===================================================================== */
+
+    const App = {
+      state: {
+        currentQ: 0,
+        answers: {},
+        lead: {}
+      },
+
+      start() {
+        document.getElementById('scene-welcome').classList.remove('active');
+        document.getElementById('scene-questions').classList.add('active');
+        this.renderQuestion(0);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      },
+
+      scrollHow() {
+        // for now just start
+        this.start();
+      },
+
+      renderQuestion(idx) {
+        if (idx >= QUESTIONS.length) {
+          this.showLead();
+          return;
+        }
+        this.state.currentQ = idx;
+        const q = QUESTIONS[idx];
+        const container = document.getElementById('question-container');
+
+        // Update progress
+        const pct = ((idx) / QUESTIONS.length) * 100;
+        document.getElementById('progress-fill').style.width = pct + '%';
+        document.getElementById('progress-count').textContent = `${idx + 1} / ${QUESTIONS.length}`;
+
+        let inputHTML = '';
+        if (q.type === 'single') {
+          inputHTML = `<div class="option-grid ${q.cols ? 'cols-' + q.cols : ''}">` +
+            q.options.map((o, i) => `
+          <button class="option" data-val="${o.val}" onclick="App.pickSingle('${q.key}', '${o.val}')">
+            <div class="opt-icon">${o.ico || (i + 1)}</div>
+            <div class="opt-body">
+              <div class="opt-title">${o.label}</div>
+              ${o.desc ? `<div class="opt-desc">${o.desc}</div>` : ''}
+            </div>
+          </button>`).join('') + '</div>';
+        } else if (q.type === 'multi') {
+          inputHTML = `<div class="option-grid ${q.cols ? 'cols-' + q.cols : ''}">` +
+            q.options.map((o, i) => `
+          <button class="option multi" data-val="${o.val}" onclick="App.pickMulti('${q.key}', '${o.val}', this)">
+            <div class="opt-icon">${o.ico || (i + 1)}</div>
+            <div class="opt-body">
+              <div class="opt-title">${o.label}</div>
+              ${o.desc ? `<div class="opt-desc">${o.desc}</div>` : ''}
+            </div>
+            <div class="multi-check"></div>
+          </button>`).join('') + '</div>';
+        } else if (q.type === 'slider') {
+          const min = q.min, max = q.max, step = q.step || 1, def = this.state.answers[q.key] || q.default || min;
+          inputHTML = `
+        <div class="slider-wrap">
+          <div class="slider-display"><span id="slider-val">${def}</span><span class="unit">${q.unit || ''}</span></div>
+          <div class="slider-label">${q.sliderLabel || ''}</div>
+          <input type="range" min="${min}" max="${max}" step="${step}" value="${def}" class="slider-input"
+            oninput="document.getElementById('slider-val').textContent = this.value; App.state.answers['${q.key}'] = parseInt(this.value);">
+          <div class="slider-marks">
+            <span>${min}${q.unit || ''}</span>
+            <span>${Math.floor((min + max) / 2)}${q.unit || ''}</span>
+            <span>${max}${q.unit || ''}</span>
+          </div>
+        </div>`;
+          // Default save
+          this.state.answers[q.key] = this.state.answers[q.key] || def;
+        }
+
+        container.innerHTML = `
+      <div class="q-card">
+        <div class="q-num">Question ${idx + 1} of ${QUESTIONS.length} · ${q.section}</div>
+        <h2 class="q-title">${q.title}</h2>
+        ${q.sub ? `<p class="q-sub">${q.sub}</p>` : ''}
+        ${inputHTML}
+        <div class="q-nav">
+          <button class="btn btn-soft" onclick="App.prevQ()" ${idx === 0 ? 'disabled style="opacity:.4;cursor:not-allowed"' : ''}>← Back</button>
+          <span class="hint">${q.hint || ''}</span>
+          <button class="btn btn-primary" onclick="App.nextQ()" id="next-btn">
+            ${idx === QUESTIONS.length - 1 ? 'Get My Report' : 'Continue'}
+            <span class="arrow">→</span>
+          </button>
+        </div>
+      </div>`;
+
+        // Restore previous selection
+        if (this.state.answers[q.key]) {
+          if (q.type === 'single') {
+            const btn = container.querySelector(`[data-val="${this.state.answers[q.key]}"]`);
+            if (btn) btn.classList.add('selected');
+          } else if (q.type === 'multi' && Array.isArray(this.state.answers[q.key])) {
+            this.state.answers[q.key].forEach(v => {
+              const btn = container.querySelector(`[data-val="${v}"]`);
+              if (btn) btn.classList.add('selected');
+            });
+          }
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      },
+
+      pickSingle(key, val) {
+        this.state.answers[key] = val;
+        document.querySelectorAll('#question-container .option').forEach(b => b.classList.remove('selected'));
+        document.querySelector(`#question-container [data-val="${val}"]`).classList.add('selected');
+        // Auto-advance after slight delay for UX
+        setTimeout(() => this.nextQ(), 350);
+      },
+
+      pickMulti(key, val, btn) {
+        if (!Array.isArray(this.state.answers[key])) this.state.answers[key] = [];
+        const arr = this.state.answers[key];
+        const i = arr.indexOf(val);
+        if (i >= 0) {
+          arr.splice(i, 1);
+          btn.classList.remove('selected');
+        } else {
+          arr.push(val);
+          btn.classList.add('selected');
+        }
+      },
+
+      nextQ() {
+        const q = QUESTIONS[this.state.currentQ];
+        const ans = this.state.answers[q.key];
+        if (q.type === 'single' && !ans) {
+          alert('Please select an option.');
+          return;
+        }
+        if (q.type === 'multi' && (!ans || !ans.length)) {
+          alert('Please select at least one option.');
+          return;
+        }
+        this.renderQuestion(this.state.currentQ + 1);
+      },
+
+      prevQ() {
+        if (this.state.currentQ > 0) this.renderQuestion(this.state.currentQ - 1);
+      },
+
+      showLead() {
+        document.getElementById('scene-questions').classList.remove('active');
+        document.getElementById('scene-lead').classList.add('active');
+        document.getElementById('progress-fill').style.width = '90%';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      },
+
+      submitLead() {
+        const name = document.getElementById('lead-name').value.trim();
+        const phone = document.getElementById('lead-phone').value.trim();
+        const email = document.getElementById('lead-email').value.trim();
+        const pin = document.getElementById('lead-pin').value.trim();
+        const course = document.getElementById('lead-course').value;
+
+        let valid = true;
+        document.querySelectorAll('.field').forEach(f => f.classList.remove('invalid'));
+
+        if (!name || name.length < 2) {
+          document.getElementById('lead-name').closest('.field').classList.add('invalid'); valid = false;
+        }
+        if (!/^[6-9]\d{9}$/.test(phone)) {
+          document.getElementById('lead-phone').closest('.field').classList.add('invalid'); valid = false;
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          document.getElementById('lead-email').closest('.field').classList.add('invalid'); valid = false;
+        }
+        if (!/^\d{6}$/.test(pin)) {
+          document.getElementById('lead-pin').closest('.field').classList.add('invalid'); valid = false;
+        }
+        if (!course) {
+          document.getElementById('lead-course').closest('.field').classList.add('invalid'); valid = false;
+        }
+        if (!valid) {
+          window.scrollTo({ top: document.querySelector('.invalid').offsetTop - 100, behavior: 'smooth' });
+          return;
+        }
+
+        this.state.lead = { name, phone, email, pin, course, timestamp: new Date().toISOString() };
+
+        // Save to localStorage as backup
+        try {
+          const existing = JSON.parse(localStorage.getItem('abs_leads') || '[]');
+          existing.push({ ...this.state.lead, answers: this.state.answers });
+          localStorage.setItem('abs_leads', JSON.stringify(existing));
+        } catch (e) { }
+
+        // Send to Next.js API → Brevo email (bwtnaresh@gmail.com) + Google Sheets (fire-and-forget)
+        fetch('/api/send-counselling-lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ...this.state.lead, answers: this.state.answers }),
+        }).catch(function (err) { console.warn('Lead API failed (non-blocking):', err); });
+
+        document.getElementById('progress-fill').style.width = '100%';
+        this.generateResults();
+      },
+
+      generateResults() {
+        document.getElementById('scene-lead').classList.remove('active');
+        document.getElementById('scene-results').classList.add('active');
+
+        const recs = scoreCourses(this.state.answers);
+        const top3 = recs.slice(0, 3);
+        this.state.top3 = top3;
+
+        document.getElementById('results-container').innerHTML = renderResults(this.state.lead, this.state.answers, top3);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      },
+
+      printPDF() {
+        const { lead, answers, top3 } = this.state;
+        if (!top3 || !top3.length) return;
+
+        const topScore = top3[0].score;
+        const date = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+
+        // Student profile tags
+        const tags = [answers.stream + ' Stream', answers.percentage + '%'];
+        if (answers.entrance && !answers.entrance.includes('NONE')) tags.push(answers.entrance.join(' + '));
+        tags.push(answers.duration === '2yr' ? 'Quick Career' : (answers.duration === '5-6yr' ? 'Long-term Vision' : 'Bachelor Path'));
+
+        // Build course cards
+        const courseCards = top3.map((r, i) => {
+          const c = r.course;
+          const matchPct = Math.round((r.score / topScore) * 100);
+          const whySuits = generateWhySuits(c, answers);
+          return `
+        <div style="background:#fff;border:1px solid #d1d5db;border-radius:10px;padding:24px 28px;margin-bottom:20px;page-break-inside:avoid;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+            <div>
+              <div style="font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:#059669;font-weight:700;margin-bottom:4px;">Recommendation ${String(i + 1).padStart(2, '0')}</div>
+              <h3 style="margin:0;font-size:1.3rem;color:#134e4a;">${c.name} — <span style="font-style:italic;font-weight:400">${c.fullName}</span></h3>
+              <div style="font-size:13px;color:#6b7280;margin-top:4px;">${c.tagline}</div>
+            </div>
+            <div style="text-align:center;background:#f0fdf4;border:2px solid #059669;border-radius:10px;padding:8px 14px;flex-shrink:0;margin-left:16px;">
+              <div style="font-size:1.5rem;font-weight:800;color:#059669;">${matchPct}%</div>
+              <div style="font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:#6b7280;">Match</div>
+            </div>
+          </div>
+
+          <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#6b7280;margin-bottom:8px;">Why this fits you</div>
+          <ul style="margin:0 0 16px 0;padding-left:18px;font-size:13px;color:#374151;line-height:1.7;">
+            ${whySuits.map(w => `<li style="margin-bottom:4px;">${w}</li>`).join('')}
+          </ul>
+
+          <table style="width:100%;border-collapse:collapse;margin-bottom:16px;font-size:13px;">
+            <tr style="background:#f9fafb;">
+              <td style="padding:10px 12px;border:1px solid #e5e7eb;"><strong>Duration</strong><br>${c.duration}</td>
+              <td style="padding:10px 12px;border:1px solid #e5e7eb;"><strong>Total Fees</strong><br>${c.fees}</td>
+              <td style="padding:10px 12px;border:1px solid #e5e7eb;"><strong>Starting Salary</strong><br><span style="color:#d97706;font-weight:600">${c.salaryEntry}</span></td>
+              <td style="padding:10px 12px;border:1px solid #e5e7eb;"><strong>5-Year Salary</strong><br><span style="color:#d97706;font-weight:600">${c.salaryMid}</span></td>
+            </tr>
+          </table>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
+            <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:12px;">
+              <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:#6b7280;margin-bottom:6px;">Career Options</div>
+              <ul style="margin:0;padding-left:16px;font-size:12px;color:#374151;line-height:1.6;">
+                ${c.careers.map(cr => `<li>${cr}</li>`).join('')}
+              </ul>
+            </div>
+            <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:12px;">
+              <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:#6b7280;margin-bottom:6px;">Top Colleges</div>
+              <ul style="margin:0;padding-left:16px;font-size:12px;color:#374151;line-height:1.6;">
+                ${c.topColleges.map(col => `<li>${col}</li>`).join('')}
+              </ul>
+            </div>
+          </div>
+
+          <div style="background:#f0fdf4;border:1px solid #a7f3d0;border-radius:8px;padding:12px;font-size:12px;color:#374151;">
+            <strong style="color:#059669;">2026–2031 Outlook:</strong> ${c.outlook2031}
+          </div>
+
+          ${c.challenges && c.challenges.length ? `
+          <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:12px;font-size:12px;color:#374151;margin-top:10px;">
+            <strong style="color:#dc2626;">Honest Challenges:</strong>
+            <ul style="margin:6px 0 0;padding-left:16px;line-height:1.6;">${c.challenges.map(ch => `<li>${ch}</li>`).join('')}</ul>
+          </div>` : ''}
+        </div>`;
+        }).join('');
+
+        // Roadmap steps
+        const roadmapSteps = generateRoadmapSteps(top3[0].course, answers);
+        const roadmapHTML = roadmapSteps.map((s, i) => `
+      <div style="display:flex;gap:14px;margin-bottom:14px;page-break-inside:avoid;">
+        <div style="width:28px;height:28px;background:#059669;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;margin-top:2px;">${i + 1}</div>
+        <div style="flex:1;">
+          <div style="font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#059669;font-weight:700;">${s.when}</div>
+          <h4 style="margin:2px 0 4px;font-size:14px;color:#134e4a;">${s.title}</h4>
+          <p style="margin:0;font-size:12px;color:#4b5563;line-height:1.6;">${s.text}</p>
+        </div>
+      </div>
+    `).join('');
+
+        // Mistakes
+        const mistakes = [
+          { n: '01', title: 'Choosing a "trending" course without checking your own fit', text: 'My friend took CS, so I should too — this is the biggest mistake. A trending course is one thing, your personal fit is another.' },
+          { n: '02', title: 'Obsessing over college brand while ignoring the course', text: 'The wrong course at a top college < the right course at a regular college. The course matters more than the brand.' },
+          { n: '03', title: 'Locking into the wrong stream due to family pressure', text: 'Family wants a doctor — but you have zero interest. Result: 5 years of struggle. An honest conversation with family is essential.' },
+          { n: '04', title: 'Not having a backup option', text: 'Putting everything on NEET — what if the score is not enough? Always keep Plan A + Plan B running in parallel.' },
+          { n: '05', title: 'Blind calculation on fees', text: 'Calculate your course ROI before taking a loan. A ₹15 lakh loan on a ₹4 lakh starting salary takes years to repay.' }
+        ];
+        const mistakesHTML = mistakes.map(m => `
+      <div style="display:flex;gap:10px;margin-bottom:10px;page-break-inside:avoid;">
+        <div style="font-size:18px;font-weight:800;color:#e5e7eb;flex-shrink:0;width:28px;">${m.n}</div>
+        <div><strong style="font-size:13px;color:#134e4a;">${m.title}</strong><br><span style="font-size:12px;color:#6b7280;">${m.text}</span></div>
+      </div>
+    `).join('');
+
+        const html = `<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<title>Career Report — ${lead.name}</title>
+<style>
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page-break { page-break-before: always; }
+  }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #1f2937; margin: 0; padding: 0; background: white; font-size: 14px; line-height: 1.6; }
+  .container { max-width: 750px; margin: 0 auto; padding: 30px 36px; }
+  h1, h2, h3, h4 { margin: 0; }
+</style>
+</head><body>
+<div class="container">
+
+  <!-- HEADER -->
+  <div style="border-bottom:3px solid #059669;padding-bottom:20px;margin-bottom:24px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <div>
+        <h1 style="font-size:1.6rem;color:#134e4a;margin-bottom:2px;">Career Guidance Report</h1>
+        <div style="font-size:13px;color:#6b7280;">Prepared for <strong style="color:#134e4a;">${lead.name}</strong> · ${date}</div>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-size:15px;font-weight:700;color:#059669;">ABS Educational Solution</div>
+        <div style="font-size:11px;color:#6b7280;">Career Counselling Division</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STUDENT PROFILE -->
+  <div style="background:#f0fdf4;border:1px solid #a7f3d0;border-radius:10px;padding:16px 20px;margin-bottom:24px;">
+    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:#059669;margin-bottom:8px;">Student Profile</div>
+    <table style="font-size:13px;color:#374151;border-collapse:collapse;">
+      <tr><td style="padding:3px 20px 3px 0;font-weight:600;color:#6b7280;">Name</td><td>${lead.name}</td></tr>
+      <tr><td style="padding:3px 20px 3px 0;font-weight:600;color:#6b7280;">Phone</td><td>${lead.phone}</td></tr>
+      ${lead.email ? `<tr><td style="padding:3px 20px 3px 0;font-weight:600;color:#6b7280;">Email</td><td>${lead.email}</td></tr>` : ''}
+      <tr><td style="padding:3px 20px 3px 0;font-weight:600;color:#6b7280;">Stream</td><td>${answers.stream} · ${answers.percentage}%</td></tr>
+      ${answers.entrance && !answers.entrance.includes('NONE') ? `<tr><td style="padding:3px 20px 3px 0;font-weight:600;color:#6b7280;">Entrance</td><td>${answers.entrance.join(', ')}${answers.examScore ? ' · Score: ' + answers.examScore : ''}</td></tr>` : ''}
+    </table>
+  </div>
+
+  <!-- SECTION 1: TOP 3 COURSES -->
+  <div style="margin-bottom:8px;">
+    <h2 style="font-size:1.15rem;color:#134e4a;margin-bottom:4px;">Section 1 — Your Top 3 Course Matches</h2>
+    <div style="font-size:12px;color:#6b7280;margin-bottom:16px;">Based on your stream, percentage, interests, goals, and career preferences</div>
+  </div>
+  ${courseCards}
+
+  <!-- SECTION 2: INDUSTRY OUTLOOK -->
+  <div style="margin-bottom:16px;">
+    <h2 style="font-size:1.15rem;color:#134e4a;margin-bottom:4px;">Section 2 — 2026–2031 Industry Outlook</h2>
+    <div style="font-size:12px;color:#6b7280;margin-bottom:16px;">What's growing and what's declining in the next 5 years</div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px;">
+    <div style="background:#f0fdf4;border:1px solid #a7f3d0;border-radius:10px;padding:16px;page-break-inside:avoid;">
+      <div style="font-size:12px;font-weight:700;color:#059669;text-transform:uppercase;margin-bottom:10px;">🚀 Booming Industries</div>
+      <ul style="margin:0;padding-left:16px;font-size:11px;color:#374151;line-height:1.7;">
+        <li><strong>Pharmacy Retail:</strong> 25,000+ new Jan Aushadhi openings by 2031</li>
+        <li><strong>Foreign Nursing:</strong> UK, Gulf, Canada hire 50,000+ Indian nurses/year</li>
+        <li><strong>Clinical Research:</strong> India's pharma exports at $500B+, 28% CAGR</li>
+        <li><strong>Diagnostic & Lab Tech:</strong> 5000+ new diagnostic centres opening</li>
+        <li><strong>Physiotherapy & Rehab:</strong> 12% CAGR, ageing population demand</li>
+        <li><strong>AI/Data Science:</strong> 35% CAGR — top 20% earn well</li>
+        <li><strong>Allied Health:</strong> Hospital expansion = direct jobs</li>
+      </ul>
+    </div>
+    <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:16px;page-break-inside:avoid;">
+      <div style="font-size:12px;font-weight:700;color:#dc2626;text-transform:uppercase;margin-bottom:10px;">📉 Saturated / Declining</div>
+      <ul style="margin:0;padding-left:16px;font-size:11px;color:#374151;line-height:1.7;">
+        <li><strong>Generic Engineering (Mech/Civil):</strong> Saturated except top NITs/IITs</li>
+        <li><strong>Traditional MBA (non-IIM):</strong> Poor ROI at ₹12-18L fees</li>
+        <li><strong>BA/B.Com alone:</strong> Degree value declining without skills</li>
+        <li><strong>Manual Office Roles:</strong> AI replacing data entry, basic accounting</li>
+        <li><strong>Low-tier Private Engineering:</strong> ₹8-12L fees, uncertain placements</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SECTION 3: ROADMAP -->
+  <div style="margin-bottom:16px;">
+    <h2 style="font-size:1.15rem;color:#134e4a;margin-bottom:4px;">Section 3 — Your Step-by-Step Action Plan</h2>
+    <div style="font-size:12px;color:#6b7280;margin-bottom:16px;">Personalised roadmap based on your #1 recommendation: ${top3[0].course.name}</div>
+  </div>
+  ${roadmapHTML}
+
+  <!-- SECTION 4: COMMON MISTAKES -->
+  <div class="page-break"></div>
+  <div style="margin-bottom:16px;">
+    <h2 style="font-size:1.15rem;color:#134e4a;margin-bottom:4px;">Section 4 — Common Mistakes to Avoid</h2>
+    <div style="font-size:12px;color:#6b7280;margin-bottom:16px;">Don't make these errors that cost students years</div>
+  </div>
+  ${mistakesHTML}
+
+  <!-- FOOTER -->
+  <div style="border-top:2px solid #e5e7eb;margin-top:30px;padding-top:16px;text-align:center;font-size:12px;color:#6b7280;">
+    <strong style="color:#059669;">ABS Educational Solution</strong> · Career Counselling Division<br>
+    📞 +91 90047 80958 · 📧 info@absedu.in<br>
+    📍 Nalasopara · Virar · Vasai · Mumbai · Pune · Bangalore<br>
+    <div style="margin-top:8px;font-size:11px;color:#9ca3af;">This report was generated by the ABS Career Counselling Tool on ${date}. For personalised guidance, contact us.</div>
+  </div>
+
+</div>
+</body></html>`;
+
+        const w = window.open('', '_blank');
+        w.document.write(html);
+        w.document.close();
+        w.onload = () => { w.print(); };
+      },
+
+      whatsapp() {
+        const msg = `Hi ABS Team! My name is ${this.state.lead.name}. I used the career counselling tool and would like to speak with an expert. (Tool result generated)`;
+        window.open(`https://wa.me/919004780958?text=${encodeURIComponent(msg)}`, '_blank');
+      },
+
+      restart() {
+        this.state = { currentQ: 0, answers: {}, lead: {} };
+        document.querySelectorAll('.scene').forEach(s => s.classList.remove('active'));
+        document.getElementById('scene-welcome').classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    };
+
+    /* =====================================================================
+       QUESTIONS DEFINITION — 10 strategic questions
+       ===================================================================== */
+    const QUESTIONS = [
+      {
+        key: 'stream', section: 'Background',
+        title: 'Which stream did you choose in 12th grade?',
+        sub: 'This determines your course eligibility.',
+        type: 'single', cols: 2,
+        options: [
+          { val: 'PCB', label: 'PCB (Bio Group)', desc: 'Physics, Chemistry, Biology', ico: 'B' },
+          { val: 'PCM', label: 'PCM (Maths Group)', desc: 'Physics, Chemistry, Maths', ico: 'M' },
+          { val: 'PCMB', label: 'PCMB (Both)', desc: 'Both Maths + Biology', ico: 'A' },
+          { val: 'Other', label: 'Vocational / Other', desc: 'Pharmacy, Computer Science, etc.', ico: 'V' }
+        ]
+      },
+      {
+        key: 'percentage', section: 'Marks',
+        title: 'What is your expected or actual percentage in 12th?',
+        sub: 'An approximate percentage is fine — it does not need to be exact.',
+        type: 'slider',
+        min: 35, max: 99, default: 65, unit: '%',
+        sliderLabel: 'Slide to set your percentage',
+        hint: 'Options are available below 50% too — don\'t worry.'
+      },
+      {
+        key: 'entrance', section: 'Entrance Exams',
+        title: 'Which entrance exam have you taken or are planning to take?',
+        sub: 'You can select multiple. If none, select "None".',
+        type: 'multi', cols: 2,
+        options: [
+          { val: 'NEET', label: 'NEET UG', desc: 'Medical / Pharmacy / AYUSH', ico: '🩺' },
+          { val: 'CET', label: 'MHT-CET', desc: 'Maharashtra Health/Engineering', ico: '📘' },
+          { val: 'JEE', label: 'JEE Main', desc: 'Engineering colleges', ico: '⚙️' },
+          { val: 'KCET', label: 'KCET', desc: 'Karnataka CET', ico: '🅺' },
+          { val: 'COMEDK', label: 'COMEDK', desc: 'Karnataka private engg/medical', ico: '🅲' },
+          { val: 'GUJ-CET', label: 'Gujarat CET', desc: 'Gujarat exams', ico: '🅶' },
+          { val: 'NONE', label: 'None', desc: 'Planning for direct admission', ico: '○' }
+        ]
+      },
+      {
+        key: 'examScore', section: 'Entrance Score',
+        title: 'What is your expected or actual entrance exam score?',
+        sub: 'Based on whichever exam you took — your approximate percentile or marks. An estimate is fine.',
+        type: 'single', cols: 3,
+        options: [
+          { val: 'NA', label: 'Did Not Attempt', desc: 'Exam not attempted', ico: '–' },
+          { val: 'LOW', label: 'Low Score', desc: 'NEET <300, CET <80, JEE <100', ico: '↓' },
+          { val: 'AVG', label: 'Average', desc: 'NEET 300-450, CET 80-130, JEE 100-180', ico: '→' },
+          { val: 'GOOD', label: 'Good Score', desc: 'NEET 450-550, CET 130-160, JEE 180-220', ico: '↑' },
+          { val: 'EXCELLENT', label: 'Excellent', desc: 'NEET 550+, CET 160+, JEE 220+', ico: '↑↑' }
+        ]
+      },
+      {
+        key: 'subjects', section: 'Interests',
+        title: 'Which subjects did you find most interesting in 12th?',
+        sub: 'Be honest — select the ones you genuinely enjoyed studying. <em>You can select multiple.</em>',
+        type: 'multi',
+        options: [
+          { val: 'biology', label: 'Biology / Living Systems', desc: 'Anatomy, plants, body parts', ico: '🌿' },
+          { val: 'chemistry', label: 'Chemistry', desc: 'Reactions, organic, drugs', ico: '⚗️' },
+          { val: 'physics', label: 'Physics', desc: 'Mechanics, electricity, waves', ico: '⚛️' },
+          { val: 'maths', label: 'Mathematics', desc: 'Calculus, algebra, problem-solving', ico: '∑' },
+          { val: 'computer', label: 'Computer / Logic', desc: 'Coding, software, technology', ico: '💻' },
+          { val: 'medicines', label: 'Medicines & Drugs', desc: 'Tablets, pharmacy', ico: '💊' },
+          { val: 'patient-care', label: 'Patient Care / Helping', desc: 'Hospitals, sick people', ico: '🏥' },
+          { val: 'business', label: 'Business / Sales', desc: 'Marketing, dealing with people', ico: '📊' }
+        ]
+      },
+      {
+        key: 'goals', section: 'Career Goals',
+        title: 'What matters most to you in your career?',
+        sub: 'Select what truly feels most important to you. <em>You can select 2-3.</em>',
+        type: 'multi',
+        options: [
+          { val: 'fast-job', label: 'Quick Job & Earnings', desc: 'Start earning within 2-3 years', ico: '⚡' },
+          { val: 'high-salary', label: 'High Salary Long-term', desc: 'Takes time but excellent pay', ico: '💰' },
+          { val: 'govt-job', label: 'Government Job', desc: 'Job security, pension', ico: '🏛️' },
+          { val: 'helping', label: 'Helping People', desc: 'Patient care, social impact', ico: '❤️' },
+          { val: 'abroad', label: 'Settle Abroad', desc: 'UK, Canada, Gulf, Australia', ico: '✈️' },
+          { val: 'business', label: 'Own Business', desc: 'Medical store, clinic, startup', ico: '🏪' },
+          { val: 'research', label: 'Research / Higher Studies', desc: 'PhD, Scientist, Academic', ico: '🔬' },
+          { val: 'family-business', label: 'Continue Family Business', desc: 'Pre-existing pharmacy/clinic', ico: '🏬' }
+        ]
+      },
+      {
+        key: 'environment', section: 'Work Style',
+        title: 'Which work environment appeals to you the most?',
+        sub: 'Think carefully — this will define your daily work life.',
+        type: 'single', cols: 2,
+        options: [
+          { val: 'hospital', label: 'Hospital / Clinic', desc: 'Doctors, patients, fast-paced', ico: '🏥' },
+          { val: 'lab', label: 'Lab / Testing', desc: 'Microscope, samples, reports', ico: '🔬' },
+          { val: 'pharmacy-store', label: 'Pharmacy / Medical Store', desc: 'Customers, medicines', ico: '💊' },
+          { val: 'office', label: 'Office / Computer', desc: 'AC, desk, software', ico: '💼' },
+          { val: 'field', label: 'Field / Travel Work', desc: 'Marketing, sales, travel', ico: '🚗' },
+          { val: 'teaching', label: 'Teaching / Academic', desc: 'College, training, faculty', ico: '🎓' }
+        ]
+      },
+      {
+        key: 'duration', section: 'Course Length',
+        title: 'How many years are you willing to study?',
+        sub: 'This directly impacts your career timeline — set realistic expectations.',
+        type: 'single', cols: 2,
+        options: [
+          { val: '2yr', label: 'Maximum 2 Years', desc: 'Diploma — quick employment', ico: '◔' },
+          { val: '3-4yr', label: '3–4 Years', desc: "Standard bachelor's degree", ico: '◑' },
+          { val: '5-6yr', label: '5–6 Years', desc: 'Pharm.D / MBBS / BAMS level', ico: '◕' },
+          { val: 'flexible', label: 'Flexible — Quality First', desc: 'Course quality over duration', ico: '●' }
+        ]
+      },
+      {
+        key: 'budget', section: 'Family Budget',
+        title: "What is your family's approximate budget for course fees?",
+        sub: 'Total course fees. Education loans are available for most courses. This is for reference only.',
+        type: 'single', cols: 2,
+        options: [
+          { val: 'low', label: 'Under ₹2 Lakh', desc: 'Diploma / Govt colleges', ico: '₹' },
+          { val: 'mid', label: '₹2 – ₹6 Lakh', desc: 'Most degree courses', ico: '₹₹' },
+          { val: 'high', label: '₹6 – ₹15 Lakh', desc: 'Premium private medical/engg', ico: '₹₹₹' },
+          { val: 'flexible', label: 'Flexible — Can Take a Loan', desc: 'Quality course is priority, cost is flexible', ico: '∞' }
+        ]
+      },
+      {
+        key: 'location', section: 'Location',
+        title: 'How far are you willing to travel for your studies?',
+        sub: 'The best colleges are often in Maharashtra or Karnataka. Give an honest answer.',
+        type: 'single', cols: 2,
+        options: [
+          { val: 'mumbai-only', label: 'Only Mumbai / MMR', desc: 'Can commute from home', ico: '📍' },
+          { val: 'maharashtra', label: 'Maharashtra Anywhere', desc: 'Pune, Nashik, Nagpur OK', ico: '🅼' },
+          { val: 'karnataka', label: 'Karnataka Also OK', desc: 'Bangalore, Belgaum, etc.', ico: '🅺' },
+          { val: 'india', label: 'Anywhere in India', desc: 'Wherever the best college is', ico: '🇮🇳' }
+        ]
+      }
+    ];
+  </script>
+
+  <script>
+    /* =====================================================================
+       COURSE DATABASE — 25+ courses with deep, real-world data
+       Each course has scoring weights + complete information
+       ===================================================================== */
+    const COURSES = [
+      /* ============ PHARMACY (ABS / NIP EXPERTISE) ============ */
+      {
+        id: 'd-pharm',
+        name: 'D.Pharm',
+        fullName: 'Diploma in Pharmacy',
+        tagline: "India's fastest-paying, recession-proof healthcare diploma. Job-ready in 2 years.",
+        duration: '2 years (+ 500 hrs internship)',
+        fees: '₹40,000 – ₹1.2 Lakh total',
+        feeBucket: ['low', 'mid'],
+        streams: ['PCB', 'PCM', 'PCMB', 'Other'],
+        minPercentage: 45,
+        examNeeded: ['NONE', 'CET'],
+        minExamScore: 'NA',
+        careers: ['Registered Pharmacist (Hospital)', 'Medical Store Owner', 'Pharma Sales / MR', 'Drug Inspector (post-exam)', 'Production Pharmacist', 'Government Pharmacist', 'Online Pharmacy (1mg, PharmEasy)'],
+        salaryEntry: '₹15,000 – ₹28,000/month',
+        salaryMid: '₹35,000 – ₹70,000/month (with experience)',
+        outlook2031: "India's pharmacy retail industry is set to reach ₹6 lakh crore by 2031. The Jan Aushadhi Kendra scheme is expected to open 25,000+ new pharmacies. Hospital pharmacy demand is growing at 18% CAGR. PCI-licensed pharmacists are in short supply — a recession-proof career.",
+        whySuits: { biology: 8, chemistry: 9, medicines: 10, 'patient-care': 7, business: 8, 'fast-job': 10, 'family-business': 10, helping: 7, 'pharmacy-store': 10, hospital: 7, 'govt-job': 7 },
+        challenges: ['Starting salary lower than B.Pharm', 'Pharmacist licence only — advanced clinical roles not available'],
+        topColleges: ['NIP Bangalore (Neelsaroj Institute of Pharmacy) — ABS Partner', 'Government Polytechnic Pharmacy', 'D.Y. Patil', 'Bombay College of Pharmacy'],
+        isABSExpertise: true,
+        pharmacyBoost: true,
+        durationFit: { '2yr': 10, '3-4yr': 4, '5-6yr': 2, 'flexible': 8 }
+      },
+      {
+        id: 'b-pharm',
+        name: 'B.Pharm',
+        fullName: 'Bachelor of Pharmacy',
+        tagline: "India's most versatile pharmacy degree — research, marketing, manufacturing, hospital — all doors open.",
+        duration: '4 years',
+        fees: '₹2 – ₹6 Lakh total',
+        feeBucket: ['mid', 'high'],
+        streams: ['PCB', 'PCM', 'PCMB'],
+        minPercentage: 50,
+        examNeeded: ['NEET', 'CET', 'NONE', 'KCET'],
+        minExamScore: 'LOW',
+        careers: ['Hospital Pharmacist', 'Clinical Research Associate', 'Pharma Production / QA', 'Drug Regulatory Affairs', 'Medical Writer', 'Pharma MR (₹40K-1L start)', 'Pharm.D / M.Pharm Pathway', 'GPAT for Govt Jobs', 'Foreign Pharmacy Council Exam'],
+        salaryEntry: '₹25,000 – ₹45,000/month',
+        salaryMid: '₹70,000 – ₹2 Lakh/month (5-7 yrs experience)',
+        outlook2031: "The Indian pharma industry is set to reach $130 billion by 2030. India is the world's 3rd largest pharma producer, supplying 20% of global generic medicines. 4 lakh+ new jobs are expected in clinical research, biosimilars, and regulatory affairs. For settling abroad, Pharmacy Council exams (PEBC Canada, GPhC UK) provide a strong pathway.",
+        whySuits: { biology: 8, chemistry: 10, medicines: 10, 'patient-care': 6, research: 9, business: 8, abroad: 9, helping: 6, 'pharmacy-store': 9, hospital: 7, lab: 8, 'high-salary': 8, 'govt-job': 8, 'family-business': 9 },
+        challenges: ['4-year commitment', 'Top opportunities may be missed without GPAT/Pharm.D'],
+        topColleges: ['NIP Bangalore (ABS Partner)', 'Bombay College of Pharmacy', 'NIPER (Mohali)', 'Manipal College of Pharmacy', 'Poona College of Pharmacy', 'D.Y. Patil Pharmacy'],
+        isABSExpertise: true,
+        pharmacyBoost: true,
+        durationFit: { '2yr': 2, '3-4yr': 10, '5-6yr': 7, 'flexible': 9 }
+      },
+      {
+        id: 'pharm-d',
+        name: 'Pharm.D',
+        fullName: 'Doctor of Pharmacy',
+        tagline: 'Highest pharmacy qualification — direct route to becoming a clinical pharmacist. With a Doctor title.',
+        duration: '6 years (incl. 1 yr internship)',
+        fees: '₹4 – ₹10 Lakh total',
+        feeBucket: ['mid', 'high'],
+        streams: ['PCB', 'PCM', 'PCMB'],
+        minPercentage: 55,
+        examNeeded: ['NEET', 'CET', 'NONE'],
+        minExamScore: 'AVG',
+        careers: ['Clinical Pharmacist', 'Drug Information Specialist', 'Hospital Consultant Pharmacist', 'Foreign Hospital Pharmacist (US/Gulf)', 'Pharmacovigilance Officer', 'Clinical Trial Lead', 'Lecturer (Pharmacy College)'],
+        salaryEntry: '₹35,000 – ₹65,000/month',
+        salaryMid: '₹1 – ₹3 Lakh/month, foreign mein $50K-$80K/yr',
+        outlook2031: 'Clinical pharmacy is still nascent in India but a 35% CAGR is expected in the hospital sector by 2030. Foreign demand is massive — UK NHS, US, and Gulf hospitals are actively hiring Pharm.D pharmacists. Pharmacovigilance jobs are expected to grow at 28%.',
+        whySuits: { biology: 9, chemistry: 10, medicines: 10, 'patient-care': 10, research: 10, hospital: 10, abroad: 10, helping: 10, 'high-salary': 9, lab: 7 },
+        challenges: ['6-year duration', 'Limited colleges in India', 'High investment required'],
+        topColleges: ['JSS College of Pharmacy', 'Manipal Pharmacy', 'NIP Bangalore (B.Pharm + lateral)', 'Krupanidhi College'],
+        isABSExpertise: true,
+        pharmacyBoost: true,
+        durationFit: { '2yr': 1, '3-4yr': 4, '5-6yr': 10, 'flexible': 9 }
+      },
+
+      /* ============ NURSING (ABS EXPERTISE) ============ */
+      {
+        id: 'bsc-nursing',
+        name: 'B.Sc Nursing',
+        fullName: 'Bachelor of Science in Nursing',
+        tagline: 'The best nursing degree — strongest route to work abroad, especially in the Gulf, UK, and Canada.',
+        duration: '4 years',
+        fees: '₹1.5 – ₹6 Lakh total',
+        feeBucket: ['low', 'mid'],
+        streams: ['PCB', 'PCMB'],
+        minPercentage: 50,
+        examNeeded: ['NEET', 'CET', 'NONE'],
+        minExamScore: 'LOW',
+        careers: ['Staff Nurse (Hospital)', 'Foreign Nurse (UK / Gulf / Canada / Germany)', 'ICU / Critical Care Nurse', 'Government Nurse (AIIMS, ESIC, Railway)', 'Nurse Educator', 'Public Health Nurse', 'Cruise Ship Nurse', 'M.Sc Nursing / Specialisation'],
+        salaryEntry: '₹20,000 – ₹40,000/month India',
+        salaryMid: '₹50K-₹1L India; ₹2-5 lakh/month Gulf/UK',
+        outlook2031: "India needs 27 lakh additional nurses by 2030 (WHO data). The UK NHS and Gulf countries hire 50,000+ Indian nurses every year. The average abroad nurse package is ₹2-5 lakh/month. Passing NCLEX-RN or Prometric exams enables direct foreign settlement. This is the SAFEST and most rewarding career of the next 10 years.",
+        whySuits: { biology: 10, chemistry: 6, 'patient-care': 10, helping: 10, abroad: 10, hospital: 10, 'govt-job': 10, 'fast-job': 8, 'high-salary': 7 },
+        challenges: ['Initial salary lower in India', 'Night shifts are demanding', 'Family understanding required — gender bias can sometimes be a factor'],
+        topColleges: ['AIIMS Nursing', 'CMC Vellore', 'PGIMER Chandigarh', 'D.Y. Patil Nursing', 'Bharati Vidyapeeth Nursing', 'ABS-affiliated Nursing Colleges Mumbai'],
+        isABSExpertise: true,
+        pharmacyBoost: false,
+        nursingBoost: true,
+        durationFit: { '2yr': 2, '3-4yr': 10, '5-6yr': 7, 'flexible': 9 }
+      },
+      {
+        id: 'gnm',
+        name: 'GNM Nursing',
+        fullName: 'General Nursing & Midwifery',
+        tagline: 'A 3.5-year diploma — the practical route to becoming a nurse quickly.',
+        duration: '3 years + 6 months internship',
+        fees: '₹50,000 – ₹2 Lakh total',
+        feeBucket: ['low', 'mid'],
+        streams: ['PCB', 'PCM', 'PCMB', 'Other'],
+        minPercentage: 40,
+        examNeeded: ['NONE', 'CET'],
+        minExamScore: 'NA',
+        careers: ['Staff Nurse', 'Hospital Nurse (Pvt + Govt)', 'Foreign Nurse (after exam upgrade)', 'Midwife / Maternity Nurse', 'Home Healthcare', 'School Nurse', 'Community Health Worker'],
+        salaryEntry: '₹15,000 – ₹28,000/month',
+        salaryMid: '₹35,000 – ₹60,000/month',
+        outlook2031: 'Demand for GNM nurses will remain stable. A B.Sc upgrade is required for foreign migration. Every district in India faces a nurse shortage — government PHC/CHC postings are consistently available.',
+        whySuits: { biology: 9, 'patient-care': 10, helping: 10, hospital: 10, 'govt-job': 9, 'fast-job': 9 },
+        challenges: ['B.Sc upgrade required for foreign migration', 'Career ceiling lower than B.Sc'],
+        topColleges: ['Government Nursing Schools', 'Trust-run hospitals (Tata, Wadia)', 'KEM, JJ Hospital'],
+        isABSExpertise: true,
+        pharmacyBoost: false,
+        nursingBoost: true,
+        durationFit: { '2yr': 6, '3-4yr': 10, '5-6yr': 4, 'flexible': 8 }
+      },
+      {
+        id: 'anm',
+        name: 'ANM',
+        fullName: 'Auxiliary Nurse & Midwifery',
+        tagline: 'The shortest nursing course — ideal for village and community health work.',
+        duration: '2 years',
+        fees: '₹30,000 – ₹80,000 total',
+        feeBucket: ['low'],
+        streams: ['PCB', 'PCM', 'PCMB', 'Other'],
+        minPercentage: 35,
+        examNeeded: ['NONE'],
+        minExamScore: 'NA',
+        careers: ['Community Health Worker', 'PHC / Sub-centre ANM', 'Maternity Nurse Assistant', 'Anganwadi Health Officer'],
+        salaryEntry: '₹10,000 – ₹18,000/month',
+        salaryMid: '₹20,000 – ₹35,000/month govt',
+        outlook2031: 'Continuous demand under rural healthcare schemes (NHM, JSY). Salary range is limited — upgrading to GNM/B.Sc later is advisable.',
+        whySuits: { 'patient-care': 9, helping: 9, 'fast-job': 9, 'govt-job': 8, hospital: 7 },
+        challenges: ['Lowest salary in nursing', 'Limited career growth without upgrade'],
+        topColleges: ['Government ANM Schools', 'District Health Training Centres'],
+        isABSExpertise: true,
+        pharmacyBoost: false,
+        nursingBoost: true,
+        durationFit: { '2yr': 10, '3-4yr': 4, '5-6yr': 1, 'flexible': 6 }
+      },
+
+      /* ============ MEDICAL ============ */
+      {
+        id: 'mbbs',
+        name: 'MBBS',
+        fullName: 'Bachelor of Medicine & Bachelor of Surgery',
+        tagline: 'Doctor of medicine — the most prestigious and high-paying medical career.',
+        duration: '5.5 years (incl. internship)',
+        fees: '₹50,000/yr (Govt) – ₹25 Lakh/yr (Pvt)',
+        feeBucket: ['mid', 'high'],
+        streams: ['PCB', 'PCMB'],
+        minPercentage: 50,
+        examNeeded: ['NEET'],
+        minExamScore: 'EXCELLENT',
+        careers: ['MD/MS Specialist', 'Surgeon', 'Government Medical Officer', 'Private Practice', 'Foreign Medical License (USMLE/PLAB)', 'Hospital Consultant'],
+        salaryEntry: '₹50,000 – ₹1.2 Lakh/month (junior doctor)',
+        salaryMid: '₹2 – ₹10 Lakh/month (specialist)',
+        outlook2031: "Doctor shortage in India is massive (1:1500 ratio vs WHO's 1:1000). PG seats are increasing. Specialist demand is booming — Cardio, Neuro, Onco. NEET PG and foreign exam pathways remain open. Salary ceiling is the highest among all healthcare careers.",
+        whySuits: { biology: 10, chemistry: 8, 'patient-care': 10, hospital: 10, helping: 10, 'high-salary': 10, abroad: 9, research: 8, 'govt-job': 9 },
+        challenges: ['NEET 600+ required for a govt seat', 'Private total fees exceed ₹1 crore', '10+ years of training including PG'],
+        topColleges: ['AIIMS Delhi', 'JIPMER', 'Maulana Azad Medical College', 'Grant Medical College Mumbai', 'KEM Mumbai', 'Seth GS Medical College'],
+        isABSExpertise: false,
+        durationFit: { '2yr': 1, '3-4yr': 2, '5-6yr': 10, 'flexible': 9 }
+      },
+      {
+        id: 'bds',
+        name: 'BDS',
+        fullName: 'Bachelor of Dental Surgery',
+        tagline: 'Dental doctor — clinic-based, good income, business possible.',
+        duration: '5 years (incl. internship)',
+        fees: '₹2 Lakh – ₹15 Lakh total',
+        feeBucket: ['mid', 'high'],
+        streams: ['PCB', 'PCMB'],
+        minPercentage: 50,
+        examNeeded: ['NEET'],
+        minExamScore: 'GOOD',
+        careers: ['Dental Surgeon (own clinic)', 'Hospital Consultant', 'MDS Specialist', 'Foreign Dentistry', 'Cosmetic Dentistry'],
+        salaryEntry: '₹25,000 – ₹50,000/month',
+        salaryMid: '₹1 – ₹4 Lakh/month (own clinic)',
+        outlook2031: 'Cosmetic dentistry boom. India mein dental insurance penetration badh rahi hai. Clinic startup model strong.',
+        whySuits: { biology: 9, chemistry: 7, 'patient-care': 9, hospital: 8, helping: 8, 'high-salary': 8, business: 9, abroad: 7 },
+        challenges: ['Initial 2-3 years of struggle in private practice', 'Capital required to set up own clinic'],
+        topColleges: ['Government Dental College Mumbai', 'Manipal College of Dental Sciences', 'Nair Hospital Dental College'],
+        isABSExpertise: false,
+        durationFit: { '2yr': 1, '3-4yr': 3, '5-6yr': 10, 'flexible': 8 }
+      },
+      {
+        id: 'bams',
+        name: 'BAMS',
+        fullName: 'Bachelor of Ayurvedic Medicine & Surgery',
+        tagline: 'Ayurvedic doctor — stable career with practice, clinic, and government job options.',
+        duration: '5.5 years',
+        fees: '₹2 – ₹10 Lakh total',
+        feeBucket: ['mid'],
+        streams: ['PCB', 'PCMB'],
+        minPercentage: 50,
+        examNeeded: ['NEET'],
+        minExamScore: 'AVG',
+        careers: ['Ayurvedic Doctor', 'Government AYUSH Officer', 'Panchakarma Specialist', 'Wellness Centre / Resort Doctor', 'Pharmacy Practice'],
+        salaryEntry: '₹20,000 – ₹40,000/month',
+        salaryMid: '₹50,000 – ₹1.5 Lakh/month',
+        outlook2031: 'Massive government push under the AYUSH ministry. Ayurvedic wellness tourism in India growing at 30% CAGR. Foreign demand for traditional medicine is rising.',
+        whySuits: { biology: 9, 'patient-care': 9, helping: 9, hospital: 7, 'govt-job': 9, business: 7, abroad: 6 },
+        challenges: ['Less recognition than allopathy in some settings', 'PG required for a solid practice'],
+        topColleges: ['Government Ayurveda College Mumbai', 'Tilak Maharashtra Vidyapeeth', 'BAMS colleges Pune'],
+        isABSExpertise: false,
+        durationFit: { '2yr': 1, '3-4yr': 3, '5-6yr': 10, 'flexible': 8 }
+      },
+      {
+        id: 'bhms',
+        name: 'BHMS',
+        fullName: 'Bachelor of Homeopathic Medicine & Surgery',
+        tagline: 'Homeopathic doctor — affordable degree with a clear path to private practice.',
+        duration: '5.5 years',
+        fees: '₹1.5 – ₹6 Lakh total',
+        feeBucket: ['low', 'mid'],
+        streams: ['PCB', 'PCMB'],
+        minPercentage: 50,
+        examNeeded: ['NEET'],
+        minExamScore: 'LOW',
+        careers: ['Homeopathic Practitioner', 'Wellness Clinic Doctor', 'AYUSH Govt Job', 'Online Telemedicine'],
+        salaryEntry: '₹15,000 – ₹35,000/month',
+        salaryMid: '₹40,000 – ₹1.2 Lakh/month',
+        outlook2031: 'Stable career — use of homeopathy in chronic disease management is increasing. The path to private practice remains open.',
+        whySuits: { biology: 8, 'patient-care': 8, helping: 8, business: 7, 'govt-job': 7 },
+        challenges: ['Slow practice growth initially', 'Lower consultation fees compared to allopathy'],
+        topColleges: ['Government Homeopathic College Mumbai', 'CMP Mumbai', 'Bharati Vidyapeeth Homeopathic'],
+        isABSExpertise: false,
+        durationFit: { '2yr': 1, '3-4yr': 3, '5-6yr': 10, 'flexible': 7 }
+      },
+
+      /* ============ PARAMEDICAL / ALLIED HEALTH ============ */
+      {
+        id: 'bpt',
+        name: 'BPT',
+        fullName: 'Bachelor of Physiotherapy',
+        tagline: 'Physiotherapist — sports, hospitals, clinics, abroad — balanced career.',
+        duration: '4.5 years (incl. internship)',
+        fees: '₹2 – ₹6 Lakh total',
+        feeBucket: ['mid'],
+        streams: ['PCB', 'PCMB'],
+        minPercentage: 50,
+        examNeeded: ['NEET', 'CET', 'NONE'],
+        minExamScore: 'LOW',
+        careers: ['Hospital Physiotherapist', 'Sports Physio (IPL, Olympic teams)', 'Clinic Owner', 'Home Visit Physio', 'Rehabilitation Centre', 'Foreign Physio (Australia, Canada, Gulf)'],
+        salaryEntry: '₹20,000 – ₹40,000/month',
+        salaryMid: '₹60K-1.5L; foreign 3-5L/month',
+        outlook2031: 'Physio demand 12% CAGR — aging population, sports injuries, post-COVID rehab boom. Foreign migration easy with country exams.',
+        whySuits: { biology: 9, 'patient-care': 9, hospital: 9, helping: 9, abroad: 9, 'high-salary': 7, business: 8 },
+        challenges: ['Initial pay is lower', 'Physically demanding work'],
+        topColleges: ['MGM College of Physiotherapy Navi Mumbai', 'D.Y. Patil Physiotherapy', 'Manipal College of Allied Health'],
+        isABSExpertise: true,
+        durationFit: { '2yr': 1, '3-4yr': 9, '5-6yr': 8, 'flexible': 9 }
+      },
+      {
+        id: 'bmlt',
+        name: 'BMLT',
+        fullName: 'Bachelor of Medical Lab Technology',
+        tagline: 'Pathology lab technologist — medical testing field. High demand, low competition.',
+        duration: '3 years',
+        fees: '₹1 – ₹3 Lakh total',
+        feeBucket: ['low', 'mid'],
+        streams: ['PCB', 'PCM', 'PCMB'],
+        minPercentage: 45,
+        examNeeded: ['CET', 'NONE'],
+        minExamScore: 'NA',
+        careers: ['Pathology Lab Technician', 'Hospital Lab Officer', 'Diagnostic Centre Technologist', 'Research Lab Technician', 'Blood Bank Technician', 'Own Lab Setup'],
+        salaryEntry: '₹15,000 – ₹30,000/month',
+        salaryMid: '₹40,000 – ₹80,000/month',
+        outlook2031: 'Diagnostic industry India mein 15% CAGR — Dr Lal Path, Metropolis, SRL ke 5000+ centres expansion. Home sample collection boom. AI-augmented testing badh rahi hai par human technologists chahiye.',
+        whySuits: { biology: 9, chemistry: 8, lab: 10, 'patient-care': 5, 'fast-job': 8, business: 6 },
+        challenges: ['Lab work is indoors and confined', 'Career advancement is slow without M.Sc'],
+        topColleges: ['SIES Mumbai', 'D.Y. Patil', 'KEM College', 'Bharati Vidyapeeth'],
+        isABSExpertise: true,
+        durationFit: { '2yr': 6, '3-4yr': 10, '5-6yr': 5, 'flexible': 8 }
+      },
+      {
+        id: 'bsc-radiology',
+        name: 'B.Sc Radiology',
+        fullName: 'B.Sc in Radiology / Medical Imaging Technology',
+        tagline: 'X-ray, CT, MRI specialist technologist — high demand, AI-augmented future.',
+        duration: '3-4 years',
+        fees: '₹1.5 – ₹4 Lakh total',
+        feeBucket: ['mid'],
+        streams: ['PCB', 'PCM', 'PCMB'],
+        minPercentage: 50,
+        examNeeded: ['CET', 'NONE'],
+        minExamScore: 'NA',
+        careers: ['Radiology Technologist', 'CT/MRI Technician', 'Cath Lab Technician', 'Hospital Imaging Officer', 'Foreign Radiographer (Gulf, UK)'],
+        salaryEntry: '₹25,000 – ₹45,000/month',
+        salaryMid: '₹60,000 – ₹1.5 Lakh/month',
+        outlook2031: 'Medical imaging market India mein 14% CAGR. PET-CT, MRI scanners ki demand boom. AI radiology read karega par technologist scan karta rahega — secure career.',
+        whySuits: { biology: 8, physics: 8, 'patient-care': 6, hospital: 9, lab: 7, 'high-salary': 7, abroad: 8 },
+        challenges: ['Radiation exposure (manageable)', 'Limited colleges'],
+        topColleges: ['Tata Memorial Hospital', 'AIIMS', 'PGI Chandigarh affiliated', 'Manipal Allied Health'],
+        isABSExpertise: true,
+        durationFit: { '2yr': 4, '3-4yr': 10, '5-6yr': 5, 'flexible': 8 }
+      },
+      {
+        id: 'bsc-optometry',
+        name: 'B.Sc Optometry',
+        fullName: 'Bachelor of Optometry',
+        tagline: 'Eye specialist (without MBBS) — independent practice possible.',
+        duration: '4 years',
+        fees: '₹1.5 – ₹4 Lakh total',
+        feeBucket: ['mid'],
+        streams: ['PCB', 'PCM', 'PCMB'],
+        minPercentage: 45,
+        examNeeded: ['CET', 'NONE'],
+        minExamScore: 'NA',
+        careers: ['Optometrist (Hospital)', 'Lenskart / Titan Eye+ Officer', 'Own Optical Store', 'Vision Therapist', 'Contact Lens Specialist'],
+        salaryEntry: '₹18,000 – ₹35,000/month',
+        salaryMid: '₹40,000 – ₹1 Lakh/month',
+        outlook2031: 'Eye-care industry India mein 12% CAGR. Lenskart ke 2000+ stores expansion. Aging population + screen-time impact = boom.',
+        whySuits: { biology: 8, physics: 7, 'patient-care': 8, business: 8, 'pharmacy-store': 6, hospital: 6 },
+        challenges: ['Capital required to start an optical shop', 'Use of "Doctor" title is limited'],
+        topColleges: ['Manipal College Allied Health', 'Bombay Hospital Optometry', 'Sankara Eye Institute'],
+        isABSExpertise: true,
+        durationFit: { '2yr': 2, '3-4yr': 10, '5-6yr': 5, 'flexible': 8 }
+      },
+      {
+        id: 'ot-tech',
+        name: 'B.Sc OT Technology',
+        fullName: 'Bachelor of Operation Theatre Technology',
+        tagline: 'Surgery support specialist — the backbone of every hospital.',
+        duration: '3-4 years',
+        fees: '₹1.5 – ₹3.5 Lakh total',
+        feeBucket: ['low', 'mid'],
+        streams: ['PCB', 'PCMB'],
+        minPercentage: 45,
+        examNeeded: ['CET', 'NONE'],
+        minExamScore: 'NA',
+        careers: ['OT Technician', 'Anaesthesia Assistant', 'Surgical Tech (Hospital)', 'CSSD Officer'],
+        salaryEntry: '₹18,000 – ₹35,000/month',
+        salaryMid: '₹40,000 – ₹70,000/month',
+        outlook2031: 'Hospital expansion drives OT growth. Private healthcare growing at 18% CAGR. Foreign demand is increasing.',
+        whySuits: { biology: 8, 'patient-care': 8, hospital: 10, 'fast-job': 7 },
+        challenges: ['On-call duties and odd hours', 'High pressure environment during surgeries'],
+        topColleges: ['KEM Hospital', 'Manipal Allied Health', 'D.Y. Patil'],
+        isABSExpertise: true,
+        durationFit: { '2yr': 3, '3-4yr': 10, '5-6yr': 5, 'flexible': 8 }
+      },
+
+      /* ============ SCIENCE / B.Sc ============ */
+      {
+        id: 'bsc-biotech',
+        name: 'B.Sc Biotechnology',
+        fullName: 'Bachelor of Science in Biotechnology',
+        tagline: 'Genetic engineering, vaccines, modern biology — your entry point to a research career.',
+        duration: '3 years',
+        fees: '₹1 – ₹4 Lakh total',
+        feeBucket: ['low', 'mid'],
+        streams: ['PCB', 'PCM', 'PCMB'],
+        minPercentage: 50,
+        examNeeded: ['CET', 'NONE'],
+        minExamScore: 'NA',
+        careers: ['Research Associate', 'Quality Control (Pharma/Food)', 'Biotech Industry', 'PhD pathway', 'Foreign MS/PhD'],
+        salaryEntry: '₹18,000 – ₹35,000/month (post B.Sc)',
+        salaryMid: 'Higher with M.Sc/PhD; ₹50K-2L',
+        outlook2031: "Biotech industry growing at 22% CAGR — vaccine, gene therapy, and biosimilars boom. India's biotech valuation is set to hit $150 billion by 2030. Scope explodes after a PhD.",
+        whySuits: { biology: 10, chemistry: 9, research: 10, lab: 10, abroad: 8, 'high-salary': 6 },
+        challenges: ['Job options limited with just B.Sc — M.Sc is almost compulsory'],
+        topColleges: ['Mumbai University', 'Jai Hind College', 'Ramnarain Ruia College', 'Pune University'],
+        isABSExpertise: false,
+        durationFit: { '2yr': 4, '3-4yr': 10, '5-6yr': 8, 'flexible': 9 }
+      },
+      {
+        id: 'bsc-microbiology',
+        name: 'B.Sc Microbiology',
+        fullName: 'Bachelor of Science in Microbiology',
+        tagline: 'Specialist in bacteria, viruses and fungi — thriving in pharma and diagnostics.',
+        duration: '3 years',
+        fees: '₹1 – ₹3 Lakh total',
+        feeBucket: ['low', 'mid'],
+        streams: ['PCB', 'PCM', 'PCMB'],
+        minPercentage: 45,
+        examNeeded: ['CET', 'NONE'],
+        minExamScore: 'NA',
+        careers: ['Microbiologist (Pharma/Hospital)', 'Quality Control', 'Food Industry', 'Research', 'Diagnostic Lab Officer'],
+        salaryEntry: '₹15,000 – ₹30,000/month',
+        salaryMid: '₹40,000 – ₹1 Lakh/month with M.Sc',
+        outlook2031: 'Post-COVID infectious disease research boom. Steady demand in pharma QC.',
+        whySuits: { biology: 10, chemistry: 8, research: 9, lab: 10 },
+        challenges: ['M.Sc is almost required for good roles', 'Lab-confined work'],
+        topColleges: ['SIES College', 'Ramnarain Ruia', 'KC College Mumbai'],
+        isABSExpertise: false,
+        durationFit: { '2yr': 4, '3-4yr': 10, '5-6yr': 7, 'flexible': 8 }
+      },
+      {
+        id: 'bsc-forensic',
+        name: 'B.Sc Forensic',
+        fullName: 'Bachelor of Forensic Science',
+        tagline: 'Crime scene investigation, DNA analysis — niche but growing.',
+        duration: '3 years',
+        fees: '₹1.5 – ₹4 Lakh total',
+        feeBucket: ['mid'],
+        streams: ['PCB', 'PCM', 'PCMB'],
+        minPercentage: 50,
+        examNeeded: ['CET', 'NONE'],
+        minExamScore: 'NA',
+        careers: ['Forensic Scientist (Govt Lab)', 'Crime Scene Investigator', 'FBI/CBI/Police Lab', 'Private Forensic Consultancy'],
+        salaryEntry: '₹20,000 – ₹40,000/month',
+        salaryMid: '₹50,000 – ₹1 Lakh/month',
+        outlook2031: 'Govt forensic labs expansion in 2026 (NFL projects). DNA database push. Niche field but stable govt jobs.',
+        whySuits: { biology: 8, chemistry: 9, lab: 9, research: 8, 'govt-job': 9 },
+        challenges: ['Limited colleges offering the course', 'Government job competition is tough'],
+        topColleges: ['LNJN National Institute of Criminology', 'Sardar Patel University', 'Amity Forensic'],
+        isABSExpertise: false,
+        durationFit: { '2yr': 3, '3-4yr': 10, '5-6yr': 6, 'flexible': 8 }
+      },
+      {
+        id: 'bsc-agri',
+        name: 'B.Sc Agriculture',
+        fullName: 'Bachelor of Science in Agriculture',
+        tagline: 'Farming, agritech, govt jobs — underrated career.',
+        duration: '4 years',
+        fees: '₹40,000 – ₹3 Lakh total',
+        feeBucket: ['low', 'mid'],
+        streams: ['PCB', 'PCM', 'PCMB'],
+        minPercentage: 50,
+        examNeeded: ['CET', 'ICAR-AIEEA', 'NONE'],
+        minExamScore: 'NA',
+        careers: ['Agriculture Officer (Bank)', 'IBPS AFO', 'Govt Krishi Vibhag', 'Agritech Startup', 'Farm Manager', 'Seed/Pesticide MR'],
+        salaryEntry: '₹30,000 – ₹55,000/month (Bank AO)',
+        salaryMid: '₹70,000 – ₹1.5 Lakh/month',
+        outlook2031: '5000+ IBPS AFO posts available every year. Agritech startups (Ninjacart, DeHaat) receiving Series C funding. Government push for Farmer Producer Organisations (FPOs).',
+        whySuits: { biology: 8, 'fast-job': 7, 'govt-job': 10, business: 7, 'family-business': 9 },
+        challenges: ['Practical knowledge essential for field work', 'Job locations often rural'],
+        topColleges: ['ICAR colleges', 'MPKV Rahuri', 'Punjab Agri University', 'Banaras Hindu University'],
+        isABSExpertise: false,
+        durationFit: { '2yr': 2, '3-4yr': 10, '5-6yr': 5, 'flexible': 8 }
+      },
+      {
+        id: 'bvsc',
+        name: 'BVSc & AH',
+        fullName: 'Bachelor of Veterinary Science & Animal Husbandry',
+        tagline: 'Veterinary doctor — specialist in dairy, pets, and livestock.',
+        duration: '5.5 years',
+        fees: '₹2 – ₹5 Lakh total',
+        feeBucket: ['mid'],
+        streams: ['PCB', 'PCMB'],
+        minPercentage: 50,
+        examNeeded: ['NEET', 'CET'],
+        minExamScore: 'AVG',
+        careers: ['Veterinary Doctor', 'Govt Animal Husbandry Dept', 'Dairy Industry', 'Pet Clinic Owner', 'Wildlife Veterinarian'],
+        salaryEntry: '₹30,000 – ₹50,000/month',
+        salaryMid: '₹60K-1.5L; pet clinic ₹2-5L self',
+        outlook2031: "Pet care industry in India growing at 25% CAGR — pet ownership is rising. Dairy and livestock remain a government priority. Pet clinics are booming in urban areas.",
+        whySuits: { biology: 9, 'patient-care': 8, helping: 7, business: 8, 'govt-job': 8 },
+        challenges: ['Limited colleges across India', 'NEET required for some state quotas'],
+        topColleges: ['MAFSU Nagpur', 'GADVASU Ludhiana', 'Bombay Veterinary College'],
+        isABSExpertise: false,
+        durationFit: { '2yr': 1, '3-4yr': 4, '5-6yr': 10, 'flexible': 8 }
+      },
+
+      /* ============ ENGINEERING / TECH ============ */
+      {
+        id: 'engg-cs',
+        name: 'B.Tech CS / AI',
+        fullName: 'B.Tech Computer Science / AI / Data Science',
+        tagline: 'The king of the tech industry — software, AI and data science boom.',
+        duration: '4 years',
+        fees: '₹2 – ₹16 Lakh total',
+        feeBucket: ['mid', 'high'],
+        streams: ['PCM', 'PCMB'],
+        minPercentage: 60,
+        examNeeded: ['JEE', 'CET', 'KCET', 'COMEDK'],
+        minExamScore: 'AVG',
+        careers: ['Software Engineer', 'Data Scientist', 'ML Engineer', 'AI Researcher', 'Product Manager', 'Foreign Tech Job (US/Europe)'],
+        salaryEntry: '₹4 – ₹15 Lakh/year (avg ₹6L)',
+        salaryMid: '₹15L-1Cr+ at FAANG/foreign',
+        outlook2031: 'AI/ML jobs growing at 35% CAGR. Indian IT exports projected at $300 billion by 2030. Best paying tech career — but only if you genuinely code well, not just hold a degree.',
+        whySuits: { maths: 10, computer: 10, physics: 7, research: 8, 'high-salary': 10, abroad: 10, 'fast-job': 8, office: 9 },
+        challenges: ['Highly crowded — only the top 20% earn well', 'Continuous upskilling is required'],
+        topColleges: ['IITs', 'NITs', 'IIIT Hyderabad', 'BITS Pilani', 'VJTI Mumbai', 'COEP Pune'],
+        isABSExpertise: false,
+        durationFit: { '2yr': 1, '3-4yr': 10, '5-6yr': 7, 'flexible': 9 }
+      },
+      {
+        id: 'engg-other',
+        name: 'B.Tech (Other)',
+        fullName: 'B.Tech Mechanical / Civil / Electrical / Electronics',
+        tagline: 'Traditional engineering — core industry, govt jobs, public sector.',
+        duration: '4 years',
+        fees: '₹2 – ₹10 Lakh total',
+        feeBucket: ['mid'],
+        streams: ['PCM', 'PCMB'],
+        minPercentage: 50,
+        examNeeded: ['JEE', 'CET', 'KCET'],
+        minExamScore: 'LOW',
+        careers: ['Core Engineer (PSU/Pvt)', 'GATE → PSU Job', 'Government Engineer', 'Production Manager', 'Electrical Contractor (own business)'],
+        salaryEntry: '₹2.5 – ₹6 Lakh/year',
+        salaryMid: '₹8-25 Lakh/year with experience',
+        outlook2031: 'Mech/Civil is very crowded — only top colleges guarantee good placements. Government PSUs (BHEL, ONGC, NTPC) via GATE are the best bets. New boom in EV and renewable energy.',
+        whySuits: { maths: 9, physics: 9, computer: 5, 'high-salary': 6, 'govt-job': 8 },
+        challenges: ['Saturated job market', 'College brand matters a lot for placement'],
+        topColleges: ['IITs', 'NITs', 'VJTI', 'COEP', 'Mumbai University Engineering'],
+        isABSExpertise: false,
+        durationFit: { '2yr': 1, '3-4yr': 10, '5-6yr': 6, 'flexible': 8 }
+      },
+      {
+        id: 'bca',
+        name: 'BCA / B.Sc IT',
+        fullName: 'BCA / B.Sc Information Technology',
+        tagline: 'The non-engineering route to a software career — quick and flexible.',
+        duration: '3 years',
+        fees: '₹1.5 – ₹4 Lakh total',
+        feeBucket: ['low', 'mid'],
+        streams: ['PCM', 'PCB', 'PCMB', 'Other'],
+        minPercentage: 45,
+        examNeeded: ['CET', 'NONE'],
+        minExamScore: 'NA',
+        careers: ['Software Developer', 'Web/App Developer', 'IT Support Engineer', 'Database Administrator', 'MCA → SDE'],
+        salaryEntry: '₹3 – ₹6 Lakh/year',
+        salaryMid: '₹8-20 Lakh with skills',
+        outlook2031: 'BCA + skills = similar outcome to B.Tech. Coding skills matter more than the degree. Self-learning and projects matter most.',
+        whySuits: { computer: 10, maths: 7, 'fast-job': 8, office: 8, 'high-salary': 7 },
+        challenges: ['Skills matter — degree alone is not enough', 'MCA + strong skills required for top jobs'],
+        topColleges: ['Symbiosis SCIT', 'Christ University', 'KJ Somaiya', 'Mumbai University BCA'],
+        isABSExpertise: false,
+        durationFit: { '2yr': 5, '3-4yr': 10, '5-6yr': 5, 'flexible': 9 }
+      },
+
+      /* ============ MISCELLANEOUS ============ */
+      {
+        id: 'hotel-mgmt',
+        name: 'Hotel Management',
+        fullName: 'BHM / B.Sc Hospitality Management',
+        tagline: 'Hospitality industry — a popular non-medical route to working abroad.',
+        duration: '3-4 years',
+        fees: '₹1.5 – ₹6 Lakh total',
+        feeBucket: ['mid'],
+        streams: ['PCB', 'PCM', 'PCMB', 'Other'],
+        minPercentage: 50,
+        examNeeded: ['NCHMCT-JEE', 'NONE'],
+        minExamScore: 'NA',
+        careers: ['Hotel Manager', 'Cruise Ship Officer', 'F&B Manager', 'Foreign Hotel Industry', 'Catering Business', 'Airline Catering'],
+        salaryEntry: '₹15,000 – ₹40,000/month India',
+        salaryMid: 'Foreign cruise ₹2-4 Lakh/month',
+        outlook2031: 'Indian tourism growing at 14% CAGR. Cruise industry booming — Royal Caribbean, MSC hiring Indians every year.',
+        whySuits: { business: 9, abroad: 9, 'patient-care': 4, 'fast-job': 7 },
+        challenges: ['Long working hours', 'Initial salary is low'],
+        topColleges: ['IHM Mumbai', 'IHM Aurangabad', 'WGSHA Manipal'],
+        isABSExpertise: false,
+        durationFit: { '2yr': 2, '3-4yr': 10, '5-6yr': 4, 'flexible': 7 }
+      },
+      {
+        id: 'aviation',
+        name: 'Aviation / Cabin Crew',
+        fullName: 'Aviation Diploma / Cabin Crew Training',
+        tagline: 'Pilot, cabin crew, ground staff — your path into the aviation industry.',
+        duration: '6 months – 3 years (varies)',
+        fees: '₹1.5 – ₹50 Lakh (pilot)',
+        feeBucket: ['low', 'mid', 'high'],
+        streams: ['PCB', 'PCM', 'PCMB', 'Other'],
+        minPercentage: 50,
+        examNeeded: ['NONE', 'DGCA exam'],
+        minExamScore: 'NA',
+        careers: ['Cabin Crew (IndiGo, Air India, Emirates)', 'Ground Staff', 'Commercial Pilot (CPL)', 'Airport Operations'],
+        salaryEntry: '₹40K-1L/month cabin crew',
+        salaryMid: 'Pilot ₹3-15 Lakh/month',
+        outlook2031: 'Indian aviation industry — IndiGo + Air India + Akasa fleet expansion = 1 lakh+ jobs. Pilot shortage is massive.',
+        whySuits: { abroad: 9, 'fast-job': 7, 'high-salary': 8, business: 5 },
+        challenges: ['Pilot training costs ₹40-50 Lakh', 'Cabin crew roles have physical and age criteria'],
+        topColleges: ['IGRUA', 'Frankfinn (cabin crew)', 'CAE Pilot Training'],
+        isABSExpertise: false,
+        durationFit: { '2yr': 9, '3-4yr': 7, '5-6yr': 4, 'flexible': 8 }
+      }
+    ];
+
+    /* =====================================================================
+       SCORING ALGORITHM — Decides best courses for student
+       ===================================================================== */
+    function scoreCourses(answers) {
+      const results = [];
+
+      COURSES.forEach(course => {
+        let score = 0;
+        let eligible = true;
+        const reasons = [];
+
+        // 1. STREAM ELIGIBILITY (HARD FILTER)
+        if (!course.streams.includes(answers.stream)) {
+          eligible = false;
+          return; // skip course entirely
+        }
+
+        // 2. PERCENTAGE ELIGIBILITY (HARD FILTER but soft on edge)
+        if (answers.percentage < course.minPercentage - 5) {
+          eligible = false;
+          return;
+        }
+        if (answers.percentage >= course.minPercentage) {
+          score += 5;
+        }
+        if (answers.percentage >= course.minPercentage + 15) {
+          score += 5; // bonus for comfortable margin
+        }
+
+        // 3. ENTRANCE EXAM ALIGNMENT
+        const userExams = answers.entrance || [];
+        const examMatch = userExams.some(e => course.examNeeded.includes(e));
+        if (examMatch || course.examNeeded.includes('NONE')) {
+          score += 8;
+          if (examMatch) reasons.push('exam-match');
+        } else {
+          score -= 5; // penalize but don't disqualify
+        }
+
+        // 4. EXAM SCORE FIT
+        const scoreOrder = { 'NA': 0, 'LOW': 1, 'AVG': 2, 'GOOD': 3, 'EXCELLENT': 4 };
+        const userScoreLvl = scoreOrder[answers.examScore] || 0;
+        const reqScoreLvl = scoreOrder[course.minExamScore] || 0;
+        if (userScoreLvl >= reqScoreLvl) {
+          score += 8;
+        } else if (userScoreLvl + 1 >= reqScoreLvl) {
+          score += 3; // borderline
+        } else {
+          // significantly below — major penalty for high-bar courses
+          score -= 8;
+          if (course.minExamScore === 'EXCELLENT' && userScoreLvl < 3) {
+            eligible = false; // MBBS without good NEET score = unrealistic
+            return;
+          }
+        }
+
+        // 5. SUBJECT INTEREST MATCH
+        const subjects = answers.subjects || [];
+        let subScore = 0;
+        subjects.forEach(s => {
+          if (course.whySuits[s]) {
+            subScore += course.whySuits[s];
+          }
+        });
+        score += Math.min(subScore, 30); // cap
+
+        // 6. GOAL MATCH
+        const goals = answers.goals || [];
+        let goalScore = 0;
+        goals.forEach(g => {
+          if (course.whySuits[g]) {
+            goalScore += course.whySuits[g];
+          }
+        });
+        score += Math.min(goalScore, 25);
+
+        // 7. ENVIRONMENT MATCH
+        if (course.whySuits[answers.environment]) {
+          score += course.whySuits[answers.environment];
+        }
+
+        // 8. DURATION MATCH
+        if (course.durationFit && course.durationFit[answers.duration]) {
+          score += course.durationFit[answers.duration];
+        }
+
+        // 9. BUDGET MATCH
+        if (course.feeBucket && course.feeBucket.includes(answers.budget)) {
+          score += 6;
+        } else if (answers.budget === 'flexible') {
+          score += 4;
+        } else {
+          score -= 3; // budget mismatch
+        }
+
+        // 10. PHARMACY / NURSING BOOST (per Naresh's preference)
+        if (course.pharmacyBoost) {
+          // boost only if user shows any sign of pharmacy fit
+          const pharmaSignals = ['chemistry', 'medicines', 'business'];
+          const hasPharmaSignal = subjects.some(s => pharmaSignals.includes(s)) ||
+            goals.includes('family-business') ||
+            goals.includes('fast-job') ||
+            answers.environment === 'pharmacy-store';
+          if (hasPharmaSignal || answers.stream === 'PCB' || answers.stream === 'PCMB') {
+            score += 8; // Pharmacy boost
+          }
+        }
+        if (course.nursingBoost) {
+          const nurseSignals = ['biology', 'patient-care'];
+          const hasNurseSignal = subjects.some(s => nurseSignals.includes(s)) ||
+            goals.includes('helping') ||
+            goals.includes('abroad') ||
+            goals.includes('govt-job');
+          if (hasNurseSignal && (answers.stream === 'PCB' || answers.stream === 'PCMB')) {
+            score += 6;
+          }
+        }
+
+        // 11. ABS EXPERTISE BOOST (small)
+        if (course.isABSExpertise) {
+          score += 2;
+        }
+
+        if (eligible) {
+          results.push({ course, score });
+        }
+      });
+
+      results.sort((a, b) => b.score - a.score);
+      return results;
+    }
+
+    /* =====================================================================
+       RESULTS RENDERER
+       ===================================================================== */
+    function renderResults(lead, answers, top3) {
+      if (top3.length === 0) {
+        return `<div class="rec-card"><h3>Hmm, we couldn't find an exact match.</h3><p>Your profile requires a detailed 1-on-1 counselling session for proper analysis. Please speak with our expert.</p><button class="btn btn-amber" onclick="App.whatsapp()">WhatsApp Counsellor</button></div>`;
+      }
+
+      const studentTags = [];
+      studentTags.push(answers.stream + ' Stream');
+      studentTags.push(answers.percentage + '%');
+      if (answers.entrance && !answers.entrance.includes('NONE')) {
+        studentTags.push(answers.entrance.join(' + '));
+      }
+      studentTags.push(answers.duration === '2yr' ? 'Quick Career' : (answers.duration === '5-6yr' ? 'Long-term Vision' : 'Bachelor Path'));
+
+      const recCards = top3.map((r, i) => renderRecCard(r.course, i, r.score, top3[0].score, answers)).join('');
+
+      return `
+    <!-- HERO -->
+    <div class="result-hero">
+      <div class="small-label">PERSONALISED REPORT · GENERATED ${new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}</div>
+      <h1>${lead.name.split(' ')[0]}, <span class="student-name">here are your 3 best paths.</span></h1>
+      <p class="hero-sub">
+        After a deep analysis of your profile, interests, percentage and entrance score,
+        we've identified the 3 best matches for you from 25+ courses across India.
+        See the details below — each course's 5-year future, salary, and path roadmap.
+      </p>
+      <div class="profile-tags">
+        ${studentTags.map(t => `<span class="profile-tag">${t}</span>`).join('')}
+      </div>
+    </div>
+
+    <!-- SECTION: RECOMMENDATIONS -->
+    <section class="result-section">
+      <div class="sec-head">
+        <h2>Your top 3 <em>course matches</em></h2>
+        <span class="sec-num">— Section 01 of 04</span>
+      </div>
+      ${recCards}
+    </section>
+
+    <!-- SECTION: 5-YEAR INDUSTRY OUTLOOK -->
+    <section class="result-section">
+      <div class="sec-head">
+        <h2>2026–2031: What's About to <em>Boom</em> and What's <em>Declining</em></h2>
+        <span class="sec-num">— Section 02 of 04</span>
+      </div>
+      ${renderOutlookSection(answers)}
+    </section>
+
+    <!-- SECTION: ROADMAP -->
+    <section class="result-section">
+      <div class="sec-head">
+        <h2>Your <em>step-by-step</em> action plan</h2>
+        <span class="sec-num">— Section 03 of 04</span>
+      </div>
+      ${renderRoadmap(top3[0].course, answers)}
+    </section>
+
+    <!-- SECTION: MISTAKES -->
+    <section class="result-section">
+      <div class="sec-head">
+        <h2>5 <em>biggest mistakes</em> students make</h2>
+        <span class="sec-num">— Section 04 of 04</span>
+      </div>
+      ${renderMistakes()}
+    </section>
+
+    <!-- FINAL CTA -->
+    <div class="final-cta">
+      <div class="small-label">★ NEXT STEP</div>
+      <h2>Did you find this report <em>useful</em>?</h2>
+      <p>
+        This is just the beginning. Our expert counsellors will guide you through college selection,
+        the admission process, fees negotiation, and scholarships — everything made clear.
+        WhatsApp us now or book a callback. <strong>100% free.</strong>
+      </p>
+      <div class="btn-row">
+        <button class="btn btn-primary" onclick="App.whatsapp()">
+          💬 WhatsApp Counsellor
+        </button>
+        <button class="btn btn-ghost" onclick="App.printPDF()">
+          📥 Save As PDF
+        </button>
+      </div>
+      <div class="contact-strip">
+        <span>📞 +91 90047 80958</span>
+        <span>·</span>
+        <span>📧 info@abseducationalsolution.com </span>
+      </div>
+    </div>
+
+    <div class="restart-link">
+      <a href="javascript:void(0)" onclick="App.restart()">↻ Start over for another student</a>
+    </div>
+  `;
+    }
+
+    function renderRecCard(c, i, score, topScore, answers) {
+      const matchPct = Math.round((score / topScore) * 100);
+      const rank = i + 1;
+      const whySuits = generateWhySuits(c, answers);
+
+      return `
+    <div class="rec-card rank-${rank}">
+      <div class="rec-header">
+        <div>
+          <div class="rec-rank">Recommendation ${String(rank).padStart(2, '0')}</div>
+          <h3>${c.name} — <span class="serif" style="font-style:italic;font-weight:500">${c.fullName}</span></h3>
+          <div class="rec-tagline">${c.tagline}</div>
+          ${c.isABSExpertise ? '<div class="abs-badge">ABS / NIP Specialty Course</div>' : ''}
+        </div>
+        <div class="match-score">
+          <span class="pct">${matchPct}<span style="font-size:.6em">%</span></span>
+          <span class="lbl">Match</span>
+        </div>
+      </div>
+
+      <h4 style="margin-bottom:14px;font-size:1rem;color:var(--ink-mute);text-transform:uppercase;letter-spacing:.1em;font-family:'Manrope',sans-serif;font-weight:700">Why this fits you</h4>
+      <ul class="why-list">
+        ${whySuits.map(r => `<li>${r}</li>`).join('')}
+      </ul>
+
+      <div class="meta-grid">
+        <div class="meta-cell">
+          <div class="lbl">Duration</div>
+          <div class="val">${c.duration}</div>
+        </div>
+        <div class="meta-cell">
+          <div class="lbl">Total Fees</div>
+          <div class="val">${c.fees}</div>
+        </div>
+        <div class="meta-cell">
+          <div class="lbl">Starting Salary</div>
+          <div class="val amber">${c.salaryEntry}</div>
+        </div>
+        <div class="meta-cell">
+          <div class="lbl">5-Year Salary</div>
+          <div class="val amber">${c.salaryMid}</div>
+        </div>
+      </div>
+
+      <div class="career-block">
+        <div class="blk-title">Career Options after ${c.name}</div>
+        <ul>
+          ${c.careers.map(career => `<li>${career}</li>`).join('')}
+        </ul>
+      </div>
+
+      <div class="career-block">
+        <div class="blk-title">Top Colleges (Mumbai / Maharashtra / Karnataka)</div>
+        <ul>
+          ${c.topColleges.map(col => `<li>${col}</li>`).join('')}
+        </ul>
+      </div>
+
+      <div class="outlook">
+        <div class="lbl">📈 2026 → 2031 Outlook</div>
+        <div class="text">${c.outlook2031}</div>
+      </div>
+
+      ${c.challenges && c.challenges.length ? `
+      <div class="career-block" style="background:#fef5f0;border:1px solid #f5d6c4">
+        <div class="blk-title" style="color:var(--rose)"><span style="color:var(--rose)">⚠</span> Honest Challenges</div>
+        <ul>
+          ${c.challenges.map(ch => `<li style="background:white">${ch}</li>`).join('')}
+        </ul>
+      </div>
+      ` : ''}
+    </div>
+  `;
+    }
+
+    function generateWhySuits(course, answers) {
+      const reasons = [];
+      // Match with stream
+      if (course.streams.includes(answers.stream)) {
+        reasons.push(`Your <strong>${answers.stream}</strong> stream makes you perfectly eligible for this course.`);
+      }
+      // Subject affinity
+      const subjs = answers.subjects || [];
+      const matchedSubs = subjs.filter(s => course.whySuits[s] && course.whySuits[s] >= 7);
+      if (matchedSubs.length) {
+        const subNames = matchedSubs.slice(0, 3).map(s => SUBJECT_NAMES[s] || s).join(', ');
+        reasons.push(`Your interest in <strong>${subNames}</strong> aligns with the core subjects of this course.`);
+      }
+      // Goal alignment
+      const goals = answers.goals || [];
+      const matchedGoals = goals.filter(g => course.whySuits[g] && course.whySuits[g] >= 7);
+      if (matchedGoals.length) {
+        const goalText = matchedGoals.slice(0, 2).map(g => GOAL_NAMES[g] || g).join(' and ');
+        reasons.push(`Your goal of <strong>${goalText}</strong> — this course is the direct path to achieving it.`);
+      }
+      // Environment match
+      if (course.whySuits[answers.environment] && course.whySuits[answers.environment] >= 7) {
+        reasons.push(`You prefer a <strong>${ENV_NAMES[answers.environment]}</strong> work environment — this course will take you there.`);
+      }
+      // Duration
+      if (course.durationFit[answers.duration] >= 8) {
+        const durText = answers.duration === '2yr' ? 'quick employment' : (answers.duration === '5-6yr' ? 'longer in-depth training' : 'standard degree');
+        reasons.push(`You chose <strong>${durText}</strong> as your preference — this course's duration aligns perfectly with that.`);
+      }
+      // Budget
+      if (course.feeBucket && course.feeBucket.includes(answers.budget)) {
+        reasons.push(`This course comfortably fits within your <strong>budget range</strong> — no financial pressure.`);
+      }
+      // ABS expertise
+      if (course.isABSExpertise) {
+        reasons.push(`<strong>ABS and NIP Bangalore</strong> have 15+ years of admission expertise in this course — direct top college placement support is available.`);
+      }
+      if (reasons.length < 3) {
+        reasons.push(`Your overall profile (${answers.percentage}% + ${answers.stream} + chosen interests) comfortably meets the standard requirements for this course.`);
+      }
+      return reasons.slice(0, 5);
+    }
+
+    const SUBJECT_NAMES = {
+      biology: 'Biology', chemistry: 'Chemistry', physics: 'Physics', maths: 'Mathematics',
+      computer: 'Computer Science', medicines: 'Medicines & Drugs',
+      'patient-care': 'Patient Care', business: 'Business / Sales'
+    };
+    const GOAL_NAMES = {
+      'fast-job': 'quick employment', 'high-salary': 'high salary', 'govt-job': 'government job',
+      helping: 'helping others', abroad: 'settling abroad', business: 'own business',
+      research: 'research/higher studies', 'family-business': 'continuing family business'
+    };
+    const ENV_NAMES = {
+      hospital: 'hospital', lab: 'lab', 'pharmacy-store': 'medical store / pharmacy',
+      office: 'office', field: 'field work', teaching: 'teaching'
+    };
+
+    function renderOutlookSection(answers) {
+      const stream = answers.stream;
+
+      const boomItems = [
+        '<strong>Pharmacy Retail (D.Pharm/B.Pharm):</strong> Jan Aushadhi Kendra scheme is creating 25,000+ new pharmacy openings by 2031. PCI-licensed pharmacist shortage is active.',
+        '<strong>Foreign Nursing (B.Sc/GNM):</strong> UK NHS, Gulf, Canada, Germany hire 50,000+ Indian nurses every year. ₹2-5 lakh/month easily after NCLEX/Prometric.',
+        '<strong>Clinical Research & Pharmacovigilance:</strong> India is becoming a $500B+ pharma export hub. Clinical trials industry at 28% CAGR.',
+        '<strong>Diagnostic & Lab Tech (BMLT):</strong> Dr Lal Path, Metropolis, SRL expanding with 5000+ new centres. AI will augment, not replace, lab technologists.',
+        '<strong>Physiotherapy & Rehab:</strong> Ageing population + sports injuries + post-COVID rehab boom. 12% CAGR.',
+        '<strong>AI/Data Science (B.Tech CS):</strong> 35% CAGR — but only the top 20% earn well. Skills matter more than the degree.',
+        '<strong>Allied Health (Radiology, Optometry, OT Tech):</strong> Hospital expansion = direct jobs. Foreign demand is strong.'
+      ];
+
+      const declineItems = [
+        '<strong>Generic Engineering (Mech/Civil bottom-tier):</strong> Saturated. Only top NITs/IITs guarantee good placements. Tier-3 colleges lead to struggle.',
+        '<strong>Traditional MBA (non-IIM):</strong> Average MBA fees ₹12-18 Lakh, ROI is poor. Specialised PG beats a generic MBA.',
+        '<strong>BA / B.Com (without skills):</strong> Standalone degree value is declining. Skills and certifications are now mandatory.',
+        '<strong>Manual Office Roles (data entry, basic accounting):</strong> AI is replacing these fast. Always pair with technical skills.',
+        '<strong>Some BBA programs:</strong> Without a strong placement record and practical exposure, it is money wasted.',
+        '<strong>Low-tier Private Engineering:</strong> Fees ₹8-12 Lakh, placement uncertain. A good B.Sc/B.Pharm is a better investment.'
+      ];
+
+      return `
+    <div class="outlook-grid">
+      <div class="outlook-card boom">
+        <div class="o-head"><span class="icon">🚀</span> BOOM Industries 2026–2031</div>
+        <div class="o-sub">These fields will see massive growth in the next 5 years</div>
+        <ul>
+          ${boomItems.map(b => `<li>${b}</li>`).join('')}
+        </ul>
+      </div>
+      <div class="outlook-card decline">
+        <div class="o-head"><span class="icon">📉</span> SATURATED / DECLINING Areas</div>
+        <div class="o-sub">Don't blindly enter these fields — calculate wisely before deciding</div>
+        <ul>
+          ${declineItems.map(b => `<li>${b}</li>`).join('')}
+        </ul>
+      </div>
+    </div>
+  `;
+    }
+
+    function renderRoadmap(topCourse, answers) {
+      // Generate course-specific roadmap
+      const steps = generateRoadmapSteps(topCourse, answers);
+      return `
+    <div class="roadmap">
+      ${steps.map((s, i) => `
+        <div class="roadmap-item">
+          <div class="step-no">${i + 1}</div>
+          <div class="when">${s.when}</div>
+          <h4>${s.title}</h4>
+          <p>${s.text}</p>
+        </div>
+      `).join('')}
+    </div>
+  `;
+    }
+
+    function generateRoadmapSteps(course, answers) {
+      const steps = [];
+
+      // STEP 1: Immediate
+      steps.push({
+        when: 'NOW · NEXT 30 DAYS',
+        title: 'Get your 12th result and eligibility documents ready',
+        text: `Have your 12th marksheet, school leaving certificate, Aadhaar, passport-size photos, caste certificate (if applicable), and income certificate ready. ${course.examNeeded.includes('NONE') ? 'The direct admission route is open — paperwork is your top priority.' : 'Make sure to save a printout of your entrance exam result and scorecard.'} Verify your document checklist with an ABS counsellor once — it prevents last-minute stress.`
+      });
+
+      // STEP 2: College selection
+      steps.push({
+        when: 'NEXT 1–2 MONTHS',
+        title: `Shortlist the right colleges for ${course.name}`,
+        text: `Top colleges: ${course.topColleges.slice(0, 3).join(', ')}. Don't look at ranking alone — compare fees, placement records, faculty, hostel, location, and infrastructure. ${course.isABSExpertise ? 'ABS will give you a detailed comparison of 50+ colleges across 6 branches — this is a free service.' : 'Online research + alumni outreach + a personal college visit are all essential.'} Shortlist 3-5 colleges; don't rely on just one option.`
+      });
+
+      // STEP 3: Application
+      steps.push({
+        when: 'ADMISSION SEASON · APRIL–AUG 2026',
+        title: 'Submit admission applications and attend counselling rounds',
+        text: `${course.examNeeded.includes('NEET') ? 'Attend all NEET counselling rounds (state quota + AIQ) carefully. Wait until the last round if you are targeting a good seat.' : course.examNeeded.includes('CET') ? 'Attend all MHT-CET CAP rounds (1, 2, 3). Fill your choices carefully — the order matters.' : 'For direct admissions, early bird discounts and seat locks are available. Once the college is finalised, pay the fees to confirm your seat.'} Missing the admission deadline is the biggest mistake you can make.`
+      });
+
+      // STEP 4: First year
+      steps.push({
+        when: 'YEAR 1 · 2026–27',
+        title: 'Establish yourself in the top 30% early',
+        text: `Year 1 of ${course.name} is your foundation. ${course.id.includes('pharm') ? 'Build strong fundamentals in Pharmaceutical Chemistry, Anatomy, and Pharmacognosy — these are the base for your entire career.' : course.id.includes('nursing') ? 'Anatomy, Physiology, and Nursing Foundations must be crystal clear — prioritise classroom learning over clinical postings in year one.' : 'Balance theory and practicals in year 1. Maintain CGPA 8+ and attendance 85%+ — these factors determine placement and higher study outcomes.'} Also develop one skill on the side (English fluency, computer/Excel, public speaking) — it is a career multiplier.`
+      });
+
+      // STEP 5: Specialisation / preparation
+      steps.push({
+        when: 'YEAR 2–3 · BUILD ADVANTAGE',
+        title: 'Begin specialisation and exam preparation',
+        text: `${course.id === 'b-pharm' ? 'Start preparing for the GPAT exam from year 3 — it is crucial for M.Pharm and PSU jobs. If settling abroad is your goal, start the PEBC (Canada) or GPhC (UK) syllabus in parallel.' : course.id === 'd-pharm' ? 'Explore B.Pharm lateral entry options — diploma + degree is a powerful combination. Do not forget to register your pharmacy licence on the PCI portal.' : course.id === 'bsc-nursing' ? 'NCLEX-RN (US), Prometric exam (Gulf), CBT (UK) — decide which country you are targeting and start preparation from year 3. IELTS 7+ band is essential.' : course.id === 'mbbs' ? 'NEET PG / FMGE / USMLE — decide on one route from year 2 and begin preparation. Choosing your specialisation direction early is important.' : 'Add industry-relevant certifications to your profile. Attend internships, research projects, and conferences. Build your LinkedIn profile from year 2 onwards.'} Seek mentorship from your professors and seniors — the solo journey is harder.`
+      });
+
+      // STEP 6: Final / placement
+      steps.push({
+        when: 'FINAL YEAR · LAUNCH',
+        title: 'Lock in your path — job, higher studies, or foreign settlement',
+        text: `In your final year, prepare for 3 paths simultaneously: (1) <strong>Job</strong> — campus placement or direct applications, (2) <strong>Higher studies</strong> — M.Pharm/M.Sc/PG entrance, (3) <strong>Foreign exam</strong> if applicable. Once a path is locked, pursue it with full commitment. ${course.salaryMid} is a realistic salary range. Job referrals are available through the ABS alumni network — make sure to connect.`
+      });
+
+      return steps;
+    }
+
+    function renderMistakes() {
+      const mistakes = [
+        {
+          n: '01',
+          title: 'Choosing a "trending" course without checking your own fit',
+          text: "My friend took CS, so I should too — this is the biggest mistake. A trending course is one thing, your personal fit is another. A confused career means wasted years."
+        },
+        {
+          n: '02',
+          title: 'Obsessing over college brand while ignoring the course',
+          text: 'An average branch at IIT < a top branch at a good NIT. The wrong course at Manipal < the right course at a regular college. The course matters more than the brand.'
+        },
+        {
+          n: '03',
+          title: 'Locking into the wrong stream due to family pressure',
+          text: "Family wants a doctor — but you have zero interest. Result: 5 years of struggle, dropout, or a frustrated career. An honest conversation with family is essential."
+        },
+        {
+          n: '04',
+          title: 'Not having a backup option',
+          text: 'Putting everything on NEET — what if the score is not enough? Always keep Plan A + Plan B (D.Pharm, B.Pharm, BAMS, BHMS) running in parallel. A year drop means a career delay.'
+        },
+        {
+          n: '05',
+          title: 'Blind calculation on fees',
+          text: 'A ₹15 lakh private engineering loan — how long will it take to pay off on a ₹4 lakh starting salary? Calculate your course ROI. Loans are fine, but be realistic.'
+        },
+        {
+          n: '06',
+          title: 'Ignoring soft skills',
+          text: 'A degree alone does not get you the job. English, communication, computer skills, problem-solving — develop these on the side. Top performers always do this.'
+        }
+      ];
+
+      return `
+    <div class="mistakes-grid">
+      ${mistakes.map(m => `
+        <div class="mistake-card">
+          <div class="num">${m.n}</div>
+          <h4>${m.title}</h4>
+          <p>${m.text}</p>
+        </div>
+      `).join('')}
+    </div>
+  `;
+    }
+
+  </script>
+</body>
+
+</html>

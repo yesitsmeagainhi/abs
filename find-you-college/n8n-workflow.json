@@ -1,0 +1,195 @@
+{
+  "name": "ABS NEET Predictor — Lead Capture & Notify",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "abs-neet-predictor",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-1",
+      "name": "Webhook (from React tool)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "abs-neet-predictor"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Normalize payload\nconst body = $input.first().json.body || $input.first().json;\nconst lead = body.lead || {};\nconst prediction = body.prediction || {};\n\n// Generate Lead ID\nconst leadId = 'ABS-' + Date.now().toString().slice(-8);\n\n// Format college list for messaging\nconst topColleges = (prediction.top_colleges || []).slice(0, 5);\nconst collegeListText = topColleges.map((c, i) => `${i+1}. ${c.name} (${c.tier}) — Cutoff: ${c.cutoff}, Margin: ${c.delta >= 0 ? '+' : ''}${c.delta}`).join('\\n');\n\nreturn [{\n  json: {\n    leadId,\n    lead,\n    prediction,\n    collegeListText,\n    timestamp: new Date().toISOString(),\n    studentMobile: '91' + String(lead.mobile || '').replace(/^91/, ''),\n    counselorMobiles: ['919876543210', '918765432109'],\n    safeCount: prediction.match_counts?.safe || 0,\n    moderateCount: prediction.match_counts?.moderate || 0,\n    reachCount: prediction.match_counts?.reach || 0,\n    top3Names: topColleges.slice(0, 3).map(c => c.name + ' (' + c.tier + ')').join(' | ')\n  }\n}];"
+      },
+      "id": "code-normalize",
+      "name": "Normalize & Enrich",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID",
+          "mode": "list"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Leads",
+          "mode": "list"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Lead ID": "={{ $json.leadId }}",
+            "Timestamp": "={{ $json.timestamp }}",
+            "Name": "={{ $json.lead.name }}",
+            "Mobile": "={{ $json.lead.mobile }}",
+            "Email": "={{ $json.lead.email }}",
+            "NEET Score": "={{ $json.lead.neet_score }}",
+            "12th PCB %": "={{ $json.lead.twelfth_pcb }}",
+            "Category": "={{ $json.lead.category }}",
+            "Course": "={{ $json.lead.course }}",
+            "Preferred Regions": "={{ ($json.lead.regions || []).join(', ') }}",
+            "Domicile": "={{ $json.lead.domicile }}",
+            "Eligible": "={{ $json.prediction.eligible ? 'Yes' : 'No' }}",
+            "Safe Count": "={{ $json.safeCount }}",
+            "Moderate Count": "={{ $json.moderateCount }}",
+            "Reach Count": "={{ $json.reachCount }}",
+            "Top 3 Colleges": "={{ $json.top3Names }}",
+            "Source": "={{ $json.lead.source }}",
+            "Status": "New"
+          }
+        },
+        "options": {}
+      },
+      "id": "sheets-append",
+      "name": "Save to Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [680, 200],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "YOUR_GSHEETS_CRED_ID",
+          "name": "Google Sheets ABS"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v20.0/YOUR_PHONE_NUMBER_ID/messages",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "metaApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"messaging_product\": \"whatsapp\",\n  \"to\": \"{{ $json.studentMobile }}\",\n  \"type\": \"text\",\n  \"text\": {\n    \"body\": \"Hi {{ $json.lead.name }}! 🩺\\n\\nABS NEET Predictor results aapke liye taiyaar hain:\\n\\n📊 *Match Summary:*\\n✅ Safe: {{ $json.safeCount }} colleges\\n⚡ Moderate: {{ $json.moderateCount }} colleges\\n🎯 Reach: {{ $json.reachCount }} colleges\\n\\n🏆 *Top 5 Recommendations:*\\n{{ $json.collegeListText }}\\n\\n📞 ABS counselor aapko jaldi call karega — choice form filling, document verification, aur reporting ka pura process guide karega.\\n\\nSawaal ho to reply karein. Aapka future hamari priority hai!\\n\\n— ABS Educational Solution\\nwww.absadmission.com\"\n  }\n}",
+        "options": {}
+      },
+      "id": "whatsapp-student",
+      "name": "WhatsApp → Student",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [680, 380]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "counselorMobiles",
+        "options": {}
+      },
+      "id": "split-counselors",
+      "name": "Split Counselors",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [680, 540]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v20.0/YOUR_PHONE_NUMBER_ID/messages",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "metaApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"messaging_product\": \"whatsapp\",\n  \"to\": \"{{ $json.counselorMobiles }}\",\n  \"type\": \"text\",\n  \"text\": {\n    \"body\": \"🔔 *NEW LEAD — ABS Predictor*\\n\\nID: {{ $('Normalize & Enrich').first().json.leadId }}\\nName: {{ $('Normalize & Enrich').first().json.lead.name }}\\nMobile: +91{{ $('Normalize & Enrich').first().json.lead.mobile }}\\nEmail: {{ $('Normalize & Enrich').first().json.lead.email || '—' }}\\n\\n📊 *Profile:*\\nNEET: {{ $('Normalize & Enrich').first().json.lead.neet_score }}/720\\n12th PCB: {{ $('Normalize & Enrich').first().json.lead.twelfth_pcb }}%\\nCategory: {{ $('Normalize & Enrich').first().json.lead.category }}\\nCourse: {{ $('Normalize & Enrich').first().json.lead.course }}\\nDomicile: {{ $('Normalize & Enrich').first().json.lead.domicile }}\\nRegions: {{ ($('Normalize & Enrich').first().json.lead.regions || []).join(', ') }}\\n\\n📈 *Match counts:*\\nSafe: {{ $('Normalize & Enrich').first().json.safeCount }} | Moderate: {{ $('Normalize & Enrich').first().json.moderateCount }} | Reach: {{ $('Normalize & Enrich').first().json.reachCount }}\\n\\n⏰ Call within 30 minutes for best conversion.\"\n  }\n}",
+        "options": {}
+      },
+      "id": "whatsapp-counselor",
+      "name": "WhatsApp → Counselor",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [880, 540]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "strict" },
+          "conditions": [{ "id": "has-email", "leftValue": "={{ $json.lead.email }}", "rightValue": "", "operator": { "type": "string", "operation": "notEmpty", "singleValue": true } }],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "if-email",
+      "name": "Has Email?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [680, 720]
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.lead.email }}",
+        "subject": "=🩺 {{ $json.lead.name }}, your {{ $json.lead.course }} college match is ready (ABS Predictor)",
+        "emailType": "html",
+        "message": "=<!DOCTYPE html><html><body style='margin:0;padding:0;background:#f5f3ee;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;'><table width='100%' cellspacing='0' cellpadding='0' style='background:#f5f3ee;padding:30px 0;'><tr><td align='center'><table width='600' cellspacing='0' cellpadding='0' style='background:#ffffff;border-radius:14px;overflow:hidden;'><tr><td style='background:linear-gradient(135deg,#0a4d3a 0%,#0a6b54 100%);padding:36px;color:#ffffff;'><div style='font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a8d4c0;margin-bottom:8px;'>ABS Predictor · Maharashtra</div><div style='font-family:Georgia,serif;font-size:32px;line-height:1.15;'>{{ $json.lead.name }}, your <em style='color:#ffd966;'>personalized</em> college match</div></td></tr><tr><td style='padding:24px 36px;background:#f9f7f2;'><strong>NEET:</strong> {{ $json.lead.neet_score }}/720 &nbsp;|&nbsp; <strong>12th PCB:</strong> {{ $json.lead.twelfth_pcb }}% &nbsp;|&nbsp; <strong>Category:</strong> {{ $json.lead.category }} &nbsp;|&nbsp; <strong>Course:</strong> {{ $json.lead.course }}</td></tr><tr><td style='padding:24px 36px;'><h3>Match Summary</h3><p>✅ Safe: {{ $json.safeCount }} | ⚡ Moderate: {{ $json.moderateCount }} | 🎯 Reach: {{ $json.reachCount }}</p><h3>Top Colleges</h3><pre style='background:#f5f3ee;padding:14px;border-radius:8px;font-family:monospace;font-size:13px;white-space:pre-wrap;'>{{ $json.collegeListText }}</pre></td></tr><tr><td style='padding:24px 36px;background:#fff8e6;'><strong>🎯 CAP Round Strategy:</strong><br/>Round 1: Safe + top Moderate. Round 2: All Moderate. Round 3 + Stray: Reach list.</td></tr><tr><td style='padding:24px 36px;text-align:center;'><a href='https://wa.me/919876543210' style='display:inline-block;background:#0a4d3a;color:#fff;padding:14px 32px;border-radius:30px;text-decoration:none;font-weight:600;'>📞 Chat with ABS Counselor</a></td></tr><tr><td style='background:#1a1a1a;padding:24px 36px;color:#888;font-size:11px;'><strong style='color:#fff;'>ABS Educational Solution</strong> · ISO Certified · DPIIT Recognized · Est. 2009<br/>📞 +91 9876543210 · 🌐 www.absadmission.com</td></tr></table></td></tr></table></body></html>",
+        "options": { "appendAttribution": false }
+      },
+      "id": "gmail-send",
+      "name": "Email → Student",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [880, 700],
+      "credentials": {
+        "gmailOAuth2": { "id": "YOUR_GMAIL_CRED_ID", "name": "Gmail ABS" }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={ \"success\": true, \"leadId\": \"{{ $('Normalize & Enrich').first().json.leadId }}\" }",
+        "options": {}
+      },
+      "id": "respond",
+      "name": "Respond OK",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1100, 300]
+    }
+  ],
+  "connections": {
+    "Webhook (from React tool)": {
+      "main": [[{ "node": "Normalize & Enrich", "type": "main", "index": 0 }]]
+    },
+    "Normalize & Enrich": {
+      "main": [[
+        { "node": "Save to Google Sheets", "type": "main", "index": 0 },
+        { "node": "WhatsApp → Student", "type": "main", "index": 0 },
+        { "node": "Split Counselors", "type": "main", "index": 0 },
+        { "node": "Has Email?", "type": "main", "index": 0 }
+      ]]
+    },
+    "Save to Google Sheets": {
+      "main": [[{ "node": "Respond OK", "type": "main", "index": 0 }]]
+    },
+    "Split Counselors": {
+      "main": [[{ "node": "WhatsApp → Counselor", "type": "main", "index": 0 }]]
+    },
+    "Has Email?": {
+      "main": [[{ "node": "Email → Student", "type": "main", "index": 0 }], []]
+    }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "versionId": "1",
+  "id": "abs-neet-predictor-workflow",
+  "tags": [{ "name": "ABS" }, { "name": "Lead Capture" }, { "name": "NEET" }]
+}

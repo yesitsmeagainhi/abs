@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your NEET College Match — ABS Predictor</title>
+<!--
+============================================================
+ABS NEET PREDICTOR — Standalone Email Template
+============================================================
+This is a standalone HTML email template you can:
+  1. Test independently by opening in browser
+  2. Use in any email-sending tool (Mailchimp, SendGrid, Brevo, etc.)
+  3. Customize colors/branding without touching backend code
+
+Variables to replace at send-time (use {{tags}} or your tool's syntax):
+  {{STUDENT_NAME}}      — Full name (e.g., "Rohit Sharma")
+  {{FIRST_NAME}}        — First name only (e.g., "Rohit")
+  {{NEET_SCORE}}        — e.g., "585"
+  {{TWELFTH_PCB}}       — e.g., "78.5"
+  {{CATEGORY}}          — e.g., "Open"
+  {{COURSE}}            — e.g., "MBBS"
+  {{SAFE_COUNT}}        — e.g., "4"
+  {{MODERATE_COUNT}}    — e.g., "6"
+  {{REACH_COUNT}}       — e.g., "3"
+  {{COLLEGE_ROWS}}      — HTML rows of college table (see Apps Script)
+  {{COUNSELOR_PHONE}}   — e.g., "919876543210"
+  {{LEAD_ID}}           — e.g., "ABS-12345678"
+
+Pre-filled with sample data for preview.
+============================================================
+-->
+</head>
+<body style="margin:0;padding:0;background:#f5f3ee;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+
+<!-- Preheader (hidden in email body, shows in inbox preview) -->
+<div style="display:none;max-height:0;overflow:hidden;font-size:1px;line-height:1px;color:#f5f3ee;">
+  Aapke MBBS college match taiyaar hain — Safe, Moderate aur Reach categories mein full breakdown.
+</div>
+
+<table width="100%" cellspacing="0" cellpadding="0" style="background:#f5f3ee;padding:30px 0;">
+  <tr><td align="center">
+
+    <table width="600" cellspacing="0" cellpadding="0" style="background:#ffffff;border-radius:14px;overflow:hidden;box-shadow:0 2px 20px rgba(0,0,0,0.05);max-width:600px;width:100%;">
+
+      <!-- ========== HEADER ========== -->
+      <tr><td style="background:linear-gradient(135deg,#0a4d3a 0%,#0a6b54 100%);padding:36px 36px 32px;color:#ffffff;">
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a8d4c0;margin-bottom:8px;">
+          ABS Predictor · Maharashtra
+        </div>
+        <div style="font-family:Georgia,'Times New Roman',serif;font-size:32px;line-height:1.15;font-weight:500;">
+          {{FIRST_NAME}}, here's your<br/>
+          <em style="color:#ffd966;font-style:italic;">personalized</em> college match
+        </div>
+        <div style="margin-top:18px;font-size:14px;color:#d4ebe0;line-height:1.5;">
+          Based on Maharashtra State CET Cell 2024 cutoff data. Safe, Moderate aur Reach colleges aapke profile ke hisaab se sort kiye gaye hain.
+        </div>
+      </td></tr>
+
+      <!-- ========== PROFILE SUMMARY ========== -->
+      <tr><td style="padding:24px 36px;background:#f9f7f2;border-bottom:1px solid #eee;">
+        <table width="100%" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="25%" style="text-align:left;padding:0 6px 0 0;">
+              <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#888;font-weight:600;">NEET Score</div>
+              <div style="font-family:Georgia,serif;font-size:24px;color:#1a1a1a;font-weight:500;margin-top:4px;">{{NEET_SCORE}}</div>
+            </td>
+            <td width="25%" style="text-align:left;padding:0 6px;">
+              <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#888;font-weight:600;">12th PCB</div>
+              <div style="font-family:Georgia,serif;font-size:24px;color:#1a1a1a;font-weight:500;margin-top:4px;">{{TWELFTH_PCB}}%</div>
+            </td>
+            <td width="25%" style="text-align:left;padding:0 6px;">
+              <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#888;font-weight:600;">Category</div>
+              <div style="font-family:Georgia,serif;font-size:24px;color:#1a1a1a;font-weight:500;margin-top:4px;">{{CATEGORY}}</div>
+            </td>
+            <td width="25%" style="text-align:left;padding:0 0 0 6px;">
+              <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#888;font-weight:600;">Course</div>
+              <div style="font-family:Georgia,serif;font-size:24px;color:#1a1a1a;font-weight:500;margin-top:4px;">{{COURSE}}</div>
+            </td>
+          </tr>
+        </table>
+      </td></tr>
+
+      <!-- ========== TIER COUNTS ========== -->
+      <tr><td style="padding:24px 36px;border-bottom:1px solid #eee;">
+        <table width="100%" cellspacing="0" cellpadding="0">
+          <tr>
+            <td align="center" width="32%" style="padding:14px;background:#e8f5ed;border-radius:8px;">
+              <div style="font-family:Georgia,serif;font-size:32px;color:#0a7a4f;font-weight:600;line-height:1;">{{SAFE_COUNT}}</div>
+              <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#0a7a4f;margin-top:6px;font-weight:700;">Safe Bets</div>
+              <div style="font-size:11px;color:#0a7a4f;margin-top:2px;opacity:0.7;">Round 1 high chance</div>
+            </td>
+            <td width="2%"></td>
+            <td align="center" width="32%" style="padding:14px;background:#fff5e0;border-radius:8px;">
+              <div style="font-family:Georgia,serif;font-size:32px;color:#b88600;font-weight:600;line-height:1;">{{MODERATE_COUNT}}</div>
+              <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#b88600;margin-top:6px;font-weight:700;">Moderate</div>
+              <div style="font-size:11px;color:#b88600;margin-top:2px;opacity:0.7;">Round 2-3 possible</div>
+            </td>
+            <td width="2%"></td>
+            <td align="center" width="32%" style="padding:14px;background:#fde8ec;border-radius:8px;">
+              <div style="font-family:Georgia,serif;font-size:32px;color:#a02a3a;font-weight:600;line-height:1;">{{REACH_COUNT}}</div>
+              <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#a02a3a;margin-top:6px;font-weight:700;">Reach</div>
+              <div style="font-size:11px;color:#a02a3a;margin-top:2px;opacity:0.7;">Stray round long shot</div>
+            </td>
+          </tr>
+        </table>
+      </td></tr>
+
+      <!-- ========== COLLEGE TABLE ========== -->
+      <tr><td style="padding:30px 36px 16px;">
+        <h2 style="font-family:Georgia,serif;font-size:22px;color:#1a1a1a;margin:0 0 4px;font-weight:500;">Your Top College Matches</h2>
+        <p style="color:#666;font-size:13px;margin:0 0 18px;line-height:1.5;">Sorted by your preferred regions and match strength.</p>
+
+        <table width="100%" cellspacing="0" cellpadding="0" style="font-size:13px;border-collapse:collapse;">
+          <thead>
+            <tr style="background:#f5f3ee;">
+              <th style="padding:10px 12px;text-align:left;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:#666;font-weight:600;">College</th>
+              <th style="padding:10px 12px;text-align:center;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:#666;font-weight:600;">Tier</th>
+              <th style="padding:10px 12px;text-align:center;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:#666;font-weight:600;">Cutoff</th>
+              <th style="padding:10px 12px;text-align:center;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:#666;font-weight:600;">Margin</th>
+              <th style="padding:10px 12px;text-align:right;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:#666;font-weight:600;">Fee</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- {{COLLEGE_ROWS}} — backend replaces this block with dynamic rows -->
+            <!-- Sample preview rows below: -->
+            <tr>
+              <td style="padding:14px 12px;border-bottom:1px solid #eee;">
+                <div style="font-weight:600;color:#1a1a1a;font-size:15px;">GMC Baramati</div>
+                <div style="color:#666;font-size:12px;margin-top:3px;">Western Maharashtra · Government</div>
+              </td>
+              <td style="padding:14px 12px;border-bottom:1px solid #eee;text-align:center;">
+                <span style="background:#0a7a4f;color:#fff;padding:4px 10px;border-radius:12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;">SAFE</span>
+              </td>
+              <td style="padding:14px 12px;border-bottom:1px solid #eee;text-align:center;color:#1a1a1a;font-weight:600;">608</td>
+              <td style="padding:14px 12px;border-bottom:1px solid #eee;text-align:center;color:#0a7a4f;font-weight:600;">+22</td>
+              <td style="padding:14px 12px;border-bottom:1px solid #eee;text-align:right;color:#1a1a1a;font-size:13px;">₹1.29 L/yr</td>
+            </tr>
+            <tr>
+              <td style="padding:14px 12px;border-bottom:1px solid #eee;">
+                <div style="font-weight:600;color:#1a1a1a;font-size:15px;">GMC Alibag</div>
+                <div style="color:#666;font-size:12px;margin-top:3px;">Konkan · Government</div>
+              </td>
+              <td style="padding:14px 12px;border-bottom:1px solid #eee;text-align:center;">
+                <span style="background:#0a7a4f;color:#fff;padding:4px 10px;border-radius:12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;">SAFE</span>
+              </td>
+              <td style="padding:14px 12px;border-bottom:1px solid #eee;text-align:center;color:#1a1a1a;font-weight:600;">595</td>
+              <td style="padding:14px 12px;border-bottom:1px solid #eee;text-align:center;color:#0a7a4f;font-weight:600;">+35</td>
+              <td style="padding:14px 12px;border-bottom:1px solid #eee;text-align:right;color:#1a1a1a;font-size:13px;">₹1.29 L/yr</td>
+            </tr>
+            <tr>
+              <td style="padding:14px 12px;border-bottom:1px solid #eee;">
+                <div style="font-weight:600;color:#1a1a1a;font-size:15px;">GMC Latur (Vilasrao Deshmukh)</div>
+                <div style="color:#666;font-size:12px;margin-top:3px;">Marathwada · Government</div>
+              </td>
+              <td style="padding:14px 12px;border-bottom:1px solid #eee;text-align:center;">
+                <span style="background:#b88600;color:#fff;padding:4px 10px;border-radius:12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;">MODERATE</span>
+              </td>
+              <td style="padding:14px 12px;border-bottom:1px solid #eee;text-align:center;color:#1a1a1a;font-weight:600;">605</td>
+              <td style="padding:14px 12px;border-bottom:1px solid #eee;text-align:center;color:#a02a3a;font-weight:600;">−10</td>
+              <td style="padding:14px 12px;border-bottom:1px solid #eee;text-align:right;color:#1a1a1a;font-size:13px;">₹1.29 L/yr</td>
+            </tr>
+            <tr>
+              <td style="padding:14px 12px;border-bottom:1px solid #eee;">
+                <div style="font-weight:600;color:#1a1a1a;font-size:15px;">B.J. Govt Medical College Pune</div>
+                <div style="color:#666;font-size:12px;margin-top:3px;">Western Maharashtra · Government</div>
+              </td>
+              <td style="padding:14px 12px;border-bottom:1px solid #eee;text-align:center;">
+                <span style="background:#a02a3a;color:#fff;padding:4px 10px;border-radius:12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;">REACH</span>
+              </td>
+              <td style="padding:14px 12px;border-bottom:1px solid #eee;text-align:center;color:#1a1a1a;font-weight:600;">642</td>
+              <td style="padding:14px 12px;border-bottom:1px solid #eee;text-align:center;color:#a02a3a;font-weight:600;">−27</td>
+              <td style="padding:14px 12px;border-bottom:1px solid #eee;text-align:right;color:#1a1a1a;font-size:13px;">₹1.29 L/yr</td>
+            </tr>
+          </tbody>
+        </table>
+      </td></tr>
+
+      <!-- ========== STRATEGY BOX ========== -->
+      <tr><td style="padding:8px 36px 24px;">
+        <div style="background:#fff8e6;border:1px solid #ffe6a8;border-radius:10px;padding:18px 20px;">
+          <div style="font-weight:700;color:#7a5a00;font-size:14px;margin-bottom:10px;">🎯 CAP Round Counselling Strategy</div>
+          <div style="color:#5c4500;font-size:13px;line-height:1.7;">
+            <strong>Round 1:</strong> Safe + top 5 Moderate colleges choice form mein bhariye.<br/>
+            <strong>Round 2:</strong> Saare Moderate add karein agar upgrade chahte hain.<br/>
+            <strong>Round 3 + Stray:</strong> Reach list ke colleges add karein — cutoffs 30-60 marks gir jaate hain.<br/>
+            <strong>Choice order:</strong> Apni first preference (govt + region match) hamesha sabse upar.
+          </div>
+        </div>
+      </td></tr>
+
+      <!-- ========== CTA ========== -->
+      <tr><td style="padding:8px 36px 36px;text-align:center;">
+        <a href="https://wa.me/91{{COUNSELOR_PHONE}}?text=Hi%20ABS%2C%20I%20just%20used%20your%20NEET%20predictor.%20My%20name%20is%20{{STUDENT_NAME}}." style="display:inline-block;background:#0a4d3a;color:#ffffff;padding:14px 32px;border-radius:30px;text-decoration:none;font-weight:600;font-size:14px;letter-spacing:0.3px;">
+          📞 Chat with ABS Counselor
+        </a>
+        <div style="color:#888;font-size:12px;margin-top:14px;">Free expert guidance · No obligation</div>
+        <div style="color:#aaa;font-size:11px;margin-top:18px;">Lead ID: {{LEAD_ID}}</div>
+      </td></tr>
+
+      <!-- ========== TRUST STRIP ========== -->
+      <tr><td style="padding:0 36px 24px;">
+        <table width="100%" cellspacing="0" cellpadding="0" style="border-top:1px solid #eee;padding-top:20px;">
+          <tr>
+            <td align="center" style="padding:0 8px;">
+              <div style="font-size:11px;color:#888;line-height:1.5;">
+                <strong style="color:#0a4d3a;">10,000+</strong><br/>
+                <span style="font-size:10px;letter-spacing:1px;text-transform:uppercase;">Students placed</span>
+              </div>
+            </td>
+            <td align="center" style="padding:0 8px;">
+              <div style="font-size:11px;color:#888;line-height:1.5;">
+                <strong style="color:#0a4d3a;">15+ Years</strong><br/>
+                <span style="font-size:10px;letter-spacing:1px;text-transform:uppercase;">Industry expertise</span>
+              </div>
+            </td>
+            <td align="center" style="padding:0 8px;">
+              <div style="font-size:11px;color:#888;line-height:1.5;">
+                <strong style="color:#0a4d3a;">6 Branches</strong><br/>
+                <span style="font-size:10px;letter-spacing:1px;text-transform:uppercase;">Across Maharashtra</span>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </td></tr>
+
+      <!-- ========== FOOTER ========== -->
+      <tr><td style="background:#1a1a1a;padding:24px 36px;color:#888;font-size:11px;line-height:1.6;">
+        <div style="color:#fff;font-weight:600;font-size:13px;margin-bottom:6px;">ABS Educational Solution</div>
+        ISO Certified · DPIIT Recognized · Est. 2009<br/>
+        Mumbai-based admission consultancy · 6 branches across Maharashtra<br/>
+        📞 <a href="tel:+91{{COUNSELOR_PHONE}}" style="color:#a8d4c0;text-decoration:none;">+91 {{COUNSELOR_PHONE}}</a> &nbsp;·&nbsp;
+        🌐 <a href="https://www.absadmission.com" style="color:#a8d4c0;text-decoration:none;">www.absadmission.com</a><br/><br/>
+        <span style="color:#666;font-size:10px;">
+          Cutoff data sourced from State CET Cell Maharashtra (medical2024.mahacet.org). Actual 2025 cutoffs may vary 5-15 marks based on NEET 2025 difficulty and CAP round seat dynamics. Predicted matches are indicative only — final allotment depends on real-time CAP rounds.
+        </span>
+        <br/><br/>
+        <a href="#" style="color:#666;text-decoration:underline;font-size:10px;">Unsubscribe</a> &nbsp;·&nbsp;
+        <a href="https://www.absadmission.com/privacy" style="color:#666;text-decoration:underline;font-size:10px;">Privacy Policy</a>
+      </td></tr>
+
+    </table>
+
+  </td></tr>
+</table>
+
+</body>
+</html>
