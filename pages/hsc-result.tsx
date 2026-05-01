@@ -22,9 +22,9 @@ const RESULT_LINKS: ResultLink[] = [
     primary: true,
   },
   {
-    name: 'mahahsscboard.in',
-    url: 'https://mahahsscboard.in/',
-    note: 'Maharashtra State Board (MSBSHSE) official website — notifications & result link.',
+    name: 'hscresult.mahahsscboard.in',
+    url: 'https://hscresult.mahahsscboard.in/',
+    note: 'Dedicated result subdomain of the Maharashtra State Board (MSBSHSE) — direct result lookup.',
   },
   {
     name: 'results.digilocker.gov.in',
@@ -103,10 +103,10 @@ export default function HSCResultPage() {
             </p>
             <div className="flex justify-center">
               <a
-                href="/find-your-college"
+                href="/scholarship-tool"
                 className="inline-flex items-center gap-2 bg-yellow-300 hover:bg-yellow-200 text-yellow-900 font-semibold px-5 py-2.5 rounded-lg shadow-sm"
               >
-                🎓 Check Your Govt-Approved College List
+                🎓 Find Scholarships You Qualify For
               </a>
             </div>
           </div>
