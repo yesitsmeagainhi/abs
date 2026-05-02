@@ -8,6 +8,9 @@ export default function MyDocument() {
   return (
     <Html lang="en">
       <Head>
+        {/* ---------- Favicon ---------- */}
+        <link rel="icon" href="/favicon.ico" />
+
         {/* ---------- Netlify Identity widget ---------- */}
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
 

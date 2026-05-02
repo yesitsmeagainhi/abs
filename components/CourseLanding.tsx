@@ -407,12 +407,8 @@ export default function CourseLanding({ front, Body }: Props) {
         <meta name="robots" content="index, follow, max-snippet:160, max-image-preview:large, max-video-preview:-1" />
         <meta name="googlebot" content="index, follow, max-snippet:160, max-image-preview:large" />
         
-        {/* === PWA ENHANCEMENTS === */}
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="apple-mobile-web-app-title" content={front.title} />
-        <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+        {/* === Favicon === */}
+        <link rel="icon" href="/favicon.ico" />
         
         {/* === SECURITY HEADERS === */}
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />

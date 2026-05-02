@@ -455,16 +455,26 @@ export default function FindYourCollege() {
         <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-amber-200/20 blur-3xl" />
       </div>
 
-      <div className="bg-stone-100 min-h-screen" style={{ fontFamily: 'Manrope, sans-serif' }}>
+      {/* <div className="bg-stone-100 min-h-screen" style={{ fontFamily: 'Manrope, sans-serif' }}> */}
         {/* Live data badge row */}
-        <div className="bg-white/80 backdrop-blur-sm border-b border-stone-200">
+        {/* <div className="bg-white/80 backdrop-blur-sm border-b border-stone-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-8 py-2.5 flex items-center justify-end">
             <div className="flex items-center gap-2 text-[11px] text-stone-500 tracking-wider uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
               Live · 2024 Cutoff Data
             </div>
           </div>
-        </div>
+        </div> */}
+        <div className="bg-green-50 min-h-screen" style={{ fontFamily: 'Manrope, sans-serif' }}>
+  {/* Live data badge - outside header */}
+  <div className="bg-green-50">
+    <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-6 flex items-center justify-end">
+      <div className="inline-flex items-center gap-2 rounded-full bg-white border border-stone-200 px-4 py-2 text-[11px] font-semibold text-stone-500 tracking-wider uppercase shadow-sm">
+        <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
+        Live · 2024 Cutoff Data
+      </div>
+    </div>
+  </div>
 
         <main className="relative max-w-7xl mx-auto px-4 sm:px-8 py-8 sm:py-12">
 

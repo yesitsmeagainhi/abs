@@ -7,6 +7,25 @@ import Layout from '../components/Layout';
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
+      {/* ---------- Google Analytics (GA4) ---------- */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-DTTQGQNGWN"
+        strategy="afterInteractive"
+      />
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-DTTQGQNGWN');
+          `,
+        }}
+      />
+      {/* ---------- End Google Analytics ---------- */}
+
       {/* ---------- Meta Pixel Code ---------- */}
       <Script
         id="meta-pixel"
