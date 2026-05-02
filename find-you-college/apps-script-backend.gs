@@ -6,6 +6,7 @@
  *   - /find-your-college  (NEET Predictor)
  *   - /counselling        (Career Counselling Tool)
  *   - /scholarship-tool   (Scholarship Decision Tool)
+ *   - /pharmacy           (Pharmacy Admissions)
  *
  * SETUP STEPS (one-time):
  *   1. Go to sheets.google.com → create a new spreadsheet
@@ -39,6 +40,8 @@ function doPost(e) {
       result = handleCounselling(payload);
     } else if (type === 'scholarship') {
       result = handleScholarship(payload);
+    } else if (type === 'pharmacy') {
+      result = handlePharmacy(payload);
     } else {
       result = handleNEET(payload);
     }
@@ -290,6 +293,65 @@ function handleScholarship(payload) {
 }
 
 // ============================================================
+// PHARMACY ADMISSIONS LEAD
+// ============================================================
+
+function handlePharmacy(payload) {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const SHEET = 'Pharmacy';
+
+  let sheet = ss.getSheetByName(SHEET);
+  if (!sheet) {
+    sheet = ss.insertSheet(SHEET);
+    const headers = [
+      'Lead ID', 'Timestamp (IST)', 'Name', 'Phone', 'Email',
+      'Course', 'City',
+      'Status', 'Notes'
+    ];
+    sheet.appendRow(headers);
+    sheet.setFrozenRows(1);
+    sheet.getRange(1, 1, 1, headers.length)
+      .setFontWeight('bold')
+      .setBackground('#1e40af')
+      .setFontColor('#ffffff');
+    sheet.setColumnWidth(1, 120);
+  }
+
+  const id = 'PHAR-' + new Date().getTime().toString().slice(-8);
+
+  sheet.appendRow([
+    id,
+    new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+    payload.name || '',
+    "'" + (payload.phone || ''),
+    payload.email || '',
+    payload.course || '',
+    payload.city || '',
+    'New',
+    ''
+  ]);
+
+  // Email notification to Naresh
+  try {
+    const subject = `🎓 Pharmacy Lead [${id}] — ${payload.name} | ${payload.course}`;
+    const body = `New Pharmacy Admission lead received.\n\n`
+      + `Lead ID: ${id}\n`
+      + `Name: ${payload.name}\n`
+      + `Phone: ${payload.phone}\n`
+      + `Email: ${payload.email || '—'}\n`
+      + `Course: ${payload.course}\n`
+      + `City: ${payload.city || '—'}\n\n`
+      + `View sheet: ${SpreadsheetApp.getActiveSpreadsheet().getUrl()}`;
+
+    MailApp.sendEmail({ to: NOTIFICATION_EMAIL, subject, body });
+  } catch (mailErr) {
+    Logger.log('Mail error: ' + mailErr.toString());
+  }
+
+  return { leadId: id };
+}
+
+// ============================================================
 // TEST — run from Apps Script editor to verify setup
 // ============================================================
 
@@ -351,4 +413,16 @@ function testScholarship() {
     income: '≤ ₹1 lakh',
   };
   Logger.log(JSON.stringify(handleScholarship(fake)));
+}
+
+function testPharmacy() {
+  const fake = {
+    type: 'pharmacy',
+    name: 'Test Student',
+    phone: '9876543210',
+    email: 'test@example.com',
+    course: 'B.Pharm',
+    city: 'Mumbai',
+  };
+  Logger.log(JSON.stringify(handlePharmacy(fake)));
 }

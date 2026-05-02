@@ -407,9 +407,6 @@ export default function CourseLanding({ front, Body }: Props) {
         <meta name="robots" content="index, follow, max-snippet:160, max-image-preview:large, max-video-preview:-1" />
         <meta name="googlebot" content="index, follow, max-snippet:160, max-image-preview:large" />
         
-        {/* === Favicon === */}
-        <link rel="icon" href="/favicon.ico" />
-        
         {/* === SECURITY HEADERS === */}
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
         <meta httpEquiv="X-Frame-Options" content="SAMEORIGIN" />

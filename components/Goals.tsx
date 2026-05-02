@@ -1,14 +1,14 @@
 // components/Goals.tsx
 import { useState } from 'react';
 import Image from 'next/image';
-import Link  from 'next/link';
+import Link from 'next/link';
 
 /* ---------------------------------------------------------
    CONFIG
 --------------------------------------------------------- */
 
-const COUNSELLOR_PHONE  = '9702836946';          // edit once here
-const WHATSAPP_NUMBER   = '919702836946';         // 91 + phone (no +)
+const COUNSELLOR_PHONE = '9702836946';          // edit once here
+const WHATSAPP_NUMBER = '919702836946';         // 91 + phone (no +)
 
 /* ---------------------------------------------------------
    TABS
@@ -18,7 +18,7 @@ const tabs = [
   {
     id: 'dpharm',
     label: 'D.Pharm',
-    slug:  'd-pharma-admission-mumbai',
+    slug: 'd-pharma-admission-mumbai',
     title: 'D.Pharm Admission in Mumbai – 2025',
     body: /* html */ `
       <h4 class="font-semibold text-lg mb-2">D Pharm Course Overview:</h4>
@@ -34,7 +34,7 @@ const tabs = [
   {
     id: 'bpharm',
     label: 'B.Pharm',
-    slug:  'b-pharma-admission-mumbai',
+    slug: 'b-pharma-admission-mumbai',
     title: 'B.Pharm Admission in Mumbai – 2025',
     body: /* html */ `
       <h4 class="font-semibold text-lg mb-2">Course Overview:</h4>
@@ -51,7 +51,7 @@ const tabs = [
   {
     id: 'gnm',
     label: 'GNM',
-    slug:  'gnm-nursing-admission-mumbai',
+    slug: 'gnm-nursing-admission-mumbai',
     title: 'GNM Admission in Mumbai 2025',
     body: /* html */ `
       <h4 class="font-semibold text-lg mb-2">Course Overview:</h4>
@@ -68,7 +68,7 @@ const tabs = [
   {
     id: 'bscnursing',
     label: 'B.Sc Nursing',
-    slug:  'bsc-nursing-admission-mumbai',
+    slug: 'bsc-nursing-admission-mumbai',
     title: 'B.Sc Nursing Admission in Mumbai 2025',
     body: /* html */ `
       <h4 class="font-semibold text-lg mb-2">Course Overview:</h4>
@@ -84,10 +84,10 @@ const tabs = [
   },
   {
     id: 'dmlt',
-label: 'DMLT',
-slug: 'dmlt-admission-in-mumbai',
-title: 'DMLT Admission in Mumbai 2025',
-body: /* html */ `
+    label: 'DMLT',
+    slug: 'dmlt-admission-in-mumbai',
+    title: 'DMLT Admission in Mumbai 2025',
+    body: /* html */ `
   <h4 class="font-semibold text-lg mb-2">Course Overview:</h4>
   <p>Start your career as a certified lab technician with DMLT (Diploma in Medical Lab Technology). Learn pathology, diagnostics, and lab procedures hands-on.</p>
   <h4 class="font-semibold text-lg mt-4 mb-2">Eligibility:</h4>
@@ -97,13 +97,13 @@ body: /* html */ `
   <h4 class="font-semibold text-lg mt-4 mb-2">100% Placement Assistance:</h4>
   <p>Job opportunities in hospitals, diagnostic labs, pathology centres, and clinics.</p>
 `,
-image: '/uploads/dmlt-lab-technician-course-students-in-diagnostic-lab-mumbai.png',
+    image: '/uploads/dmlt-lab-technician-course-students-in-diagnostic-lab-mumbai.png',
 
   },
   {
     id: 'bpt',
     label: 'BPT',
-    slug:  'bpt-admission-mumbai',
+    slug: 'bpt-admission-mumbai',
     // icon:  '/uploads/icon-bpt.svg',
     title: 'BPT Admission in Mumbai 2025',
     body: /* html */ `
@@ -125,12 +125,12 @@ image: '/uploads/dmlt-lab-technician-course-students-in-diagnostic-lab-mumbai.pn
 --------------------------------------------------------- */
 
 export default function Goals() {
-  const [active, setActive]         = useState(tabs[0].id);
-  const [modalOpen, setModalOpen]   = useState(false);
+  const [active, setActive] = useState(tabs[0].id);
+  const [modalOpen, setModalOpen] = useState(false);
   const tab = tabs.find(t => t.id === active)!;
 
   /* helpers */
-  const phoneHref    = `tel:${COUNSELLOR_PHONE}`;
+  const phoneHref = `tel:${COUNSELLOR_PHONE}`;
   const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}`;
 
   return (
@@ -149,8 +149,8 @@ export default function Goals() {
               onClick={() => setActive(t.id)}
               className={`rounded-full py-3 px-6 text-sm font-medium
                           ${active === t.id
-                            ? 'bg-gray-900 text-white'
-                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
+                  ? 'bg-gray-900 text-white'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
               {t.label}
             </button>
           ))}
@@ -192,21 +192,21 @@ export default function Goals() {
           {/* image */}
           {tab.image ? (
             <img
-  src={tab.image}
-  alt={`${tab.label} course information`}
-  className="w-full rounded-2xl shadow-md max-w-full h-auto"
-  onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    console.error(`Failed to load image: ${tab.image}`);
+              src={tab.image}
+              alt={`${tab.label} course information`}
+              className="w-full rounded-2xl shadow-md max-w-full h-auto"
+              onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+                console.error(`Failed to load image: ${tab.image}`);
 
-    /* hide the broken <img> */
-    const img = e.currentTarget;            // already HTMLImageElement
-    img.style.display = 'none';
+                /* hide the broken <img> */
+                const img = e.currentTarget;            // already HTMLImageElement
+                img.style.display = 'none';
 
-    /* show fallback div */
-    const fallback = img.nextElementSibling as HTMLElement | null;
-    if (fallback) fallback.style.display = 'flex';
-  }}
-/>
+                /* show fallback div */
+                const fallback = img.nextElementSibling as HTMLElement | null;
+                if (fallback) fallback.style.display = 'flex';
+              }}
+            />
           ) : null}
           <div className="w-full h-96 bg-gray-200 rounded-2xl hidden items-center justify-center">
             <p className="text-gray-500">Image not available</p>
@@ -263,7 +263,7 @@ export default function Goals() {
                            py-3 rounded-lg transition justify-center"
               >
                 <svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor">
-                  <path d="M16 0C7.164 0 0 7.163 0 16c0 2.82.733 5.463 2.017 7.788L0 32l8.4-2.182A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.771 23.771c-.373 1.044-2.16 1.97-2.976 2.096-.76.115-1.713.163-2.76-.175a24.57 24.57 0 0 1-2.556-1.12c-4.511-1.974-7.452-6.555-7.687-6.86-.235-.307-1.84-2.445-1.84-4.665 0-2.219 1.161-3.311 1.574-3.758.412-.447.898-.559 1.198-.559.3 0 .6.003.859.015.28.012.649-.105 1.017.777.374.898 1.274 3.116 1.387 3.344.112.228.186.496.037.803-.149.306-.224.495-.448.763-.224.267-.472.598-.673.803-.224.224-.457.468-.196.915.261.448 1.159 1.915 2.492 3.103 1.713 1.572 3.16 2.063 3.609 2.287.449.224.711.187.973-.112.261-.298 1.119-1.303 1.418-1.749.299-.447.598-.373.998-.224.374.15 2.366 1.118 2.767 1.322.374.19.623.286.711.448.087.162.087.934-.286 1.978z"/>
+                  <path d="M16 0C7.164 0 0 7.163 0 16c0 2.82.733 5.463 2.017 7.788L0 32l8.4-2.182A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.771 23.771c-.373 1.044-2.16 1.97-2.976 2.096-.76.115-1.713.163-2.76-.175a24.57 24.57 0 0 1-2.556-1.12c-4.511-1.974-7.452-6.555-7.687-6.86-.235-.307-1.84-2.445-1.84-4.665 0-2.219 1.161-3.311 1.574-3.758.412-.447.898-.559 1.198-.559.3 0 .6.003.859.015.28.012.649-.105 1.017.777.374.898 1.274 3.116 1.387 3.344.112.228.186.496.037.803-.149.306-.224.495-.448.763-.224.267-.472.598-.673.803-.224.224-.457.468-.196.915.261.448 1.159 1.915 2.492 3.103 1.713 1.572 3.16 2.063 3.609 2.287.449.224.711.187.973-.112.261-.298 1.119-1.303 1.418-1.749.299-.447.598-.373.998-.224.374.15 2.366 1.118 2.767 1.322.374.19.623.286.711.448.087.162.087.934-.286 1.978z" />
                 </svg>
                 Chat on&nbsp;WhatsApp
               </a>

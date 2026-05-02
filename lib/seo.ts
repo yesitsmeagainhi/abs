@@ -369,9 +369,6 @@ export const generatePerformanceOptimizedHeadTags = (front: EnhancedFront, canon
     { rel: "dns-prefetch", href: "//www.google-analytics.com" },
     { rel: "dns-prefetch", href: "//fonts.googleapis.com" },
     
-    // Favicon
-    { rel: "icon", href: "/favicon.ico" },
-    
     // Alternative formats for AI crawlers
     { rel: "alternate", type: "application/rss+xml", title: `${front.title} Updates`, href: "/feed.xml" },
     { rel: "alternate", type: "application/json", title: `${front.title} API`, href: `/api/courses/${front.slug}.json` }
