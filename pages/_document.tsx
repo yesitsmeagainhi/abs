@@ -1,10 +1,17 @@
 // pages/_document.tsx
 import { Html, Head, Main, NextScript } from 'next/document';
-import { getAnalytics } from '@/lib/settings';   // <-- reads content/settings.json
+import type { AnalyticsSettings } from '@/lib/settings';
+
+// Use require() so Next.js file tracing bundles this file for serverless.
+// Wrapped in try-catch so the document still renders if the file is missing.
+let analytics: AnalyticsSettings = {};
+try {
+  analytics = require('../content/settings.json');
+} catch {
+  // settings.json not found — continue without CMS scripts
+}
 
 export default function MyDocument() {
-  const analytics = getAnalytics();             // can safely run on the server
-
   return (
     <Html lang="en">
       <Head>
