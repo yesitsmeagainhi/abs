@@ -2,6 +2,14 @@
 const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
+  async rewrites() {
+    return [
+      {
+        source: '/pharmacy-admission',
+        destination: '/landing-page.html',
+      },
+    ]
+  },
   async headers() {
     if (!isProd) return []          // no CSP in dev; keeps HMR painless
 
