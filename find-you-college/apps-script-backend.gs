@@ -7,6 +7,8 @@
  *   - /counselling        (Career Counselling Tool)
  *   - /scholarship-tool   (Scholarship Decision Tool)
  *   - /pharmacy           (Pharmacy Admissions)
+ *   - /scholarship-admission (Scholarship Admission Landing Page)
+ *   - /scholarship-checker   (Scholarship Checker Tool)
  *
  * SETUP STEPS (one-time):
  *   1. Go to sheets.google.com → create a new spreadsheet
@@ -42,6 +44,10 @@ function doPost(e) {
       result = handleScholarship(payload);
     } else if (type === 'pharmacy') {
       result = handlePharmacy(payload);
+    } else if (type === 'scholarship-admission') {
+      result = handleScholarshipAdmission(payload);
+    } else if (type === 'scholarship-checker') {
+      result = handleScholarshipChecker(payload);
     } else {
       result = handleNEET(payload);
     }
@@ -352,6 +358,134 @@ function handlePharmacy(payload) {
 }
 
 // ============================================================
+// SCHOLARSHIP ADMISSION LANDING PAGE LEAD
+// ============================================================
+
+function handleScholarshipAdmission(payload) {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const SHEET = 'Scholarship Admission';
+
+  let sheet = ss.getSheetByName(SHEET);
+  if (!sheet) {
+    sheet = ss.insertSheet(SHEET);
+    const headers = [
+      'Lead ID', 'Timestamp (IST)', 'Name', 'Phone',
+      'Course', 'City',
+      'Status', 'Notes'
+    ];
+    sheet.appendRow(headers);
+    sheet.setFrozenRows(1);
+    sheet.getRange(1, 1, 1, headers.length)
+      .setFontWeight('bold')
+      .setBackground('#7c3aed')
+      .setFontColor('#ffffff');
+    sheet.setColumnWidth(1, 120);
+  }
+
+  const id = 'SCHADM-' + new Date().getTime().toString().slice(-8);
+
+  sheet.appendRow([
+    id,
+    new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+    payload.name || '',
+    "'" + (payload.phone || ''),
+    payload.course || '',
+    payload.city || '',
+    'New',
+    ''
+  ]);
+
+  // Email notification
+  try {
+    const subject = `🎓 Scholarship Admission Lead [${id}] — ${payload.name} | ${payload.course}`;
+    const body = `New Scholarship Admission lead received.\n\n`
+      + `Lead ID: ${id}\n`
+      + `Name: ${payload.name}\n`
+      + `Phone: ${payload.phone}\n`
+      + `Course: ${payload.course}\n`
+      + `City: ${payload.city || '—'}\n\n`
+      + `Source: /scholarship-admission\n\n`
+      + `View sheet: ${SpreadsheetApp.getActiveSpreadsheet().getUrl()}`;
+
+    MailApp.sendEmail({ to: NOTIFICATION_EMAIL, subject, body });
+  } catch (mailErr) {
+    Logger.log('Mail error: ' + mailErr.toString());
+  }
+
+  return { leadId: id };
+}
+
+// ============================================================
+// SCHOLARSHIP CHECKER TOOL LEAD
+// ============================================================
+
+function handleScholarshipChecker(payload) {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const SHEET = 'Scholarship Checker';
+
+  let sheet = ss.getSheetByName(SHEET);
+  if (!sheet) {
+    sheet = ss.insertSheet(SHEET);
+    const headers = [
+      'Lead ID', 'Timestamp (IST)', 'Name', 'Phone',
+      'City', 'Best Time to Call',
+      'Course', 'Category', 'Income', 'Gender', 'Domicile',
+      'Status', 'Notes'
+    ];
+    sheet.appendRow(headers);
+    sheet.setFrozenRows(1);
+    sheet.getRange(1, 1, 1, headers.length)
+      .setFontWeight('bold')
+      .setBackground('#0d9488')
+      .setFontColor('#ffffff');
+    sheet.setColumnWidth(1, 120);
+  }
+
+  const id = 'SCHCK-' + new Date().getTime().toString().slice(-8);
+
+  sheet.appendRow([
+    id,
+    new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+    payload.name || '',
+    "'" + (payload.phone || ''),
+    payload.city || '',
+    payload.time || '',
+    payload.course || '',
+    payload.category || '',
+    payload.income || '',
+    payload.gender || '',
+    payload.domicile || '',
+    'New',
+    ''
+  ]);
+
+  // Email notification
+  try {
+    const subject = `🎯 Scholarship Checker Lead [${id}] — ${payload.name} | ${payload.course} | ${payload.category}`;
+    const body = `New Scholarship Checker lead received.\n\n`
+      + `Lead ID: ${id}\n`
+      + `Name: ${payload.name}\n`
+      + `Phone: ${payload.phone}\n`
+      + `City: ${payload.city || '—'}\n`
+      + `Best Time: ${payload.time || '—'}\n\n`
+      + `PROFILE:\n`
+      + `Course: ${payload.course}\n`
+      + `Category: ${payload.category}\n`
+      + `Income: ${payload.income}\n`
+      + `Gender: ${payload.gender}\n`
+      + `Domicile: ${payload.domicile}\n\n`
+      + `Source: /scholarship-checker\n\n`
+      + `View sheet: ${SpreadsheetApp.getActiveSpreadsheet().getUrl()}`;
+
+    MailApp.sendEmail({ to: NOTIFICATION_EMAIL, subject, body });
+  } catch (mailErr) {
+    Logger.log('Mail error: ' + mailErr.toString());
+  }
+
+  return { leadId: id };
+}
+
+// ============================================================
 // TEST — run from Apps Script editor to verify setup
 // ============================================================
 
@@ -425,4 +559,31 @@ function testPharmacy() {
     city: 'Mumbai',
   };
   Logger.log(JSON.stringify(handlePharmacy(fake)));
+}
+
+function testScholarshipAdmission() {
+  const fake = {
+    type: 'scholarship-admission',
+    name: 'Test Student',
+    phone: '9876543210',
+    course: 'dpharm',
+    city: 'Mumbai',
+  };
+  Logger.log(JSON.stringify(handleScholarshipAdmission(fake)));
+}
+
+function testScholarshipChecker() {
+  const fake = {
+    type: 'scholarship-checker',
+    name: 'Test Student',
+    phone: '9876543210',
+    city: 'Thane',
+    time: 'morning',
+    course: 'bpharm',
+    category: 'obc',
+    income: '2.5-5',
+    gender: 'female',
+    domicile: 'yes',
+  };
+  Logger.log(JSON.stringify(handleScholarshipChecker(fake)));
 }

@@ -8,6 +8,22 @@ module.exports = {
         source: '/pharmacy-admission',
         destination: '/landing-page.html',
       },
+      {
+        source: '/pharmacy-admission/thank-you',
+        destination: '/thank-you.html',
+      },
+      {
+        source: '/thank-you',
+        destination: '/thank-you.html',
+      },
+      {
+        source: '/scholarship-admission',
+        destination: '/scholarship-landing-page1.html',
+      },
+      {
+        source: '/scholarship-checker',
+        destination: '/scholarship-landing-page2.html',
+      },
     ]
   },
   async headers() {

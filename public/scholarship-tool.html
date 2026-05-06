@@ -67,7 +67,6 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
-      min-height: 100vh;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -1371,13 +1370,8 @@
         </div>
 
         <div class="field">
-          <label>Date of Birth <span class="hint">(year only, for Lek Ladki Yojana)</span></label>
-          <select id="birth_year">
-            <option value="">— Select —</option>
-            <option value="2024">After Apr 2023 (Lek Ladki eligible)</option>
-            <option value="2022">Before Apr 2023</option>
-            <option value="adult">Already 18+ (adult)</option>
-          </select>
+          <label>Date of Birth</label>
+          <input type="date" id="dob" style="width:100%; padding:10px 12px; border:1px solid #d1d5db; border-radius:8px; font-size:.95rem; font-family:inherit; color:#1a1a1a; background:#fff;">
         </div>
 
         <div class="field full">
@@ -1812,21 +1806,9 @@
         warn: (p) => !p.cert_otr ? "⚠ NSP OTR (14-digit ID) required — generated via Aadhaar + Mobile + Face auth" : null,
       },
       {
-        name: "Mukhyamantri Majhi Ladki Bahin Yojana",
-        tag: "WOMEN", tagClass: "girls",
-        amount: "₹1,500/month + 3 free LPG cylinders/year",
-        estimated: () => 18000,
-        desc: "Maharashtra women aged 18–60. Monthly DBT. No govt job in family. ₹46,000 crore budget.",
-        portal: "ladakibahin.maharashtra.gov.in",
-        helpline: "Women & Child Development Dept",
-        deadline: "Year-round",
-        ref: "Chapter 8.3",
-        match: (p) => p.gender === "female" && p.birth_year === 'adult',
-      },
-      {
         name: "Lek Ladki Yojana",
         tag: "WOMEN", tagClass: "girls",
-        amount: "₹1,01,000 total (5 stages: birth – 18)",
+        amount: "₹1,01,000 total (5 stages: Birth – Age 18)",
         estimated: () => 5000,
         desc: "Girls born after April 2023. Yellow/Orange Ration Card + ₹1L income. 5 stages: Birth ₹5K + Class 1 ₹6K + Class 6 ₹7K + Class 11 ₹8K + Age 18 ₹75K.",
         portal: "Anganwadi Supervisor Office",
@@ -2082,7 +2064,18 @@
         gender: document.getElementById('gender').value,
         hosteller: document.getElementById('hosteller').value,
         marks: parseInt(document.getElementById('marks').value),
-        birth_year: document.getElementById('birth_year').value,
+        birth_year: (function () {
+          var dobVal = document.getElementById('dob').value;
+          if (!dobVal) return '';
+          var dob = new Date(dobVal);
+          var cutoff = new Date('2023-04-01');
+          var today = new Date();
+          var age = today.getFullYear() - dob.getFullYear();
+          if (today.getMonth() < dob.getMonth() || (today.getMonth() === dob.getMonth() && today.getDate() < dob.getDate())) age--;
+          if (dob >= cutoff) return '2024';
+          if (age >= 18) return 'adult';
+          return '2022';
+        })(),
         cert_domicile: document.getElementById('cert_domicile').checked,
         cert_income: document.getElementById('cert_income').checked,
         cert_caste: document.getElementById('cert_caste').checked,
@@ -2264,12 +2257,17 @@
 
       contentDiv.innerHTML = html;
       resultsDiv.classList.add('show');
-      resultsDiv.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(function () {
+        var rect = resultsDiv.getBoundingClientRect();
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        window.scrollTo({ top: scrollTop + rect.top - 20, behavior: 'smooth' });
+      }, 300);
     }
 
     function resetForm() {
       document.querySelectorAll('select').forEach(s => s.value = '');
       document.querySelectorAll('input[type="checkbox"]').forEach(c => c.checked = false);
+      document.getElementById('dob').value = '';
       document.getElementById('results').classList.remove('show');
       lastResults = null;
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -2389,9 +2387,8 @@
         });
         if (!res.ok) throw new Error('Submission failed');
 
-        document.getElementById('lead_phone_echo').textContent = payload.phone;
-        document.getElementById('leadForm').style.display = 'none';
-        document.getElementById('leadSuccess').style.display = 'block';
+        window.location.href = '/thank-you';
+        return;
       } catch (err) {
         alert("Sorry — we couldn't submit right now. Please call +91 97028 36946 or try again.");
       } finally {

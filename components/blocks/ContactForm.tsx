@@ -13,6 +13,7 @@ export default function ContactForm({ heading = "Enquire Now" }: ContactFormProp
         <form
           name="contact"
           method="POST"
+          action="/thank-you"
           data-netlify="true"
           className="grid gap-5"
         >

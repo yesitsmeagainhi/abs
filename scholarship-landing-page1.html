@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABS Educational Solutions | Free Career Counselling + Scholarship Support 2026-27</title>
+<meta name="description" content="Get FREE career counselling for D.Pharm, B.Pharm, GNM, BSc Nursing. We help you apply for Government & Private Scholarships. 88,000+ students trusted us since 2009.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #0f172a;
+    --ink-soft: #334155;
+    --paper: #ffffff;
+    --paper-warm: #eff6ff;
+    --gold: #1d4ed8;
+    --gold-bright: #3b82f6;
+    --crimson: #16a34a;
+    --emerald: #2563eb;
+    --emerald-light: #3b82f6;
+    --terracotta: #16a34a;
+    --shadow-warm: rgba(37, 99, 235, 0.12);
+    --shadow-deep: rgba(15, 23, 42, 0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  .hindi {
+    font-family: 'Tiro Devanagari Hindi', serif;
+    font-weight: 400;
+  }
+
+  .display {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  /* ============ PAPER TEXTURE BG ============ */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.04) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(22, 163, 74, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ============ TOP BANNER ============ */
+  .top-banner {
+    background: var(--ink);
+    color: var(--paper-warm);
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    position: relative;
+    z-index: 100;
+  }
+
+  .top-banner .gold-text {
+    color: #4ade80;
+    font-weight: 700;
+  }
+
+  .pulse-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #ff4757;
+    border-radius: 50%;
+    margin-right: 8px;
+    animation: pulse 1.5s ease-in-out infinite;
+    vertical-align: middle;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+
+  /* ============ NAV ============ */
+  nav {
+    background: var(--paper);
+    padding: 18px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(10, 14, 39, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-mark {
+    width: 44px;
+    height: 44px;
+    background: var(--ink);
+    color: var(--gold-bright);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    border-radius: 8px;
+    letter-spacing: -0.05em;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .logo-text .name {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--ink);
+  }
+
+  .logo-text .tagline {
+    font-size: 0.7rem;
+    color: var(--ink-soft);
+    opacity: 0.7;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .nav-cta {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 12px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: 2px solid var(--ink);
+  }
+
+  .nav-cta:hover {
+    background: var(--gold-bright);
+    color: var(--ink);
+    border-color: var(--gold-bright);
+  }
+
+  .nav-cta-icon {
+    margin-right: 6px;
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    padding: 60px 5% 80px;
+    position: relative;
+    background: 
+      linear-gradient(180deg, var(--paper) 0%, var(--paper-warm) 100%);
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(30, 111, 92, 0.1);
+    color: var(--emerald);
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid rgba(30, 111, 92, 0.2);
+    margin-bottom: 24px;
+  }
+
+  .badge-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--emerald);
+    border-radius: 50%;
+  }
+
+  h1.hero-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+
+  .hero-title .highlight {
+    color: #2563eb;
+    font-style: italic;
+    position: relative;
+  }
+
+  .hero-title .underline {
+    position: relative;
+    display: inline-block;
+  }
+
+  .hero-title .underline::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: var(--gold-bright);
+    z-index: -1;
+    opacity: 0.6;
+  }
+
+  .hindi-tagline {
+    font-family: 'Tiro Devanagari Hindi', serif;
+    font-size: 1.4rem;
+    color: var(--ink-soft);
+    margin-bottom: 32px;
+    line-height: 1.5;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 16px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--ink);
+    box-shadow: 0 4px 20px var(--shadow-deep);
+  }
+
+  .btn-primary:hover {
+    background: var(--crimson);
+    border-color: var(--crimson);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(37, 99, 235, 0.3);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink);
+    padding: 16px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--ink);
+  }
+
+  .btn-secondary:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding: 24px 0;
+    border-top: 1px solid rgba(10, 14, 39, 0.1);
+    border-bottom: 1px solid rgba(10, 14, 39, 0.1);
+  }
+
+  .stat-item .num {
+    font-family: 'Fraunces', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #2563eb;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-item .label {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    opacity: 0.8;
+  }
+
+  /* ============ HERO RIGHT - FORM CARD ============ */
+  .form-card {
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 12px 12px 0 var(--ink);
+    position: relative;
+  }
+
+  .form-card::before {
+    content: 'FREE';
+    position: absolute;
+    top: -16px;
+    right: 24px;
+    background: var(--gold-bright);
+    color: var(--ink);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    border: 2px solid var(--ink);
+  }
+
+  .form-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+
+  .form-card p {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+    opacity: 0.8;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid rgba(10, 14, 39, 0.2);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: var(--ink);
+    background: var(--paper-warm);
+    transition: all 0.2s;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: var(--ink);
+    background: var(--paper);
+  }
+
+  .form-submit {
+    width: 100%;
+    background: #2563eb;
+    color: #fff;
+    padding: 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 8px;
+    letter-spacing: 0.02em;
+  }
+
+  .form-submit:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+  }
+
+  .form-trust {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    opacity: 0.7;
+  }
+
+  /* ============ MARQUEE / RECOGNITION ============ */
+  .recognition-bar {
+    background: var(--ink);
+    color: var(--paper-warm);
+    padding: 24px 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .recognition-track {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    animation: scroll-left 30s linear infinite;
+    white-space: nowrap;
+  }
+
+  @keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .recognition-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  .recognition-item .icon {
+    color: #4ade80;
+    font-size: 1.2rem;
+  }
+
+  /* ============ SCHOLARSHIP HERO SECTION ============ */
+  .scholarship-section {
+    padding: 100px 5%;
+    background: var(--paper-warm);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scholarship-section::before {
+    content: '₹';
+    position: absolute;
+    top: -100px;
+    right: -50px;
+    font-family: 'Fraunces', serif;
+    font-size: 30rem;
+    font-weight: 700;
+    color: var(--gold-bright);
+    opacity: 0.08;
+    line-height: 1;
+  }
+
+  .section-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #2563eb;
+    margin-bottom: 16px;
+    padding-left: 40px;
+    position: relative;
+  }
+
+  .section-label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 30px;
+    height: 1px;
+    background: #2563eb;
+  }
+
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+
+  .section-title .accent {
+    font-style: italic;
+    color: #2563eb;
+  }
+
+  .scholarship-intro {
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    max-width: 700px;
+    margin-bottom: 60px;
+    line-height: 1.7;
+  }
+
+  .scholarship-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .scholarship-card {
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    padding: 32px;
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+
+  .scholarship-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 8px 8px 0 var(--ink);
+  }
+
+  .scholarship-card .num {
+    font-family: 'Fraunces', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: #2563eb;
+    line-height: 1;
+    margin-bottom: 16px;
+    -webkit-text-stroke: 1px #0f172a;
+  }
+
+  .scholarship-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+
+  .scholarship-card p {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .scholarship-card .hindi-line {
+    font-family: 'Tiro Devanagari Hindi', serif;
+    color: #16a34a;
+    font-size: 0.95rem;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed rgba(15, 23, 42, 0.2);
+  }
+
+  /* ============ SHOCKING TRUTH SECTION ============ */
+  .shocking-truth {
+    padding: 100px 5%;
+    background: var(--ink);
+    color: var(--paper);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shocking-truth::before {
+    content: '!';
+    position: absolute;
+    top: -50px;
+    left: 5%;
+    font-family: 'Fraunces', serif;
+    font-size: 25rem;
+    font-weight: 700;
+    color: #3b82f6;
+    opacity: 0.15;
+    line-height: 1;
+  }
+
+  .truth-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .truth-tag {
+    display: inline-block;
+    background: #2563eb;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .truth-headline {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 32px;
+    letter-spacing: -0.02em;
+  }
+
+  .truth-headline .gold {
+    color: #4ade80;
+  }
+
+  .truth-text {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: rgba(254, 252, 247, 0.85);
+    margin-bottom: 40px;
+  }
+
+  .truth-text .hindi {
+    display: block;
+    margin-top: 16px;
+    color: #4ade80;
+    font-size: 1.15rem;
+  }
+
+  .truth-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #16a34a;
+    color: #fff;
+    padding: 18px 36px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.05rem;
+    transition: all 0.3s;
+    border: 2px solid #16a34a;
+  }
+
+  .truth-cta:hover {
+    background: transparent;
+    color: #4ade80;
+    transform: translateY(-2px);
+  }
+
+  /* ============ COMPARISON SECTION ============ */
+  .comparison-section {
+    padding: 100px 5%;
+    background: var(--paper);
+  }
+
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-top: 60px;
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .comparison-col {
+    padding: 40px;
+    position: relative;
+  }
+
+  .comparison-col.without {
+    background: var(--paper-warm);
+    border-right: 2px solid var(--ink);
+  }
+
+  .comparison-col.with {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .compare-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .compare-tag.bad {
+    background: #dc2626;
+    color: #fff;
+  }
+
+  .compare-tag.good {
+    background: var(--crimson);
+    color: #fff;
+  }
+
+  .comparison-col h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    line-height: 1.2;
+  }
+
+  .compare-list {
+    list-style: none;
+  }
+
+  .compare-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(10, 14, 39, 0.1);
+    font-size: 0.98rem;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .comparison-col.with .compare-list li {
+    border-color: rgba(254, 252, 247, 0.15);
+  }
+
+  .compare-list li:last-child {
+    border-bottom: none;
+  }
+
+  .compare-list .icon {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    margin-top: 2px;
+  }
+
+  .compare-list .icon.x {
+    background: #dc2626;
+    color: #fff;
+  }
+
+  .compare-list .icon.check {
+    background: var(--crimson);
+    color: #fff;
+  }
+
+  /* ============ SAME COLLEGE BANNER ============ */
+  .same-college-banner {
+    background: #2563eb;
+    color: #fff;
+    padding: 40px 5%;
+    text-align: center;
+    border-top: 4px solid #1d4ed8;
+    border-bottom: 4px solid #1d4ed8;
+  }
+
+  .same-college-banner h3 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .same-college-banner .big {
+    font-size: 1.3em;
+    color: #bbf7d0;
+    font-style: italic;
+  }
+
+  /* ============ COURSES SECTION ============ */
+  .courses-section {
+    padding: 100px 5%;
+    background: var(--paper-warm);
+  }
+
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 60px;
+  }
+
+  .course-card {
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    padding: 32px;
+    transition: all 0.3s;
+    position: relative;
+  }
+
+  .course-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 8px 8px 0 var(--ink);
+  }
+
+  .course-icon-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .course-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--ink);
+    color: var(--gold-bright);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+  }
+
+  .course-duration {
+    background: var(--paper-warm);
+    color: var(--ink);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid var(--ink);
+  }
+
+  .course-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+
+  .course-card .subtitle {
+    color: #2563eb;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .course-card p {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+  }
+
+  .course-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 16px;
+    border-top: 1px dashed rgba(10, 14, 39, 0.2);
+  }
+
+  .course-tag {
+    background: var(--paper-warm);
+    color: var(--ink);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  /* ============ TRUST SIGNALS ============ */
+  .trust-section {
+    padding: 100px 5%;
+    background: var(--paper);
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-top: 60px;
+  }
+
+  .trust-item {
+    text-align: center;
+  }
+
+  .trust-icon {
+    width: 72px;
+    height: 72px;
+    background: var(--paper-warm);
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin: 0 auto 20px;
+  }
+
+  .trust-item h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+
+  .trust-item p {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  /* ============ TESTIMONIAL ============ */
+  .testimonial-section {
+    padding: 100px 5%;
+    background: var(--ink);
+    color: var(--paper);
+    position: relative;
+  }
+
+  .testimonial-section::before {
+    content: '"';
+    position: absolute;
+    top: 40px;
+    left: 5%;
+    font-family: 'Fraunces', serif;
+    font-size: 20rem;
+    color: #3b82f6;
+    opacity: 0.15;
+    line-height: 0.8;
+  }
+
+  .testimonial-content {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
+
+  .testimonial-text {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.4;
+    margin-bottom: 32px;
+    color: var(--paper-warm);
+  }
+
+  .testimonial-author {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .testimonial-author .name {
+    font-family: 'Fraunces', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #4ade80;
+  }
+
+  .testimonial-author .detail {
+    font-size: 0.85rem;
+    opacity: 0.7;
+  }
+
+  /* ============ FINAL CTA ============ */
+  .final-cta {
+    padding: 100px 5%;
+    background: var(--paper-warm);
+    text-align: center;
+  }
+
+  .final-cta-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .final-cta h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    color: var(--ink);
+  }
+
+  .final-cta .hindi {
+    font-family: 'Tiro Devanagari Hindi', serif;
+    color: #16a34a;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    margin-bottom: 32px;
+    display: block;
+  }
+
+  .final-cta p {
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    margin-bottom: 40px;
+    line-height: 1.7;
+  }
+
+  .final-cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--ink);
+    color: var(--paper-warm);
+    padding: 60px 5% 30px;
+  }
+
+  .footer-grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .footer-col h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+    color: #4ade80;
+  }
+
+  .footer-col p,
+  .footer-col a {
+    font-size: 0.9rem;
+    color: rgba(254, 252, 247, 0.7);
+    text-decoration: none;
+    line-height: 1.8;
+    display: block;
+  }
+
+  .footer-col a:hover {
+    color: #60a5fa;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(254, 252, 247, 0.15);
+    padding-top: 30px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(254, 252, 247, 0.5);
+  }
+
+  .disclaimer {
+    max-width: 1000px;
+    margin: 20px auto 0;
+    font-size: 0.75rem;
+    opacity: 0.6;
+    line-height: 1.6;
+  }
+
+  /* ============ FLOATING CALL BUTTON ============ */
+  .floating-cta {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 100;
+  }
+
+  .float-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+    color: white;
+  }
+
+  .float-btn.whatsapp {
+    background: #25D366;
+  }
+
+  .float-btn.call {
+    background: #2563eb;
+  }
+
+  .float-btn:hover {
+    transform: scale(1.1);
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 1024px) {
+    .hero-grid,
+    .scholarship-grid,
+    .courses-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    
+    .trust-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .comparison-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .comparison-col.without {
+      border-right: none;
+      border-bottom: 2px solid var(--ink);
+    }
+    
+    .trust-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .hero-stats {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    
+    .form-card {
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+
+    nav {
+      padding: 12px 5%;
+    }
+
+    .logo-text .name {
+      font-size: 1rem;
+    }
+  }
+
+  /* Animations */
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up {
+    animation: fade-up 0.8s ease-out backwards;
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP URGENCY BANNER -->
+<div class="top-banner">
+  <span class="pulse-dot"></span>
+  <span class="hindi">परामर्श शुरू हो गया है</span> · <span class="gold-text">Counselling Open 2026-27</span> · Limited Seats Available · <span class="gold-text">FREE Consultation</span>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <div class="logo-mark">A</div>
+    <div class="logo-text">
+      <span class="name">ABS Educational Solutions</span>
+      <span class="tagline">Since 2009 · Trusted by 88,000+ Families</span>
+    </div>
+  </div>
+  <a href="tel:7400244113" class="nav-cta"><span class="nav-cta-icon">📞</span>74002 44113</a>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-left fade-up">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        Maharashtra's Most Trusted Admission Partner
+      </div>
+      
+      <h1 class="hero-title">
+        Same College.<br>
+        Same Fees.<br>
+        <span class="underline">Better <span class="highlight">Scholarships</span>.</span>
+      </h1>
+      
+      <p class="hindi-tagline">
+        एक ही कॉलेज, एक ही फीस — पर ABS के साथ <strong>सरकारी Scholarship मिलने के chances 3x ज़्यादा</strong>।
+      </p>
+      
+      <div class="hero-cta-group">
+        <a href="#enquiry-form" class="btn-primary">
+          📋 Book FREE Counselling
+        </a>
+        <a href="https://wa.me/917400244113?text=Hi%20I%20want%20to%20know%20about%20admission%20and%20scholarship" class="btn-secondary">
+          💬 WhatsApp Us Now
+        </a>
+      </div>
+      
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="num">88,000<span style="color:#3b82f6;">+</span></div>
+          <div class="label">Students Counselled<br><span class="hindi" style="font-size:0.8rem;">since 2009</span></div>
+        </div>
+        <div class="stat-item">
+          <div class="num">100<span style="color:#3b82f6;">+</span></div>
+          <div class="label">Partner Colleges<br><span style="font-size:0.8rem;">PCI · MSBTE · DTE Approved</span></div>
+        </div>
+        <div class="stat-item">
+          <div class="num">16</div>
+          <div class="label">Years of Trust<br><span class="hindi" style="font-size:0.8rem;">अनुभव और भरोसा</span></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- HERO RIGHT - QUICK FORM -->
+    <div class="hero-right fade-up" style="animation-delay: 0.2s;">
+      <div class="form-card" id="enquiry-form">
+        <h3>Get Free Career Counselling</h3>
+        <p>हम आपको 2 घंटे में call करेंगे — सही course, सही college, और maximum scholarship।</p>
+        
+        <form id="leadForm" onsubmit="submitForm(event)">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" required placeholder="आपका पूरा नाम">
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" required placeholder="10-digit mobile number" pattern="[0-9]{10}">
+          </div>
+          
+          <div class="form-group">
+            <label for="course">Interested Course</label>
+            <select id="course" required>
+              <option value="">Select course you're interested in</option>
+              <option value="dpharm">D.Pharm (Diploma in Pharmacy) - 2 Years</option>
+              <option value="bpharm">B.Pharm (Bachelor of Pharmacy) - 4 Years</option>
+              <option value="gnm">GNM Nursing - 3.5 Years</option>
+              <option value="bsc-nursing">BSc Nursing - 4 Years</option>
+              <option value="bpt">BPT (Physiotherapy) - 4.5 Years</option>
+              <option value="dmlt">DMLT/BMLT (Lab Tech)</option>
+              <option value="confused">मुझे confusion है — आप बताइए</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="city">Your City</label>
+            <input type="text" id="city" placeholder="Mumbai, Thane, Palghar, etc.">
+          </div>
+          
+          <button type="submit" class="form-submit">
+            🎯 Get Free Counselling + Scholarship Info
+          </button>
+          
+          <div class="form-trust">
+            🔒 Your data is 100% safe · No spam · Same-day callback
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECOGNITION MARQUEE -->
+<div class="recognition-bar">
+  <div class="recognition-track">
+    <div class="recognition-item"><span class="icon">🏛️</span> DPIIT Recognized</div>
+    <div class="recognition-item"><span class="icon">🇮🇳</span> Skill India Partner</div>
+    <div class="recognition-item"><span class="icon">📚</span> Medhavi Skills University</div>
+    <div class="recognition-item"><span class="icon">🌾</span> GSDM Affiliated</div>
+    <div class="recognition-item"><span class="icon">✓</span> PCI Approved Colleges</div>
+    <div class="recognition-item"><span class="icon">✓</span> MSBTE Affiliated</div>
+    <div class="recognition-item"><span class="icon">✓</span> DTE Maharashtra</div>
+    <div class="recognition-item"><span class="icon">✓</span> INC Recognised</div>
+    <!-- duplicate for seamless loop -->
+    <div class="recognition-item"><span class="icon">🏛️</span> DPIIT Recognized</div>
+    <div class="recognition-item"><span class="icon">🇮🇳</span> Skill India Partner</div>
+    <div class="recognition-item"><span class="icon">📚</span> Medhavi Skills University</div>
+    <div class="recognition-item"><span class="icon">🌾</span> GSDM Affiliated</div>
+    <div class="recognition-item"><span class="icon">✓</span> PCI Approved Colleges</div>
+    <div class="recognition-item"><span class="icon">✓</span> MSBTE Affiliated</div>
+    <div class="recognition-item"><span class="icon">✓</span> DTE Maharashtra</div>
+    <div class="recognition-item"><span class="icon">✓</span> INC Recognised</div>
+  </div>
+</div>
+
+<!-- SHOCKING TRUTH SECTION -->
+<section class="shocking-truth">
+  <div class="truth-content">
+    <span class="truth-tag">🚨 An Eye-Opener for Parents</span>
+    
+    <h2 class="truth-headline">
+      हर साल <span class="gold">करोड़ों रुपये</span> की Scholarship<br>
+      <span style="font-style: italic;">वापस सरकार के पास चली जाती है।</span>
+    </h2>
+    
+    <p class="truth-text">
+      Did you know? Every year in Maharashtra alone, scholarship funds worth <strong>₹100+ Crores remain unclaimed</strong> — because students and parents either don't know about them, or make small mistakes in the application process.
+      
+      <span class="hindi">क्या आप जानते हैं? सिर्फ Maharashtra में हर साल ₹100 करोड़ से ज़्यादा की scholarship वापस चली जाती है — क्योंकि लोग जानते नहीं, या application में गलती कर देते हैं।</span>
+    </p>
+    
+    <a href="#enquiry-form" class="truth-cta">
+      Don't let YOUR scholarship go to waste →
+    </a>
+  </div>
+</section>
+
+<!-- SCHOLARSHIP SECTION - MAIN PUNCH -->
+<section class="scholarship-section">
+  <div class="section-container">
+    <span class="section-label">Why ABS is Different</span>
+    
+    <h2 class="section-title">
+      We don't just secure admission.<br>
+      We <span class="accent">unlock scholarships</span> you never knew existed.
+    </h2>
+    
+    <p class="scholarship-intro">
+      Most students apply to one or two scholarships they've heard about. <strong>ABS checks your eligibility against 12+ government & private schemes</strong> — और सबसे important, हम आपकी scholarship application खुद file करते हैं — आपके behalf पर। No mistakes. No missed deadlines. Maximum chances.
+    </p>
+    
+    <div class="scholarship-grid">
+      <div class="scholarship-card">
+        <div class="num">12+</div>
+        <h3>Scholarship Schemes Checked</h3>
+        <p>State Govt, Central Govt, Private Companies, Caste-based, Income-based, Merit-based — हम सब check करते हैं।</p>
+        <div class="hindi-line">12 schemes में से जो भी आपको मिल सकती है, हम बताएंगे।</div>
+      </div>
+      
+      <div class="scholarship-card">
+        <div class="num">3x</div>
+        <h3>Higher Approval Chances</h3>
+        <p>Self-applied scholarships often get rejected due to documentation errors. Our experts know exactly what each scheme requires.</p>
+        <div class="hindi-line">हमारे साथ apply करने पर scholarship मिलने के chances 3 गुना बढ़ जाते हैं।</div>
+      </div>
+      
+      <div class="scholarship-card">
+        <div class="num">₹0</div>
+        <h3>Hidden Charges. Ever.</h3>
+        <p>Scholarship application support is included in our counselling. We don't charge extra for this. Promise.</p>
+        <div class="hindi-line">Scholarship apply करने के पैसे हम नहीं लेते — यह FREE है।</div>
+      </div>
+      
+      <div class="scholarship-card">
+        <div class="num">100%</div>
+        <h3>Behalf-Of-You Application</h3>
+        <p>You don't have to figure out portals, documents, or deadlines. We do it FOR you. You just sign.</p>
+        <div class="hindi-line">आपकी तरफ से हम apply करते हैं — आप सिर्फ sign करिए।</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON SECTION -->
+<section class="comparison-section">
+  <div class="section-container">
+    <span class="section-label">The Real Difference</span>
+    
+    <h2 class="section-title">
+      Same college. Same fees.<br>
+      <span class="accent">Two completely different journeys.</span>
+    </h2>
+    
+    <div class="comparison-grid">
+      <div class="comparison-col without">
+        <span class="compare-tag bad">Without ABS</span>
+        <h3>Going to college directly</h3>
+        <ul class="compare-list">
+          <li><span class="icon x">✕</span> You pay full fees, miss out on 2-3 scholarships</li>
+          <li><span class="icon x">✕</span> No idea which scholarship you're eligible for</li>
+          <li><span class="icon x">✕</span> Apply alone, often with documentation errors</li>
+          <li><span class="icon x">✕</span> Confused between 5+ college options</li>
+          <li><span class="icon x">✕</span> No support after admission — figure it out yourself</li>
+          <li><span class="icon x">✕</span> Risk of choosing wrong/unapproved college</li>
+          <li><span class="icon x">✕</span> Higher financial burden on family</li>
+        </ul>
+      </div>
+      
+      <div class="comparison-col with">
+        <span class="compare-tag good">With ABS</span>
+        <h3>The ABS Advantage</h3>
+        <ul class="compare-list">
+          <li><span class="icon check">✓</span> Maximum scholarships → Lower out-of-pocket fees</li>
+          <li><span class="icon check">✓</span> 12+ schemes checked across govt & private sources</li>
+          <li><span class="icon check">✓</span> Expert files application FOR you — error-free</li>
+          <li><span class="icon check">✓</span> Top 3-5 best-fit colleges shortlisted for you</li>
+          <li><span class="icon check">✓</span> End-to-end support: admission → graduation</li>
+          <li><span class="icon check">✓</span> Only PCI/MSBTE/DTE approved colleges</li>
+          <li><span class="icon check">✓</span> Family saves ₹30,000 - ₹1,50,000 over course</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SAME COLLEGE BANNER -->
+<div class="same-college-banner">
+  <h3>
+    तो सोचिए — <span class="big">Same College</span> लेने के लिए,<br>
+    क्यों न उस expert को चुनें जो आपको <span class="big">हज़ारों बचा कर</span> देगा?
+  </h3>
+</div>
+
+<!-- COURSES SECTION -->
+<section class="courses-section">
+  <div class="section-container">
+    <span class="section-label">Courses We Specialize In</span>
+    
+    <h2 class="section-title">
+      Choose your <span class="accent">healthcare career</span>.<br>
+      We'll handle the rest.
+    </h2>
+    
+    <div class="courses-grid">
+      <div class="course-card">
+        <div class="course-icon-row">
+          <div class="course-icon">💊</div>
+          <span class="course-duration">2 YEARS</span>
+        </div>
+        <h3>D.Pharm</h3>
+        <div class="subtitle">Diploma in Pharmacy</div>
+        <p>Become a registered pharmacist. Open your own medical store. Quick employment after just 2 years. Most popular course among 12th science students.</p>
+        <div class="course-tags">
+          <span class="course-tag">PCI Approved</span>
+          <span class="course-tag">12th PCB/PCM</span>
+          <span class="course-tag">Own Business</span>
+        </div>
+      </div>
+      
+      <div class="course-card">
+        <div class="course-icon-row">
+          <div class="course-icon">⚕️</div>
+          <span class="course-duration">4 YEARS</span>
+        </div>
+        <h3>B.Pharm</h3>
+        <div class="subtitle">Bachelor of Pharmacy</div>
+        <p>Full bachelor's degree. Higher salary potential. Eligible for M.Pharm, drug inspector posts, pharmaceutical R&D, and international opportunities.</p>
+        <div class="course-tags">
+          <span class="course-tag">PCI/AICTE Approved</span>
+          <span class="course-tag">12th 50%+</span>
+          <span class="course-tag">Higher Salary</span>
+        </div>
+      </div>
+      
+      <div class="course-card">
+        <div class="course-icon-row">
+          <div class="course-icon">🏥</div>
+          <span class="course-duration">3.5 YEARS</span>
+        </div>
+        <h3>GNM Nursing</h3>
+        <div class="subtitle">General Nursing & Midwifery</div>
+        <p>Most secure healthcare career. Massive demand in India and abroad. Earn ₹50K-1.5L/month working in Gulf, UK, Canada after 2-3 years experience.</p>
+        <div class="course-tags">
+          <span class="course-tag">INC Approved</span>
+          <span class="course-tag">Foreign Jobs</span>
+          <span class="course-tag">Govt Jobs</span>
+        </div>
+      </div>
+      
+      <div class="course-card">
+        <div class="course-icon-row">
+          <div class="course-icon">👩‍⚕️</div>
+          <span class="course-duration">4 YEARS</span>
+        </div>
+        <h3>BSc Nursing</h3>
+        <div class="subtitle">Bachelor of Science in Nursing</div>
+        <p>Highest-paying nursing degree. Eligible for senior nurse positions, nursing officer in government hospitals, and overseas opportunities with premium pay.</p>
+        <div class="course-tags">
+          <span class="course-tag">INC Approved</span>
+          <span class="course-tag">12th PCB 45%+</span>
+          <span class="course-tag">Premium Career</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST SIGNALS -->
+<section class="trust-section">
+  <div class="section-container">
+    <span class="section-label">Why 88,000+ Families Trust Us</span>
+    
+    <h2 class="section-title">
+      We're not just consultants.<br>
+      We're <span class="accent">your family's partner</span>.
+    </h2>
+    
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon">🎯</div>
+        <h4>Zero Hidden Fees</h4>
+        <p>All college fees go DIRECTLY to colleges. ABS only charges nominal counselling fee — disclosed upfront.</p>
+      </div>
+      
+      <div class="trust-item">
+        <div class="trust-icon">🏛️</div>
+        <h4>Govt-Approved Only</h4>
+        <p>Every partner college is PCI, INC, MSBTE, or DTE approved. No fly-by-night institutions. Ever.</p>
+      </div>
+      
+      <div class="trust-item">
+        <div class="trust-icon">🤝</div>
+        <h4>End-to-End Support</h4>
+        <p>From counselling to graduation. Hostel, documentation, exam registration, scholarship — we handle it all.</p>
+      </div>
+      
+      <div class="trust-item">
+        <div class="trust-icon">📍</div>
+        <h4>6 Mumbai Branches</h4>
+        <p>Bhayandar (HO), Nallasopara, Malad, Andheri, Thane, Kurla — always near you for in-person help.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial-section">
+  <div class="testimonial-content">
+    <p class="testimonial-text">
+      "We thought we'd save money by going to college directly. ABS team showed us 3 scholarships we never knew existed. We saved ₹85,000 over my daughter's course, और admission भी easy हो गया।"
+    </p>
+    <div class="testimonial-author">
+      <span class="name">Mrs. Sangeeta Patil</span>
+      <span class="detail">Daughter — B.Pharm 2nd Year · Nallasopara</span>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-cta-container">
+    <h2>Your child's future deserves expert guidance.</h2>
+    <span class="hindi">और expert guidance बिल्कुल FREE है। Today.</span>
+    
+    <p>
+      Book a free 30-minute counselling session. We'll review your eligibility for scholarships, shortlist 3-5 best-fit colleges, and answer every parent question — no obligation, no pushy sales talk. Just honest guidance.
+    </p>
+    
+    <div class="final-cta-buttons">
+      <a href="#enquiry-form" class="btn-primary">
+        📋 Book My Free Counselling
+      </a>
+      <a href="tel:7400244113" class="btn-secondary">
+        📞 Call 74002 44113
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="logo" style="margin-bottom: 16px;">
+        <div class="logo-mark">A</div>
+        <div class="logo-text">
+          <span class="name" style="color: var(--paper-warm);">ABS Educational Solutions</span>
+          <span class="tagline" style="color: rgba(254,252,247,0.6);">Since 2009</span>
+        </div>
+      </div>
+      <p>Maharashtra's most trusted educational consultancy. We guide students into Pharmacy, Nursing & Paramedical colleges with complete transparency — and zero hidden fees.</p>
+    </div>
+    
+    <div class="footer-col">
+      <h4>Courses</h4>
+      <a href="#enquiry-form">D.Pharm / B.Pharm</a>
+      <a href="#enquiry-form">GNM Nursing</a>
+      <a href="#enquiry-form">BSc Nursing</a>
+      <a href="#enquiry-form">BPT Physiotherapy</a>
+      <a href="#enquiry-form">DMLT / BMLT</a>
+    </div>
+    
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="#enquiry-form">Free Counselling</a>
+      <a href="https://wa.me/917400244113">WhatsApp Us</a>
+      <a href="tel:7400244113">Call: 74002 44113</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+    </div>
+    
+    <div class="footer-col">
+      <h4>Head Office</h4>
+      <p>Mini Market Building<br>104-106, BP Road<br>Bhayandar East<br>Mumbai - 401105</p>
+      <p style="margin-top: 12px;">📞 74002 44113<br>✉️ info@absadmission.com</p>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>© 2026 ABS Educational Solutions · All Rights Reserved</p>
+    <p class="disclaimer">
+      <strong>Disclaimer:</strong> ABS Educational Solutions is an authorized education admission consultancy. We do not run any college or conduct courses. All academic operations are conducted by partner colleges. Scholarship eligibility and approval are subject to government and respective scheme criteria. Counselling fees are charged by ABS; all college fees are paid directly to the respective institutions.
+    </p>
+  </div>
+</footer>
+
+<!-- FLOATING CALL BUTTONS -->
+<div class="floating-cta">
+  <a href="https://wa.me/917400244113?text=Hi%20I%20want%20to%20know%20about%20admission%20and%20scholarship" class="float-btn whatsapp" title="WhatsApp">
+    💬
+  </a>
+  <a href="tel:7400244113" class="float-btn call" title="Call">
+    📞
+  </a>
+</div>
+
+<script>
+  async function submitForm(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const course = document.getElementById('course').value;
+    const city = document.getElementById('city').value.trim();
+
+    if (!name || !phone || phone.length !== 10) {
+      alert('Please fill in your name and a valid 10-digit mobile number.');
+      return;
+    }
+
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.textContent = 'Submitting...';
+    btn.disabled = true;
+
+    // Save to Google Sheets via API route
+    try {
+      await fetch('/api/send-scholarship-admission-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, phone, course, city }),
+      });
+    } catch (err) {
+      console.error('API error:', err);
+    }
+
+    // Build WhatsApp message
+    const message = `Hi ABS! I want free counselling.\n\nName: ${name}\nPhone: ${phone}\nCourse: ${course}\nCity: ${city}`;
+    const whatsappUrl = `https://wa.me/917400244113?text=${encodeURIComponent(message)}`;
+
+    // Open WhatsApp in new tab and redirect to thank-you page
+    window.open(whatsappUrl, '_blank');
+    window.location.href = '/thank-you';
+  }
+
+  // Smooth fade-in on scroll
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.scholarship-card, .course-card, .trust-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'all 0.6s ease-out';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>

@@ -123,6 +123,7 @@ export default function StickyEligibility({ courseName, tel = '9702836946' }: Pr
                     <form
                       name="course-eligibility"
                       method="POST"
+                      action="/thank-you"
                       data-netlify="true"
                       netlify-honeypot="bot-field"
                       className="space-y-4"

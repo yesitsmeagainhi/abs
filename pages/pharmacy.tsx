@@ -76,7 +76,8 @@ export default function PharmacyPage() {
         }),
       });
       if (res.ok) {
-        setSubmitted(true);
+        window.location.href = '/thank-you';
+        return;
       }
     } catch (err) {
       console.error('Submit error:', err);

@@ -2010,8 +2010,8 @@
                     body: JSON.stringify({ name, phone, course, branch }),
                 });
                 if (res.ok) {
-                    btn.textContent = '✅ Submitted! Counsellor will call you soon.';
-                    btn.style.background = '#16a34a';
+                    window.location.href = '/thank-you';
+                    return;
                 } else {
                     btn.textContent = '❌ Error — please try again';
                     btn.style.background = '#dc2626';
