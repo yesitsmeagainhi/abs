@@ -225,15 +225,15 @@ export default function PharmacyPage() {
                     onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                     className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
-                  <label className="flex items-center text-sm">
+                  <label className="flex items-start gap-2 text-sm">
                     <input
                       required
                       type="checkbox"
-                      className="mr-2"
+                      className="mt-1"
                       checked={formData.consent}
                       onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
                     />
-                    I agree to be contacted by ABS Educational Solution
+                    <span>I agree to the <a href="/terms" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">Terms &amp; Conditions</a></span>
                   </label>
                   <button
                     type="submit"

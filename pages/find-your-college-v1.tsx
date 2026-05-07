@@ -433,6 +433,7 @@ export default function FindYourCollege() {
   const [results, setResults] = useState<Array<{ college: College; score: number }>>([]);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'loading' | 'done' | 'error'>('idle');
   const [error, setError] = useState('');
+  const [termsAccepted, setTermsAccepted] = useState(false);
 
   const update = (field: keyof FormData, value: string) =>
     setForm((prev) => ({ ...prev, [field]: value }));
@@ -452,6 +453,7 @@ export default function FindYourCollege() {
       if (!/^[6-9]\d{9}$/.test(form.phone)) return 'Please enter a valid 10-digit mobile number.';
       if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))
         return 'Please enter a valid email address.';
+      if (!termsAccepted) return 'Please agree to the Terms & Conditions to proceed.';
     }
     return '';
   }
@@ -834,7 +836,17 @@ export default function FindYourCollege() {
                       </div>
                     </div>
 
-                    <p className="mt-4 text-xs text-gray-400">
+                    <label className="flex items-start gap-2 text-sm mt-4">
+                      <input
+                        type="checkbox"
+                        className="mt-1"
+                        checked={termsAccepted}
+                        onChange={(e) => setTermsAccepted(e.target.checked)}
+                      />
+                      <span>I agree to the <a href="/terms" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">Terms &amp; Conditions</a></span>
+                    </label>
+
+                    <p className="mt-3 text-xs text-gray-400">
                       🔒 Your details are safe. We only contact you for college admission guidance —
                       no spam, no third-party sharing.
                     </p>

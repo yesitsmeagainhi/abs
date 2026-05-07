@@ -327,6 +327,7 @@ export default function FindYourCollege() {
   const [step, setStep] = useState(1);
   const [submitting, setSubmitting] = useState(false);
   const [results, setResults] = useState<PredictionOutput | null>(null);
+  const [termsAccepted, setTermsAccepted] = useState(false);
   const [activeTab, setActiveTab] = useState<'Safe' | 'Moderate' | 'Reach'>('Safe');
   const [form, setForm] = useState<FormState>(INITIAL_FORM);
   const [errs, setErrs] = useState<Record<string, string>>({});
@@ -344,6 +345,8 @@ export default function FindYourCollege() {
         e.mobile = 'Please enter a valid 10-digit Indian mobile number';
       if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))
         e.email = 'Please enter a valid email address';
+      if (!termsAccepted)
+        e.terms = 'Please agree to the Terms & Conditions to proceed';
     }
     if (s === 2) {
       const ns = Number(form.neetScore);
@@ -881,6 +884,18 @@ export default function FindYourCollege() {
                           placeholder="[email protected]"
                         />
                       </Field>
+                      <div>
+                        <label className="flex items-start gap-2 text-sm">
+                          <input
+                            type="checkbox"
+                            className="mt-1"
+                            checked={termsAccepted}
+                            onChange={(e) => setTermsAccepted(e.target.checked)}
+                          />
+                          <span>I agree to the <a href="/terms" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">Terms &amp; Conditions</a></span>
+                        </label>
+                        {errs.terms && <p className="text-xs text-red-500 mt-1">{errs.terms}</p>}
+                      </div>
                     </>
                   )}
 

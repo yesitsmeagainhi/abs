@@ -53,3 +53,181 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
+
+/* ============ TERMS & CONDITIONS PAGE ============ */
+.tc-main {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #1e293b;
+  line-height: 1.7;
+}
+
+.tc-hero {
+  position: relative;
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+  color: #ffffff;
+  padding: 64px 24px 56px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.tc-hero-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 20% 50%, rgba(59,130,246,0.12) 0%, transparent 50%),
+                     radial-gradient(circle at 80% 20%, rgba(99,102,241,0.10) 0%, transparent 40%);
+}
+
+.tc-hero h1 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+}
+
+.tc-hero p {
+  font-size: 1.05rem;
+  color: #cbd5e1;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.tc-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+.tc-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.tc-updated {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.tc-section {
+  margin-bottom: 32px;
+}
+
+.tc-section:last-child {
+  margin-bottom: 0;
+}
+
+.tc-section h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.tc-section p {
+  font-size: 0.95rem;
+  color: #475569;
+  margin-bottom: 12px;
+  line-height: 1.75;
+}
+
+.tc-section p:last-child {
+  margin-bottom: 0;
+}
+
+.tc-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+}
+
+.tc-section ul li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.95rem;
+  color: #475569;
+  margin-bottom: 8px;
+  line-height: 1.7;
+}
+
+.tc-section ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #3b82f6;
+}
+
+.tc-section a {
+  color: #2563eb;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.tc-section a:hover {
+  color: #1d4ed8;
+}
+
+.tc-contact {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 28px;
+  border: 1px solid #e2e8f0;
+}
+
+.tc-contact h2 {
+  margin-bottom: 8px;
+}
+
+.tc-contact > p {
+  margin-bottom: 20px;
+}
+
+.tc-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.tc-contact-item {
+  font-size: 0.92rem;
+}
+
+.tc-contact-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+  margin-bottom: 4px;
+}
+
+.tc-contact-item a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.tc-contact-item a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .tc-card {
+    padding: 24px 20px;
+    border-radius: 12px;
+  }
+  .tc-hero {
+    padding: 48px 20px 40px;
+  }
+  .tc-contact-grid {
+    grid-template-columns: 1fr;
+  }
+}

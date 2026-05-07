@@ -40,6 +40,13 @@ export default function PharmacyContactForm() {
       return;
     }
 
+    const termsBox = document.getElementById('termsCheck') as HTMLInputElement;
+    if (!termsBox?.checked) {
+      setStatus({ type: 'error', msg: 'Please agree to the Terms & Conditions to proceed.' });
+      setLoading(false);
+      return;
+    }
+
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -191,6 +198,16 @@ Please contact this student within 10 minutes as per our commitment.`
               placeholder="Enter your city"
             />
           </div>
+
+          {/* Terms & Conditions */}
+          <label className="flex items-start gap-2 text-sm">
+            <input
+              type="checkbox"
+              id="termsCheck"
+              className="mt-1"
+            />
+            <span>I agree to the <a href="/terms" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">Terms &amp; Conditions</a></span>
+          </label>
 
           {/* Submit Button */}
           <div className="pt-2">

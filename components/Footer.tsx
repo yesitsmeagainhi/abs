@@ -67,9 +67,9 @@ export default function Footer() {
             <Image
               src={footerData.logo}
               alt="ABS Edu"
-              width={160}
-              height={40}
-              className="h-10 w-auto mb-4"
+              width={256}
+              height={256}
+              className="h-14 w-auto mb-4"
             />
           )}
           {footerData.about_text && (

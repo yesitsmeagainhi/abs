@@ -32,6 +32,11 @@ export default function ContactForm({ heading = "Enquire Now" }: ContactFormProp
             className="border rounded-lg px-4 py-3"
           />
 
+          <label className="flex items-start gap-2 text-sm">
+            <input required type="checkbox" name="terms" className="mt-1" />
+            <span>I agree to the <a href="/terms" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">Terms &amp; Conditions</a></span>
+          </label>
+
           <button
             type="submit"
             className="bg-blue-600 text-white font-medium py-3 rounded-lg"

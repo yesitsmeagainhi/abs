@@ -1341,6 +1341,11 @@
               <input type="text" id="city" placeholder="Mumbai, Thane, Palghar, etc.">
             </div>
 
+            <label style="display:flex;align-items:flex-start;gap:8px;font-size:0.85rem;margin-top:12px;cursor:pointer;">
+              <input type="checkbox" id="termsCheck" required style="margin-top:3px;">
+              <span>I agree to the <a href="/terms" target="_blank" style="color:#2563eb;text-decoration:underline;">Terms &amp; Conditions</a></span>
+            </label>
+
             <button type="submit" class="form-submit">
               🎯 Get Free Counselling + Scholarship Info
             </button>
@@ -1724,6 +1729,11 @@
 
       if (!name || !phone || phone.length !== 10) {
         alert('Please fill in your name and a valid 10-digit mobile number.');
+        return;
+      }
+
+      if (!document.getElementById('termsCheck').checked) {
+        alert('Please agree to the Terms & Conditions to proceed.');
         return;
       }
 

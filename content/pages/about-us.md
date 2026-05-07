@@ -104,7 +104,7 @@ blocks:
         <!-- Image block -->
         <div class="relative w-full h-64 lg:h-80 rounded-lg overflow-hidden shadow-lg">
           <!-- Replace src with a real campus photo -->
-          <img src="/public/uploads/dsc02558-enhanced-nr.jpg"
+          <img src="/uploads/dsc02558-enhanced-nr.jpg"
                alt="ABS Institute campus – modern lab facilities"
                class="absolute inset-0 w-full h-full object-cover" />
         </div>

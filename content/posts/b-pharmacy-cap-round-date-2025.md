@@ -3,6 +3,7 @@ title: B Pharmacy cap round date 2025
 slug: b pharmacy cap round date 2025
 date: 2025-07-25T04:29:23.972Z
 author: Pharmacy info
+hero: /uploads/b-pharma.png
 ---
 ## Maharashtra B.Pharmacy / Pharm.D CAP 2025 – Complete Guide with CAP Round Dates
 

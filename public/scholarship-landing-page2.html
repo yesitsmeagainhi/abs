@@ -1700,6 +1700,10 @@
                       </select>
                     </div>
                   </div>
+                  <label style="display:flex;align-items:flex-start;gap:8px;font-size:0.85rem;margin-top:12px;cursor:pointer;">
+                    <input type="checkbox" id="termsCheck" required style="margin-top:3px;">
+                    <span>I agree to the <a href="/terms" target="_blank" style="color:var(--accent);text-decoration:underline;">Terms &amp; Conditions</a></span>
+                  </label>
                   <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px;">
                     📞 Call Me With Scholarship Details
                   </button>
@@ -2529,6 +2533,11 @@
 
       if (!userData.name || !userData.phone || userData.phone.length !== 10) {
         alert('Please fill in your name and a valid 10-digit mobile number.');
+        return;
+      }
+
+      if (!document.getElementById('termsCheck').checked) {
+        alert('Please agree to the Terms & Conditions to proceed.');
         return;
       }
 

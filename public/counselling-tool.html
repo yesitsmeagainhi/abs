@@ -1961,6 +1961,11 @@
           </div>
         </div>
 
+        <label style="display:flex;align-items:flex-start;gap:8px;font-size:0.85rem;margin-top:12px;cursor:pointer;">
+          <input type="checkbox" id="termsCheck" required style="margin-top:3px;">
+          <span>I agree to the <a href="/terms" target="_blank" style="color:#2563eb;text-decoration:underline;">Terms &amp; Conditions</a></span>
+        </label>
+
         <div class="privacy-note">
           Your details are safe. We will only contact you for career guidance —
           no spam, no third party sharing.
@@ -2167,8 +2172,13 @@
         if (!course) {
           document.getElementById('lead-course').closest('.field').classList.add('invalid'); valid = false;
         }
+        if (!document.getElementById('termsCheck').checked) {
+          alert('Please agree to the Terms & Conditions to proceed.');
+          valid = false;
+        }
         if (!valid) {
-          window.scrollTo({ top: document.querySelector('.invalid').offsetTop - 100, behavior: 'smooth' });
+          const inv = document.querySelector('.invalid');
+          if (inv) window.scrollTo({ top: inv.offsetTop - 100, behavior: 'smooth' });
           return;
         }
 

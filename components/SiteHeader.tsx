@@ -35,7 +35,7 @@ export default function SiteHeader() {
       )}
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-2 text-xl font-bold text-blue-600">
-          <img src={data.logo} alt="Logo" className="h-10 w-auto" />
+          <img src={data.logo} alt="Logo" className="h-20 w-auto" />
         </Link>
 
         <nav className="hidden md:flex space-x-8 text-gray-700 text-sm font-medium relative">

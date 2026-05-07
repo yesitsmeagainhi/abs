@@ -1456,6 +1456,12 @@
             <div class="readonly-pill" id="lead_course_display">—</div>
           </div>
         </div>
+        <div style="padding:0 24px 8px;">
+          <label style="display:flex;align-items:flex-start;gap:8px;font-size:0.85rem;cursor:pointer;">
+            <input type="checkbox" id="termsCheck" required style="margin-top:3px;">
+            <span>I agree to the <a href="/terms" target="_blank" style="color:#2563eb;text-decoration:underline;">Terms &amp; Conditions</a></span>
+          </label>
+        </div>
         <div class="modal-foot">
           <button type="button" class="btn btn-soft" onclick="closeLeadModal()">Cancel</button>
           <button type="submit" class="btn btn-primary" id="leadSubmitBtn">Submit <span class="arrow">→</span></button>
@@ -2360,6 +2366,11 @@
     async function submitLeadForm(ev) {
       ev.preventDefault();
       if (!currentScheme || !lastResults) return false;
+
+      if (!document.getElementById('termsCheck').checked) {
+        alert('Please agree to the Terms & Conditions to proceed.');
+        return false;
+      }
 
       const btn = document.getElementById('leadSubmitBtn');
       btn.disabled = true;
