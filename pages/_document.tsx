@@ -15,6 +15,9 @@ export default function MyDocument() {
   return (
     <Html lang="en">
       <Head>
+        {/* Disable favicon to suppress browser 404 */}
+        <link rel="icon" href="data:," />
+
         {/* ---------- Netlify Identity widget ---------- */}
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
 

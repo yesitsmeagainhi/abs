@@ -111,8 +111,17 @@
     }
 
     @keyframes pulse-dot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.3); }
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.5;
+        transform: scale(1.3);
+      }
     }
 
     /* ============ NAV ============ */
@@ -544,8 +553,20 @@
     }
 
     .option-icon {
-      font-size: 1.2rem;
+      width: 22px;
+      height: 22px;
       flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+    }
+    .option-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+    .option-card.selected .option-icon {
+      color: var(--accent);
     }
 
     .form-row {
@@ -1456,7 +1477,6 @@
         height: 36px;
       }
     }
-
   </style>
 </head>
 
@@ -1465,7 +1485,8 @@
   <!-- TOP URGENCY BANNER -->
   <div class="top-banner">
     <span class="pulse-dot"></span>
-    Counselling has started · <span class="gold-text">Counselling Open 2026-27</span> · Limited Seats Available · <span class="gold-text">FREE Consultation</span>
+    Counselling has started · <span class="gold-text">Counselling Open 2026-27</span> · Limited Seats Available · <span
+      class="gold-text">FREE Consultation</span>
   </div>
 
   <!-- NAV -->
@@ -1566,18 +1587,14 @@
             <p class="step-helper">Select your preferred course — we'll find the right scholarships for you</p>
 
             <div class="options-grid" data-question="course">
-              <button class="option-card" data-value="dpharm"><span class="option-icon">💊</span> D.Pharm</button>
-              <button class="option-card" data-value="bpharm"><span class="option-icon">⚕️</span> B.Pharm</button>
-              <button class="option-card" data-value="gnm"><span class="option-icon">🏥</span> GNM Nursing</button>
-              <button class="option-card" data-value="bsc-nursing"><span class="option-icon">👩‍⚕️</span> BSc
-                Nursing</button>
-              <button class="option-card" data-value="bpt"><span class="option-icon">🦴</span> BPT
-                Physiotherapy</button>
-              <button class="option-card" data-value="dmlt"><span class="option-icon">🔬</span> DMLT/BMLT</button>
-              <button class="option-card" data-value="other"><span class="option-icon">📚</span> Other
-                Healthcare</button>
-              <button class="option-card" data-value="confused"><span class="option-icon">🤔</span> Not sure
-                yet</button>
+              <button class="option-card" data-value="dpharm"><span class="option-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714a2.25 2.25 0 0 0 .659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-1.46 6.077a2.25 2.25 0 0 1-2.174 1.673H8.634a2.25 2.25 0 0 1-2.174-1.673L5 14.5m14 0H5"/></svg></span> D.Pharm</button>
+              <button class="option-card" data-value="bpharm"><span class="option-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a23.54 23.54 0 0 0-2.34 6.36c5.088.523 10.162.524 15.24.002a23.54 23.54 0 0 0-2.318-6.362M4.26 10.147A48.627 48.627 0 0 1 12 6.534a48.627 48.627 0 0 1 7.74 3.613M3.228 16.507a48.636 48.636 0 0 0 8.772 2.09M12 6.534V3m-2.25.386a23.38 23.38 0 0 1 4.5 0"/></svg></span> B.Pharm</button>
+              <button class="option-card" data-value="gnm"><span class="option-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/></svg></span> GNM Nursing</button>
+              <button class="option-card" data-value="bsc-nursing"><span class="option-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg></span> BSc Nursing</button>
+              <button class="option-card" data-value="bpt"><span class="option-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg></span> BPT Physiotherapy</button>
+              <button class="option-card" data-value="dmlt"><span class="option-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714a2.25 2.25 0 0 0 .659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-1.46 6.077a2.25 2.25 0 0 1-2.174 1.673H8.634a2.25 2.25 0 0 1-2.174-1.673L5 14.5m14 0H5"/></svg></span> DMLT/BMLT</button>
+              <button class="option-card" data-value="other"><span class="option-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"/></svg></span> Other Healthcare</button>
+              <button class="option-card" data-value="confused"><span class="option-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"/></svg></span> Not sure yet</button>
             </div>
 
             <div class="step-actions">
@@ -1596,26 +1613,24 @@
               style="font-size: 0.9rem; color: var(--text-soft); margin-bottom: 12px; margin-top: 16px; font-weight: 600;">
               Your Category</h4>
             <div class="options-grid" data-question="category">
-              <button class="option-card" data-value="open"><span class="option-icon">📋</span> Open / General</button>
-              <button class="option-card" data-value="obc"><span class="option-icon">🟢</span> OBC / SBC</button>
-              <button class="option-card" data-value="sc"><span class="option-icon">🔵</span> SC / Neo-Buddhist</button>
-              <button class="option-card" data-value="st"><span class="option-icon">🟡</span> ST / Tribal</button>
-              <button class="option-card" data-value="ews"><span class="option-icon">⚪</span> EWS</button>
-              <button class="option-card" data-value="minority"><span class="option-icon">🟣</span> Minority
-                (Muslim/Christian/etc)</button>
-              <button class="option-card" data-value="vjnt"><span class="option-icon">🟠</span> VJNT / DNT</button>
-              <button class="option-card" data-value="not-sure"><span class="option-icon">❓</span> Not sure</button>
+              <button class="option-card" data-value="open"><span class="option-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0Zm1.294 6.336a6.721 6.721 0 0 1-3.17.789 6.721 6.721 0 0 1-3.168-.789 3.376 3.376 0 0 1 6.338 0Z"/></svg></span> Open / General</button>
+              <button class="option-card" data-value="obc"><span class="option-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"/></svg></span> OBC / SBC</button>
+              <button class="option-card" data-value="sc"><span class="option-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg></span> SC / Neo-Buddhist</button>
+              <button class="option-card" data-value="st"><span class="option-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg></span> ST / Tribal</button>
+              <button class="option-card" data-value="ews"><span class="option-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z"/></svg></span> EWS</button>
+              <button class="option-card" data-value="minority"><span class="option-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z"/></svg></span> Minority (Muslim/Christian/etc)</button>
+              <button class="option-card" data-value="vjnt"><span class="option-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"/></svg></span> VJNT / DNT</button>
+              <button class="option-card" data-value="not-sure"><span class="option-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"/></svg></span> Not sure</button>
             </div>
 
             <h4
               style="font-size: 0.9rem; color: var(--text-soft); margin-bottom: 12px; margin-top: 24px; font-weight: 600;">
               Annual Family Income</h4>
             <div class="options-grid" data-question="income">
-              <button class="option-card" data-value="below2.5"><span class="option-icon">💚</span> Below ₹2.5
-                Lakh</button>
-              <button class="option-card" data-value="2.5-5"><span class="option-icon">💛</span> ₹2.5 - 5 Lakh</button>
-              <button class="option-card" data-value="5-8"><span class="option-icon">🧡</span> ₹5 - 8 Lakh</button>
-              <button class="option-card" data-value="above8"><span class="option-icon">❤️</span> Above ₹8 Lakh</button>
+              <button class="option-card" data-value="below2.5"><span class="option-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 8.25H9m6 3H9m3 6-3-3h1.5a3 3 0 1 0 0-6M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg></span> Below ₹2.5 Lakh</button>
+              <button class="option-card" data-value="2.5-5"><span class="option-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 8.25H9m6 3H9m3 6-3-3h1.5a3 3 0 1 0 0-6M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg></span> ₹2.5 - 5 Lakh</button>
+              <button class="option-card" data-value="5-8"><span class="option-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 8.25H9m6 3H9m3 6-3-3h1.5a3 3 0 1 0 0-6M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg></span> ₹5 - 8 Lakh</button>
+              <button class="option-card" data-value="above8"><span class="option-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 8.25H9m6 3H9m3 6-3-3h1.5a3 3 0 1 0 0-6M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg></span> Above ₹8 Lakh</button>
             </div>
 
             <div class="step-actions">
@@ -1633,9 +1648,9 @@
               style="font-size: 0.9rem; color: var(--text-soft); margin-bottom: 12px; margin-top: 16px; font-weight: 600;">
               Gender (special schemes available for girls)</h4>
             <div class="options-grid" data-question="gender">
-              <button class="option-card" data-value="male"><span class="option-icon">👨</span> Male</button>
-              <button class="option-card" data-value="female"><span class="option-icon">👩</span> Female</button>
-              <button class="option-card" data-value="other"><span class="option-icon">🌈</span> Other</button>
+              <button class="option-card" data-value="male"><span class="option-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="7" r="3.25"/><path d="M5.5 20.5v-1a6.5 6.5 0 0 1 13 0v1"/><path stroke-linecap="round" d="M19 3l-3.5 3.5M19 3h-3M19 3v3"/></svg></span> Male</button>
+              <button class="option-card" data-value="female"><span class="option-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="7" r="3.25"/><path d="M5.5 20.5v-1a6.5 6.5 0 0 1 13 0v1"/><path stroke-linecap="round" d="M12 14v5M10 17h4"/></svg></span> Female</button>
+              <button class="option-card" data-value="other"><span class="option-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"/></svg></span> Other</button>
             </div>
 
             <h4
@@ -1644,9 +1659,8 @@
             <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px;">Did you complete 10th & 12th
               from Maharashtra State Board? If yes, select "Yes"</p>
             <div class="options-grid" data-question="domicile">
-              <button class="option-card" data-value="yes"><span class="option-icon">✅</span> Yes, Maharashtra
-                resident</button>
-              <button class="option-card" data-value="no"><span class="option-icon">❌</span> No, other state</button>
+              <button class="option-card" data-value="yes"><span class="option-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg></span> Yes, Maharashtra resident</button>
+              <button class="option-card" data-value="no"><span class="option-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg></span> No, other state</button>
             </div>
 
             <div class="step-actions">
@@ -1658,19 +1672,19 @@
           <!-- Step 4: Lead Capture + Result Preview -->
           <div class="step-content" data-step-content="4">
             <div class="result-content">
-              <div class="result-icon">🎉</div>
+              <div class="result-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width:48px;height:48px;color:var(--accent)"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0 .982-3.172M12 3.75a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg></div>
               <h3 class="result-title">Great news! You may be eligible for...</h3>
               <div class="result-amount" id="estimatedAmount">₹50,000 - ₹2,50,000</div>
               <p style="color: var(--text-soft); margin-bottom: 24px;">in scholarships across multiple schemes
                 (estimated)</p>
 
               <div class="result-schemes" id="matchedSchemes">
-                <h4>📋 Schemes likely matching your profile:</h4>
+                <h4>Schemes likely matching your profile:</h4>
                 <!-- Filled by JS -->
               </div>
 
               <div class="result-cta-block">
-                <h4>🎯 Let's get you these scholarships</h4>
+                <h4>Let's get you these scholarships</h4>
                 <p>Get a <strong>free 1-on-1 call</strong> with our scholarship expert. We'll verify your exact
                   eligibility, prepare your documents, and apply for you — at zero extra cost.</p>
 
@@ -1700,9 +1714,11 @@
                       </select>
                     </div>
                   </div>
-                  <label style="display:flex;align-items:flex-start;gap:8px;font-size:0.85rem;margin-top:12px;cursor:pointer;">
+                  <label
+                    style="display:flex;align-items:flex-start;gap:8px;font-size:0.85rem;margin-top:12px;cursor:pointer;">
                     <input type="checkbox" id="termsCheck" required style="margin-top:3px;">
-                    <span>I agree to the <a href="/terms" target="_blank" style="color:var(--accent);text-decoration:underline;">Terms &amp; Conditions</a></span>
+                    <span>I agree to the <a href="/terms" target="_blank"
+                        style="color:var(--accent);text-decoration:underline;">Terms &amp; Conditions</a></span>
                   </label>
                   <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px;">
                     📞 Call Me With Scholarship Details
@@ -1739,12 +1755,12 @@
             In Maharashtra alone, <strong style="color: var(--text);">60-70% of eligible students</strong> miss their
             rightful scholarships. Not because they're not eligible. Not because money isn't available. But because:
           </p>
-          <ul style="list-style: none; color: var(--text-soft); font-size: 0.95rem; line-height: 2;">
-            <li>❌ They didn't know the scheme existed</li>
-            <li>❌ They applied to one scheme — missed the other 5</li>
-            <li>❌ Documentation errors got their application rejected</li>
-            <li>❌ They missed the application deadline</li>
-            <li>❌ Wrong portal, wrong form, wrong category</li>
+          <ul style="list-style: none; color: var(--text-soft); font-size: 0.95rem; line-height: 2.2; padding: 0;">
+            <li style="display:flex;align-items:center;gap:8px;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ef4444" style="width:18px;height:18px;flex-shrink:0;"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> They didn't know the scheme existed</li>
+            <li style="display:flex;align-items:center;gap:8px;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ef4444" style="width:18px;height:18px;flex-shrink:0;"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> They applied to one scheme — missed the other 5</li>
+            <li style="display:flex;align-items:center;gap:8px;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ef4444" style="width:18px;height:18px;flex-shrink:0;"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> Documentation errors got their application rejected</li>
+            <li style="display:flex;align-items:center;gap:8px;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ef4444" style="width:18px;height:18px;flex-shrink:0;"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> They missed the application deadline</li>
+            <li style="display:flex;align-items:center;gap:8px;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ef4444" style="width:18px;height:18px;flex-shrink:0;"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> Wrong portal, wrong form, wrong category</li>
           </ul>
           <p
             style="font-size: 1.1rem; color: var(--accent); line-height: 1.7; margin-top: 20px; font-style: italic; font-family: 'Instrument Serif', serif;">
@@ -1764,7 +1780,7 @@
   <!-- SCHOLARSHIP SCHEMES SHOWCASE -->
   <section class="schemes-section">
     <div class="section-container">
-      <span class="section-tag">📚 We Cover Everything</span>
+      <span class="section-tag">We Cover Everything</span>
       <h2 class="section-title">
         50+ schemes. <span class="ital">Three sources.</span><br>
         One trusted partner.
@@ -1775,11 +1791,11 @@
       </p>
 
       <div class="schemes-tabs">
-        <button class="scheme-tab active" onclick="showSchemes('state')">🏛️ State (MahaDBT) <span
+        <button class="scheme-tab active" onclick="showSchemes('state')">State (MahaDBT) <span
             class="count">25+</span></button>
-        <button class="scheme-tab" onclick="showSchemes('central')">🇮🇳 Central (NSP) <span
+        <button class="scheme-tab" onclick="showSchemes('central')">Central (NSP) <span
             class="count">15+</span></button>
-        <button class="scheme-tab" onclick="showSchemes('private')">💼 Private / Corporate <span
+        <button class="scheme-tab" onclick="showSchemes('private')">Private / Corporate <span
             class="count">14+</span></button>
       </div>
 
@@ -2109,9 +2125,12 @@
             </div>
             <div class="mock-result" id="careerResult">
               <strong>✨ Best fit for you:</strong><br>
-              <span id="careerResultText">D.Pharm, B.Pharm, Pharm.D — based on your love for biology + medicines. Avg starting salary: ₹15-25K. Career growth: ★★★★☆</span>
+              <span id="careerResultText">D.Pharm, B.Pharm, Pharm.D — based on your love for biology + medicines. Avg
+                starting salary: ₹15-25K. Career growth: ★★★★☆</span>
               <p class="mock-disclaimer" id="careerDisclaimer">
-                <em>Disclaimer: This is a simplified self-assessment and not a substitute for professional career counselling. Actual career suitability depends on multiple factors. Book a free session with our experts for personalised guidance.</em>
+                <em>Disclaimer: This is a simplified self-assessment and not a substitute for professional career
+                  counselling. Actual career suitability depends on multiple factors. Book a free session with our
+                  experts for personalised guidance.</em>
               </p>
             </div>
           </div>
@@ -2134,7 +2153,7 @@
 
       <div class="why-grid">
         <div class="why-card">
-          <div class="why-icon">🎯</div>
+          <div class="why-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width:28px;height:28px;"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5m.75-9 3-3 2.148 2.148A12.061 12.061 0 0 1 16.5 7.605"/></svg></div>
           <h4>50+ Schemes Tracked</h4>
           <p>State, Central, and Private — we maintain a live database of 50+ scholarship schemes and check your
             eligibility against all of them.</p>
@@ -2142,7 +2161,7 @@
         </div>
 
         <div class="why-card">
-          <div class="why-icon">🤝</div>
+          <div class="why-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width:28px;height:28px;"><path stroke-linecap="round" stroke-linejoin="round" d="M10.05 4.575a1.575 1.575 0 1 0-3.15 0v3.15a1.575 1.575 0 0 0 3.15 0v-3.15Zm5.1 0a1.575 1.575 0 1 0-3.15 0v3.15a1.575 1.575 0 0 0 3.15 0v-3.15ZM7.5 12.9a1.575 1.575 0 1 0-3.15 0v3.15a1.575 1.575 0 0 0 3.15 0v-3.15Zm12.6 0a1.575 1.575 0 1 0-3.15 0v3.15a1.575 1.575 0 0 0 3.15 0v-3.15ZM12 21a8.1 8.1 0 0 0 3.9-1.012A4.425 4.425 0 0 0 12 17.25a4.425 4.425 0 0 0-3.9 2.738A8.1 8.1 0 0 0 12 21Z"/></svg></div>
           <h4>We Apply For You</h4>
           <p>Documentation, online forms, document upload, deadline tracking — we handle everything on your behalf. You
             just sign.</p>
@@ -2150,7 +2169,7 @@
         </div>
 
         <div class="why-card">
-          <div class="why-icon">💯</div>
+          <div class="why-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width:28px;height:28px;"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg></div>
           <h4>Only Approved Colleges</h4>
           <p>Every partner college is PCI, INC, MSBTE, or DTE approved. No fly-by-night colleges — only
             government-recognised institutions.</p>
@@ -2158,7 +2177,7 @@
         </div>
 
         <div class="why-card">
-          <div class="why-icon">🚫</div>
+          <div class="why-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width:28px;height:28px;"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z"/></svg></div>
           <h4>Zero Hidden Fees</h4>
           <p>All college fees go DIRECTLY to colleges. ABS only charges nominal counselling fee — disclosed upfront, in
             writing.</p>
@@ -2166,14 +2185,14 @@
         </div>
 
         <div class="why-card">
-          <div class="why-icon">📍</div>
+          <div class="why-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width:28px;height:28px;"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg></div>
           <h4>6 Mumbai Branches</h4>
           <p>Bhayandar (HO), Nallasopara, Malad, Andheri, Thane, Kurla — we have a branch in every area.</p>
           <div class="hindi-line">There's always a branch near you for in-person help</div>
         </div>
 
         <div class="why-card">
-          <div class="why-icon">🎓</div>
+          <div class="why-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width:28px;height:28px;"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a23.54 23.54 0 0 0-2.34 6.36c5.088.523 10.162.524 15.24.002a23.54 23.54 0 0 0-2.318-6.362M4.26 10.147A48.627 48.627 0 0 1 12 6.534a48.627 48.627 0 0 1 7.74 3.613M3.228 16.507a48.636 48.636 0 0 0 8.772 2.09M12 6.534V3m-2.25.386a23.38 23.38 0 0 1 4.5 0"/></svg></div>
           <h4>Admission to Graduation</h4>
           <p>From counselling to graduation — we're with you. Hostel, exams, license, placement — we help with
             everything.</p>
@@ -2256,7 +2275,7 @@
       <div class="footer-col">
         <h5>Contact Us</h5>
         <a href="tel:9702836946">📞9702836946</a>
-        <a href="mailto:info@abseducationalsolution.com">✉️ info@abseducationalsolution.com</a>
+        <a href="mailto:info@abseducationalsolution.com">info@abseducationalsolution.com</a>
         <p style="margin-top: 12px;">Head Office:<br>Mini Market Building, 104-106<br>BP Road, Bhayandar East<br>Mumbai
           - 401105</p>
       </div>
@@ -2280,10 +2299,16 @@
   <div class="floating-cta">
     <a href="https://wa.me/919702836946?text=Hi%20I%20want%20to%20check%20my%20scholarship%20eligibility"
       class="float-btn whatsapp" title="WhatsApp" aria-label="Chat on WhatsApp">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+      </svg>
     </a>
     <a href="tel:9702836946" class="float-btn call" title="Call" aria-label="Call us">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+        <path
+          d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" />
+      </svg>
     </a>
   </div>
 
@@ -2500,7 +2525,7 @@
 
       // Render
       const schemesContainer = document.getElementById('matchedSchemes');
-      schemesContainer.innerHTML = '<h4>📋 Schemes likely matching your profile:</h4>';
+      schemesContainer.innerHTML = '<h4>Schemes likely matching your profile:</h4>';
 
       matches.slice(0, 8).forEach(scheme => {
         schemesContainer.innerHTML += `

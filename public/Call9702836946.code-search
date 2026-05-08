@@ -1,0 +1,24 @@
+# Query: Call9702836946
+# ContextLines: 1
+
+4 results - 4 files
+
+scholarship-landing-page1.html:
+  1649          <a href="tel:7400244113" class="btn-secondary">
+  1650:           📞 Call 9702836946
+  1651          </a>
+
+scholarship-landing-page2.html:
+  2239          <a href="tel:9372423280" class="btn btn-secondary">
+  2240:           📞 Call 9702836946
+  2241          </a>
+
+public\scholarship-landing-page1.html:
+  1649          <a href="tel:7400244113" class="btn-secondary">
+  1650:           📞 Call 9702836946
+  1651          </a>
+
+public\scholarship-landing-page2.html:
+  2239          <a href="tel:9372423280" class="btn btn-secondary">
+  2240:           📞 Call 9702836946
+  2241          </a>

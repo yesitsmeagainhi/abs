@@ -137,7 +137,7 @@ export default function TermsConditionsPage() {
             </section>
 
             <section className="tc-section tc-contact">
-              <h2>13. Contact Us</h2>
+              <h2>Contact Us</h2>
               <p>If you have any questions about these Terms &amp; Conditions, please reach out:</p>
               <div className="tc-contact-grid">
                 <div className="tc-contact-item">
