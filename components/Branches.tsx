@@ -90,7 +90,7 @@ const branches: Branch[] = [
 ];
 
 const Branches: FC = () => (
-  <section id="branches" className="px-4 bg-gray-50 mt-6 md:mt-32">
+  <section id="branches" className="px-4 bg-white mt-12 md:mt-20">
     <div className="mx-auto max-w-7xl py-8">
       <h2 className="text-center font-bold text-4xl md:text-5xl mb-12 text-gray-900">
         Our Mumbai Branches
@@ -190,7 +190,7 @@ const Branches: FC = () => (
       </div>
 
       {/* ────────── Desktop (6-col grid) ────────── */}
-      <div className="hidden md:grid md:grid-cols-6 gap-6">
+      <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-6 gap-6">
         {branches.map((branch) => (
           <article
             key={branch.id}

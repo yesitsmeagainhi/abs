@@ -17,7 +17,7 @@ import {
   ZoomIn,
   Loader2,
 } from 'lucide-react';
-
+import Head from 'next/head';
 /* ---------- typing for the modal ---------- */
 interface ImageModalProps {
   selectedImage: any;
@@ -278,7 +278,7 @@ const Gallery = ({
       },
       { 
         id: 18, 
-        src: 'https://drive.google.com/file/d/1swvYkXnkhgyfbpbAhdKbhWrBqsvILNDI/view?usp=sharing', 
+        src: 'https://drive.google.com/uc?export=view&id=1swvYkXnkhgyfbpbAhdKbhWrBqsvILNDI', 
         alt: '', 
         title: '',
         description: '',
@@ -553,16 +553,16 @@ const Gallery = ({
   return (
     <>
       <div className="sr-only">
-        <h1>College Gallery - {currentSegmentData?.name}</h1>
+        <h2>College Gallery - {currentSegmentData?.name}</h2>
         <p>{currentSegmentData?.description}</p>
       </div>
 
-      <main className="bg-gradient-to-br from-gray-50 via-white to-gray-100  py-4 md:py-6">
+      <section className="bg-gradient-to-br from-gray-50 via-white to-gray-100  py-4 md:py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <header className="text-center mb-8 md:mb-12">
-            <h1 className="text-3xl md:text-5xl font-bold text-gray-800 mb-4 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-800 mb-4 leading-tight">
               Our Gallery
-            </h1>
+            </h2>
             <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Discover our educational journey through stunning visuals of campus life, 
               academic excellence, student activities, and achievements that define our institution.
@@ -728,15 +728,13 @@ const Gallery = ({
             />
           </Suspense>
         )}
-      </main>
-
-      <script type="application/ld+json">
-        {JSON.stringify({
+      </section>
+      <Head>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ImageGallery",
           "name": "College Gallery",
           "description": "Comprehensive gallery showcasing our educational institution's facilities, activities, and achievements",
-          "url": typeof window !== 'undefined' ? window.location.href : '',
           "image": currentImages.map(img => ({
             "@type": "ImageObject",
             "url": img.src || img.url || img.image,
@@ -744,8 +742,8 @@ const Gallery = ({
             "description": img.alt || img.description || img.title,
             "caption": img.description
           }))
-        })}
-      </script>
+        })}} />
+      </Head>
     </>
   );
 };

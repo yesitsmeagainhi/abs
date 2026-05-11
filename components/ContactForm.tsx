@@ -3,9 +3,9 @@ import { Phone, MessageCircle, GraduationCap, MapPin } from 'lucide-react';
 
 export default function PharmacyContactForm() {
   const [formData, setFormData] = useState({
-    name: '', 
-    number: '', 
-    course: '', 
+    name: '',
+    number: '',
+    course: '',
     city: ''
   });
   const [loading, setLoading] = useState(false);
@@ -27,7 +27,7 @@ export default function PharmacyContactForm() {
 
     // Client-side validation
     const { name, number, course, city } = formData;
-    
+
     if (!name.trim() || !number.trim() || !course || !city.trim()) {
       setStatus({ type: 'error', msg: 'Please fill in all required fields.' });
       setLoading(false);
@@ -73,7 +73,7 @@ Please contact this student within 10 minutes as per our commitment.`
       });
 
       const data = await response.json();
-      
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -89,9 +89,9 @@ Please contact this student within 10 minutes as per our commitment.`
       }
     } catch (error) {
       console.error('Submission error:', error);
-      setStatus({ 
-        type: 'error', 
-        msg: 'Something went wrong while submitting your form. Please try again or contact us directly via call or WhatsApp.' 
+      setStatus({
+        type: 'error',
+        msg: 'Something went wrong while submitting your form. Please try again or contact us directly via call or WhatsApp.'
       });
     } finally {
       setLoading(false);
@@ -108,7 +108,7 @@ Please contact this student within 10 minutes as per our commitment.`
   };
 
   return (
-    
+
 
     <div id="apply-form" className="bg-white py-12 px-4">
       <div className="max-w-2xl mx-auto text-center mb-8">
@@ -236,11 +236,10 @@ Please contact this student within 10 minutes as per our commitment.`
         {/* Status Messages */}
         {status.msg && (
           <div className="mt-6">
-            <div className={`p-4 rounded-lg ${
-              status.type === 'success'
+            <div className={`p-4 rounded-lg ${status.type === 'success'
                 ? 'bg-green-50 text-green-800 border border-green-200'
                 : 'bg-red-50 text-red-800 border border-red-200'
-            }`}>
+              }`}>
               <p className="text-sm font-medium">{status.msg}</p>
 
               {/* Contact buttons on success or error */}
@@ -288,7 +287,7 @@ Please contact this student within 10 minutes as per our commitment.`
           </span>
           <span>|</span>
           <span className="flex items-center gap-1">
-            💼 100% Placement Assistance
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="text-blue-600 inline"><path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z" /></svg> 100% Placement Assistance
           </span>
         </div>
       </div>

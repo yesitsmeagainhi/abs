@@ -142,7 +142,7 @@ export default function Goals() {
         </h2>
 
         {/* tab buttons */}
-        <div className="flex flex-wrap justify-center gap-3 mb-16">
+        <div className="flex flex-wrap justify-center gap-3 mb-8">
           {tabs.map(t => (
             <button
               key={t.id}
@@ -190,6 +190,7 @@ export default function Goals() {
           </div>
 
           {/* image */}
+          <div>
           {tab.image ? (
             <img
               src={tab.image}
@@ -210,6 +211,7 @@ export default function Goals() {
           ) : null}
           <div className="w-full h-96 bg-gray-200 rounded-2xl hidden items-center justify-center">
             <p className="text-gray-500">Image not available</p>
+          </div>
           </div>
         </div>
       </section>

@@ -16,7 +16,7 @@ const alumni = [
 
 export default function AlumniMarquee() {
   return (
-    <section id="alumni" className="py-18 bg-gray-50">
+    <section id="alumni" className="py-16 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4">
         <h3 className="text-2xl font-semibold text-center mb-12">
           Our Alumni are Making Their Mark
