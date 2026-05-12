@@ -223,6 +223,7 @@ export default function Goals() {
                      bg-black/60 backdrop-blur-sm px-4"
           onClick={() => setModalOpen(false)}   /* click outside to close */
         >
+          
           <div
             className="bg-white w-full max-w-sm rounded-2xl p-8 relative"
             onClick={e => e.stopPropagation()} /* prevent bubble */

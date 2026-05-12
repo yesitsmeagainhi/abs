@@ -1,0 +1,89 @@
+{
+  "hero": {
+    "badge": "Free Career Counselling",
+    "heading": "ABS EDUCATIONAL SOLUTION\nGet Paramedical Admission In Mumbai",
+    "subheading": "Get Admission in Top Pharmacy & Paramedical Colleges in Mumbai",
+    "description": "Start your journey in D.Pharm, B.Pharm, Nursing, or Allied Health courses with expert admission support across Mumbai, Thane, Andheri, Malad, Kurla, Nalasopara & Bhayandar.",
+    "phone": "+919702836946",
+    "whatsapp": "919702836946",
+    "images": [
+      { "src": "/uploads/pharmacy college in mumbai.jpeg", "alt": "d pharmacy college admission in mumbai" },
+      { "src": "/uploads/pharmacy college admission in mumbai.jpeg", "alt": "d pharmacy college admission in mumbai" }
+    ]
+  },
+  "branches": [
+    {
+      "id": 1,
+      "name": "Bhayandar",
+      "locality": "MINI MARKET BUILDING, 104-106, BP Rd, Bhayandar East, Mumbai, Mira Bhayandar, Maharashtra 401105",
+      "mapUrl": "https://www.google.com/search?q=ABS+Educational+Solutions+Bhayandar",
+      "aboutUrl": "/Bhayandar",
+      "contactUrl": "tel:+919702836946",
+      "whatsappUrl": "https://wa.me/919702836946?text=I%20want%20to%20visit%20Bhayandar%20branch"
+    },
+    {
+      "id": 2,
+      "name": "Thane",
+      "locality": "Abs Educational Solution, Rajdarshan Apartment, A-102, opp. platform 1, Naupada, Thane West, Thane 400602",
+      "mapUrl": "https://g.co/kgs/L7GM4XU",
+      "aboutUrl": "/Thane",
+      "contactUrl": "tel:+919702836946",
+      "whatsappUrl": "https://wa.me/919702836946?text=I%20want%20to%20visit%20Thane%20branch"
+    },
+    {
+      "id": 3,
+      "name": "Nalasopara",
+      "locality": "Sai Vibhuti Apartment, B-403, above Maurya Dairy, Nalasopara East, Maharashtra 401209",
+      "mapUrl": "https://g.co/kgs/bjkwwJZ",
+      "aboutUrl": "/Nalasopara",
+      "contactUrl": "tel:+919702836946",
+      "whatsappUrl": "https://wa.me/919702836946?text=I%20want%20to%20visit%20Nalasopara%20branch"
+    },
+    {
+      "id": 4,
+      "name": "Andheri",
+      "locality": "B-503/504 Vertex Vikas, Andheri East, Mumbai, Maharashtra 400069",
+      "mapUrl": "https://g.co/kgs/pKPgxv1",
+      "aboutUrl": "/Andheri",
+      "contactUrl": "tel:+919702836946",
+      "whatsappUrl": "https://wa.me/919702836946?text=I%20want%20to%20visit%20Andheri%20branch"
+    },
+    {
+      "id": 5,
+      "name": "Malad",
+      "locality": "Office No. 5, 1st floor, Ayambil Bhavan, Manchubhai Rd, Malad East, Mumbai 400097",
+      "mapUrl": "https://g.co/kgs/R4Yfhgg",
+      "aboutUrl": "/Malad",
+      "contactUrl": "tel:+919702836946",
+      "whatsappUrl": "https://wa.me/919702836946?text=I%20want%20to%20visit%20Malad%20branch"
+    },
+    {
+      "id": 6,
+      "name": "Kurla",
+      "locality": "2nd Floor, Kurla (W) Sta Rd, opposite Yogesh Footwear, Mumbai 400070",
+      "mapUrl": "https://g.co/kgs/3nA5AeV",
+      "aboutUrl": "/Kurla",
+      "contactUrl": "tel:+919702836946",
+      "whatsappUrl": "https://wa.me/919702836946?text=I%20want%20to%20visit%20Kurla%20branch"
+    }
+  ],
+  "alumni": [
+    { "src": "/uploads/package/1.png", "alt": "Alumni 1", "name": "John Doe" },
+    { "src": "/uploads/package/2.png", "alt": "Alumni 2", "name": "Jane Smith" },
+    { "src": "/uploads/package/3.png", "alt": "Alumni 3", "name": "Mike Johnson" },
+    { "src": "/uploads/package/4.png", "alt": "Alumni 4", "name": "Sarah Wilson" },
+    { "src": "/uploads/package/5.png", "alt": "Alumni 5", "name": "David Brown" },
+    { "src": "/uploads/package/6.png", "alt": "Alumni 6", "name": "Lisa Davis" },
+    { "src": "/uploads/package/7.png", "alt": "Alumni 7", "name": "Tom Miller" },
+    { "src": "/uploads/package/8.png", "alt": "Alumni 8", "name": "Anna Garcia" },
+    { "src": "/uploads/package/9.png", "alt": "Alumni 9", "name": "Chris Lee" },
+    { "src": "/uploads/package/10.png", "alt": "Alumni 10", "name": "Emma Taylor" }
+  ],
+  "contactForm": {
+    "heading": "No NEET? No CET? No Problem.",
+    "subheading": "Get Direct Admission in Top PCI-Approved Colleges @ ₹60,000/Year.",
+    "urgencyText": "Only First 20 Students Get This Offer – Fill the Form & Book Your Seat Now!",
+    "phone": "+919702836946",
+    "whatsapp": "919702836946"
+  }
+}

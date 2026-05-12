@@ -19,6 +19,7 @@ import PlacementCarousel      from './PlacementCarousel';
 import Modal                  from './Modal';
 import FAQSection, { FAQ }    from './FAQsection';
 import Gallery from './Gallery';
+import MobileBottomBar        from './MobileBottomBar';
 
 export type Branch = {
   name: string;
@@ -623,6 +624,13 @@ export default function CourseLanding({ front, Body }: Props) {
           {renderPopupContent()}
         </div>
       </Modal>
+
+      {/* === MOBILE STICKY BOTTOM BAR === */}
+      <MobileBottomBar
+        phone={front.branches?.[0]?.phone}
+        whatsapp={front.branches?.[0]?.whatsapp}
+        applyLink={front.ctaLink}
+      />
     </>
   );
 }

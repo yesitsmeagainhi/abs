@@ -12,6 +12,7 @@ import AlumniMarquee from '../components/AlumniMarquee';
 import Hero from '../components/Hero';
 import Goals from '../components/Goals';
 import StickyButton from '../components/StickyButton';
+import MobileBottomBar from '../components/MobileBottomBar';
 import ContactForm from '../components/ContactForm';
 import Gallery from '../components/Gallery';
 
@@ -37,7 +38,10 @@ export default function Home() {
       <WhyChooseABS />
       <AlumniMarquee />
       <StickyButton />
+      <MobileBottomBar />
       <ContactForm />
+      {/* spacer so mobile bottom bar doesn't cover footer */}
+      <div className="h-14 md:hidden" />
     </>
   );
 }

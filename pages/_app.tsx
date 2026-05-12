@@ -2,11 +2,16 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import Script from 'next/script';
+import { useRouter } from 'next/router';
+import { SessionProvider } from 'next-auth/react';
 import Layout from '../components/Layout';
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+  const router = useRouter();
+  const isAdmin = router.pathname.startsWith('/admin');
+
   return (
-    <>
+    <SessionProvider session={session}>
       {/* ---------- Google Analytics (GA4) ---------- */}
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-DTTQGQNGWN"
@@ -55,9 +60,13 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       </noscript>
       {/* ---------- End Meta Pixel Code ---------- */}
 
-      <Layout>
+      {isAdmin ? (
         <Component {...pageProps} />
-      </Layout>
-    </>
+      ) : (
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      )}
+    </SessionProvider>
   );
 }

@@ -30,15 +30,20 @@ interface Post {
 }
 
 /* ——— Markdown → HTML with TOC ——— */
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]*>/g, '');
+}
+
 function mdToHtml(markdown: string): { html: string; toc: TocItem[] } {
   const toc: TocItem[] = [];
   const renderer = new marked.Renderer();
 
   renderer.heading = (text: string, level: number): string => {
-    const id = slugify(text, { lower: true, strict: true });
+    const plainText = stripHtml(text);
+    const id = slugify(plainText, { lower: true, strict: true });
 
     if (level === 2 || level === 3) {
-      toc.push({ id, text });
+      toc.push({ id, text: plainText });
     }
 
     return `<h${level} id="${id}" class="scroll-mt-24">${text}</h${level}>`;
@@ -121,7 +126,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: 'blocking',
   };
 };
 
@@ -129,6 +134,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params!.slug as string;
   const filePath = path.join(process.cwd(), 'content/posts', `${slug}.md`);
+
+  if (!fs.existsSync(filePath)) {
+    return { notFound: true };
+  }
+
   const raw = fs.readFileSync(filePath, 'utf8');
   const { data, content } = matter(raw);
 
@@ -150,5 +160,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         readTime,
       },
     },
+    revalidate: 60,
   };
 };

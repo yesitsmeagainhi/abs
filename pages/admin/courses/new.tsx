@@ -1,0 +1,424 @@
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
+import { GetServerSideProps } from 'next';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '../../api/auth/[...nextauth]';
+import AdminLayout from '../../../components/admin/AdminLayout';
+
+const MDEditor = dynamic(() => import('@uiw/react-md-editor'), { ssr: false });
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const session = await getServerSession(ctx.req, ctx.res, authOptions);
+  if (!session) return { redirect: { destination: '/admin/login', permanent: false } };
+  return { props: {} };
+};
+
+type OverviewItem = { label: string; value: string };
+type FaqItem = { question: string; answer: string };
+type AccordionItem = { title: string; body: string };
+type RoleItem = { name: string; href: string };
+type BranchItem = { name: string; location: string; map: string; phone: string; whatsapp: string };
+
+export default function NewCoursePage() {
+  const router = useRouter();
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState('');
+  const [activeTab, setActiveTab] = useState<'basic' | 'overview' | 'faqs' | 'accordions' | 'roles' | 'branches' | 'body'>('basic');
+
+  const [form, setForm] = useState({
+    title: '', slug: '', tagline: '', domain: 'pharmacy', eligibility: '', salary: '',
+    heroImage: '', heroAlt: '', ctaLabel: 'Apply Now', ctaLink: '', rolesHeading: 'Common Job Roles', shortDescription: '',
+  });
+  const [content, setContent] = useState('');
+
+  const [overview, setOverview] = useState<OverviewItem[]>([]);
+  const [faqs, setFaqs] = useState<FaqItem[]>([]);
+  const [accordions, setAccordions] = useState<AccordionItem[]>([]);
+  const [roles, setRoles] = useState<RoleItem[]>([]);
+  const [branches, setBranches] = useState<BranchItem[]>([
+    { name: 'Bhayandar', location: 'Bhayandar, Thane, Maharashtra', map: 'https://g.co/kgs/2Bbxr9B', phone: '9702836946', whatsapp: '' },
+    { name: 'Thane', location: 'Thane, Maharashtra', map: 'https://g.co/kgs/KMKJEFL', phone: '9702836946', whatsapp: '' },
+    { name: 'Andheri', location: 'Andheri, Mumbai, Maharashtra', map: 'https://g.co/kgs/a7nFGn5', phone: '9702836946', whatsapp: '' },
+    { name: 'Nala Sopara', location: 'Nala Sopara, Maharashtra 401209', map: 'https://g.co/kgs/JwGnfTa', phone: '9702836946', whatsapp: '' },
+    { name: 'Malad', location: 'Malad East, Mumbai, Maharashtra 400097', map: 'https://g.co/kgs/BgixQEV', phone: '9702836946', whatsapp: '' },
+    { name: 'Kurla', location: 'Kurla, Mumbai, Maharashtra 400070', map: 'https://g.co/kgs/Sxu9F46', phone: '9702836946', whatsapp: '' },
+  ]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const generateSlug = () => {
+    const slug = form.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    setForm((prev) => ({ ...prev, slug }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.title || !form.slug) { setError('Title and slug are required'); return; }
+
+    setSaving(true);
+    setError('');
+
+    const frontmatter: Record<string, any> = {
+      title: form.title, slug: form.slug, tagline: form.tagline, domain: form.domain,
+      eligibility: form.eligibility, salary: form.salary, heroImage: form.heroImage,
+      heroAlt: form.heroAlt, ctaLabel: form.ctaLabel, ctaLink: form.ctaLink,
+      rolesHeading: form.rolesHeading, shortDescription: form.shortDescription,
+      sections: { hero: true, body: true, overview: true, scholarship: true, placement: true, enquiryCta: true, branches: true, footerCta: true, faqs: true, career: true },
+      overview, roles, faqs, detailAccordions: accordions, branches, blocks: [],
+    };
+
+    const res = await fetch('/api/admin/courses', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ slug: form.slug, frontmatter, content }),
+    });
+
+    if (res.ok) {
+      router.push('/admin/courses');
+    } else {
+      const data = await res.json();
+      setError(data.error || 'Failed to create course');
+    }
+    setSaving(false);
+  };
+
+  const tabs = [
+    { key: 'basic' as const, label: 'Basic Info' },
+    { key: 'overview' as const, label: `Overview (${overview.length})` },
+    { key: 'faqs' as const, label: `FAQs (${faqs.length})` },
+    { key: 'accordions' as const, label: `Accordions (${accordions.length})` },
+    { key: 'roles' as const, label: `Roles (${roles.length})` },
+    { key: 'branches' as const, label: `Branches (${branches.length})` },
+    { key: 'body' as const, label: 'Body' },
+  ];
+
+  const inputClass = 'w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent';
+
+  return (
+    <AdminLayout>
+      <div className="max-w-4xl">
+        <div className="flex items-center justify-between mb-6">
+          <h1 className="text-2xl font-bold text-gray-900">New Course</h1>
+          <button onClick={handleSubmit} disabled={saving}
+            className="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition text-sm font-medium disabled:opacity-50">
+            {saving ? 'Creating...' : 'Create Course'}
+          </button>
+        </div>
+
+        {error && <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-4 text-sm">{error}</div>}
+
+        {/* Tabs */}
+        <div className="flex gap-1 bg-gray-100 p-1 rounded-lg mb-6 overflow-x-auto">
+          {tabs.map((tab) => (
+            <button key={tab.key} onClick={() => setActiveTab(tab.key)}
+              className={`px-3 py-2 rounded-md text-xs font-medium transition whitespace-nowrap ${
+                activeTab === tab.key ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'
+              }`}>
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        <form onSubmit={handleSubmit}>
+          {/* ── Basic Info ── */}
+          {activeTab === 'basic' && (
+            <div className="space-y-6">
+              <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-4">
+                <h2 className="font-semibold text-gray-900">Basic Info</h2>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Title *</label>
+                  <input type="text" name="title" value={form.title} onChange={handleChange}
+                    onBlur={() => !form.slug && generateSlug()} className={inputClass} placeholder="e.g. Bachelor of Pharmacy" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Slug *</label>
+                  <div className="flex gap-2">
+                    <input type="text" name="slug" value={form.slug} onChange={handleChange}
+                      className={`flex-1 ${inputClass} font-mono`} placeholder="e.g. b-pharma-admission-mumbai" />
+                    <button type="button" onClick={generateSlug}
+                      className="px-3 py-2 bg-gray-100 text-gray-600 rounded-lg text-sm hover:bg-gray-200">Generate</button>
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Tagline</label>
+                  <input type="text" name="tagline" value={form.tagline} onChange={handleChange} className={inputClass} />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Short Description</label>
+                  <textarea name="shortDescription" value={form.shortDescription} onChange={handleChange} rows={2} className={inputClass} />
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Domain</label>
+                    <select name="domain" value={form.domain} onChange={handleChange} className={inputClass}>
+                      <option value="pharmacy">Pharmacy</option>
+                      <option value="nursing">Nursing</option>
+                      <option value="medical">Medical</option>
+                      <option value="paramedical">Paramedical</option>
+                      <option value="Physiotherapy">Physiotherapy</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Eligibility</label>
+                    <input type="text" name="eligibility" value={form.eligibility} onChange={handleChange} className={inputClass} placeholder="e.g. 12th pass 40%" />
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Salary</label>
+                    <input type="text" name="salary" value={form.salary} onChange={handleChange} className={inputClass} placeholder="e.g. 2.5LPA" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">CTA Link</label>
+                    <input type="text" name="ctaLink" value={form.ctaLink} onChange={handleChange} className={inputClass} placeholder="https://wa.link/..." />
+                  </div>
+                </div>
+              </div>
+              <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-4">
+                <h2 className="font-semibold text-gray-900">Hero Image</h2>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Image Path</label>
+                  <input type="text" name="heroImage" value={form.heroImage} onChange={handleChange} className={inputClass} placeholder="/uploads/course-image.png" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Image Alt Text</label>
+                  <input type="text" name="heroAlt" value={form.heroAlt} onChange={handleChange} className={inputClass} />
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* ── Overview Table ── */}
+          {activeTab === 'overview' && (
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <h2 className="font-semibold text-gray-900">Overview Table ({overview.length} rows)</h2>
+                <button type="button" onClick={() => setOverview([...overview, { label: '', value: '' }])}
+                  className="text-blue-600 hover:text-blue-800 text-sm font-medium">+ Add Row</button>
+              </div>
+              {overview.map((item, i) => (
+                <div key={i} className="bg-white rounded-xl border border-gray-200 p-4 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-medium text-gray-400">Row {i + 1}</span>
+                    <button type="button" onClick={() => setOverview(overview.filter((_, j) => j !== i))}
+                      className="text-red-500 hover:text-red-700 text-xs">Remove</button>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-gray-500 mb-1">Label</label>
+                    <input type="text" value={item.label} className={inputClass}
+                      onChange={(e) => { const arr = [...overview]; arr[i] = { ...arr[i], label: e.target.value }; setOverview(arr); }} />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-gray-500 mb-1">Value</label>
+                    <textarea value={item.value} rows={2} className={inputClass}
+                      onChange={(e) => { const arr = [...overview]; arr[i] = { ...arr[i], value: e.target.value }; setOverview(arr); }} />
+                  </div>
+                </div>
+              ))}
+              {overview.length === 0 && (
+                <div className="bg-white rounded-xl border border-gray-200 p-8 text-center text-gray-400 text-sm">
+                  No overview rows. Click "+ Add Row" to start.
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* ── FAQs ── */}
+          {activeTab === 'faqs' && (
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <h2 className="font-semibold text-gray-900">FAQs ({faqs.length})</h2>
+                <button type="button" onClick={() => setFaqs([...faqs, { question: '', answer: '' }])}
+                  className="text-blue-600 hover:text-blue-800 text-sm font-medium">+ Add FAQ</button>
+              </div>
+              {faqs.map((item, i) => (
+                <div key={i} className="bg-white rounded-xl border border-gray-200 p-4 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-medium text-gray-400">FAQ {i + 1}</span>
+                    <button type="button" onClick={() => setFaqs(faqs.filter((_, j) => j !== i))}
+                      className="text-red-500 hover:text-red-700 text-xs">Remove</button>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-gray-500 mb-1">Question</label>
+                    <input type="text" value={item.question} className={inputClass}
+                      onChange={(e) => { const arr = [...faqs]; arr[i] = { ...arr[i], question: e.target.value }; setFaqs(arr); }} />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-gray-500 mb-1">Answer</label>
+                    <textarea value={item.answer} rows={4} className={inputClass}
+                      onChange={(e) => { const arr = [...faqs]; arr[i] = { ...arr[i], answer: e.target.value }; setFaqs(arr); }} />
+                  </div>
+                </div>
+              ))}
+              {faqs.length === 0 && (
+                <div className="bg-white rounded-xl border border-gray-200 p-8 text-center text-gray-400 text-sm">
+                  No FAQs. Click "+ Add FAQ" to start.
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* ── Detail Accordions ── */}
+          {activeTab === 'accordions' && (
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <h2 className="font-semibold text-gray-900">Detail Accordions ({accordions.length})</h2>
+                <button type="button" onClick={() => setAccordions([...accordions, { title: '', body: '' }])}
+                  className="text-blue-600 hover:text-blue-800 text-sm font-medium">+ Add Accordion</button>
+              </div>
+              {accordions.map((item, i) => (
+                <div key={i} className="bg-white rounded-xl border border-gray-200 p-4 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-medium text-gray-400">Accordion {i + 1}</span>
+                    <button type="button" onClick={() => setAccordions(accordions.filter((_, j) => j !== i))}
+                      className="text-red-500 hover:text-red-700 text-xs">Remove</button>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-gray-500 mb-1">Title</label>
+                    <input type="text" value={item.title} className={inputClass}
+                      onChange={(e) => { const arr = [...accordions]; arr[i] = { ...arr[i], title: e.target.value }; setAccordions(arr); }} />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-gray-500 mb-1">Body (Markdown)</label>
+                    <textarea value={item.body} rows={4} className={inputClass}
+                      onChange={(e) => { const arr = [...accordions]; arr[i] = { ...arr[i], body: e.target.value }; setAccordions(arr); }} />
+                  </div>
+                </div>
+              ))}
+              {accordions.length === 0 && (
+                <div className="bg-white rounded-xl border border-gray-200 p-8 text-center text-gray-400 text-sm">
+                  No accordions. Click "+ Add Accordion" to start.
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* ── Roles ── */}
+          {activeTab === 'roles' && (
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <h2 className="font-semibold text-gray-900">Job Roles ({roles.length})</h2>
+                <button type="button" onClick={() => setRoles([...roles, { name: '', href: '/blog' }])}
+                  className="text-blue-600 hover:text-blue-800 text-sm font-medium">+ Add Role</button>
+              </div>
+              <div className="bg-white rounded-xl border border-gray-200 p-4 space-y-3">
+                <div>
+                  <label className="block text-xs font-medium text-gray-500 mb-1">Section Heading</label>
+                  <input type="text" name="rolesHeading" value={form.rolesHeading} onChange={handleChange} className={inputClass} />
+                </div>
+              </div>
+              {roles.map((item, i) => (
+                <div key={i} className="bg-white rounded-xl border border-gray-200 p-4">
+                  <div className="flex items-center gap-3">
+                    <div className="flex-1">
+                      <label className="block text-xs font-medium text-gray-500 mb-1">Role Name</label>
+                      <input type="text" value={item.name} className={inputClass}
+                        onChange={(e) => { const arr = [...roles]; arr[i] = { ...arr[i], name: e.target.value }; setRoles(arr); }} />
+                    </div>
+                    <div className="w-40">
+                      <label className="block text-xs font-medium text-gray-500 mb-1">Link</label>
+                      <input type="text" value={item.href} className={inputClass}
+                        onChange={(e) => { const arr = [...roles]; arr[i] = { ...arr[i], href: e.target.value }; setRoles(arr); }} />
+                    </div>
+                    <button type="button" onClick={() => setRoles(roles.filter((_, j) => j !== i))}
+                      className="text-red-500 hover:text-red-700 mt-5">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              ))}
+              {roles.length === 0 && (
+                <div className="bg-white rounded-xl border border-gray-200 p-8 text-center text-gray-400 text-sm">
+                  No roles. Click "+ Add Role" to start.
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* ── Branches ── */}
+          {activeTab === 'branches' && (
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <h2 className="font-semibold text-gray-900">Branches ({branches.length})</h2>
+                <button type="button" onClick={() => setBranches([...branches, { name: '', location: '', map: '', phone: '9702836946', whatsapp: '' }])}
+                  className="text-blue-600 hover:text-blue-800 text-sm font-medium">+ Add Branch</button>
+              </div>
+              {branches.map((item, i) => (
+                <div key={i} className="bg-white rounded-xl border border-gray-200 p-4 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-medium text-gray-400">Branch {i + 1}</span>
+                    <button type="button" onClick={() => setBranches(branches.filter((_, j) => j !== i))}
+                      className="text-red-500 hover:text-red-700 text-xs">Remove</button>
+                  </div>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs font-medium text-gray-500 mb-1">Name</label>
+                      <input type="text" value={item.name} className={inputClass}
+                        onChange={(e) => { const arr = [...branches]; arr[i] = { ...arr[i], name: e.target.value }; setBranches(arr); }} />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-medium text-gray-500 mb-1">Phone</label>
+                      <input type="text" value={item.phone} className={inputClass}
+                        onChange={(e) => { const arr = [...branches]; arr[i] = { ...arr[i], phone: e.target.value }; setBranches(arr); }} />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-gray-500 mb-1">Location</label>
+                    <input type="text" value={item.location} className={inputClass}
+                      onChange={(e) => { const arr = [...branches]; arr[i] = { ...arr[i], location: e.target.value }; setBranches(arr); }} />
+                  </div>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs font-medium text-gray-500 mb-1">Map URL</label>
+                      <input type="text" value={item.map} className={inputClass}
+                        onChange={(e) => { const arr = [...branches]; arr[i] = { ...arr[i], map: e.target.value }; setBranches(arr); }} />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-medium text-gray-500 mb-1">WhatsApp Link</label>
+                      <input type="text" value={item.whatsapp} className={inputClass}
+                        onChange={(e) => { const arr = [...branches]; arr[i] = { ...arr[i], whatsapp: e.target.value }; setBranches(arr); }} />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* ── Body Content ── */}
+          {activeTab === 'body' && (
+            <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-4">
+              <h2 className="font-semibold text-gray-900">Body Content</h2>
+              <div data-color-mode="light">
+                <MDEditor
+                  value={content}
+                  onChange={(val) => setContent(val || '')}
+                  height={400}
+                  preview="live"
+                />
+              </div>
+            </div>
+          )}
+
+          {/* Save button at bottom */}
+          <div className="flex items-center gap-3 mt-6">
+            <button type="submit" disabled={saving}
+              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition text-sm font-medium disabled:opacity-50">
+              {saving ? 'Creating...' : 'Create Course'}
+            </button>
+            <button type="button" onClick={() => router.push('/admin/courses')}
+              className="bg-gray-100 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-200 transition text-sm font-medium">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </AdminLayout>
+  );
+}

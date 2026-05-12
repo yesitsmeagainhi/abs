@@ -9,14 +9,14 @@
 import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
-import remarkGfm from 'remark-gfm';
-import { serialize } from 'next-mdx-remote/serialize';
-import { MDXRemote } from 'next-mdx-remote';
+import { marked } from 'marked';
 import Head from 'next/head';
 import type { GetStaticPaths, GetStaticProps } from 'next';
 
 import CourseLanding, { Front } from '../../components/CourseLanding';
 import RenderBlocks from '../../components/RenderBlocks';
+
+
 
 /* ────────────────────────────────────────────────────────────
    CONSTANTS & UTILITIES
@@ -260,9 +260,8 @@ const generateVoiceSearchFAQ = (front: Front) => [
     name: `What is ${front.title} course?`,
     acceptedAnswer: {
       '@type': 'Answer',
-      text: `${front.title} at ABS Educational Solution is ${
-        front.shortDescription || 'a comprehensive program'
-      } designed for career success in ${front.industry || 'various industries'}.`,
+      text: `${front.title} at ABS Educational Solution is ${front.shortDescription || 'a comprehensive program'
+        } designed for career success in ${front.industry || 'various industries'}.`,
     },
   },
   {
@@ -270,9 +269,8 @@ const generateVoiceSearchFAQ = (front: Front) => [
     name: `What are the fees for ${front.title}?`,
     acceptedAnswer: {
       '@type': 'Answer',
-      text: `${front.title} fees at ABS Educational Solution are ${
-        front.fees || 'competitive and affordable'
-      } with scholarship opportunities and flexible payment options available.`,
+      text: `${front.title} fees at ABS Educational Solution are ${front.fees || 'competitive and affordable'
+        } with scholarship opportunities and flexible payment options available.`,
     },
   },
   {
@@ -311,7 +309,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     }),
   );
 
-  return { paths, fallback: false };
+  return { paths, fallback: 'blocking' };
 };
 
 /* ────────────────────────────────────────────────────────────
@@ -337,11 +335,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       heroAlt: parsed.data.heroAlt || null,        // ✅ null instead of undefined
       ctaLabel: parsed.data.ctaLabel || "Apply Now",
       ctaLink: parsed.data.ctaLink || "#",
-      
+
       // 🔧 FIX: Convert undefined to null for serialization
       blocks: parsed.data.blocks || null,          // ✅ null instead of undefined
       slug: parsed.data.slug || null,              // ✅ null instead of undefined
-      
+
       // Spread any additional properties, but ensure no undefined values
       ...Object.fromEntries(
         Object.entries(parsed.data).map(([key, value]) => [key, value ?? null])
@@ -351,12 +349,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const actualSlug = deriveSlug(data.slug, file);
     if (actualSlug === requestedSlug) {
       const frontSafe = stringifyDates({ ...data, slug: actualSlug });
-      const mdxSource = await serialize(parsed.content, {
-        mdxOptions: { remarkPlugins: [remarkGfm] },
-        scope: frontSafe,
-      });
 
-      return { props: { front: frontSafe, mdxSource } };
+      marked.setOptions({ gfm: true, breaks: true });
+      const bodyHtml = parsed.content.trim()
+        ? (marked.parse(parsed.content) as string)
+        : '';
+
+      return { props: { front: frontSafe, bodyHtml }, revalidate: 60 };
     }
   }
 
@@ -367,10 +366,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
    ──────────────────────────────────────────────────────────── */
 export default function CoursePage({
   front,
-  mdxSource,
+  bodyHtml,
 }: {
   front: Front & { blocks?: any[] };
-  mdxSource: any;
+  bodyHtml: string;
 }) {
   const canonicalUrl = `https://abseducationalsolution.com/courses/${front.slug}`;
 
@@ -492,7 +491,7 @@ export default function CoursePage({
       </Head>
 
       {/* ───────── PAGE CONTENT ───────── */}
-      <CourseLanding front={front} Body={() => <MDXRemote {...mdxSource} />} />
+      <CourseLanding front={front} Body={() => <div dangerouslySetInnerHTML={{ __html: bodyHtml }} />} />
       {front.blocks && <RenderBlocks blocks={front.blocks} />}
     </>
   );

@@ -2,6 +2,7 @@
 const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
+  transpilePackages: ['@uiw/react-md-editor', '@uiw/react-markdown-preview'],
   async rewrites() {
     return [
       {

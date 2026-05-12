@@ -13,6 +13,7 @@ import Link from 'next/link';
 import { GetServerSideProps } from 'next';
 import { loadHeaderData } from '../lib/loadHeader';
 
+
 type Course = {
   slug: string;
   title: string;

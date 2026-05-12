@@ -14,8 +14,8 @@ export default function StickyButton() {
 
   return (
     <>
-      {/* Sticky Button */}
-      <div className="fixed bottom-4 right-4 z-50">
+      {/* Sticky Button – hidden on mobile where MobileBottomBar is shown */}
+      <div className="fixed bottom-4 right-4 z-50 hidden md:block">
         <button
           className="bg-green-600 text-white p-4 rounded-full shadow-md
                      hover:bg-green-700 focus:ring-2 focus:ring-green-300"
