@@ -376,6 +376,24 @@
       gap: 16px;
     }
 
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--line);
+      border-radius: 10px;
+      font-size: 14px;
+      background: var(--paper);
+      color: var(--ink-soft);
+      font-family: inherit;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
     @media (max-width: 700px) {
       .form-grid {
         grid-template-columns: 1fr;
@@ -1185,7 +1203,7 @@
         central government scholarships across SC/ST, OBC, Minority, EWS, Girls, and Private/CSR schemes.</p>
     </section>
 
-    <div class="card">
+    <div class="card" id="formCard">
       <div class="card-head">
         <div class="step-num">1</div>
         <div>
@@ -1198,209 +1216,223 @@
         <strong>Counsellor Tip:</strong> Fill every field. Even one missing answer reduces the accuracy of matched
         schemes. Income, course, and admission type are the most decisive.
       </div>
+      <form id="mainForm" onsubmit="submitMainForm(event)">
+        <div class="form-grid">
+          <div class="field">
+            <label for="lead_name">Full Name</label>
+            <input type="text" id="lead_name" name="name" required autocomplete="name" placeholder="e.g. Rahul Sharma">
+          </div>
+          <div class="field">
+            <label for="lead_phone">Phone Number</label>
+            <input type="tel" id="lead_phone" name="phone" required autocomplete="tel" pattern="[0-9+\-\s]{10,15}"
+              placeholder="e.g. 9876543210">
+          </div>
+          <div class="field">
+            <label for="lead_email">Email <span class="hint">(optional)</span></label>
+            <input type="email" id="lead_email" name="email" autocomplete="email" placeholder="you@example.com">
+          </div>
+          <div class="field">
+            <label>Caste Category</label>
+            <select id="category">
+              <option value="">— Select —</option>
+              <option value="SC">SC / Neo-Buddhist</option>
+              <option value="ST">ST / Tribal</option>
+              <option value="OBC">OBC</option>
+              <option value="VJNT">VJNT (Vimukta Jati / Nomadic Tribes)</option>
+              <option value="SBC">SBC (Special Backward Class)</option>
+              <option value="SEBC">SEBC / Maratha</option>
+              <option value="Open">Open / General</option>
+              <option value="Minority">Minority</option>
+              <option value="EWS">EWS (Economically Weaker)</option>
+            </select>
+          </div>
 
-      <div class="form-grid">
-        <div class="field">
-          <label>Caste Category</label>
-          <select id="category">
-            <option value="">— Select —</option>
-            <option value="SC">SC / Neo-Buddhist</option>
-            <option value="ST">ST / Tribal</option>
-            <option value="OBC">OBC</option>
-            <option value="VJNT">VJNT (Vimukta Jati / Nomadic Tribes)</option>
-            <option value="SBC">SBC (Special Backward Class)</option>
-            <option value="SEBC">SEBC / Maratha</option>
-            <option value="Open">Open / General</option>
-            <option value="Minority">Minority</option>
-            <option value="EWS">EWS (Economically Weaker)</option>
-          </select>
-        </div>
+          <div class="field">
+            <label>Minority Religion <span class="hint">(if applicable)</span></label>
+            <select id="minority_religion">
+              <option value="">— Not Applicable —</option>
+              <option value="muslim">Muslim</option>
+              <option value="buddhist">Buddhist</option>
+              <option value="christian">Christian</option>
+              <option value="sikh">Sikh</option>
+              <option value="parsi">Parsi</option>
+              <option value="jain">Jain</option>
+              <option value="jews">Jews</option>
+            </select>
+          </div>
 
-        <div class="field">
-          <label>Minority Religion <span class="hint">(if applicable)</span></label>
-          <select id="minority_religion">
-            <option value="">— Not Applicable —</option>
-            <option value="muslim">Muslim</option>
-            <option value="buddhist">Buddhist</option>
-            <option value="christian">Christian</option>
-            <option value="sikh">Sikh</option>
-            <option value="parsi">Parsi</option>
-            <option value="jain">Jain</option>
-            <option value="jews">Jews</option>
-          </select>
-        </div>
+          <div class="field">
+            <label>Annual Family Income</label>
+            <select id="income">
+              <option value="">— Select —</option>
+              <option value="1">≤ ₹1 lakh</option>
+              <option value="2">₹1 lakh – ₹2 lakh</option>
+              <option value="2.5">₹2 lakh – ₹2.5 lakh</option>
+              <option value="3.5">₹2.5 lakh – ₹3.5 lakh</option>
+              <option value="4.5">₹3.5 lakh – ₹4.5 lakh</option>
+              <option value="6">₹4.5 lakh – ₹6 lakh</option>
+              <option value="8">₹6 lakh – ₹8 lakh</option>
+              <option value="15">₹8 lakh – ₹15 lakh</option>
+              <option value="16">&gt; ₹15 lakh</option>
+            </select>
+          </div>
 
-        <div class="field">
-          <label>Annual Family Income</label>
-          <select id="income">
-            <option value="">— Select —</option>
-            <option value="1">≤ ₹1 lakh</option>
-            <option value="2">₹1 lakh – ₹2 lakh</option>
-            <option value="2.5">₹2 lakh – ₹2.5 lakh</option>
-            <option value="3.5">₹2.5 lakh – ₹3.5 lakh</option>
-            <option value="4.5">₹3.5 lakh – ₹4.5 lakh</option>
-            <option value="6">₹4.5 lakh – ₹6 lakh</option>
-            <option value="8">₹6 lakh – ₹8 lakh</option>
-            <option value="15">₹8 lakh – ₹15 lakh</option>
-            <option value="16">&gt; ₹15 lakh</option>
-          </select>
-        </div>
+          <div class="field">
+            <label>Class / Course</label>
+            <select id="course">
+              <option value="">— Select —</option>
+              <optgroup label="School">
+                <option value="school_1_8">Class 1–8 (Pre-Matric)</option>
+                <option value="school_9_10">Class 9–10 (Pre-Matric)</option>
+                <option value="hsc">Class 11–12 (HSC / Junior College)</option>
+              </optgroup>
+              <optgroup label="Vocational / Diploma">
+                <option value="iti">ITI (Industrial Training Institute)</option>
+                <option value="diploma_eng">Polytechnic / Diploma in Engineering</option>
+                <option value="dpharm">D.Pharmacy (Diploma in Pharmacy)</option>
+              </optgroup>
+              <optgroup label="Pharmacy">
+                <option value="bpharm">B.Pharmacy</option>
+                <option value="pharmd">Pharm.D</option>
+                <option value="mpharm">M.Pharmacy</option>
+              </optgroup>
+              <optgroup label="Nursing & Paramedical">
+                <option value="anm">ANM</option>
+                <option value="gnm">GNM</option>
+                <option value="bsc_nursing">B.Sc Nursing</option>
+                <option value="msc_nursing">M.Sc Nursing</option>
+                <option value="paramedical">Paramedical (DMLT/X-Ray/OT Tech)</option>
+                <option value="bpt">BPT (Physiotherapy)</option>
+                <option value="mpt">MPT</option>
+              </optgroup>
+              <optgroup label="Medical">
+                <option value="mbbs">MBBS</option>
+                <option value="bds">BDS</option>
+                <option value="bams">BAMS (Ayurveda)</option>
+                <option value="bhms">BHMS (Homeopathy)</option>
+                <option value="bums">BUMS (Unani)</option>
+                <option value="md_ms">MD / MS / MDS</option>
+              </optgroup>
+              <optgroup label="Engineering & Technology">
+                <option value="be_btech">B.E. / B.Tech</option>
+                <option value="me_mtech">M.E. / M.Tech</option>
+                <option value="bca">BCA</option>
+                <option value="mca">MCA</option>
+                <option value="b_arch">B.Arch</option>
+              </optgroup>
+              <optgroup label="Graduation (General)">
+                <option value="ba">B.A.</option>
+                <option value="bcom">B.Com</option>
+                <option value="bsc">B.Sc</option>
+                <option value="bba">BBA</option>
+                <option value="llb">LL.B</option>
+                <option value="bed">B.Ed</option>
+                <option value="bsw">BSW</option>
+              </optgroup>
+              <optgroup label="Post Graduation">
+                <option value="ma">M.A.</option>
+                <option value="mcom">M.Com</option>
+                <option value="msc">M.Sc</option>
+                <option value="mba">MBA</option>
+                <option value="llm">LL.M</option>
+                <option value="med">M.Ed</option>
+                <option value="phd">Ph.D / Research</option>
+              </optgroup>
+              <optgroup label="Study Abroad">
+                <option value="abroad_pg">Master's / PhD Abroad</option>
+              </optgroup>
+            </select>
+          </div>
 
-        <div class="field">
-          <label>Class / Course</label>
-          <select id="course">
-            <option value="">— Select —</option>
-            <optgroup label="School">
-              <option value="school_1_8">Class 1–8 (Pre-Matric)</option>
-              <option value="school_9_10">Class 9–10 (Pre-Matric)</option>
-              <option value="hsc">Class 11–12 (HSC / Junior College)</option>
-            </optgroup>
-            <optgroup label="Vocational / Diploma">
-              <option value="iti">ITI (Industrial Training Institute)</option>
-              <option value="diploma_eng">Polytechnic / Diploma in Engineering</option>
-              <option value="dpharm">D.Pharmacy (Diploma in Pharmacy)</option>
-            </optgroup>
-            <optgroup label="Pharmacy">
-              <option value="bpharm">B.Pharmacy</option>
-              <option value="pharmd">Pharm.D</option>
-              <option value="mpharm">M.Pharmacy</option>
-            </optgroup>
-            <optgroup label="Nursing & Paramedical">
-              <option value="anm">ANM</option>
-              <option value="gnm">GNM</option>
-              <option value="bsc_nursing">B.Sc Nursing</option>
-              <option value="msc_nursing">M.Sc Nursing</option>
-              <option value="paramedical">Paramedical (DMLT/X-Ray/OT Tech)</option>
-              <option value="bpt">BPT (Physiotherapy)</option>
-              <option value="mpt">MPT</option>
-            </optgroup>
-            <optgroup label="Medical">
-              <option value="mbbs">MBBS</option>
-              <option value="bds">BDS</option>
-              <option value="bams">BAMS (Ayurveda)</option>
-              <option value="bhms">BHMS (Homeopathy)</option>
-              <option value="bums">BUMS (Unani)</option>
-              <option value="md_ms">MD / MS / MDS</option>
-            </optgroup>
-            <optgroup label="Engineering & Technology">
-              <option value="be_btech">B.E. / B.Tech</option>
-              <option value="me_mtech">M.E. / M.Tech</option>
-              <option value="bca">BCA</option>
-              <option value="mca">MCA</option>
-              <option value="b_arch">B.Arch</option>
-            </optgroup>
-            <optgroup label="Graduation (General)">
-              <option value="ba">B.A.</option>
-              <option value="bcom">B.Com</option>
-              <option value="bsc">B.Sc</option>
-              <option value="bba">BBA</option>
-              <option value="llb">LL.B</option>
-              <option value="bed">B.Ed</option>
-              <option value="bsw">BSW</option>
-            </optgroup>
-            <optgroup label="Post Graduation">
-              <option value="ma">M.A.</option>
-              <option value="mcom">M.Com</option>
-              <option value="msc">M.Sc</option>
-              <option value="mba">MBA</option>
-              <option value="llm">LL.M</option>
-              <option value="med">M.Ed</option>
-              <option value="phd">Ph.D / Research</option>
-            </optgroup>
-            <optgroup label="Study Abroad">
-              <option value="abroad_pg">Master's / PhD Abroad</option>
-            </optgroup>
-          </select>
-        </div>
+          <div class="field">
+            <label>Year of Study <span class="hint">(current academic year)</span></label>
+            <select id="year_of_study">
+              <option value="">— Select —</option>
+              <option value="fresh">1st Year (Fresh admission)</option>
+              <option value="2">2nd Year</option>
+              <option value="3">3rd Year</option>
+              <option value="4">4th Year</option>
+              <option value="5">5th Year+</option>
+              <option value="na">N/A (school)</option>
+            </select>
+          </div>
 
-        <div class="field">
-          <label>Year of Study <span class="hint">(current academic year)</span></label>
-          <select id="year_of_study">
-            <option value="">— Select —</option>
-            <option value="fresh">1st Year (Fresh admission)</option>
-            <option value="2">2nd Year</option>
-            <option value="3">3rd Year</option>
-            <option value="4">4th Year</option>
-            <option value="5">5th Year+</option>
-            <option value="na">N/A (school)</option>
-          </select>
-        </div>
+          <div class="field">
+            <label>Admission Type</label>
+            <select id="admission">
+              <option value="">— Select —</option>
+              <option value="cap">CAP Round (Govt / Aided / Unaided)</option>
+              <option value="institute">Institute Level (non-CAP)</option>
+              <option value="management">Management Quota</option>
+              <option value="private">Private / Deemed University</option>
+              <option value="na">N/A (school/HSC)</option>
+            </select>
+          </div>
 
-        <div class="field">
-          <label>Admission Type</label>
-          <select id="admission">
-            <option value="">— Select —</option>
-            <option value="cap">CAP Round (Govt / Aided / Unaided)</option>
-            <option value="institute">Institute Level (non-CAP)</option>
-            <option value="management">Management Quota</option>
-            <option value="private">Private / Deemed University</option>
-            <option value="na">N/A (school/HSC)</option>
-          </select>
-        </div>
+          <div class="field">
+            <label>Gender</label>
+            <select id="gender">
+              <option value="">— Select —</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
 
-        <div class="field">
-          <label>Gender</label>
-          <select id="gender">
-            <option value="">— Select —</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
+          <div class="field">
+            <label>Hostel Status</label>
+            <select id="hosteller">
+              <option value="">— Select —</option>
+              <option value="hosteller">Hosteller (staying at college hostel/PG)</option>
+              <option value="day_scholar">Day Scholar (commute from home)</option>
+            </select>
+          </div>
 
-        <div class="field">
-          <label>Hostel Status</label>
-          <select id="hosteller">
-            <option value="">— Select —</option>
-            <option value="hosteller">Hosteller (staying at college hostel/PG)</option>
-            <option value="day_scholar">Day Scholar (commute from home)</option>
-          </select>
-        </div>
+          <div class="field">
+            <label>Previous Year Marks</label>
+            <select id="marks">
+              <option value="">— Select —</option>
+              <option value="50">Below 50%</option>
+              <option value="55">50% – 60%</option>
+              <option value="65">60% – 75%</option>
+              <option value="77">75% – 80%</option>
+              <option value="85">Above 80% (Top 20%)</option>
+            </select>
+          </div>
 
-        <div class="field">
-          <label>Previous Year Marks</label>
-          <select id="marks">
-            <option value="">— Select —</option>
-            <option value="50">Below 50%</option>
-            <option value="55">50% – 60%</option>
-            <option value="65">60% – 75%</option>
-            <option value="77">75% – 80%</option>
-            <option value="85">Above 80% (Top 20%)</option>
-          </select>
-        </div>
+          <div class="field">
+            <label>Date of Birth</label>
+            <input type="date" id="dob"
+              style="width:100%; padding:10px 12px; border:1px solid #d1d5db; border-radius:8px; font-size:.95rem; font-family:inherit; color:#1a1a1a; background:#fff;">
+          </div>
 
-        <div class="field">
-          <label>Date of Birth</label>
-          <input type="date" id="dob" style="width:100%; padding:10px 12px; border:1px solid #d1d5db; border-radius:8px; font-size:.95rem; font-family:inherit; color:#1a1a1a; background:#fff;">
-        </div>
-
-        <div class="field full">
-          <label>Certificates Ready ✓</label>
-          <div class="check-grid">
-            <label class="check"><input type="checkbox" id="cert_domicile"> Domicile</label>
-            <label class="check"><input type="checkbox" id="cert_income"> Income (&lt;1yr)</label>
-            <label class="check"><input type="checkbox" id="cert_caste"> Caste Certificate</label>
-            <label class="check"><input type="checkbox" id="cert_ncl"> NCL (&lt;1yr, OBC/VJNT/SBC)</label>
-            <label class="check"><input type="checkbox" id="cert_validity"> Caste Validity (SC/ST)</label>
-            <label class="check"><input type="checkbox" id="cert_ews"> EWS Certificate</label>
-            <label class="check"><input type="checkbox" id="cert_ration"> Ration Card (Yellow/Orange)</label>
-            <label class="check"><input type="checkbox" id="cert_aadhaar"> Aadhaar-Bank Seeded</label>
-            <label class="check"><input type="checkbox" id="cert_disability"> Disability (40%+)</label>
-            <label class="check"><input type="checkbox" id="cert_ssc_mh"> SSC from Maharashtra Board</label>
-            <label class="check"><input type="checkbox" id="cert_orphan"> Orphan / Armed Forces ward</label>
-            <label class="check"><input type="checkbox" id="cert_otr"> NSP OTR (14-digit ID)</label>
+          <div class="field full">
+            <label>Certificates Ready ✓</label>
+            <div class="check-grid">
+              <label class="check"><input type="checkbox" id="cert_domicile"> Domicile</label>
+              <label class="check"><input type="checkbox" id="cert_income"> Income (&lt;1yr)</label>
+              <label class="check"><input type="checkbox" id="cert_caste"> Caste Certificate</label>
+              <label class="check"><input type="checkbox" id="cert_ncl"> NCL (&lt;1yr, OBC/VJNT/SBC)</label>
+              <label class="check"><input type="checkbox" id="cert_validity"> Caste Validity (SC/ST)</label>
+              <label class="check"><input type="checkbox" id="cert_ews"> EWS Certificate</label>
+              <label class="check"><input type="checkbox" id="cert_ration"> Ration Card (Yellow/Orange)</label>
+              <label class="check"><input type="checkbox" id="cert_aadhaar"> Aadhaar-Bank Seeded</label>
+              <label class="check"><input type="checkbox" id="cert_disability"> Disability (40%+)</label>
+              <label class="check"><input type="checkbox" id="cert_ssc_mh"> SSC from Maharashtra Board</label>
+              <label class="check"><input type="checkbox" id="cert_orphan"> Orphan / Armed Forces ward</label>
+              <label class="check"><input type="checkbox" id="cert_otr"> NSP OTR (14-digit ID)</label>
+            </div>
           </div>
         </div>
-      </div>
     </div>
 
     <div class="action-row">
-      <button class="btn btn-primary" onclick="generateRecommendations()">Find Matching Schemes <span
+      <button type="submit" class="btn btn-primary" id="mainSubmitBtn">Find Matching Schemes <span
           class="arrow">→</span></button>
-      <button class="btn btn-soft" onclick="resetForm()">Reset Form</button>
-      <button class="btn btn-whatsapp" onclick="shareWhatsApp()">Share on WhatsApp</button>
-      <!-- <button class="btn btn-soft" onclick="window.print()">Print</button> -->
+      <button type="button" class="btn btn-soft" onclick="resetForm()">Reset Form</button>
+      <button type="button" class="btn btn-whatsapp" onclick="shareWhatsApp()">Share on WhatsApp</button>
     </div>
+    </form>
 
     <div class="card results" id="results">
       <div class="card-head">
@@ -1409,6 +1441,11 @@
           <h2>Recommended Schemes</h2>
           <div class="sub">Tailored to your profile</div>
         </div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;">
+        <!-- <button type="button" class="btn btn-soft" onclick="modifySearch()">Modify Search</button> -->
+        <button type="button" class="btn btn-soft" onclick="resetForm()">Reset Form</button>
+        <button type="button" class="btn btn-whatsapp" onclick="shareWhatsApp()">Share on WhatsApp</button>
       </div>
       <div id="results-content"></div>
     </div>
@@ -1459,7 +1496,8 @@
         <div style="padding:0 24px 8px;">
           <label style="display:flex;align-items:flex-start;gap:8px;font-size:0.85rem;cursor:pointer;">
             <input type="checkbox" id="termsCheck" required style="margin-top:3px;">
-            <span>I agree to the <a href="/terms" target="_blank" style="color:#2563eb;text-decoration:underline;">Terms &amp; Conditions</a></span>
+            <span>I agree to the <a href="/terms" target="_blank" style="color:#2563eb;text-decoration:underline;">Terms
+                &amp; Conditions</a></span>
           </label>
         </div>
         <div class="modal-foot">
@@ -2110,10 +2148,11 @@
     function generateRecommendations() {
       const p = getProfile();
       const missing = validateProfile(p);
-
+      console.log("Recommendation of p:", p)
       if (missing) {
         alert(`Please fill the "${missing}" field. All 10 dropdown fields are required.`);
-        return;
+        lastResults = null;
+        return null;
       }
 
       const matched = schemes.filter(s => {
@@ -2126,7 +2165,9 @@
         PRIVATE: [], SPECIAL: [],
       };
       matched.forEach(s => {
-        (categoryResults[s.tag] = categoryResults[s.tag] || []).push(s);
+        const tag = s.tag || 'SPECIAL';
+        if (!categoryResults[tag]) categoryResults[tag] = [];
+        categoryResults[tag].push(s);
       });
 
       const totalEstimated = matched.reduce((sum, s) => {
@@ -2137,6 +2178,65 @@
       lastResults = { matched, categoryResults, totalEstimated, profile: p };
 
       renderResults(p, matched, categoryResults, totalEstimated);
+
+      return lastResults;
+    }
+
+    async function submitMainForm(ev) {
+      ev.preventDefault();
+
+      // 1. Run scholarship matching
+      const result = generateRecommendations();
+
+      if (!result || !result.profile) return;
+
+      const p = result.profile;
+      const matchedSchemes = result.matched || [];
+      // If recommendations failed (missing fields), stop
+      // if (!lastResults) return;
+
+      const btn = document.getElementById('mainSubmitBtn');
+      btn.disabled = true;
+      const originalLabel = btn.innerHTML;
+      btn.textContent = 'Submitting…';
+      const payload = {
+        name: document.getElementById('lead_name').value.trim(),
+        phone: document.getElementById('lead_phone').value.trim(),
+        email: document.getElementById('lead_email').value.trim(),
+
+        course: COURSE_LABELS[p.course] || p.course || '',
+
+        // Send all matched schemes instead of currentScheme
+        schemes: matchedSchemes.map(s => s.name).join(', '),
+        schemeRefs: matchedSchemes.map(s => s.ref || '').filter(Boolean).join(', '),
+
+        category: p.category || '',
+        income: INCOME_LABELS[String(p.income)] || (p.income ? p.income + 'L' : ''),
+
+        gender: p.gender || '',
+        admission: p.admission || '',
+        hosteller: p.hosteller || '',
+        marks: p.marks || '',
+        year_of_study: p.year_of_study || '',
+
+        totalEstimated: result.totalEstimated || 0,
+        timestamp: new Date().toISOString(),
+      };
+
+
+      try {
+        const res = await fetch('/api/send-scholarship-lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) throw new Error('Submission failed');
+      } catch (err) {
+        console.error('Lead submission error:', err);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = originalLabel;
+      }
     }
 
     function renderResults(p, matched, categoryResults, totalEstimated) {
@@ -2207,10 +2307,7 @@
             <span><strong>Reference:</strong> ${s.ref}</span>
           </div>
           <div class="scheme-actions">
-            <button type="button" class="btn-mini btn-info" onclick="openLeadModal(${idx})">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-              Get More Information
-            </button>
+
             <a class="btn-mini btn-help" href="${helpUrl}" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.93 11.93 0 0012 0C5.37 0 0 5.37 0 12c0 2.11.55 4.16 1.6 5.97L0 24l6.18-1.62A11.94 11.94 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.21-3.48-8.52zM12 21.82a9.8 9.8 0 01-5.01-1.37l-.36-.21-3.67.96.98-3.58-.23-.37A9.81 9.81 0 012.18 12C2.18 6.59 6.59 2.18 12 2.18S21.82 6.59 21.82 12 17.41 21.82 12 21.82zm5.43-7.34c-.3-.15-1.76-.87-2.04-.97-.27-.1-.47-.15-.66.15-.2.3-.76.97-.93 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.66-1.6-.91-2.19-.24-.58-.49-.5-.66-.5h-.56c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.08c.15.2 2.1 3.21 5.08 4.5.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/></svg>
               Get Help Applying
@@ -2263,6 +2360,10 @@
 
       contentDiv.innerHTML = html;
       resultsDiv.classList.add('show');
+
+      // Hide the form card and scroll to results
+      var formCard = document.getElementById('formCard');
+      if (formCard) formCard.style.display = 'none';
       setTimeout(function () {
         var rect = resultsDiv.getBoundingClientRect();
         var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -2270,11 +2371,18 @@
       }, 300);
     }
 
-    function resetForm() {
-      document.querySelectorAll('select').forEach(s => s.value = '');
-      document.querySelectorAll('input[type="checkbox"]').forEach(c => c.checked = false);
-      document.getElementById('dob').value = '';
+    function modifySearch() {
+      var formCard = document.getElementById('formCard');
+      if (formCard) formCard.style.display = '';
       document.getElementById('results').classList.remove('show');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function resetForm() {
+      document.getElementById('mainForm').reset();
+      document.getElementById('results').classList.remove('show');
+      var formCard = document.getElementById('formCard');
+      if (formCard) formCard.style.display = '';
       lastResults = null;
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }

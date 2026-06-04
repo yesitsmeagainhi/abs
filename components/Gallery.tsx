@@ -136,204 +136,204 @@ const Gallery = ({
   // Static gallery data - used when useStaticData is true or API fails
   const staticGalleryData = {
     college: [
-      { 
-        id: 1, 
-        src: 'https://absadmission.com/wp-content/uploads/2025/06/WhatsApp-Image-2025-03-26-at-8.12.11-PM.jpeg', 
-        alt: 'Group of GNM students at akshaya college of nursing', 
+      {
+        id: 1,
+        src: 'https://absadmission.com/wp-content/uploads/2025/06/WhatsApp-Image-2025-03-26-at-8.12.11-PM.jpeg',
+        alt: 'Group of GNM students at akshaya college of nursing',
         title: 'GNM Nursing College',
         description: 'Group of GNM students at akshaya college of nursing ',
         category: 'Infrastructure'
       },
-      { 
-        id: 2, 
-        src: 'https://absadmission.com/wp-content/uploads/2025/06/Top-Ranked-Pharmacy-College-in-Banglore-Krupanidhi-college-of-pharmacy-1.png', 
-        alt: 'D Pharma students at krupanidhi college of pharmacy', 
+      {
+        id: 2,
+        src: 'https://absadmission.com/wp-content/uploads/2025/06/Top-Ranked-Pharmacy-College-in-Banglore-Krupanidhi-college-of-pharmacy-1.png',
+        alt: 'D Pharma students at krupanidhi college of pharmacy',
         title: 'Pharmacy College',
         description: 'D Pharma students at krupanidhi college of pharmacy',
         category: 'Pharmacy College'
       },
-      { 
-        id: 3, 
-        src: 'https://absadmission.com/wp-content/uploads/2025/06/nip-2.jpg', 
-        alt: 'Group of pharmacy students playing in a ground of NIP Pharmacy College', 
+      {
+        id: 3,
+        src: 'https://absadmission.com/wp-content/uploads/2025/06/nip-2.jpg',
+        alt: 'Group of pharmacy students playing in a ground of NIP Pharmacy College',
         title: 'NIP Pharmacy College Campus',
         description: 'Group of pharmacy students playing in a ground of NIP Pharmacy College',
         category: 'Campus area'
       },
-      { 
-        id: 4, 
-        src: 'https://absadmission.com/wp-content/uploads/2025/06/Top-Ranked-Pharmacy-College-in-Banglore-Krupanidhi-college-of-pharmacy-1-scaled.jpeg', 
-        alt: 'Group of pharmacy students going inside of College', 
+      {
+        id: 4,
+        src: 'https://absadmission.com/wp-content/uploads/2025/06/Top-Ranked-Pharmacy-College-in-Banglore-Krupanidhi-college-of-pharmacy-1-scaled.jpeg',
+        alt: 'Group of pharmacy students going inside of College',
         title: 'Pharmacy College Campus',
         description: 'Students Visiting the Krupanidhi College of Pharmacy campus',
         category: 'Campus area'
       },
-      { 
-        id: 5, 
-        src: 'https://absadmission.com/wp-content/uploads/2025/06/MVM-college-of-pharmacy-1-scaled.jpg', 
-        alt: 'Students studying in the library of MVM College of Pharmacy', 
+      {
+        id: 5,
+        src: 'https://absadmission.com/wp-content/uploads/2025/06/MVM-college-of-pharmacy-1-scaled.jpg',
+        alt: 'Students studying in the library of MVM College of Pharmacy',
         title: 'Pharmacy College Library',
         description: 'Pharmacy students library',
         category: 'College Library'
       },
-      { 
-        id: 6, 
-        src: 'https://absadmission.com/wp-content/uploads/2025/04/Top-Ranked-Pharmacy-College-in-Banglore-Krupanidhi-college-of-pharmacy-scaled.jpeg', 
-        alt: 'Students enjoying at krupanidhi college of pharmacy campus', 
+      {
+        id: 6,
+        src: 'https://absadmission.com/wp-content/uploads/2025/04/Top-Ranked-Pharmacy-College-in-Banglore-Krupanidhi-college-of-pharmacy-scaled.jpeg',
+        alt: 'Students enjoying at krupanidhi college of pharmacy campus',
         title: 'Pharmacy College Campus',
         description: 'Students at Pharmacy College enjoying at campus',
         category: 'Pharamcy College Campus'
       }
     ],
     lecture: [
-      { 
-        id: 7, 
-        src: 'https://absadmission.com/wp-content/uploads/2025/06/Top-Ranked-Pharmacy-College-in-Banglore-Krupanidhi-college-of-pharmacy-3-scaled.jpeg', 
-        alt: 'Pharmacy college classroom with students attentively listening to a teacher during lecture', 
+      {
+        id: 7,
+        src: 'https://absadmission.com/wp-content/uploads/2025/06/Top-Ranked-Pharmacy-College-in-Banglore-Krupanidhi-college-of-pharmacy-3-scaled.jpeg',
+        alt: 'Pharmacy college classroom with students attentively listening to a teacher during lecture',
         title: 'Classroom lectures at Pharmacy College',
         description: 'real-time learning environment with active participation and focused attention under faculty guidance.',
         category: 'Classrooms and Lecture Halls'
       },
-      { 
-        id: 8, 
-        src: 'https://absadmission.com/wp-content/uploads/2025/06/Top-Ranked-Pharmacy-College-in-Banglore-Krupanidhi-college-of-pharmacy-5-scaled.jpeg', 
-        alt: 'Pharmacy students performing practical experiments in a college laboratory', 
+      {
+        id: 8,
+        src: 'https://absadmission.com/wp-content/uploads/2025/06/Top-Ranked-Pharmacy-College-in-Banglore-Krupanidhi-college-of-pharmacy-5-scaled.jpeg',
+        alt: 'Pharmacy students performing practical experiments in a college laboratory',
         title: 'Pharmacy Lab Session at Pharamacy College',
         description: 'Pharmacy students actively participating in hands-on experiments during a lab session at Pharmacy College.',
         category: 'Lab Practicals'
       },
-      { 
-        id: 9, 
-        src: 'https://absadmission.com/wp-content/uploads/2025/06/Untitled-design-22.png', 
-        alt: 'Pharmacy students attending a chemistry lecture in a traditional classroom setting', 
+      {
+        id: 9,
+        src: 'https://absadmission.com/wp-content/uploads/2025/06/Untitled-design-22.png',
+        alt: 'Pharmacy students attending a chemistry lecture in a traditional classroom setting',
         title: 'Live Chemistry Lecture at Pharmacy College',
         description: 'A group of pharmacy students attentively attending a chemistry class led by a faculty member at Pharmacy College. ',
         category: 'Lecture Halls and Classrooms'
       },
-      { 
-        id: 10, 
-        src: 'https://absadmission.com/wp-content/uploads/2025/06/WhatsApp-Image-2025-03-26-at-8.11.59-PM-1-scaled.jpeg', 
-        alt: 'Students conducting lab experiments in a pharmacy college laboratory wearing white coats', 
+      {
+        id: 10,
+        src: 'https://absadmission.com/wp-content/uploads/2025/06/WhatsApp-Image-2025-03-26-at-8.11.59-PM-1-scaled.jpeg',
+        alt: 'Students conducting lab experiments in a pharmacy college laboratory wearing white coats',
         title: 'Pharmacy Laboratory Practical',
         description: 'Students engaged in hands-on laboratory experiments at a pharmacy college.',
         category: 'Pharmacy Labs'
       },
-      { 
-        id: 11, 
-        src: 'https://absadmission.com/wp-content/uploads/2025/06/WhatsApp-Image-2025-03-26-at-8.12.08-PM-1-scaled.jpeg', 
-        alt: 'Students observing a lab demonstration using a microscope at a pharmacy college', 
+      {
+        id: 11,
+        src: 'https://absadmission.com/wp-content/uploads/2025/06/WhatsApp-Image-2025-03-26-at-8.12.08-PM-1-scaled.jpeg',
+        alt: 'Students observing a lab demonstration using a microscope at a pharmacy college',
         title: 'Microscope Training Session',
         description: 'Students attending a hands-on training session focused on microscope usage at a pharmacy college laboratory.',
         category: 'Microscopy Lab'
       },
-      { 
-        id: 12, 
-        src: 'https://absadmission.com/wp-content/uploads/2025/06/MVM-college-of-pharmacy-2-scaled.jpg', 
-        alt: 'Students performing experiments in a physical pharmaceutics lab at a pharmacy college', 
+      {
+        id: 12,
+        src: 'https://absadmission.com/wp-content/uploads/2025/06/MVM-college-of-pharmacy-2-scaled.jpg',
+        alt: 'Students performing experiments in a physical pharmaceutics lab at a pharmacy college',
         title: 'Physical Pharmaceutics Laboratory',
         description: 'Students participating in a physical pharmaceutics practical session inside a modern pharmacy college lab.',
         category: 'Pharmacy Labs'
       }
     ],
     activity: [
-      { 
-        id: 13, 
-        src: 'https://absadmission.com/wp-content/uploads/2025/06/DSC8018-Enhanced-NR.jpg', 
-        alt: 'Students performing a patriotic act holding the Indian national flag during Annual Day celebration', 
+      {
+        id: 13,
+        src: 'https://absadmission.com/wp-content/uploads/2025/06/DSC8018-Enhanced-NR.jpg',
+        alt: 'Students performing a patriotic act holding the Indian national flag during Annual Day celebration',
         title: 'Annual Day',
         description: 'Students showcasing a vibrant patriotic performance with the Indian national flag during the Annual Day celebration at the pharmacy college.',
         category: 'Annual Day'
       },
-      { 
-        id: 14, 
-        src: 'https://absadmission.com/wp-content/uploads/2025/06/DSC7814-Enhanced-NR.jpg', 
-        alt: 'Female students performing a traditional Garba dance in colorful costumes during Annual Day celebration', 
+      {
+        id: 14,
+        src: 'https://absadmission.com/wp-content/uploads/2025/06/DSC7814-Enhanced-NR.jpg',
+        alt: 'Female students performing a traditional Garba dance in colorful costumes during Annual Day celebration',
         title: 'Annual Day – Traditional Garba Dance',
         description: 'A vibrant stage performance by pharmacy college students showcasing a traditional Garba dance during the Annual Day event.',
         category: 'Annual Day'
       },
-      { 
-        id: 15, 
-        src: 'https://absadmission.com/wp-content/uploads/2025/06/DSC7236-Enhanced-NR.jpg', 
-        alt: 'Student portraying Goddess Durga with multiple arms during a cultural act on Annual Day', 
+      {
+        id: 15,
+        src: 'https://absadmission.com/wp-content/uploads/2025/06/DSC7236-Enhanced-NR.jpg',
+        alt: 'Student portraying Goddess Durga with multiple arms during a cultural act on Annual Day',
         title: 'Annual Day – Durga Act Performance',
         description: 'A powerful stage performance representing Goddess Durga during the Annual Day celebration at the pharmacy college. ',
         category: 'Annual Day'
       },
-      { 
-        id: 16, 
-        src: 'https://absadmission.com/wp-content/uploads/2025/06/DSC02558-Enhanced-NR.jpg', 
-        alt: 'Graduating students in convocation gowns posing for a group photo during pharmacy college Annual Day', 
+      {
+        id: 16,
+        src: 'https://absadmission.com/wp-content/uploads/2025/06/DSC02558-Enhanced-NR.jpg',
+        alt: 'Graduating students in convocation gowns posing for a group photo during pharmacy college Annual Day',
         title: 'Annual Day – Graduation Ceremony',
         description: 'A proud moment as pharmacy college students celebrate their academic achievements during the Annual Day graduation ceremony.',
         category: 'Annual Day'
       },
-      { 
-        id: 17, 
-        src: 'https://absadmission.com/wp-content/uploads/2025/06/DSC7961-Enhanced-NR.jpg', 
-        alt: 'Annual Day', 
+      {
+        id: 17,
+        src: 'https://absadmission.com/wp-content/uploads/2025/06/DSC7961-Enhanced-NR.jpg',
+        alt: 'Annual Day',
         title: 'Annual Day',
         description: '',
         category: 'Annual Day'
       },
-      { 
-        id: 18, 
-        src: 'https://drive.google.com/uc?export=view&id=1swvYkXnkhgyfbpbAhdKbhWrBqsvILNDI', 
-        alt: '', 
+      {
+        id: 18,
+        src: 'https://drive.google.com/uc?export=view&id=1swvYkXnkhgyfbpbAhdKbhWrBqsvILNDI',
+        alt: '',
         title: '',
         description: '',
         category: ''
       }
     ],
     certificates: [
-      { 
-  id: 19, 
-  src: 'https://absadmission.com/wp-content/uploads/2025/06/IMG20241206134104-1-768x1024.jpg', 
-  alt: 'Student receiving official pharmacy course license during celebration ceremony', 
-  title: 'Course Completion Celebration',
-  description: 'Celebrating students who have successfully completed their pharmacy program and received their official license.',
-  category: 'Completion Ceremony'
-},
-{ 
-  id: 20, 
-  src: 'https://absadmission.com/wp-content/uploads/2025/06/15_WhatsApp-Image-2024-12-15-at-4.57.44-PM-768x1024.jpeg', 
-  alt: 'Pharmacy student proudly holding license after completing the course', 
-  title: 'Licensed Pharmacist Recognition',
-  description: 'A proud moment honoring students who have officially completed their course and earned pharmacy licensing.',
-  category: 'Completion Ceremony'
-},
-{ 
-  id: 21, 
-  src: 'https://absadmission.com/wp-content/uploads/2025/06/19_IMG_20241228_151100-scaled-e1750235364836-768x921.jpg', 
-  alt: 'Celebrating licensed graduates from pharmacy college', 
-  title: 'Official Course Completion',
-  description: 'Students recognized for completing their pharmacy education and earning their professional license.',
-  category: 'Completion Ceremony'
-},
-{ 
-  id: 22, 
-  src: 'https://absadmission.com/wp-content/uploads/2025/06/1_IMG_20241207_134647-scaled-e1750235380331-768x919.jpg', 
-  alt: 'Pharmacy graduate honored for successful completion and licensing', 
-  title: 'Pharmacy Graduation Milestone',
-  description: 'Special moments marking the successful course completion and official licensing of students.',
-  category: 'Completion Ceremony'
-},
-{ 
-  id: 23, 
-  src: 'https://absadmission.com/wp-content/uploads/2025/04/21_WhatsApp-Image-2024-12-30-at-2.02.06-PM-scaled.jpeg', 
-  alt: 'Student receiving pharmacy college license during official handover ceremony', 
-  title: 'Licensing Celebration Event',
-  description: 'A formal celebration for pharmacy students receiving their official license after course completion.',
-  category: 'Completion Ceremony'
-},
-{ 
-  id: 24, 
-  src: 'https://absadmission.com/wp-content/uploads/2025/04/WhatsApp-Image-2024-11-30-at-1.19.13-PM-scaled.jpeg', 
-  alt: 'Graduating pharmacy student acknowledged for completing course and receiving license', 
-  title: 'Course Completion & License Distribution',
-  description: 'Recognizing students who have successfully completed their program and earned their pharmacy license.',
-  category: 'Completion Ceremony'
-}
+      {
+        id: 19,
+        src: 'https://absadmission.com/wp-content/uploads/2025/06/IMG20241206134104-1-768x1024.jpg',
+        alt: 'Student receiving official pharmacy course license during celebration ceremony',
+        title: 'Course Completion Celebration',
+        description: 'Celebrating students who have successfully completed their pharmacy program and received their official license.',
+        category: 'Completion Ceremony'
+      },
+      {
+        id: 20,
+        src: 'https://absadmission.com/wp-content/uploads/2025/06/15_WhatsApp-Image-2024-12-15-at-4.57.44-PM-768x1024.jpeg',
+        alt: 'Pharmacy student proudly holding license after completing the course',
+        title: 'Licensed Pharmacist Recognition',
+        description: 'A proud moment honoring students who have officially completed their course and earned pharmacy licensing.',
+        category: 'Completion Ceremony'
+      },
+      {
+        id: 21,
+        src: 'https://absadmission.com/wp-content/uploads/2025/06/19_IMG_20241228_151100-scaled-e1750235364836-768x921.jpg',
+        alt: 'Celebrating licensed graduates from pharmacy college',
+        title: 'Official Course Completion',
+        description: 'Students recognized for completing their pharmacy education and earning their professional license.',
+        category: 'Completion Ceremony'
+      },
+      {
+        id: 22,
+        src: 'https://absadmission.com/wp-content/uploads/2025/06/1_IMG_20241207_134647-scaled-e1750235380331-768x919.jpg',
+        alt: 'Pharmacy graduate honored for successful completion and licensing',
+        title: 'Pharmacy Graduation Milestone',
+        description: 'Special moments marking the successful course completion and official licensing of students.',
+        category: 'Completion Ceremony'
+      },
+      {
+        id: 23,
+        src: 'https://absadmission.com/wp-content/uploads/2025/04/21_WhatsApp-Image-2024-12-30-at-2.02.06-PM-scaled.jpeg',
+        alt: 'Student receiving pharmacy college license during official handover ceremony',
+        title: 'Licensing Celebration Event',
+        description: 'A formal celebration for pharmacy students receiving their official license after course completion.',
+        category: 'Completion Ceremony'
+      },
+      {
+        id: 24,
+        src: 'https://absadmission.com/wp-content/uploads/2025/04/WhatsApp-Image-2024-11-30-at-1.19.13-PM-scaled.jpeg',
+        alt: 'Graduating pharmacy student acknowledged for completing course and receiving license',
+        title: 'Course Completion & License Distribution',
+        description: 'Recognizing students who have successfully completed their program and earned their pharmacy license.',
+        category: 'Completion Ceremony'
+      }
 
     ]
   };
@@ -349,15 +349,15 @@ const Gallery = ({
     try {
       setLoading(true);
       setError(null);
-      
+
       const response = await fetch(apiEndpoint);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      
+
       const data = await response.json();
       setGalleryData(data.galleryData || data);
-      
+
       // Set first available segment as active if current one doesn't exist
       if (data.galleryData || data) {
         const availableSegments = Object.keys(data.galleryData || data);
@@ -382,31 +382,31 @@ const Gallery = ({
   }, [apiEndpoint, useStaticData]);
 
   const segments = [
-    { 
-      id: 'college', 
-      name: 'College Gallery', 
-      icon: GraduationCap, 
+    {
+      id: 'college',
+      name: 'College Gallery',
+      icon: GraduationCap,
       color: 'from-blue-500 to-blue-600',
       description: 'Explore our beautiful campus facilities and infrastructure'
     },
-    { 
-      id: 'lecture', 
-      name: 'Lectures', 
-      icon: BookOpen, 
+    {
+      id: 'lecture',
+      name: 'Lectures',
+      icon: BookOpen,
       color: 'from-green-500 to-green-600',
       description: 'Modern classrooms and learning environments'
     },
-    { 
-      id: 'activity', 
-      name: 'Activities', 
-      icon: Users, 
+    {
+      id: 'activity',
+      name: 'Activities',
+      icon: Users,
       color: 'from-purple-500 to-purple-600',
       description: 'Student life, events, and extracurricular activities'
     },
-    { 
-      id: 'certificates', 
-      name: 'Certificates', 
-      icon: Award, 
+    {
+      id: 'certificates',
+      name: 'Certificates',
+      icon: Award,
       color: 'from-orange-500 to-orange-600',
       description: 'Academic achievements and recognition ceremonies'
     }
@@ -427,17 +427,17 @@ const Gallery = ({
 
   const navigateImage = (direction) => {
     if (!selectedImage || currentIndex === -1) return;
-    
-    const newIndex = direction === 'next' 
+
+    const newIndex = direction === 'next'
       ? (currentIndex + 1) % currentImages.length
       : (currentIndex - 1 + currentImages.length) % currentImages.length;
-    
+
     setSelectedImage(currentImages[newIndex]);
   };
 
   const handleKeyDown = (e) => {
     if (!selectedImage) return;
-    
+
     if (e.key === 'Escape') closeModal();
     if (e.key === 'ArrowLeft') navigateImage('prev');
     if (e.key === 'ArrowRight') navigateImage('next');
@@ -457,14 +457,14 @@ const Gallery = ({
 
   const startAutoScroll = () => {
     if (autoScrollRef.current) clearInterval(autoScrollRef.current);
-    
+
     autoScrollRef.current = setInterval(() => {
       if (!isPaused && scrollContainerRef.current) {
         const container = scrollContainerRef.current;
         const scrollWidth = container.scrollWidth;
         const clientWidth = container.clientWidth;
         const currentScroll = container.scrollLeft;
-        
+
         if (currentScroll >= scrollWidth - clientWidth - 10) {
           container.scrollTo({ left: 0, behavior: 'smooth' });
         } else {
@@ -491,7 +491,7 @@ const Gallery = ({
   useEffect(() => {
     document.addEventListener('keydown', handleKeyDown);
     startAutoScroll();
-    
+
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'auto';
@@ -564,7 +564,7 @@ const Gallery = ({
               Our Gallery
             </h2>
             <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Discover our educational journey through stunning visuals of campus life, 
+              Discover our educational journey through stunning visuals of campus life,
               academic excellence, student activities, and achievements that define our institution.
             </p>
           </header>
@@ -577,11 +577,10 @@ const Gallery = ({
                   <button
                     key={segment.id}
                     onClick={() => setActiveSegment(segment.id)}
-                    className={`flex items-center gap-2 md:gap-3 px-4 md:px-6 py-2 md:py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 text-sm md:text-base ${
-                      activeSegment === segment.id
+                    className={`flex items-center gap-2 md:gap-3 px-4 md:px-6 py-2 md:py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 text-sm md:text-base ${activeSegment === segment.id
                         ? `bg-gradient-to-r ${segment.color} text-white shadow-lg focus:ring-blue-500`
                         : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 focus:ring-gray-300'
-                    }`}
+                      }`}
                     aria-label={`View ${segment.name}`}
                     aria-pressed={activeSegment === segment.id}
                   >
@@ -618,24 +617,23 @@ const Gallery = ({
                   </button>
                   <button
                     onClick={() => setIsPaused(!isPaused)}
-                    className={`p-2 rounded-full shadow-md hover:shadow-lg transition-all ${
-                      isPaused ? 'bg-green-500 text-white' : 'bg-white text-gray-700'
-                    }`}
+                    className={`p-2 rounded-full shadow-md hover:shadow-lg transition-all ${isPaused ? 'bg-green-500 text-white' : 'bg-white text-gray-700'
+                      }`}
                     aria-label={isPaused ? 'Resume auto-scroll' : 'Pause auto-scroll'}
                   >
                     {isPaused ? (
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M8 5v14l11-7z"/>
+                        <path d="M8 5v14l11-7z" />
                       </svg>
                     ) : (
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
                       </svg>
                     )}
                   </button>
                 </div>
               </div>
-              
+
               <div
                 ref={scrollContainerRef}
                 className="flex gap-4 overflow-x-auto scrollbar-hide pb-4"
@@ -658,9 +656,9 @@ const Gallery = ({
                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                         loading="lazy"
                         onError={(e) => {
-    (e.currentTarget as HTMLImageElement).src = '/placeholder-image.jpg';
-  }}
-/>
+                          (e.currentTarget as HTMLImageElement).src = '/placeholder-image.jpg';
+                        }}
+                      />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <div className="absolute bottom-3 left-3 right-3">
                           <h3 className="text-white font-semibold text-sm mb-1">{image.title}</h3>
@@ -690,10 +688,10 @@ const Gallery = ({
                       alt={image.alt || image.description || image.title}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                       loading="lazy"
-                     onError={(e) => {
-    (e.currentTarget as HTMLImageElement).src = '/placeholder-image.jpg';
-  }}
-/>
+                      onError={(e) => {
+                        (e.currentTarget as HTMLImageElement).src = '/placeholder-image.jpg';
+                      }}
+                    />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="absolute bottom-4 left-4 right-4">
@@ -730,19 +728,21 @@ const Gallery = ({
         )}
       </section>
       <Head>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "ImageGallery",
-          "name": "College Gallery",
-          "description": "Comprehensive gallery showcasing our educational institution's facilities, activities, and achievements",
-          "image": currentImages.map(img => ({
-            "@type": "ImageObject",
-            "url": img.src || img.url || img.image,
-            "name": img.title,
-            "description": img.alt || img.description || img.title,
-            "caption": img.description
-          }))
-        })}} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ImageGallery",
+            "name": "College Gallery",
+            "description": "Comprehensive gallery showcasing our educational institution's facilities, activities, and achievements",
+            "image": currentImages.map(img => ({
+              "@type": "ImageObject",
+              "url": img.src || img.url || img.image,
+              "name": img.title,
+              "description": img.alt || img.description || img.title,
+              "caption": img.description
+            }))
+          })
+        }} />
       </Head>
     </>
   );

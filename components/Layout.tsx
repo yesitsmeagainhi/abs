@@ -2,7 +2,7 @@
 import SiteHeader from './SiteHeader';
 import Footer from './Footer';
 import Head from 'next/head';
-
+import MobileBottomBar from './MobileBottomBar';
 // Import settings from CMS
 let settings: any = {};
 try {
@@ -37,7 +37,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       )}
 
       <SiteHeader />
-      <main>{children}</main>
+      <main>{children}
+        <MobileBottomBar />
+      </main>
       <Footer />
 
       {/* Inject footer scripts */}
