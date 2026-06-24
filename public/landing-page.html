@@ -14,6 +14,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet" />
 
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-MFV96CD7');
+    </script>
+    <!-- End Google Tag Manager -->
     <!-- FAQPage Schema -->
 
     <script type="application/ld+json">
@@ -2279,9 +2294,36 @@
                     body: JSON.stringify({ name, phone, course, branch }),
                 });
                 if (res.ok) {
-                    window.location.href = '/thank-you';
+                    window.dataLayer = window.dataLayer || [];
+
+                    let redirected = false;
+
+                    function goToThankYou() {
+                        if (!redirected) {
+                            redirected = true;
+                            window.location.href = '/thank-you';
+                        }
+                    }
+
+                    window.dataLayer.push({
+                        event: 'pharmacy_lead_submit',
+                        form_name: 'Pharmacy Admission Form',
+                        name: name,
+                        phone: phone,
+                        course: course,
+                        branch: branch,
+
+                        // GTM will call this after tags fire
+                        eventCallback: goToThankYou,
+                        eventTimeout: 1000
+                    });
+
+                    // Backup redirect in case GTM does not respond
+                    setTimeout(goToThankYou, 1200);
+
                     return;
-                } else {
+                }
+                else {
                     btn.textContent = '❌ Error — please try again';
                     btn.style.background = '#dc2626';
                     btn.disabled = false;
@@ -2315,5 +2357,12 @@
     </script>
 
 </body>
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFV96CD7" height="0" width="0"
+        style="display:none;visibility:hidden">
+    </iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 </html>

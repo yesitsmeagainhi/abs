@@ -1,5 +1,9 @@
 // pages/api/send-pharmacy-admission-lead.ts — handles POST from /pharmacy-admission landing page
 import type { NextApiRequest, NextApiResponse } from 'next';
+import Script from "next/script";
+
+const FB_PIXEL_ID = process.env.NEXT_PUBLIC_DPHARM_FB_PIXEL_ID;
+const GOOGLE_TAG_ID = process.env.NEXT_PUBLIC_DPHARM_GOOGLE_TAG_ID;
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') return res.status(405).end('Method not allowed');
