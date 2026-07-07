@@ -20,23 +20,33 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   // Google Sheets via Apps Script — routes to "Pharmacy-admission" sheet
-  if (process.env.GOOGLE_SCRIPT_URL) {
+  const scriptUrl = process.env.GOOGLE_SCRIPT_URL;
+  console.log('[DEBUG] GOOGLE_SCRIPT_URL:', scriptUrl);
+
+  if (scriptUrl) {
     try {
-      await fetch(process.env.GOOGLE_SCRIPT_URL, {
+      const payload = {
+        type: 'pharmacy-admission',
+        name: name.trim(),
+        phone,
+        course,
+        branch,
+        timestamp: new Date().toISOString(),
+      };
+      console.log('[DEBUG] Sending payload:', JSON.stringify(payload));
+
+      const gsRes = await fetch(scriptUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          type: 'pharmacy-admission',
-          name: name.trim(),
-          phone,
-          course,
-          branch,
-          timestamp: new Date().toISOString(),
-        }),
+        body: JSON.stringify(payload),
       });
+      const gsText = await gsRes.text();
+      console.log('[DEBUG] Google Script response:', gsRes.status, gsText);
     } catch (err) {
       console.error('Google Sheets error:', err);
     }
+  } else {
+    console.log('[DEBUG] GOOGLE_SCRIPT_URL is not set!');
   }
 
   return res.status(200).json({ ok: true });
