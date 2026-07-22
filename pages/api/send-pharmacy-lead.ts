@@ -10,6 +10,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     email = '',
     course = '',
     city = '',
+    type = 'pharmacy',
   } = req.body;
 
   if (!name.trim() || !phone.trim()) {
@@ -23,7 +24,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          type: 'pharmacy',
+          type,
           name: name.trim(),
           phone,
           email,

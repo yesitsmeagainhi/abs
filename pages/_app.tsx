@@ -9,6 +9,8 @@ import Layout from '../components/Layout';
 export default function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const router = useRouter();
   const isAdmin = router.pathname.startsWith('/admin');
+  const noLayout = ['/pharmacy-dpharm-bpharm'];
+  const skipLayout = isAdmin || noLayout.includes(router.pathname);
 
   return (
     <SessionProvider session={session}>
@@ -60,7 +62,7 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
       </noscript>
       {/* ---------- End Meta Pixel Code ---------- */}
 
-      {isAdmin ? (
+      {skipLayout ? (
         <Component {...pageProps} />
       ) : (
         <Layout>

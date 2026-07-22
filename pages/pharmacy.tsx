@@ -73,6 +73,7 @@ export default function PharmacyPage() {
           email: formData.email,
           course: formData.course,
           city: formData.city,
+          source: 'pharmacy',
         }),
       });
       if (res.ok) {
