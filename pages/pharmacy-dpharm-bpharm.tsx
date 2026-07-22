@@ -641,20 +641,30 @@ export default function PharmacyDPharmBPharmPage() {
                 {
                   quote: 'The ABS team guided me throughout the admission process. Everything was smooth and hassle-free.',
                   name: 'Ankit Tiwari',
+                  img: '/pharmacy/reviews/student-1.png',
                 },
                 {
                   quote: 'I got admission into my preferred pharmacy college with complete support from the counsellors.',
                   name: 'Shubh Jaiswal',
+                  img: '/pharmacy/reviews/student-3.png',
                 },
                 {
                   quote: 'Highly professional team with excellent admission guidance.',
                   name: 'Mansi K.',
+                  img: '/pharmacy/reviews/student-2.png',
                 },
               ].map((review, i) => (
                 <div key={i} className="bg-white rounded-xl p-6 shadow-sm">
                   <div className="text-blue-400 text-4xl mb-3">{'\u201C'}</div>
                   <p className="text-gray-600 text-sm mb-4">{review.quote}</p>
-                  <p className="font-semibold text-sm text-gray-800">{'\u2014'} {review.name}</p>
+                  <div className="flex items-center gap-3 mt-4">
+                    <img
+                      src={review.img}
+                      alt={review.name}
+                      className="w-10 h-10 rounded-full object-cover bg-gray-200"
+                    />
+                    <p className="font-semibold text-sm text-gray-800">{review.name}</p>
+                  </div>
                 </div>
               ))}
             </div>
