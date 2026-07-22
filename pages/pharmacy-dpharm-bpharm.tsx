@@ -153,7 +153,7 @@ export default function PharmacyDPharmBPharmPage() {
 
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center px-4 relative z-10">
             <div>
-              <p className="text-2xl text-sm font-medium uppercase tracking-wider mb-3">Admissions Open 2026-27</p>
+              <p className="text-2xl font-medium uppercase tracking-wider mb-3">Admissions Open 2026-27</p>
               <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4">
                 Start Your Pharmacy Career After 12th
               </h1>
