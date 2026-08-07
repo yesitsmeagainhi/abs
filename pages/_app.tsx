@@ -9,7 +9,7 @@ import Layout from '../components/Layout';
 export default function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const router = useRouter();
   const isAdmin = router.pathname.startsWith('/admin');
-  const noLayout = ['/pharmacy-dpharm-bpharm'];
+  const noLayout = ['/pharmacy-dpharm-bpharm', '/nursing2026', '/pharma_and_nursing-courses2026'];
   const skipLayout = isAdmin || noLayout.includes(router.pathname);
 
   return (
