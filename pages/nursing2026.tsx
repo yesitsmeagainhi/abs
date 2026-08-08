@@ -86,19 +86,53 @@ export default function Nursing2026Page() {
       <div style={{ fontFamily: "'Poppins', sans-serif" }} className="text-gray-800">
 
         {/* ==================== HERO SECTION ==================== */}
-        <section className="hero-banner relative text-white pt-6 pb-16 md:pt-16 md:pb-20" id="top">
+        <section className="hero-banner relative text-white pt-6 pb-16 md:pt-10 md:pb-12" id="top">
           <div className="max-w-7xl mx-auto px-4 relative z-10">
-            <img src="/uploads/abs-logo.png" alt="ABS Educational Solution" className="h-16 md:h-20 mb-8 md:mb-20" />
+            <div className="flex items-center gap-4 mb-8 md:mb-10">
+              <img src="/uploads/abs-logo.png" alt="ABS Educational Solution" className="h-16 md:h-20 flex-shrink-0" />
+              <div className="overflow-hidden flex-1 border-l-2 border-white/30 pl-4">
+                <div className="marquee-scroll whitespace-nowrap text-base md:text-base font-medium text-white/900 tracking-wider uppercase">
+                  <span className="inline-block px-3">No NEET</span>
+                  <span className="inline-block px-1 text-white/40">{'\u2022'}</span>
+                  <span className="inline-block px-3">No CET</span>
+                  <span className="inline-block px-1 text-white/40">{'\u2022'}</span>
+                  <span className="inline-block px-3">Affordable Fees</span>
+                  <span className="inline-block px-1 text-white/40">{'\u2022'}</span>
+                  <span className="inline-block px-3">Direct Admission</span>
+                  <span className="inline-block px-1 text-white/40">{'\u2022'}</span>
+                  <span className="inline-block px-3">Limited Seats</span>
+                  <span className="inline-block px-1 text-white/40">{'\u2022'}</span>
+                  <span className="inline-block px-3">No NEET</span>
+                  <span className="inline-block px-1 text-white/40">{'\u2022'}</span>
+                  <span className="inline-block px-3">No CET</span>
+                  <span className="inline-block px-1 text-white/40">{'\u2022'}</span>
+                  <span className="inline-block px-3">Affordable Fees</span>
+                  <span className="inline-block px-1 text-white/40">{'\u2022'}</span>
+                  <span className="inline-block px-3">Direct Admission</span>
+                  <span className="inline-block px-1 text-white/40">{'\u2022'}</span>
+                  <span className="inline-block px-3">Limited Seats</span>
+                  <span className="inline-block px-1 text-white/40">{'\u2022'}</span>
+                  <span className="inline-block px-3">No NEET</span>
+                  <span className="inline-block px-1 text-white/40">{'\u2022'}</span>
+                  <span className="inline-block px-3">No CET</span>
+                  <span className="inline-block px-1 text-white/40">{'\u2022'}</span>
+                  <span className="inline-block px-3">Affordable Fees</span>
+                  <span className="inline-block px-1 text-white/40">{'\u2022'}</span>
+                  <span className="inline-block px-3">Direct Admission</span>
+
+                </div>
+              </div>
+            </div>
 
             <div className="grid md:grid-cols-2 gap-10 items-center">
               {/* Left — headline + CTAs */}
               <div>
-                <span className="inline-block bg-yellow-400 text-blue-900 text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full mb-4">
+                <span className="inline-block bg-yellow-400 text-blue-900 text-sm font-bold uppercase tracking-wider px-4 py-1.5 rounded-full mb-4">
                   Admissions Open 2026{'\u2013'}27
                 </span>
                 {/* Scholarship banner — mobile only */}
                 <div className="rounded-lg bg-yellow-400 px-4 py-2.5 text-center mb-4 md:hidden">
-                  <p className="text-sm font-bold uppercase tracking-wide text-blue-900">
+                  <p className="text-normal font-bold uppercase tracking-wide text-blue-900">
                     {'\uD83C\uDF93'} Upto 100% Scholarship Available
                   </p>
                   <p className="text-blue-900 text-xs font-medium">Limited Seats Available</p>
@@ -129,8 +163,8 @@ export default function Nursing2026Page() {
                   </a>
                 </div>
               </div>
-              {/* Right — course cards + Why ABS checklist */}
-              <div className="bg-white/10 border border-white/20 backdrop-blur-md rounded-2xl p-6 md:p-8">
+              {/* Right — course badges + Why ABS checklist */}
+              <div>
                 {/* Scholarship banner — desktop only */}
                 <div className="hidden md:block rounded-lg bg-yellow-400 px-4 py-2.5 text-center mb-5">
                   <p className="text-sm font-bold uppercase tracking-wide text-blue-900">
@@ -138,23 +172,43 @@ export default function Nursing2026Page() {
                   </p>
                   <p className="text-blue-900 text-xs font-medium">Limited Seats Available</p>
                 </div>
-                <p className="text-white font-semibold mb-4 text-lg justify-center">Apply for</p>
+                <span style={{ position: 'relative', display: 'inline-block', zIndex: 1, padding: '0 10px', marginBottom: '16px' }}>
+                  <span style={{ position: 'relative', zIndex: 2, color: '#ffffff', fontWeight: 'bold', fontSize: '1.605rem' }}>
+                    Apply for Courses
+                  </span>
+                  <svg
+                    viewBox="0 0 500 100"
+                    preserveAspectRatio="none"
+                    style={{
+                      position: 'absolute',
+                      top: '55%',
+                      left: '50%',
+                      width: '110%',
+                      height: '140%',
+                      transform: 'translate(-50%, -50%)',
+                      zIndex: 1,
+                      pointerEvents: 'none',
+                    }}
+                  >
+
+                  </svg>
+                </span>
                 <div className="grid grid-cols-3 gap-3 mb-6">
                   {[
                     { name: 'GNM', sub: '3 Yrs + Internship' },
                     { name: 'B.Sc', sub: '4 Years' },
                     { name: 'P.B.Sc', sub: '2 Years' },
                   ].map((c, i) => (
-                    <div key={i} className="bg-white/15 border border-white/20 rounded-xl p-3 md:p-4 text-center">
-                      <p className="font-bold text-xl md:text-3xl">{c.name}</p>
-                      <p className="text-blue-200 text-xs md:text-sm mt-0.5">{c.sub}</p>
+                    <div key={i} className="bg-blue-900/60 backdrop-blur-sm border border-white/30 rounded-xl p-3 md:p-4 text-center shadow-lg">
+                      <p className="font-bold text-xl md:text-3xl text-white">{c.name}</p>
+                      <p className="text-blue-100 text-xs md:text-sm mt-0.5">{c.sub}</p>
                     </div>
                   ))}
                 </div>
 
-                <div className="border-t border-white/20 pt-5">
-                  <p className="text-white font-semibold mb-3">Why Choose ABS?</p>
-                  <ul className="grid grid-cols-1 gap-2 text-sm">
+                <div className="why-choose-card">
+                  <h3>Why Choose ABS?</h3>
+                  <ul>
                     {[
                       '88,000+ Students Counselled',
                       '16+ Years of Admission Guidance',
@@ -165,8 +219,8 @@ export default function Nursing2026Page() {
                       'Hostel Assistance',
                       'Placement Guidance',
                     ].map((item, i) => (
-                      <li key={i} className="flex items-center gap-2">
-                        <span className="w-4 h-4 bg-green-400 rounded-full flex items-center justify-center text-[10px] text-white flex-shrink-0">{'\u2713'}</span>
+                      <li key={i}>
+                        <span className="check">{'\u2713'}</span>
                         {item}
                       </li>
                     ))}
@@ -547,15 +601,62 @@ export default function Nursing2026Page() {
       <style jsx>{`
         
         .hero-banner {
-          background-image: linear-gradient(rgba(30,58,138,0.45), rgba(30,58,138,0.60)), url(/pharmacy/banner-nursing-portrait.png);
-          background-size: 100% 100%;
+          background-image: linear-gradient(rgba(30,58,138,0.45), rgba(30,58,138,0.30)), url(/pharmacy/banner-nursing-portrait.png);
+          background-size: cover;
           background-position: center center;
         }
         @media (min-width: 768px) {
           .hero-banner {
             background-image: linear-gradient(to right, rgba(30,58,138,0.35) 45%, rgba(30,64,175,0.15)), url(/pharmacy/banner-nursing.png);
-            background-position: right center;
+            background-position: center center;
           }
+        }
+
+        .marquee-scroll {
+          display: inline-block;
+          animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+
+        .why-choose-card {
+          background: rgba(5, 35, 90, 0.58);
+          backdrop-filter: blur(12px);
+          border: 1px solid rgba(255, 255, 255, 0.22);
+          border-radius: 20px;
+          padding: 24px 20px;
+          box-shadow: 0 14px 35px rgba(0, 25, 70, 0.35);
+        }
+        .why-choose-card h3 {
+          color: #ffffff;
+          font-size: 24px;
+          margin-bottom: 18px;
+        }
+        .why-choose-card ul {
+          display: grid;
+          gap: 14px;
+        }
+        .why-choose-card li {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          color: #ffffff;
+          font-size: 17px;
+          font-weight: 600;
+          line-height: 1.35;
+        }
+        .why-choose-card .check {
+          display: grid;
+          place-items: center;
+          flex: 0 0 26px;
+          width: 26px;
+          height: 26px;
+          border-radius: 50%;
+          background: #37df82;
+          color: #073c2c;
+          font-weight: 800;
         }
       `}</style>
 
