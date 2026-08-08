@@ -90,6 +90,14 @@ export default function PharmaAndNursingCourses2026Page() {
                 <span className="inline-block bg-yellow-400 text-blue-900 text-sm font-bold uppercase tracking-wider px-4 py-1.5 rounded-full mb-4">
                   Admissions Open 2026{'\u2013'}27
                 </span>
+
+                {/* Scholarship banner — mobile only */}
+                <div className="rounded-lg bg-yellow-400 px-4 py-2.5 text-center mb-4 md:hidden">
+                  <p className="text-normal font-bold uppercase tracking-wide text-blue-900">
+                    {'\uD83C\uDF93'} Upto 100% Scholarship Available
+                  </p>
+                  <p className="text-blue-900 text-xs font-medium">Limited Seats Available</p>
+                </div>
                 {/* <p className="text-blue-200 text-xl md:text-2xl font-bold uppercase tracking-wider mb-3">Admissions Open 2026{'\u2013'}27</p> */}
                 <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4">
                   Explore Top Career Courses After 12th
@@ -123,13 +131,27 @@ export default function PharmaAndNursingCourses2026Page() {
               </div> */}
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6 mb-10">
+            {/* Scholarship banner — desktop only */}
+            {/* Changed mx-auto to mr-auto to lock the banner to the left side */}
+            <div className="hidden md:block rounded-lg bg-yellow-400 px-6 py-2.5 text-center mb-6 w-fit mr-auto">
+              <p className="text-sm md:text-xl font-bold uppercase tracking-wide text-blue-900">
+                {'\uD83C\uDF93'} Upto 100% Scholarship Available
+              </p>
+              <p className="text-blue-900 text-xs font-medium">Limited Seats Available</p>
+            </div>
+
+
+
+            <div className="grid md:grid-cols-2 gap-6 mb-10 items-start">
               {/* Courses — no background */}
               <div>
-                <p className="text-white font-bold text-3xl mb-3">Courses Offered</p>
+                <p className="text-white font-bold text-4xl mb-3">Courses Offered</p>
                 <div className="flex flex-wrap gap-2">
                   {['D.Pharm', 'B.Pharm', 'GNM Nursing', 'B.Sc Nursing', 'BPT', 'DMLT'].map((c, i) => (
-                    <span key={i} className="bg-blue-900 border border-blue-700 text-white rounded-full px-4 py-2 text-sm font-semibold shadow-sm hover:bg-blue-800 transition cursor-default">
+                    <span
+                      key={i}
+                      className="bg-blue-900 border border-blue-700 text-white rounded-full px-4 py-2 text-xl font-semibold shadow-sm hover:bg-blue-800 transition cursor-default"
+                    >
                       {c}
                     </span>
                   ))}
@@ -203,65 +225,65 @@ export default function PharmaAndNursingCourses2026Page() {
                     <p className="text-green-600">Our admission expert will contact you shortly.</p>
                   </div>
                 ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <input
-                    required
-                    type="text"
-                    placeholder="Full Name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  />
-                  <input
-                    required
-                    type="tel"
-                    placeholder="Mobile Number"
-                    pattern="[0-9]{10}"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  />
-                  <select
-                    required
-                    value={formData.course}
-                    onChange={(e) => setFormData({ ...formData, course: e.target.value })}
-                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  >
-                    <option value="" disabled>Preferred Course</option>
-                    <option>D.Pharm</option>
-                    <option>B.Pharm</option>
-                    <option>GNM Nursing</option>
-                    <option>B.Sc Nursing</option>
-                    <option>P.B.Sc Nursing</option>
-                    <option>BPT</option>
-                    <option>DMLT</option>
-                  </select>
-                  <input
-                    type="text"
-                    placeholder="City"
-                    value={formData.city}
-                    onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  />
-                  <label className="flex items-start gap-2 text-sm text-gray-600">
+                  <form onSubmit={handleSubmit} className="space-y-4">
                     <input
                       required
-                      type="checkbox"
-                      className="mt-1"
-                      checked={formData.consent}
-                      onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
+                      type="text"
+                      placeholder="Full Name"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     />
-                    <span>I agree to the <a href="/terms" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">Terms &amp; Conditions</a></span>
-                  </label>
-                  <button
-                    type="submit"
-                    disabled={submitting}
-                    className="w-full bg-blue-900 text-white py-3 rounded-lg font-semibold text-lg hover:bg-blue-950 disabled:opacity-50 transition"
-                  >
-                    {submitting ? 'Submitting...' : 'Get Free Counselling'}
-                  </button>
-                </form>
-              )}
+                    <input
+                      required
+                      type="tel"
+                      placeholder="Mobile Number"
+                      pattern="[0-9]{10}"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    />
+                    <select
+                      required
+                      value={formData.course}
+                      onChange={(e) => setFormData({ ...formData, course: e.target.value })}
+                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    >
+                      <option value="" disabled>Preferred Course</option>
+                      <option>D.Pharm</option>
+                      <option>B.Pharm</option>
+                      <option>GNM Nursing</option>
+                      <option>B.Sc Nursing</option>
+                      <option>P.B.Sc Nursing</option>
+                      <option>BPT</option>
+                      <option>DMLT</option>
+                    </select>
+                    <input
+                      type="text"
+                      placeholder="City"
+                      value={formData.city}
+                      onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    />
+                    <label className="flex items-start gap-2 text-sm text-gray-600">
+                      <input
+                        required
+                        type="checkbox"
+                        className="mt-1"
+                        checked={formData.consent}
+                        onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
+                      />
+                      <span>I agree to the <a href="/terms" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">Terms &amp; Conditions</a></span>
+                    </label>
+                    <button
+                      type="submit"
+                      disabled={submitting}
+                      className="w-full bg-blue-900 text-white py-3 rounded-lg font-semibold text-lg hover:bg-blue-950 disabled:opacity-50 transition"
+                    >
+                      {submitting ? 'Submitting...' : 'Get Free Counselling'}
+                    </button>
+                  </form>
+                )}
               </div>
               {/* Right — Image */}
               <div className="hidden md:block">
@@ -364,26 +386,26 @@ export default function PharmaAndNursingCourses2026Page() {
           <div className="max-w-6xl mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">Admission Process</h2>
             <div className="grid md:grid-cols-2 gap-10 items-center">
-            <div className="space-y-0">
-              {[
-                'Fill the Enquiry Form',
-                'Free Career Counselling',
-                'Select Your Course',
-                'Choose Your College',
-                'Complete Admission',
-              ].map((title, i) => (
-                <div key={i} className="flex gap-4 items-start">
-                  <div className="flex flex-col items-center">
-                    <div className="w-10 h-10 bg-blue-900 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">
-                      {i + 1}
+              <div className="space-y-0">
+                {[
+                  'Fill the Enquiry Form',
+                  'Free Career Counselling',
+                  'Select Your Course',
+                  'Choose Your College',
+                  'Complete Admission',
+                ].map((title, i) => (
+                  <div key={i} className="flex gap-4 items-start">
+                    <div className="flex flex-col items-center">
+                      <div className="w-10 h-10 bg-blue-900 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">
+                        {i + 1}
+                      </div>
+                      {i < 4 && <div className="w-0.5 h-12 bg-blue-200" />}
                     </div>
-                    {i < 4 && <div className="w-0.5 h-12 bg-blue-200" />}
+                    <div className="pb-8">
+                      <p className="font-semibold text-gray-800 pt-2">{title}</p>
+                    </div>
                   </div>
-                  <div className="pb-8">
-                    <p className="font-semibold text-gray-800 pt-2">{title}</p>
-                  </div>
-                </div>
-              ))}
+                ))}
               </div>
               {/* Right — image */}
               <div className="hidden md:block">
