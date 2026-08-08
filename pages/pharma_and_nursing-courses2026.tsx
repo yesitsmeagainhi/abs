@@ -123,44 +123,37 @@ export default function PharmaAndNursingCourses2026Page() {
               </div> */}
             </div>
 
-            {/* Full-width courses + why ABS strip */}
-            <div className="bg-white/20 md:bg-white/60 rounded-2xl p-5 md:p-8 mb-10 shadow-xl">
-              <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-10">
-                {/* Courses */}
-
-                <div className="md:flex-1">
-                  <p className="text-white md:text-blue-900 font-bold text-xl md:text-xl mb-3 border-b-2 border-blue-100 pb-2">Courses Offered</p>
-                  <div className="flex flex-wrap gap-2">
-                    {['D.Pharm', 'B.Pharm', 'GNM Nursing', 'B.Sc Nursing', 'BPT', 'DMLT'].map((c, i) => (
-                      <span key={i} className="bg-blue-900 text-white rounded-full px-4 py-2 text-sm font-semibold shadow-sm hover:bg-blue-800 transition cursor-default">
-                        {c}
-                      </span>
-                    ))}
-                  </div>
+            <div className="grid md:grid-cols-2 gap-6 mb-10">
+              {/* Courses — no background */}
+              <div>
+                <p className="text-white font-bold text-3xl mb-3">Courses Offered</p>
+                <div className="flex flex-wrap gap-2">
+                  {['D.Pharm', 'B.Pharm', 'GNM Nursing', 'B.Sc Nursing', 'BPT', 'DMLT'].map((c, i) => (
+                    <span key={i} className="bg-blue-900 border border-blue-700 text-white rounded-full px-4 py-2 text-sm font-semibold shadow-sm hover:bg-blue-800 transition cursor-default">
+                      {c}
+                    </span>
+                  ))}
                 </div>
+              </div>
 
-                {/* Divider */}
-                <div className="hidden md:block w-px bg-gray-200 self-stretch" />
-
-                {/* Why ABS */}
-                <div className="md:flex-1">
-                  <p className="text-white md:text-blue-900 font-bold text-xl md:text-xl mb-3 border-b-2 border-blue-100 pb-2">Why ABS?</p>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
-                    {[
-                      '88,000+ Students Counselled',
-                      '16+ Years Experience',
-                      'Expert Career Guidance',
-                      'Scholarship Support',
-                      'Approved Colleges',
-                      'Transparent Process',
-                      'Free Counselling',
-                    ].map((item, i) => (
-                      <div key={i} className="flex items-center gap-2.5 bg-blue-50 rounded-lg px-3 py-2">
-                        <span className="w-5 h-5 flex-shrink-0 rounded-full bg-green-500 flex items-center justify-center text-[10px] text-white font-bold">{'\u2713'}</span>
-                        <span className="text-blue-900 text-sm font-semibold">{item}</span>
-                      </div>
-                    ))}
-                  </div>
+              {/* Why ABS — white overlay */}
+              <div className="bg-white/20 md:bg-white rounded-2xl p-5 shadow-lg">
+                <p className="text-white md:text-blue-900 font-bold text-2xl mb-3 border-b-2 border-blue-100 pb-2">Why ABS?</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+                  {[
+                    '88,000+ Students Counselled',
+                    '16+ Years Experience',
+                    'Expert Career Guidance',
+                    'Scholarship Support',
+                    'Approved Colleges',
+                    'Transparent Process',
+                    'Free Counselling',
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-2.5 bg-blue-50 rounded-lg px-3 py-2">
+                      <span className="w-5 h-5 flex-shrink-0 rounded-full bg-green-500 flex items-center justify-center text-[10px] text-white font-bold">{'\u2713'}</span>
+                      <span className="text-blue-900 text-sm font-semibold">{item}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
