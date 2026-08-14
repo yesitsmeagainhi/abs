@@ -15,8 +15,18 @@ export default function MyDocument() {
   return (
     <Html lang="en">
       <Head>
-        {/* Disable favicon to suppress browser 404 */}
-        <link rel="icon" href="data:," />
+        {/* Favicon with fallback */}
+        <link rel="icon" href="/favicon.png" />
+        <script dangerouslySetInnerHTML={{ __html: `
+          (function(){
+            var img = new Image();
+            img.onerror = function(){
+              var link = document.querySelector('link[rel="icon"]');
+              if(link) link.href = '/favicon_fallback.png';
+            };
+            img.src = '/favicon.png';
+          })();
+        `}} />
 
         {/* ---------- Netlify Identity widget ---------- */}
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
