@@ -15,8 +15,12 @@ export default function MyDocument() {
   return (
     <Html lang="en">
       <Head>
-        {/* Favicon with fallback */}
-        <link rel="icon" href="/favicon.png" />
+        {/* Favicon */}
+        <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
+        <link rel="icon" type="image/png" sizes="144x144" href="/favicon.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
+        <meta name="theme-color" content="#1e3a8a" />
         <script dangerouslySetInnerHTML={{ __html: `
           (function(){
             var img = new Image();
